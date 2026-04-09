@@ -138,22 +138,22 @@ type ProviderConfigUsage struct {
 
 // GetProviderConfigReference of this ProviderConfigUsage.
 func (p *ProviderConfigUsage) GetProviderConfigReference() xpv1.ProviderConfigReference {
-	return p.TypedProviderConfigUsage.ProviderConfigReference
+	return p.ProviderConfigReference
 }
 
 // SetProviderConfigReference of this ProviderConfigUsage.
 func (p *ProviderConfigUsage) SetProviderConfigReference(r xpv1.ProviderConfigReference) {
-	p.TypedProviderConfigUsage.ProviderConfigReference = r
+	p.ProviderConfigReference = r
 }
 
 // GetResourceReference of this ProviderConfigUsage.
 func (p *ProviderConfigUsage) GetResourceReference() xpv1.TypedReference {
-	return p.TypedProviderConfigUsage.ResourceReference
+	return p.ResourceReference
 }
 
 // SetResourceReference of this ProviderConfigUsage.
 func (p *ProviderConfigUsage) SetResourceReference(r xpv1.TypedReference) {
-	p.TypedProviderConfigUsage.ResourceReference = r
+	p.ResourceReference = r
 }
 
 // +kubebuilder:object:root=true

@@ -1,0 +1,19 @@
+# Go
+vendor/
+.work/
+_output/
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.xpkg
+.agent-output/
+.work/

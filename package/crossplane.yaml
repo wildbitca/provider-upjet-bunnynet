@@ -1,0 +1,14 @@
+apiVersion: meta.pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-family-bunnynet
+  annotations:
+    meta.crossplane.io/maintainer: "Wildbit"
+    meta.crossplane.io/source: "https://github.com/wildbitca/provider-upjet-bunnynet"
+    meta.crossplane.io/license: "Apache-2.0"
+    meta.crossplane.io/description: "Upjet-based Crossplane provider family for Bunny.net. Shared ProviderConfig for all Bunny.net sub-providers."
+  labels:
+    pkg.crossplane.io/provider-family: provider-family-bunnynet
+spec:
+  capabilities:
+    - SafeStart

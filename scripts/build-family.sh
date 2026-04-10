@@ -101,7 +101,7 @@ if [ "${SUBPACKAGE}" != "config" ] && [ "${SUBPACKAGE}" != "monolith" ]; then
     cat >>"${WORK_DIR}/crossplane.yaml" <<YAML
 spec:
   dependsOn:
-    - provider: ghcr.io/wildbitca/provider-family-bunnynet
+    - provider: xpkg.upbound.io/wildbitca/provider-family-bunnynet
       version: ">= ${VERSION}"
   capabilities:
     - SafeStart

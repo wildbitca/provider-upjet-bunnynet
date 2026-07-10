@@ -163,6 +163,9 @@ type ContainerInitParameters struct {
 	// Defines an environment variable for the container
 	Env []EnvInitParameters `json:"env,omitempty" tf:"env,omitempty"`
 
+	// The image digest.
+	ImageDigest *string `json:"imageDigest,omitempty" tf:"image_digest,omitempty"`
+
 	// The image name within the registry, without the domain prefix (i.e.: `my-app`).
 	ImageName *string `json:"imageName,omitempty" tf:"image_name,omitempty"`
 
@@ -213,6 +216,9 @@ type ContainerObservation struct {
 
 	// The unique identifier for the container.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
+	// The image digest.
+	ImageDigest *string `json:"imageDigest,omitempty" tf:"image_digest,omitempty"`
 
 	// The image name within the registry, without the domain prefix (i.e.: `my-app`).
 	ImageName *string `json:"imageName,omitempty" tf:"image_name,omitempty"`
@@ -265,6 +271,10 @@ type ContainerParameters struct {
 	// Defines an environment variable for the container
 	// +kubebuilder:validation:Optional
 	Env []EnvParameters `json:"env,omitempty" tf:"env,omitempty"`
+
+	// The image digest.
+	// +kubebuilder:validation:Optional
+	ImageDigest *string `json:"imageDigest,omitempty" tf:"image_digest,omitempty"`
 
 	// The image name within the registry, without the domain prefix (i.e.: `my-app`).
 	// +kubebuilder:validation:Optional
@@ -544,7 +554,7 @@ type PortInitParameters struct {
 	// The exposed port number.
 	Exposed *float64 `json:"exposed,omitempty" tf:"exposed,omitempty"`
 
-	// Options: `Tcp`, `Udp`
+	// Options: `SCTP`, `TCP`, `UDP`
 	// +listType=set
 	Protocols []*string `json:"protocols,omitempty" tf:"protocols,omitempty"`
 }
@@ -557,7 +567,7 @@ type PortObservation struct {
 	// The exposed port number.
 	Exposed *float64 `json:"exposed,omitempty" tf:"exposed,omitempty"`
 
-	// Options: `Tcp`, `Udp`
+	// Options: `SCTP`, `TCP`, `UDP`
 	// +listType=set
 	Protocols []*string `json:"protocols,omitempty" tf:"protocols,omitempty"`
 }
@@ -572,7 +582,7 @@ type PortParameters struct {
 	// +kubebuilder:validation:Optional
 	Exposed *float64 `json:"exposed,omitempty" tf:"exposed,omitempty"`
 
-	// Options: `Tcp`, `Udp`
+	// Options: `SCTP`, `TCP`, `UDP`
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	Protocols []*string `json:"protocols,omitempty" tf:"protocols,omitempty"`

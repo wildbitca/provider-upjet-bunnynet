@@ -628,6 +628,11 @@ func (in *ContainerInitParameters) DeepCopyInto(out *ContainerInitParameters) {
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
 	}
+	if in.ImageDigest != nil {
+		in, out := &in.ImageDigest, &out.ImageDigest
+		*out = new(string)
+		**out = **in
+	}
 	if in.ImageName != nil {
 		in, out := &in.ImageName, &out.ImageName
 		*out = new(string)
@@ -735,6 +740,11 @@ func (in *ContainerObservation) DeepCopyInto(out *ContainerObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.ImageDigest != nil {
+		in, out := &in.ImageDigest, &out.ImageDigest
+		*out = new(string)
+		**out = **in
+	}
 	if in.ImageName != nil {
 		in, out := &in.ImageName, &out.ImageName
 		*out = new(string)
@@ -836,6 +846,11 @@ func (in *ContainerParameters) DeepCopyInto(out *ContainerParameters) {
 		for i := range *in {
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
+	}
+	if in.ImageDigest != nil {
+		in, out := &in.ImageDigest, &out.ImageDigest
+		*out = new(string)
+		**out = **in
 	}
 	if in.ImageName != nil {
 		in, out := &in.ImageName, &out.ImageName

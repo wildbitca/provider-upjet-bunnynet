@@ -76,6 +76,9 @@ spec:
                   rewrite404To200:
                     description: Indicates whether to rewrite 404 errors to 200 status.
                     type: boolean
+                  type:
+                    description: 'Options: `S3`, `Standard`'
+                    type: string
                   zoneTier:
                     description: 'Options: `Edge`, `Standard`'
                     type: string
@@ -111,6 +114,9 @@ spec:
                   rewrite404To200:
                     description: Indicates whether to rewrite 404 errors to 200 status.
                     type: boolean
+                  type:
+                    description: 'Options: `S3`, `Standard`'
+                    type: string
                   zoneTier:
                     description: 'Options: `Edge`, `Standard`'
                     type: string
@@ -217,6 +223,9 @@ spec:
                   rewrite404To200:
                     description: Indicates whether to rewrite 404 errors to 200 status.
                     type: boolean
+                  type:
+                    description: 'Options: `S3`, `Standard`'
+                    type: string
                   zoneTier:
                     description: 'Options: `Edge`, `Standard`'
                     type: string

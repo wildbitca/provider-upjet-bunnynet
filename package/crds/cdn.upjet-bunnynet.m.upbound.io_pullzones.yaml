@@ -137,6 +137,13 @@ spec:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
+                  cacheVaryHeaders:
+                    description: Contains the list of request headers will be used
+                      for vary cache. If empty, it will not be used.
+                    items:
+                      type: string
+                    type: array
+                    x-kubernetes-list-type: set
                   cacheVaryQuerystring:
                     description: Contains the list of vary parameters that will be
                       used for vary cache by query string. If empty, all parameters
@@ -523,6 +530,13 @@ spec:
                     description: Contains the list of vary parameters that will be
                       used for vary cache by cookie string. If empty, cookie vary
                       will not be used.
+                    items:
+                      type: string
+                    type: array
+                    x-kubernetes-list-type: set
+                  cacheVaryHeaders:
+                    description: Contains the list of request headers will be used
+                      for vary cache. If empty, it will not be used.
                     items:
                       type: string
                     type: array
@@ -968,6 +982,13 @@ spec:
                     description: Contains the list of vary parameters that will be
                       used for vary cache by cookie string. If empty, cookie vary
                       will not be used.
+                    items:
+                      type: string
+                    type: array
+                    x-kubernetes-list-type: set
+                  cacheVaryHeaders:
+                    description: Contains the list of request headers will be used
+                      for vary cache. If empty, it will not be used.
                     items:
                       type: string
                     type: array

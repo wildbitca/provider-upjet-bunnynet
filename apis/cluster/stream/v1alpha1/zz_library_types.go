@@ -156,9 +156,6 @@ type LibraryInitParameters struct {
 
 type LibraryObservation struct {
 
-	// The API key for accessing the stream library.
-	APIKey *string `json:"apiKey,omitempty" tf:"api_key,omitempty"`
-
 	// The bitrate used for encoding 1080p videos, in kilobits per second.
 	Bitrate1080P *float64 `json:"bitrate1080P,omitempty" tf:"bitrate_1080p,omitempty"`
 

@@ -120,7 +120,7 @@ spec:
                                       description: The exposed port number.
                                       type: number
                                     protocols:
-                                      description: 'Options: `Tcp`, `Udp`'
+                                      description: 'Options: `SCTP`, `TCP`, `UDP`'
                                       items:
                                         type: string
                                       type: array
@@ -144,6 +144,9 @@ spec:
                                 type: string
                             type: object
                           type: array
+                        imageDigest:
+                          description: The image digest.
+                          type: string
                         imageName:
                           description: 'The image name within the registry, without
                             the domain prefix (i.e.: `my-app`).'
@@ -471,7 +474,7 @@ spec:
                                       description: The exposed port number.
                                       type: number
                                     protocols:
-                                      description: 'Options: `Tcp`, `Udp`'
+                                      description: 'Options: `SCTP`, `TCP`, `UDP`'
                                       items:
                                         type: string
                                       type: array
@@ -495,6 +498,9 @@ spec:
                                 type: string
                             type: object
                           type: array
+                        imageDigest:
+                          description: The image digest.
+                          type: string
                         imageName:
                           description: 'The image name within the registry, without
                             the domain prefix (i.e.: `my-app`).'
@@ -889,7 +895,7 @@ spec:
                                       description: The exposed port number.
                                       type: number
                                     protocols:
-                                      description: 'Options: `Tcp`, `Udp`'
+                                      description: 'Options: `SCTP`, `TCP`, `UDP`'
                                       items:
                                         type: string
                                       type: array
@@ -915,6 +921,9 @@ spec:
                           type: array
                         id:
                           description: The unique identifier for the container.
+                          type: string
+                        imageDigest:
+                          description: The image digest.
                           type: string
                         imageName:
                           description: 'The image name within the registry, without

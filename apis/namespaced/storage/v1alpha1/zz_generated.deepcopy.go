@@ -312,6 +312,11 @@ func (in *ZoneInitParameters) DeepCopyInto(out *ZoneInitParameters) {
 		*out = new(bool)
 		**out = **in
 	}
+	if in.Type != nil {
+		in, out := &in.Type, &out.Type
+		*out = new(string)
+		**out = **in
+	}
 	if in.ZoneTier != nil {
 		in, out := &in.ZoneTier, &out.ZoneTier
 		*out = new(string)
@@ -410,6 +415,11 @@ func (in *ZoneObservation) DeepCopyInto(out *ZoneObservation) {
 		*out = new(bool)
 		**out = **in
 	}
+	if in.Type != nil {
+		in, out := &in.Type, &out.Type
+		*out = new(string)
+		**out = **in
+	}
 	if in.ZoneTier != nil {
 		in, out := &in.ZoneTier, &out.ZoneTier
 		*out = new(string)
@@ -459,6 +469,11 @@ func (in *ZoneParameters) DeepCopyInto(out *ZoneParameters) {
 	if in.Rewrite404To200 != nil {
 		in, out := &in.Rewrite404To200, &out.Rewrite404To200
 		*out = new(bool)
+		**out = **in
+	}
+	if in.Type != nil {
+		in, out := &in.Type, &out.Type
+		*out = new(string)
 		**out = **in
 	}
 	if in.ZoneTier != nil {

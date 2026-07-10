@@ -21,7 +21,7 @@ func (mg *Library) GetTerraformResourceType() string {
 
 // GetConnectionDetailsMapping for this Library
 func (tr *Library) GetConnectionDetailsMapping() map[string]string {
-	return nil
+	return map[string]string{"api_key": "status.atProvider.apiKey"}
 }
 
 // GetObservation of this Library

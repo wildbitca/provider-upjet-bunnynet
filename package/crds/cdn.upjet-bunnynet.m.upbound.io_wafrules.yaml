@@ -77,7 +77,7 @@ spec:
                             `REQUEST_FILENAME`, `REQUEST_HEADERS`, `REQUEST_HEADERS_NAMES`,
                             `REQUEST_LINE`, `REQUEST_METHOD`, `REQUEST_PROTOCOL`,
                             `REQUEST_URI`, `REQUEST_URI_RAW`, `RESPONSE_BODY`, `RESPONSE_HEADERS`,
-                            `RESPONSE_STATUS`'
+                            `RESPONSE_STATUS`, `VERIFIED_BOT_CATEGORY`'
                           type: string
                         variableValue:
                           type: string
@@ -135,7 +135,7 @@ spec:
                             `REQUEST_FILENAME`, `REQUEST_HEADERS`, `REQUEST_HEADERS_NAMES`,
                             `REQUEST_LINE`, `REQUEST_METHOD`, `REQUEST_PROTOCOL`,
                             `REQUEST_URI`, `REQUEST_URI_RAW`, `RESPONSE_BODY`, `RESPONSE_HEADERS`,
-                            `RESPONSE_STATUS`'
+                            `RESPONSE_STATUS`, `VERIFIED_BOT_CATEGORY`'
                           type: string
                         variableValue:
                           type: string
@@ -252,7 +252,7 @@ spec:
                             `REQUEST_FILENAME`, `REQUEST_HEADERS`, `REQUEST_HEADERS_NAMES`,
                             `REQUEST_LINE`, `REQUEST_METHOD`, `REQUEST_PROTOCOL`,
                             `REQUEST_URI`, `REQUEST_URI_RAW`, `RESPONSE_BODY`, `RESPONSE_HEADERS`,
-                            `RESPONSE_STATUS`'
+                            `RESPONSE_STATUS`, `VERIFIED_BOT_CATEGORY`'
                           type: string
                         variableValue:
                           type: string

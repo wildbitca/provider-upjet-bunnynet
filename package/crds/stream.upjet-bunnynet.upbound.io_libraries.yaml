@@ -527,9 +527,6 @@ spec:
             properties:
               atProvider:
                 properties:
-                  apiKey:
-                    description: The API key for accessing the stream library.
-                    type: string
                   bitrate240P:
                     description: The bitrate used for encoding 240p videos, in kilobits
                       per second.

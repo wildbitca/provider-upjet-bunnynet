@@ -32,6 +32,9 @@ type ZoneInitParameters struct {
 	// Indicates whether to rewrite 404 errors to 200 status.
 	Rewrite404To200 *bool `json:"rewrite404To200,omitempty" tf:"rewrite_404_to_200,omitempty"`
 
+	// Options: `S3`, `Standard`
+	Type *string `json:"type,omitempty" tf:"type,omitempty"`
+
 	// Options: `Edge`, `Standard`
 	ZoneTier *string `json:"zoneTier,omitempty" tf:"zone_tier,omitempty"`
 }
@@ -62,6 +65,9 @@ type ZoneObservation struct {
 	// Indicates whether to rewrite 404 errors to 200 status.
 	Rewrite404To200 *bool `json:"rewrite404To200,omitempty" tf:"rewrite_404_to_200,omitempty"`
 
+	// Options: `S3`, `Standard`
+	Type *string `json:"type,omitempty" tf:"type,omitempty"`
+
 	// Options: `Edge`, `Standard`
 	ZoneTier *string `json:"zoneTier,omitempty" tf:"zone_tier,omitempty"`
 }
@@ -88,6 +94,10 @@ type ZoneParameters struct {
 	// Indicates whether to rewrite 404 errors to 200 status.
 	// +kubebuilder:validation:Optional
 	Rewrite404To200 *bool `json:"rewrite404To200,omitempty" tf:"rewrite_404_to_200,omitempty"`
+
+	// Options: `S3`, `Standard`
+	// +kubebuilder:validation:Optional
+	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
 	// Options: `Edge`, `Standard`
 	// +kubebuilder:validation:Optional

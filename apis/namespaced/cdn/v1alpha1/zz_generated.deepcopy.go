@@ -2129,6 +2129,17 @@ func (in *PullzoneInitParameters) DeepCopyInto(out *PullzoneInitParameters) {
 			}
 		}
 	}
+	if in.CacheVaryHeaders != nil {
+		in, out := &in.CacheVaryHeaders, &out.CacheVaryHeaders
+		*out = make([]*string, len(*in))
+		for i := range *in {
+			if (*in)[i] != nil {
+				in, out := &(*in)[i], &(*out)[i]
+				*out = new(string)
+				**out = **in
+			}
+		}
+	}
 	if in.CacheVaryQuerystring != nil {
 		in, out := &in.CacheVaryQuerystring, &out.CacheVaryQuerystring
 		*out = make([]*string, len(*in))
@@ -2678,6 +2689,17 @@ func (in *PullzoneObservation) DeepCopyInto(out *PullzoneObservation) {
 			}
 		}
 	}
+	if in.CacheVaryHeaders != nil {
+		in, out := &in.CacheVaryHeaders, &out.CacheVaryHeaders
+		*out = make([]*string, len(*in))
+		for i := range *in {
+			if (*in)[i] != nil {
+				in, out := &(*in)[i], &(*out)[i]
+				*out = new(string)
+				**out = **in
+			}
+		}
+	}
 	if in.CacheVaryQuerystring != nil {
 		in, out := &in.CacheVaryQuerystring, &out.CacheVaryQuerystring
 		*out = make([]*string, len(*in))
@@ -3203,6 +3225,17 @@ func (in *PullzoneParameters) DeepCopyInto(out *PullzoneParameters) {
 	}
 	if in.CacheVaryCookie != nil {
 		in, out := &in.CacheVaryCookie, &out.CacheVaryCookie
+		*out = make([]*string, len(*in))
+		for i := range *in {
+			if (*in)[i] != nil {
+				in, out := &(*in)[i], &(*out)[i]
+				*out = new(string)
+				**out = **in
+			}
+		}
+	}
+	if in.CacheVaryHeaders != nil {
+		in, out := &in.CacheVaryHeaders, &out.CacheVaryHeaders
 		*out = make([]*string, len(*in))
 		for i := range *in {
 			if (*in)[i] != nil {

@@ -20,10 +20,10 @@ env:
   UPBOUND_REGISTRY: xpkg.upbound.io/wildbitca
   OPENTOFU_VERSION: '1.11.5'
   TERRAFORM_PROVIDER_SOURCE: BunnyWay/bunnynet
-  TERRAFORM_PROVIDER_VERSION: '0.14.0'
+  TERRAFORM_PROVIDER_VERSION: '0.15.1'
   TERRAFORM_PROVIDER_DOWNLOAD_NAME: terraform-provider-bunnynet
-  TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX: https://github.com/BunnyWay/terraform-provider-bunnynet/releases/download/v0.14.0
-  TERRAFORM_NATIVE_PROVIDER_BINARY: terraform-provider-bunnynet_v0.14.0
+  TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX: https://github.com/BunnyWay/terraform-provider-bunnynet/releases/download/v0.15.1
+  TERRAFORM_NATIVE_PROVIDER_BINARY: terraform-provider-bunnynet_v0.15.1
 
 permissions:
   contents: write

@@ -206,6 +206,10 @@ type PullzoneInitParameters struct {
 	// +listType=set
 	CacheVaryCookie []*string `json:"cacheVaryCookie,omitempty" tf:"cache_vary_cookie,omitempty"`
 
+	// Contains the list of request headers will be used for vary cache. If empty, it will not be used.
+	// +listType=set
+	CacheVaryHeaders []*string `json:"cacheVaryHeaders,omitempty" tf:"cache_vary_headers,omitempty"`
+
 	// Contains the list of vary parameters that will be used for vary cache by query string. If empty, all parameters will be used to construct the key
 	// +listType=set
 	CacheVaryQuerystring []*string `json:"cacheVaryQuerystring,omitempty" tf:"cache_vary_querystring,omitempty"`
@@ -480,6 +484,10 @@ type PullzoneObservation struct {
 	// Contains the list of vary parameters that will be used for vary cache by cookie string. If empty, cookie vary will not be used.
 	// +listType=set
 	CacheVaryCookie []*string `json:"cacheVaryCookie,omitempty" tf:"cache_vary_cookie,omitempty"`
+
+	// Contains the list of request headers will be used for vary cache. If empty, it will not be used.
+	// +listType=set
+	CacheVaryHeaders []*string `json:"cacheVaryHeaders,omitempty" tf:"cache_vary_headers,omitempty"`
 
 	// Contains the list of vary parameters that will be used for vary cache by query string. If empty, all parameters will be used to construct the key
 	// +listType=set
@@ -777,6 +785,11 @@ type PullzoneParameters struct {
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	CacheVaryCookie []*string `json:"cacheVaryCookie,omitempty" tf:"cache_vary_cookie,omitempty"`
+
+	// Contains the list of request headers will be used for vary cache. If empty, it will not be used.
+	// +kubebuilder:validation:Optional
+	// +listType=set
+	CacheVaryHeaders []*string `json:"cacheVaryHeaders,omitempty" tf:"cache_vary_headers,omitempty"`
 
 	// Contains the list of vary parameters that will be used for vary cache by query string. If empty, all parameters will be used to construct the key
 	// +kubebuilder:validation:Optional

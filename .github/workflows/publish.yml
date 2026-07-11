@@ -65,13 +65,31 @@ jobs:
             provider-bunnynet-storage
             provider-bunnynet-stream
           )
+          # Upbound rate-limits `up repository update`, so only touch a repo
+          # when it does not already exist and is public. Existing public repos
+          # are left untouched to stay well under the rate limit. A short retry
+          # absorbs transient "Rate Limit Exceeded" responses on create/update.
+          retry() {
+            local n=0
+            until "$@"; do
+              n=$((n + 1))
+              if [ "$n" -ge 5 ]; then
+                echo "command failed after $n attempts: $*" >&2
+                return 1
+              fi
+              echo "attempt $n failed, retrying in $((n * 15))s: $*" >&2
+              sleep $((n * 15))
+            done
+          }
           for repo in "${REPOS[@]}"; do
-            if ! up repository get "$repo" >/dev/null 2>&1; then
-              echo "Creating $repo..."
-              up repository create "$repo"
+            if up repository get "$repo" >/dev/null 2>&1; then
+              echo "✓ $repo already exists"
+              continue
             fi
-            up repository update --private=false --publish --force "$repo"
-            echo "✓ $repo published"
+            echo "Creating $repo..."
+            retry up repository create "$repo"
+            retry up repository update --private=false --publish --force "$repo"
+            echo "✓ $repo created and published"
           done
 
   # ── Family config (ProviderConfig CRDs — must publish before sub-providers) ──

@@ -58,6 +58,7 @@ jobs:
         run: |
           REPOS=(
             provider-family-bunnynet
+            provider-bunnynet-account
             provider-bunnynet-cdn
             provider-bunnynet-compute
             provider-bunnynet-dns
@@ -203,6 +204,7 @@ jobs:
       max-parallel: 5
       matrix:
         subpackage:
+          - account
           - cdn
           - compute
           - dns

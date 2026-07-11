@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.3] - 2026-07-10
+
+Ships the account sub-provider package. The `Subuser` API and CRDs were
+introduced in 0.2.2, but the publish matrix did not build a
+`provider-bunnynet-account` package, so the resource could not be installed.
+This release adds `account` to the publish matrix and repository list.
+
+### Added
+
+- New `provider-bunnynet-account` family sub-provider package, shipping the `Subuser` managed resource (`bunnynet_account_subuser`) introduced in 0.2.2. Install it alongside `provider-family-bunnynet` to manage account subusers.
+
 ## [0.2.2] - 2026-07-10
 
 Restores the full code-generation pipeline and exposes a new managed resource

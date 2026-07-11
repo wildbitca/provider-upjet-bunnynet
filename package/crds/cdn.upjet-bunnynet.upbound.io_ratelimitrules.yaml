@@ -34,7 +34,8 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: RatelimitRule is the Schema for the RatelimitRules API. <no value>
+        description: RatelimitRule is the Schema for the RatelimitRules API. This
+          resource manages a rate limit rule for a bunny.net pullzone.
         properties:
           apiVersion:
             description: |-
@@ -73,45 +74,48 @@ spec:
               forProvider:
                 properties:
                   condition:
-                    description: The condition to trigger the rate limit rule.
+                    description: |-
+                      (Block List) The condition to trigger the rate limit rule. (see below for nested schema)
+                      The condition to trigger the rate limit rule.
                     items:
                       properties:
                         operator:
-                          description: 'Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`,
-                            `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`,
-                            `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`'
+                          description: |-
+                            (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
+                            Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
                           type: string
                         value:
+                          description: (String)
                           type: string
                         variable:
-                          description: 'Options: `ARGS`, `ARGS_COMBINED_SIZE`, `ARGS_GET`,
-                            `ARGS_GET_NAMES`, `ARGS_POST`, `ARGS_POST_NAMES`, `FILES_NAMES`,
-                            `FINGERPRINT`, `GEO`, `QUERY_STRING`, `REMOTE_ADDR`, `REQUEST_BASENAME`,
-                            `REQUEST_BODY`, `REQUEST_COOKIES`, `REQUEST_COOKIES_NAMES`,
-                            `REQUEST_FILENAME`, `REQUEST_HEADERS`, `REQUEST_HEADERS_NAMES`,
-                            `REQUEST_LINE`, `REQUEST_METHOD`, `REQUEST_PROTOCOL`,
-                            `REQUEST_URI`, `REQUEST_URI_RAW`, `RESPONSE_BODY`, `RESPONSE_HEADERS`,
-                            `RESPONSE_STATUS`, `VERIFIED_BOT_CATEGORY`'
+                          description: |-
+                            (String) Options: ARGS, ARGS_COMBINED_SIZE, ARGS_GET, ARGS_GET_NAMES, ARGS_POST, ARGS_POST_NAMES, FILES_NAMES, FINGERPRINT, GEO, QUERY_STRING, REMOTE_ADDR, REQUEST_BASENAME, REQUEST_BODY, REQUEST_COOKIES, REQUEST_COOKIES_NAMES, REQUEST_FILENAME, REQUEST_HEADERS, REQUEST_HEADERS_NAMES, REQUEST_LINE, REQUEST_METHOD, REQUEST_PROTOCOL, REQUEST_URI, REQUEST_URI_RAW, RESPONSE_BODY, RESPONSE_HEADERS, RESPONSE_STATUS, VERIFIED_BOT_CATEGORY
+                            Options: `ARGS`, `ARGS_COMBINED_SIZE`, `ARGS_GET`, `ARGS_GET_NAMES`, `ARGS_POST`, `ARGS_POST_NAMES`, `FILES_NAMES`, `FINGERPRINT`, `GEO`, `QUERY_STRING`, `REMOTE_ADDR`, `REQUEST_BASENAME`, `REQUEST_BODY`, `REQUEST_COOKIES`, `REQUEST_COOKIES_NAMES`, `REQUEST_FILENAME`, `REQUEST_HEADERS`, `REQUEST_HEADERS_NAMES`, `REQUEST_LINE`, `REQUEST_METHOD`, `REQUEST_PROTOCOL`, `REQUEST_URI`, `REQUEST_URI_RAW`, `RESPONSE_BODY`, `RESPONSE_HEADERS`, `RESPONSE_STATUS`, `VERIFIED_BOT_CATEGORY`
                           type: string
                         variableValue:
+                          description: (String)
                           type: string
                       type: object
                     type: array
                   description:
-                    description: The rate limit rule description.
+                    description: |-
+                      (String) The rate limit rule description.
+                      The rate limit rule description.
                     type: string
                   name:
-                    description: The rate limit rule name.
+                    description: |-
+                      (String) The rate limit rule name.
+                      The rate limit rule name.
                     type: string
                   pullzone:
-                    description: The ID of the linked pullzone.
+                    description: |-
+                      (Number) The ID of the linked pullzone.
+                      The ID of the linked pullzone.
                     type: number
                   transformations:
-                    description: 'Options: `CMDLINE`, `COMPRESSWHITESPACE`, `CSSDECODE`,
-                      `HEXENCODE`, `HTMLENTITYDECODE`, `JSDECODE`, `LENGTH`, `LOWERCASE`,
-                      `MD5`, `NORMALISEPATH`, `NORMALISEPATHWIN`, `NORMALIZEPATH`,
-                      `NORMALIZEPATHWIN`, `REMOVECOMMENTS`, `REMOVENULLS`, `REMOVEWHITESPACE`,
-                      `REPLACECOMMENTS`, `SHA1`, `URLDECODE`, `URLDECODEUNI`, `UTF8TOUNICODE`'
+                    description: |-
+                      (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
+                      Options: `CMDLINE`, `COMPRESSWHITESPACE`, `CSSDECODE`, `HEXENCODE`, `HTMLENTITYDECODE`, `JSDECODE`, `LENGTH`, `LOWERCASE`, `MD5`, `NORMALISEPATH`, `NORMALISEPATHWIN`, `NORMALIZEPATH`, `NORMALIZEPATHWIN`, `REMOVECOMMENTS`, `REMOVENULLS`, `REMOVEWHITESPACE`, `REPLACECOMMENTS`, `SHA1`, `URLDECODE`, `URLDECODEUNI`, `UTF8TOUNICODE`
                     items:
                       type: string
                     type: array
@@ -131,45 +135,48 @@ spec:
                   autoscaler.
                 properties:
                   condition:
-                    description: The condition to trigger the rate limit rule.
+                    description: |-
+                      (Block List) The condition to trigger the rate limit rule. (see below for nested schema)
+                      The condition to trigger the rate limit rule.
                     items:
                       properties:
                         operator:
-                          description: 'Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`,
-                            `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`,
-                            `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`'
+                          description: |-
+                            (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
+                            Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
                           type: string
                         value:
+                          description: (String)
                           type: string
                         variable:
-                          description: 'Options: `ARGS`, `ARGS_COMBINED_SIZE`, `ARGS_GET`,
-                            `ARGS_GET_NAMES`, `ARGS_POST`, `ARGS_POST_NAMES`, `FILES_NAMES`,
-                            `FINGERPRINT`, `GEO`, `QUERY_STRING`, `REMOTE_ADDR`, `REQUEST_BASENAME`,
-                            `REQUEST_BODY`, `REQUEST_COOKIES`, `REQUEST_COOKIES_NAMES`,
-                            `REQUEST_FILENAME`, `REQUEST_HEADERS`, `REQUEST_HEADERS_NAMES`,
-                            `REQUEST_LINE`, `REQUEST_METHOD`, `REQUEST_PROTOCOL`,
-                            `REQUEST_URI`, `REQUEST_URI_RAW`, `RESPONSE_BODY`, `RESPONSE_HEADERS`,
-                            `RESPONSE_STATUS`, `VERIFIED_BOT_CATEGORY`'
+                          description: |-
+                            (String) Options: ARGS, ARGS_COMBINED_SIZE, ARGS_GET, ARGS_GET_NAMES, ARGS_POST, ARGS_POST_NAMES, FILES_NAMES, FINGERPRINT, GEO, QUERY_STRING, REMOTE_ADDR, REQUEST_BASENAME, REQUEST_BODY, REQUEST_COOKIES, REQUEST_COOKIES_NAMES, REQUEST_FILENAME, REQUEST_HEADERS, REQUEST_HEADERS_NAMES, REQUEST_LINE, REQUEST_METHOD, REQUEST_PROTOCOL, REQUEST_URI, REQUEST_URI_RAW, RESPONSE_BODY, RESPONSE_HEADERS, RESPONSE_STATUS, VERIFIED_BOT_CATEGORY
+                            Options: `ARGS`, `ARGS_COMBINED_SIZE`, `ARGS_GET`, `ARGS_GET_NAMES`, `ARGS_POST`, `ARGS_POST_NAMES`, `FILES_NAMES`, `FINGERPRINT`, `GEO`, `QUERY_STRING`, `REMOTE_ADDR`, `REQUEST_BASENAME`, `REQUEST_BODY`, `REQUEST_COOKIES`, `REQUEST_COOKIES_NAMES`, `REQUEST_FILENAME`, `REQUEST_HEADERS`, `REQUEST_HEADERS_NAMES`, `REQUEST_LINE`, `REQUEST_METHOD`, `REQUEST_PROTOCOL`, `REQUEST_URI`, `REQUEST_URI_RAW`, `RESPONSE_BODY`, `RESPONSE_HEADERS`, `RESPONSE_STATUS`, `VERIFIED_BOT_CATEGORY`
                           type: string
                         variableValue:
+                          description: (String)
                           type: string
                       type: object
                     type: array
                   description:
-                    description: The rate limit rule description.
+                    description: |-
+                      (String) The rate limit rule description.
+                      The rate limit rule description.
                     type: string
                   name:
-                    description: The rate limit rule name.
+                    description: |-
+                      (String) The rate limit rule name.
+                      The rate limit rule name.
                     type: string
                   pullzone:
-                    description: The ID of the linked pullzone.
+                    description: |-
+                      (Number) The ID of the linked pullzone.
+                      The ID of the linked pullzone.
                     type: number
                   transformations:
-                    description: 'Options: `CMDLINE`, `COMPRESSWHITESPACE`, `CSSDECODE`,
-                      `HEXENCODE`, `HTMLENTITYDECODE`, `JSDECODE`, `LENGTH`, `LOWERCASE`,
-                      `MD5`, `NORMALISEPATH`, `NORMALISEPATHWIN`, `NORMALIZEPATH`,
-                      `NORMALIZEPATHWIN`, `REMOVECOMMENTS`, `REMOVENULLS`, `REMOVEWHITESPACE`,
-                      `REPLACECOMMENTS`, `SHA1`, `URLDECODE`, `URLDECODEUNI`, `UTF8TOUNICODE`'
+                    description: |-
+                      (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
+                      Options: `CMDLINE`, `COMPRESSWHITESPACE`, `CSSDECODE`, `HEXENCODE`, `HTMLENTITYDECODE`, `JSDECODE`, `LENGTH`, `LOWERCASE`, `MD5`, `NORMALISEPATH`, `NORMALISEPATHWIN`, `NORMALIZEPATH`, `NORMALIZEPATHWIN`, `REMOVECOMMENTS`, `REMOVENULLS`, `REMOVEWHITESPACE`, `REPLACECOMMENTS`, `SHA1`, `URLDECODE`, `URLDECODEUNI`, `UTF8TOUNICODE`
                     items:
                       type: string
                     type: array
@@ -276,70 +283,80 @@ spec:
               atProvider:
                 properties:
                   condition:
-                    description: The condition to trigger the rate limit rule.
+                    description: |-
+                      (Block List) The condition to trigger the rate limit rule. (see below for nested schema)
+                      The condition to trigger the rate limit rule.
                     items:
                       properties:
                         operator:
-                          description: 'Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`,
-                            `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`,
-                            `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`'
+                          description: |-
+                            (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
+                            Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
                           type: string
                         value:
+                          description: (String)
                           type: string
                         variable:
-                          description: 'Options: `ARGS`, `ARGS_COMBINED_SIZE`, `ARGS_GET`,
-                            `ARGS_GET_NAMES`, `ARGS_POST`, `ARGS_POST_NAMES`, `FILES_NAMES`,
-                            `FINGERPRINT`, `GEO`, `QUERY_STRING`, `REMOTE_ADDR`, `REQUEST_BASENAME`,
-                            `REQUEST_BODY`, `REQUEST_COOKIES`, `REQUEST_COOKIES_NAMES`,
-                            `REQUEST_FILENAME`, `REQUEST_HEADERS`, `REQUEST_HEADERS_NAMES`,
-                            `REQUEST_LINE`, `REQUEST_METHOD`, `REQUEST_PROTOCOL`,
-                            `REQUEST_URI`, `REQUEST_URI_RAW`, `RESPONSE_BODY`, `RESPONSE_HEADERS`,
-                            `RESPONSE_STATUS`, `VERIFIED_BOT_CATEGORY`'
+                          description: |-
+                            (String) Options: ARGS, ARGS_COMBINED_SIZE, ARGS_GET, ARGS_GET_NAMES, ARGS_POST, ARGS_POST_NAMES, FILES_NAMES, FINGERPRINT, GEO, QUERY_STRING, REMOTE_ADDR, REQUEST_BASENAME, REQUEST_BODY, REQUEST_COOKIES, REQUEST_COOKIES_NAMES, REQUEST_FILENAME, REQUEST_HEADERS, REQUEST_HEADERS_NAMES, REQUEST_LINE, REQUEST_METHOD, REQUEST_PROTOCOL, REQUEST_URI, REQUEST_URI_RAW, RESPONSE_BODY, RESPONSE_HEADERS, RESPONSE_STATUS, VERIFIED_BOT_CATEGORY
+                            Options: `ARGS`, `ARGS_COMBINED_SIZE`, `ARGS_GET`, `ARGS_GET_NAMES`, `ARGS_POST`, `ARGS_POST_NAMES`, `FILES_NAMES`, `FINGERPRINT`, `GEO`, `QUERY_STRING`, `REMOTE_ADDR`, `REQUEST_BASENAME`, `REQUEST_BODY`, `REQUEST_COOKIES`, `REQUEST_COOKIES_NAMES`, `REQUEST_FILENAME`, `REQUEST_HEADERS`, `REQUEST_HEADERS_NAMES`, `REQUEST_LINE`, `REQUEST_METHOD`, `REQUEST_PROTOCOL`, `REQUEST_URI`, `REQUEST_URI_RAW`, `RESPONSE_BODY`, `RESPONSE_HEADERS`, `RESPONSE_STATUS`, `VERIFIED_BOT_CATEGORY`
                           type: string
                         variableValue:
+                          description: (String)
                           type: string
                       type: object
                     type: array
                   description:
-                    description: The rate limit rule description.
+                    description: |-
+                      (String) The rate limit rule description.
+                      The rate limit rule description.
                     type: string
                   id:
+                    description: (Number) The ID of the rate limit rule.
                     type: string
                   limit:
+                    description: (Block, Optional) (see below for nested schema)
                     items:
                       properties:
                         interval:
-                          description: The interval, in seconds, to consider for to
-                            trigger the rate limit rule.
+                          description: |-
+                            (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
+                            The interval, in seconds, to consider for to trigger the rate limit rule.
                           type: number
                         requests:
-                          description: The number of request within the interval to
-                            trigger the rate limit rule.
+                          description: |-
+                            (Number) The number of request within the interval to trigger the rate limit rule.
+                            The number of request within the interval to trigger the rate limit rule.
                           type: number
                       type: object
                     type: array
                   name:
-                    description: The rate limit rule name.
+                    description: |-
+                      (String) The rate limit rule name.
+                      The rate limit rule name.
                     type: string
                   pullzone:
-                    description: The ID of the linked pullzone.
+                    description: |-
+                      (Number) The ID of the linked pullzone.
+                      The ID of the linked pullzone.
                     type: number
                   response:
-                    description: The response once the rate limit rule is triggered.
+                    description: |-
+                      (Block, Optional) The response once the rate limit rule is triggered. (see below for nested schema)
+                      The response once the rate limit rule is triggered.
                     items:
                       properties:
                         interval:
-                          description: The interval, in seconds, that the rate limit
-                            will apply.
+                          description: |-
+                            (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
+                            The interval, in seconds, that the rate limit will apply.
                           type: number
                       type: object
                     type: array
                   transformations:
-                    description: 'Options: `CMDLINE`, `COMPRESSWHITESPACE`, `CSSDECODE`,
-                      `HEXENCODE`, `HTMLENTITYDECODE`, `JSDECODE`, `LENGTH`, `LOWERCASE`,
-                      `MD5`, `NORMALISEPATH`, `NORMALISEPATHWIN`, `NORMALIZEPATH`,
-                      `NORMALIZEPATHWIN`, `REMOVECOMMENTS`, `REMOVENULLS`, `REMOVEWHITESPACE`,
-                      `REPLACECOMMENTS`, `SHA1`, `URLDECODE`, `URLDECODEUNI`, `UTF8TOUNICODE`'
+                    description: |-
+                      (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
+                      Options: `CMDLINE`, `COMPRESSWHITESPACE`, `CSSDECODE`, `HEXENCODE`, `HTMLENTITYDECODE`, `JSDECODE`, `LENGTH`, `LOWERCASE`, `MD5`, `NORMALISEPATH`, `NORMALISEPATHWIN`, `NORMALIZEPATH`, `NORMALIZEPATHWIN`, `REMOVECOMMENTS`, `REMOVENULLS`, `REMOVEWHITESPACE`, `REPLACECOMMENTS`, `SHA1`, `URLDECODE`, `URLDECODEUNI`, `UTF8TOUNICODE`
                     items:
                       type: string
                     type: array

@@ -16,474 +16,609 @@ import (
 
 type LibraryInitParameters struct {
 
+	// (Number) The bitrate used for encoding 1080p videos, in kilobits per second.
 	// The bitrate used for encoding 1080p videos, in kilobits per second.
 	Bitrate1080P *float64 `json:"bitrate1080P,omitempty" tf:"bitrate_1080p,omitempty"`
 
+	// (Number) The bitrate used for encoding 1440p videos, in kilobits per second.
 	// The bitrate used for encoding 1440p videos, in kilobits per second.
 	Bitrate1440P *float64 `json:"bitrate1440P,omitempty" tf:"bitrate_1440p,omitempty"`
 
+	// (Number) The bitrate used for encoding 2160p videos, in kilobits per second.
 	// The bitrate used for encoding 2160p videos, in kilobits per second.
 	Bitrate2160P *float64 `json:"bitrate2160P,omitempty" tf:"bitrate_2160p,omitempty"`
 
+	// (Number) The bitrate used for encoding 240p videos, in kilobits per second.
 	// The bitrate used for encoding 240p videos, in kilobits per second.
 	Bitrate240P *float64 `json:"bitrate240P,omitempty" tf:"bitrate_240p,omitempty"`
 
+	// (Number) The bitrate used for encoding 360p videos, in kilobits per second.
 	// The bitrate used for encoding 360p videos, in kilobits per second.
 	Bitrate360P *float64 `json:"bitrate360P,omitempty" tf:"bitrate_360p,omitempty"`
 
+	// (Number) The bitrate used for encoding 480p videos, in kilobits per second.
 	// The bitrate used for encoding 480p videos, in kilobits per second.
 	Bitrate480P *float64 `json:"bitrate480P,omitempty" tf:"bitrate_480p,omitempty"`
 
+	// (Number) The bitrate used for encoding 720p videos, in kilobits per second.
 	// The bitrate used for encoding 720p videos, in kilobits per second.
 	Bitrate720P *float64 `json:"bitrate720P,omitempty" tf:"bitrate_720p,omitempty"`
 
+	// (Boolean) Indicates whether CDN token authentication is required.
 	// Indicates whether CDN token authentication is required.
 	CdnTokenAuthenticationRequired *bool `json:"cdnTokenAuthenticationRequired,omitempty" tf:"cdn_token_authentication_required,omitempty"`
 
+	// (Boolean) Indicates whether content tagging is enabled.
 	// Indicates whether content tagging is enabled.
 	ContentTaggingEnabled *bool `json:"contentTaggingEnabled,omitempty" tf:"content_tagging_enabled,omitempty"`
 
+	// (Boolean) Determines direct play URLs are enabled.
 	// Determines direct play URLs are enabled.
 	DirectPlayEnabled *bool `json:"directPlayEnabled,omitempty" tf:"direct_play_enabled,omitempty"`
 
+	// (Boolean) Indicates whether the requests without a referrer are blocked.
 	// Indicates whether the requests without a referrer are blocked.
 	DirectURLFileAccessBlocked *bool `json:"directUrlFileAccessBlocked,omitempty" tf:"direct_url_file_access_blocked,omitempty"`
 
+	// (Boolean) Indicates whether the MediaCage basic DRM is enabled
 	// Indicates whether the MediaCage basic DRM is enabled
 	DrmMediacageBasicEnabled *bool `json:"drmMediacageBasicEnabled,omitempty" tf:"drm_mediacage_basic_enabled,omitempty"`
 
+	// Play feature is enabled.
 	// Indicates whether the Early-Play feature is enabled.
 	EarlyPlayEnabled *bool `json:"earlyPlayEnabled,omitempty" tf:"early_play_enabled,omitempty"`
 
+	// (String) Options: Free, Premium
 	// Options: `Free`, `Premium`
 	EncodingTier *string `json:"encodingTier,omitempty" tf:"encoding_tier,omitempty"`
 
+	// In-Time Encoding is enabled
 	// Indicates whether Just-In-Time Encoding is enabled
 	JitEncoding *bool `json:"jitEncoding,omitempty" tf:"jit_encoding,omitempty"`
 
+	// (Boolean) Indicates whether the MP4 fallback feature is enabled.
 	// Indicates whether the MP4 fallback feature is enabled.
 	Mp4FallbackEnabled *bool `json:"mp4FallbackEnabled,omitempty" tf:"mp4_fallback_enabled,omitempty"`
 
+	// (Boolean) Indicates whether multiple output audio track support is enabled.
 	// Indicates whether multiple output audio track support is enabled.
 	MultiAudioTrackSupportEnabled *bool `json:"multiAudioTrackSupportEnabled,omitempty" tf:"multi_audio_track_support_enabled,omitempty"`
 
+	// (String) The name of the stream library.
 	// The name of the stream library.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Boolean) Indicates whether to keep original files after encoding.
 	// Indicates whether to keep original files after encoding.
 	OriginalFilesKeep *bool `json:"originalFilesKeep,omitempty" tf:"original_files_keep,omitempty"`
 
+	// (Set of String) Options: av1, hevc, vp9, x264
 	// Options: `av1`, `hevc`, `vp9`, `x264`
 	// +listType=set
 	OutputCodecs []*string `json:"outputCodecs,omitempty" tf:"output_codecs,omitempty"`
 
+	// (String) The background color of the captions in the video player.
 	// The background color of the captions in the video player.
 	PlayerCaptionsBackgroundColor *string `json:"playerCaptionsBackgroundColor,omitempty" tf:"player_captions_background_color,omitempty"`
 
+	// (String) The font color of the captions in the video player.
 	// The font color of the captions in the video player.
 	PlayerCaptionsFontColor *string `json:"playerCaptionsFontColor,omitempty" tf:"player_captions_font_color,omitempty"`
 
+	// (Number) The font size of the captions in the video player.
 	// The font size of the captions in the video player.
 	PlayerCaptionsFontSize *float64 `json:"playerCaptionsFontSize,omitempty" tf:"player_captions_font_size,omitempty"`
 
+	// time, duration, fast-forward, fullscreen, mute, pip, play, play-large, progress, rewind, settings, volume
 	// Options: `airplay`, `captions`, `chromecast`, `current-time`, `duration`, `fast-forward`, `fullscreen`, `mute`, `pip`, `play`, `play-large`, `progress`, `rewind`, `settings`, `volume`
 	// +listType=set
 	PlayerControls []*string `json:"playerControls,omitempty" tf:"player_controls,omitempty"`
 
+	// (String) Custom HTML to be included in the head of the video player.
 	// Custom HTML to be included in the head of the video player.
 	PlayerCustomHead *string `json:"playerCustomHead,omitempty" tf:"player_custom_head,omitempty"`
 
+	// (String) Options: arial, inter, lato, oswald, raleway, roboto, rubik, ubuntu
 	// Options: `arial`, `inter`, `lato`, `oswald`, `raleway`, `roboto`, `rubik`, `ubuntu`
 	PlayerFontFamily *string `json:"playerFontFamily,omitempty" tf:"player_font_family,omitempty"`
 
+	// (String) Specifies the language for the video player interface.
 	// Specifies the language for the video player interface.
 	PlayerLanguage *string `json:"playerLanguage,omitempty" tf:"player_language,omitempty"`
 
+	// (String) Customizes the appearance of the video player.
 	// Customizes the appearance of the video player.
 	PlayerPrimaryColor *string `json:"playerPrimaryColor,omitempty" tf:"player_primary_color,omitempty"`
 
+	// (Number) Specifies the video player version.
 	// Specifies the video player version.
 	PlayerVersion *float64 `json:"playerVersion,omitempty" tf:"player_version,omitempty"`
 
+	// (Boolean) Indicates whether the video watch heatmap should be displayed in the player.
 	// Indicates whether the video watch heatmap should be displayed in the player.
 	PlayerWatchtimeHeatmapEnabled *bool `json:"playerWatchtimeHeatmapEnabled,omitempty" tf:"player_watchtime_heatmap_enabled,omitempty"`
 
+	// (Set of String) The list of allowed referrer domains allowed to access videos in this library.
 	// The list of allowed referrer domains allowed to access videos in this library.
 	// +listType=set
 	ReferersAllowed []*string `json:"referersAllowed,omitempty" tf:"referers_allowed,omitempty"`
 
+	// (Set of String) The list of blocked referrer domains blocked from accessing videos in this library.
 	// The list of blocked referrer domains blocked from accessing videos in this library.
 	// +listType=set
 	ReferersBlocked []*string `json:"referersBlocked,omitempty" tf:"referers_blocked,omitempty"`
 
+	// (Set of String) A list of resolutions available for the videos.
 	// A list of resolutions available for the videos.
 	// +listType=set
 	Resolutions []*string `json:"resolutions,omitempty" tf:"resolutions,omitempty"`
 
+	// (Boolean) Indicates whether the automatic audio transcribing is currently enabled for this zone.
 	// Indicates whether the automatic audio transcribing is currently enabled for this zone.
 	TranscribingEnabled *bool `json:"transcribingEnabled,omitempty" tf:"transcribing_enabled,omitempty"`
 
+	// (Set of String) The list of languages that the captions will be automatically transcribed to.
 	// The list of languages that the captions will be automatically transcribed to.
 	// +listType=set
 	TranscribingLanguages []*string `json:"transcribingLanguages,omitempty" tf:"transcribing_languages,omitempty"`
 
+	// (Boolean) Indicates whether automatic transcribing description generation is currently enabled.
 	// Indicates whether automatic transcribing description generation is currently enabled.
 	TranscribingSmartDescriptionEnabled *bool `json:"transcribingSmartDescriptionEnabled,omitempty" tf:"transcribing_smart_description_enabled,omitempty"`
 
+	// (Boolean) Indicates whether automatic transcribing title generation is currently enabled.
 	// Indicates whether automatic transcribing title generation is currently enabled.
 	TranscribingSmartTitleEnabled *bool `json:"transcribingSmartTitleEnabled,omitempty" tf:"transcribing_smart_title_enabled,omitempty"`
 
+	// (String) The URL of the VAST tag for ad integration.
 	// The URL of the VAST tag for ad integration.
 	VastTagURL *string `json:"vastTagUrl,omitempty" tf:"vast_tag_url,omitempty"`
 
+	// (Boolean) Indicates whether the player token authentication is enabled
 	// Indicates whether the player token authentication is enabled
 	ViewTokenAuthenticationRequired *bool `json:"viewTokenAuthenticationRequired,omitempty" tf:"view_token_authentication_required,omitempty"`
 
+	// (Number) The height of the watermark (in %).
 	// The height of the watermark (in %).
 	WatermarkHeight *float64 `json:"watermarkHeight,omitempty" tf:"watermark_height,omitempty"`
 
+	// (Number) The left offset of the watermark position (in %).
 	// The left offset of the watermark position (in %).
 	WatermarkPositionLeft *float64 `json:"watermarkPositionLeft,omitempty" tf:"watermark_position_left,omitempty"`
 
+	// (Number) The top offset of the watermark position (in %).
 	// The top offset of the watermark position (in %).
 	WatermarkPositionTop *float64 `json:"watermarkPositionTop,omitempty" tf:"watermark_position_top,omitempty"`
 
+	// (Number) The width of the watermark (in %).
 	// The width of the watermark (in %).
 	WatermarkWidth *float64 `json:"watermarkWidth,omitempty" tf:"watermark_width,omitempty"`
 
+	// (String) The URL for webhook notifications.
 	// The URL for webhook notifications.
 	WebhookURL *string `json:"webhookUrl,omitempty" tf:"webhook_url,omitempty"`
 }
 
 type LibraryObservation struct {
 
+	// (Number) The bitrate used for encoding 1080p videos, in kilobits per second.
 	// The bitrate used for encoding 1080p videos, in kilobits per second.
 	Bitrate1080P *float64 `json:"bitrate1080P,omitempty" tf:"bitrate_1080p,omitempty"`
 
+	// (Number) The bitrate used for encoding 1440p videos, in kilobits per second.
 	// The bitrate used for encoding 1440p videos, in kilobits per second.
 	Bitrate1440P *float64 `json:"bitrate1440P,omitempty" tf:"bitrate_1440p,omitempty"`
 
+	// (Number) The bitrate used for encoding 2160p videos, in kilobits per second.
 	// The bitrate used for encoding 2160p videos, in kilobits per second.
 	Bitrate2160P *float64 `json:"bitrate2160P,omitempty" tf:"bitrate_2160p,omitempty"`
 
+	// (Number) The bitrate used for encoding 240p videos, in kilobits per second.
 	// The bitrate used for encoding 240p videos, in kilobits per second.
 	Bitrate240P *float64 `json:"bitrate240P,omitempty" tf:"bitrate_240p,omitempty"`
 
+	// (Number) The bitrate used for encoding 360p videos, in kilobits per second.
 	// The bitrate used for encoding 360p videos, in kilobits per second.
 	Bitrate360P *float64 `json:"bitrate360P,omitempty" tf:"bitrate_360p,omitempty"`
 
+	// (Number) The bitrate used for encoding 480p videos, in kilobits per second.
 	// The bitrate used for encoding 480p videos, in kilobits per second.
 	Bitrate480P *float64 `json:"bitrate480P,omitempty" tf:"bitrate_480p,omitempty"`
 
+	// (Number) The bitrate used for encoding 720p videos, in kilobits per second.
 	// The bitrate used for encoding 720p videos, in kilobits per second.
 	Bitrate720P *float64 `json:"bitrate720P,omitempty" tf:"bitrate_720p,omitempty"`
 
+	// (Boolean) Indicates whether CDN token authentication is required.
 	// Indicates whether CDN token authentication is required.
 	CdnTokenAuthenticationRequired *bool `json:"cdnTokenAuthenticationRequired,omitempty" tf:"cdn_token_authentication_required,omitempty"`
 
+	// (Boolean) Indicates whether content tagging is enabled.
 	// Indicates whether content tagging is enabled.
 	ContentTaggingEnabled *bool `json:"contentTaggingEnabled,omitempty" tf:"content_tagging_enabled,omitempty"`
 
+	// (Boolean) Determines direct play URLs are enabled.
 	// Determines direct play URLs are enabled.
 	DirectPlayEnabled *bool `json:"directPlayEnabled,omitempty" tf:"direct_play_enabled,omitempty"`
 
+	// (Boolean) Indicates whether the requests without a referrer are blocked.
 	// Indicates whether the requests without a referrer are blocked.
 	DirectURLFileAccessBlocked *bool `json:"directUrlFileAccessBlocked,omitempty" tf:"direct_url_file_access_blocked,omitempty"`
 
+	// (Boolean) Indicates whether the MediaCage basic DRM is enabled
 	// Indicates whether the MediaCage basic DRM is enabled
 	DrmMediacageBasicEnabled *bool `json:"drmMediacageBasicEnabled,omitempty" tf:"drm_mediacage_basic_enabled,omitempty"`
 
+	// Play feature is enabled.
 	// Indicates whether the Early-Play feature is enabled.
 	EarlyPlayEnabled *bool `json:"earlyPlayEnabled,omitempty" tf:"early_play_enabled,omitempty"`
 
+	// (String) Options: Free, Premium
 	// Options: `Free`, `Premium`
 	EncodingTier *string `json:"encodingTier,omitempty" tf:"encoding_tier,omitempty"`
 
+	// (Number) The ID of this resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// In-Time Encoding is enabled
 	// Indicates whether Just-In-Time Encoding is enabled
 	JitEncoding *bool `json:"jitEncoding,omitempty" tf:"jit_encoding,omitempty"`
 
+	// (Boolean) Indicates whether the MP4 fallback feature is enabled.
 	// Indicates whether the MP4 fallback feature is enabled.
 	Mp4FallbackEnabled *bool `json:"mp4FallbackEnabled,omitempty" tf:"mp4_fallback_enabled,omitempty"`
 
+	// (Boolean) Indicates whether multiple output audio track support is enabled.
 	// Indicates whether multiple output audio track support is enabled.
 	MultiAudioTrackSupportEnabled *bool `json:"multiAudioTrackSupportEnabled,omitempty" tf:"multi_audio_track_support_enabled,omitempty"`
 
+	// (String) The name of the stream library.
 	// The name of the stream library.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Boolean) Indicates whether to keep original files after encoding.
 	// Indicates whether to keep original files after encoding.
 	OriginalFilesKeep *bool `json:"originalFilesKeep,omitempty" tf:"original_files_keep,omitempty"`
 
+	// (Set of String) Options: av1, hevc, vp9, x264
 	// Options: `av1`, `hevc`, `vp9`, `x264`
 	// +listType=set
 	OutputCodecs []*string `json:"outputCodecs,omitempty" tf:"output_codecs,omitempty"`
 
+	// (String) The background color of the captions in the video player.
 	// The background color of the captions in the video player.
 	PlayerCaptionsBackgroundColor *string `json:"playerCaptionsBackgroundColor,omitempty" tf:"player_captions_background_color,omitempty"`
 
+	// (String) The font color of the captions in the video player.
 	// The font color of the captions in the video player.
 	PlayerCaptionsFontColor *string `json:"playerCaptionsFontColor,omitempty" tf:"player_captions_font_color,omitempty"`
 
+	// (Number) The font size of the captions in the video player.
 	// The font size of the captions in the video player.
 	PlayerCaptionsFontSize *float64 `json:"playerCaptionsFontSize,omitempty" tf:"player_captions_font_size,omitempty"`
 
+	// time, duration, fast-forward, fullscreen, mute, pip, play, play-large, progress, rewind, settings, volume
 	// Options: `airplay`, `captions`, `chromecast`, `current-time`, `duration`, `fast-forward`, `fullscreen`, `mute`, `pip`, `play`, `play-large`, `progress`, `rewind`, `settings`, `volume`
 	// +listType=set
 	PlayerControls []*string `json:"playerControls,omitempty" tf:"player_controls,omitempty"`
 
+	// (String) Custom HTML to be included in the head of the video player.
 	// Custom HTML to be included in the head of the video player.
 	PlayerCustomHead *string `json:"playerCustomHead,omitempty" tf:"player_custom_head,omitempty"`
 
+	// (String) Options: arial, inter, lato, oswald, raleway, roboto, rubik, ubuntu
 	// Options: `arial`, `inter`, `lato`, `oswald`, `raleway`, `roboto`, `rubik`, `ubuntu`
 	PlayerFontFamily *string `json:"playerFontFamily,omitempty" tf:"player_font_family,omitempty"`
 
+	// (String) Specifies the language for the video player interface.
 	// Specifies the language for the video player interface.
 	PlayerLanguage *string `json:"playerLanguage,omitempty" tf:"player_language,omitempty"`
 
+	// (String) Customizes the appearance of the video player.
 	// Customizes the appearance of the video player.
 	PlayerPrimaryColor *string `json:"playerPrimaryColor,omitempty" tf:"player_primary_color,omitempty"`
 
+	// (Number) Specifies the video player version.
 	// Specifies the video player version.
 	PlayerVersion *float64 `json:"playerVersion,omitempty" tf:"player_version,omitempty"`
 
+	// (Boolean) Indicates whether the video watch heatmap should be displayed in the player.
 	// Indicates whether the video watch heatmap should be displayed in the player.
 	PlayerWatchtimeHeatmapEnabled *bool `json:"playerWatchtimeHeatmapEnabled,omitempty" tf:"player_watchtime_heatmap_enabled,omitempty"`
 
+	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (Set of String) The list of allowed referrer domains allowed to access videos in this library.
 	// The list of allowed referrer domains allowed to access videos in this library.
 	// +listType=set
 	ReferersAllowed []*string `json:"referersAllowed,omitempty" tf:"referers_allowed,omitempty"`
 
+	// (Set of String) The list of blocked referrer domains blocked from accessing videos in this library.
 	// The list of blocked referrer domains blocked from accessing videos in this library.
 	// +listType=set
 	ReferersBlocked []*string `json:"referersBlocked,omitempty" tf:"referers_blocked,omitempty"`
 
+	// (Set of String) A list of resolutions available for the videos.
 	// A list of resolutions available for the videos.
 	// +listType=set
 	Resolutions []*string `json:"resolutions,omitempty" tf:"resolutions,omitempty"`
 
+	// (Number) The ID of the linked storage zone.
 	// The ID of the linked storage zone.
 	StorageZone *float64 `json:"storageZone,omitempty" tf:"storage_zone,omitempty"`
 
+	// (Boolean) Indicates whether the automatic audio transcribing is currently enabled for this zone.
 	// Indicates whether the automatic audio transcribing is currently enabled for this zone.
 	TranscribingEnabled *bool `json:"transcribingEnabled,omitempty" tf:"transcribing_enabled,omitempty"`
 
+	// (Set of String) The list of languages that the captions will be automatically transcribed to.
 	// The list of languages that the captions will be automatically transcribed to.
 	// +listType=set
 	TranscribingLanguages []*string `json:"transcribingLanguages,omitempty" tf:"transcribing_languages,omitempty"`
 
+	// (Boolean) Indicates whether automatic transcribing description generation is currently enabled.
 	// Indicates whether automatic transcribing description generation is currently enabled.
 	TranscribingSmartDescriptionEnabled *bool `json:"transcribingSmartDescriptionEnabled,omitempty" tf:"transcribing_smart_description_enabled,omitempty"`
 
+	// (Boolean) Indicates whether automatic transcribing title generation is currently enabled.
 	// Indicates whether automatic transcribing title generation is currently enabled.
 	TranscribingSmartTitleEnabled *bool `json:"transcribingSmartTitleEnabled,omitempty" tf:"transcribing_smart_title_enabled,omitempty"`
 
+	// (String) The URL of the VAST tag for ad integration.
 	// The URL of the VAST tag for ad integration.
 	VastTagURL *string `json:"vastTagUrl,omitempty" tf:"vast_tag_url,omitempty"`
 
+	// (Boolean) Indicates whether the player token authentication is enabled
 	// Indicates whether the player token authentication is enabled
 	ViewTokenAuthenticationRequired *bool `json:"viewTokenAuthenticationRequired,omitempty" tf:"view_token_authentication_required,omitempty"`
 
+	// (Number) The height of the watermark (in %).
 	// The height of the watermark (in %).
 	WatermarkHeight *float64 `json:"watermarkHeight,omitempty" tf:"watermark_height,omitempty"`
 
+	// (Number) The left offset of the watermark position (in %).
 	// The left offset of the watermark position (in %).
 	WatermarkPositionLeft *float64 `json:"watermarkPositionLeft,omitempty" tf:"watermark_position_left,omitempty"`
 
+	// (Number) The top offset of the watermark position (in %).
 	// The top offset of the watermark position (in %).
 	WatermarkPositionTop *float64 `json:"watermarkPositionTop,omitempty" tf:"watermark_position_top,omitempty"`
 
+	// (Number) The width of the watermark (in %).
 	// The width of the watermark (in %).
 	WatermarkWidth *float64 `json:"watermarkWidth,omitempty" tf:"watermark_width,omitempty"`
 
+	// (String) The URL for webhook notifications.
 	// The URL for webhook notifications.
 	WebhookURL *string `json:"webhookUrl,omitempty" tf:"webhook_url,omitempty"`
 }
 
 type LibraryParameters struct {
 
+	// (Number) The bitrate used for encoding 1080p videos, in kilobits per second.
 	// The bitrate used for encoding 1080p videos, in kilobits per second.
 	// +kubebuilder:validation:Optional
 	Bitrate1080P *float64 `json:"bitrate1080P,omitempty" tf:"bitrate_1080p,omitempty"`
 
+	// (Number) The bitrate used for encoding 1440p videos, in kilobits per second.
 	// The bitrate used for encoding 1440p videos, in kilobits per second.
 	// +kubebuilder:validation:Optional
 	Bitrate1440P *float64 `json:"bitrate1440P,omitempty" tf:"bitrate_1440p,omitempty"`
 
+	// (Number) The bitrate used for encoding 2160p videos, in kilobits per second.
 	// The bitrate used for encoding 2160p videos, in kilobits per second.
 	// +kubebuilder:validation:Optional
 	Bitrate2160P *float64 `json:"bitrate2160P,omitempty" tf:"bitrate_2160p,omitempty"`
 
+	// (Number) The bitrate used for encoding 240p videos, in kilobits per second.
 	// The bitrate used for encoding 240p videos, in kilobits per second.
 	// +kubebuilder:validation:Optional
 	Bitrate240P *float64 `json:"bitrate240P,omitempty" tf:"bitrate_240p,omitempty"`
 
+	// (Number) The bitrate used for encoding 360p videos, in kilobits per second.
 	// The bitrate used for encoding 360p videos, in kilobits per second.
 	// +kubebuilder:validation:Optional
 	Bitrate360P *float64 `json:"bitrate360P,omitempty" tf:"bitrate_360p,omitempty"`
 
+	// (Number) The bitrate used for encoding 480p videos, in kilobits per second.
 	// The bitrate used for encoding 480p videos, in kilobits per second.
 	// +kubebuilder:validation:Optional
 	Bitrate480P *float64 `json:"bitrate480P,omitempty" tf:"bitrate_480p,omitempty"`
 
+	// (Number) The bitrate used for encoding 720p videos, in kilobits per second.
 	// The bitrate used for encoding 720p videos, in kilobits per second.
 	// +kubebuilder:validation:Optional
 	Bitrate720P *float64 `json:"bitrate720P,omitempty" tf:"bitrate_720p,omitempty"`
 
+	// (Boolean) Indicates whether CDN token authentication is required.
 	// Indicates whether CDN token authentication is required.
 	// +kubebuilder:validation:Optional
 	CdnTokenAuthenticationRequired *bool `json:"cdnTokenAuthenticationRequired,omitempty" tf:"cdn_token_authentication_required,omitempty"`
 
+	// (Boolean) Indicates whether content tagging is enabled.
 	// Indicates whether content tagging is enabled.
 	// +kubebuilder:validation:Optional
 	ContentTaggingEnabled *bool `json:"contentTaggingEnabled,omitempty" tf:"content_tagging_enabled,omitempty"`
 
+	// (Boolean) Determines direct play URLs are enabled.
 	// Determines direct play URLs are enabled.
 	// +kubebuilder:validation:Optional
 	DirectPlayEnabled *bool `json:"directPlayEnabled,omitempty" tf:"direct_play_enabled,omitempty"`
 
+	// (Boolean) Indicates whether the requests without a referrer are blocked.
 	// Indicates whether the requests without a referrer are blocked.
 	// +kubebuilder:validation:Optional
 	DirectURLFileAccessBlocked *bool `json:"directUrlFileAccessBlocked,omitempty" tf:"direct_url_file_access_blocked,omitempty"`
 
+	// (Boolean) Indicates whether the MediaCage basic DRM is enabled
 	// Indicates whether the MediaCage basic DRM is enabled
 	// +kubebuilder:validation:Optional
 	DrmMediacageBasicEnabled *bool `json:"drmMediacageBasicEnabled,omitempty" tf:"drm_mediacage_basic_enabled,omitempty"`
 
+	// Play feature is enabled.
 	// Indicates whether the Early-Play feature is enabled.
 	// +kubebuilder:validation:Optional
 	EarlyPlayEnabled *bool `json:"earlyPlayEnabled,omitempty" tf:"early_play_enabled,omitempty"`
 
+	// (String) Options: Free, Premium
 	// Options: `Free`, `Premium`
 	// +kubebuilder:validation:Optional
 	EncodingTier *string `json:"encodingTier,omitempty" tf:"encoding_tier,omitempty"`
 
+	// In-Time Encoding is enabled
 	// Indicates whether Just-In-Time Encoding is enabled
 	// +kubebuilder:validation:Optional
 	JitEncoding *bool `json:"jitEncoding,omitempty" tf:"jit_encoding,omitempty"`
 
+	// (Boolean) Indicates whether the MP4 fallback feature is enabled.
 	// Indicates whether the MP4 fallback feature is enabled.
 	// +kubebuilder:validation:Optional
 	Mp4FallbackEnabled *bool `json:"mp4FallbackEnabled,omitempty" tf:"mp4_fallback_enabled,omitempty"`
 
+	// (Boolean) Indicates whether multiple output audio track support is enabled.
 	// Indicates whether multiple output audio track support is enabled.
 	// +kubebuilder:validation:Optional
 	MultiAudioTrackSupportEnabled *bool `json:"multiAudioTrackSupportEnabled,omitempty" tf:"multi_audio_track_support_enabled,omitempty"`
 
+	// (String) The name of the stream library.
 	// The name of the stream library.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Boolean) Indicates whether to keep original files after encoding.
 	// Indicates whether to keep original files after encoding.
 	// +kubebuilder:validation:Optional
 	OriginalFilesKeep *bool `json:"originalFilesKeep,omitempty" tf:"original_files_keep,omitempty"`
 
+	// (Set of String) Options: av1, hevc, vp9, x264
 	// Options: `av1`, `hevc`, `vp9`, `x264`
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	OutputCodecs []*string `json:"outputCodecs,omitempty" tf:"output_codecs,omitempty"`
 
+	// (String) The background color of the captions in the video player.
 	// The background color of the captions in the video player.
 	// +kubebuilder:validation:Optional
 	PlayerCaptionsBackgroundColor *string `json:"playerCaptionsBackgroundColor,omitempty" tf:"player_captions_background_color,omitempty"`
 
+	// (String) The font color of the captions in the video player.
 	// The font color of the captions in the video player.
 	// +kubebuilder:validation:Optional
 	PlayerCaptionsFontColor *string `json:"playerCaptionsFontColor,omitempty" tf:"player_captions_font_color,omitempty"`
 
+	// (Number) The font size of the captions in the video player.
 	// The font size of the captions in the video player.
 	// +kubebuilder:validation:Optional
 	PlayerCaptionsFontSize *float64 `json:"playerCaptionsFontSize,omitempty" tf:"player_captions_font_size,omitempty"`
 
+	// time, duration, fast-forward, fullscreen, mute, pip, play, play-large, progress, rewind, settings, volume
 	// Options: `airplay`, `captions`, `chromecast`, `current-time`, `duration`, `fast-forward`, `fullscreen`, `mute`, `pip`, `play`, `play-large`, `progress`, `rewind`, `settings`, `volume`
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	PlayerControls []*string `json:"playerControls,omitempty" tf:"player_controls,omitempty"`
 
+	// (String) Custom HTML to be included in the head of the video player.
 	// Custom HTML to be included in the head of the video player.
 	// +kubebuilder:validation:Optional
 	PlayerCustomHead *string `json:"playerCustomHead,omitempty" tf:"player_custom_head,omitempty"`
 
+	// (String) Options: arial, inter, lato, oswald, raleway, roboto, rubik, ubuntu
 	// Options: `arial`, `inter`, `lato`, `oswald`, `raleway`, `roboto`, `rubik`, `ubuntu`
 	// +kubebuilder:validation:Optional
 	PlayerFontFamily *string `json:"playerFontFamily,omitempty" tf:"player_font_family,omitempty"`
 
+	// (String) Specifies the language for the video player interface.
 	// Specifies the language for the video player interface.
 	// +kubebuilder:validation:Optional
 	PlayerLanguage *string `json:"playerLanguage,omitempty" tf:"player_language,omitempty"`
 
+	// (String) Customizes the appearance of the video player.
 	// Customizes the appearance of the video player.
 	// +kubebuilder:validation:Optional
 	PlayerPrimaryColor *string `json:"playerPrimaryColor,omitempty" tf:"player_primary_color,omitempty"`
 
+	// (Number) Specifies the video player version.
 	// Specifies the video player version.
 	// +kubebuilder:validation:Optional
 	PlayerVersion *float64 `json:"playerVersion,omitempty" tf:"player_version,omitempty"`
 
+	// (Boolean) Indicates whether the video watch heatmap should be displayed in the player.
 	// Indicates whether the video watch heatmap should be displayed in the player.
 	// +kubebuilder:validation:Optional
 	PlayerWatchtimeHeatmapEnabled *bool `json:"playerWatchtimeHeatmapEnabled,omitempty" tf:"player_watchtime_heatmap_enabled,omitempty"`
 
+	// (Set of String) The list of allowed referrer domains allowed to access videos in this library.
 	// The list of allowed referrer domains allowed to access videos in this library.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	ReferersAllowed []*string `json:"referersAllowed,omitempty" tf:"referers_allowed,omitempty"`
 
+	// (Set of String) The list of blocked referrer domains blocked from accessing videos in this library.
 	// The list of blocked referrer domains blocked from accessing videos in this library.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	ReferersBlocked []*string `json:"referersBlocked,omitempty" tf:"referers_blocked,omitempty"`
 
+	// (Set of String) A list of resolutions available for the videos.
 	// A list of resolutions available for the videos.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	Resolutions []*string `json:"resolutions,omitempty" tf:"resolutions,omitempty"`
 
+	// (Boolean) Indicates whether the automatic audio transcribing is currently enabled for this zone.
 	// Indicates whether the automatic audio transcribing is currently enabled for this zone.
 	// +kubebuilder:validation:Optional
 	TranscribingEnabled *bool `json:"transcribingEnabled,omitempty" tf:"transcribing_enabled,omitempty"`
 
+	// (Set of String) The list of languages that the captions will be automatically transcribed to.
 	// The list of languages that the captions will be automatically transcribed to.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	TranscribingLanguages []*string `json:"transcribingLanguages,omitempty" tf:"transcribing_languages,omitempty"`
 
+	// (Boolean) Indicates whether automatic transcribing description generation is currently enabled.
 	// Indicates whether automatic transcribing description generation is currently enabled.
 	// +kubebuilder:validation:Optional
 	TranscribingSmartDescriptionEnabled *bool `json:"transcribingSmartDescriptionEnabled,omitempty" tf:"transcribing_smart_description_enabled,omitempty"`
 
+	// (Boolean) Indicates whether automatic transcribing title generation is currently enabled.
 	// Indicates whether automatic transcribing title generation is currently enabled.
 	// +kubebuilder:validation:Optional
 	TranscribingSmartTitleEnabled *bool `json:"transcribingSmartTitleEnabled,omitempty" tf:"transcribing_smart_title_enabled,omitempty"`
 
+	// (String) The URL of the VAST tag for ad integration.
 	// The URL of the VAST tag for ad integration.
 	// +kubebuilder:validation:Optional
 	VastTagURL *string `json:"vastTagUrl,omitempty" tf:"vast_tag_url,omitempty"`
 
+	// (Boolean) Indicates whether the player token authentication is enabled
 	// Indicates whether the player token authentication is enabled
 	// +kubebuilder:validation:Optional
 	ViewTokenAuthenticationRequired *bool `json:"viewTokenAuthenticationRequired,omitempty" tf:"view_token_authentication_required,omitempty"`
 
+	// (Number) The height of the watermark (in %).
 	// The height of the watermark (in %).
 	// +kubebuilder:validation:Optional
 	WatermarkHeight *float64 `json:"watermarkHeight,omitempty" tf:"watermark_height,omitempty"`
 
+	// (Number) The left offset of the watermark position (in %).
 	// The left offset of the watermark position (in %).
 	// +kubebuilder:validation:Optional
 	WatermarkPositionLeft *float64 `json:"watermarkPositionLeft,omitempty" tf:"watermark_position_left,omitempty"`
 
+	// (Number) The top offset of the watermark position (in %).
 	// The top offset of the watermark position (in %).
 	// +kubebuilder:validation:Optional
 	WatermarkPositionTop *float64 `json:"watermarkPositionTop,omitempty" tf:"watermark_position_top,omitempty"`
 
+	// (Number) The width of the watermark (in %).
 	// The width of the watermark (in %).
 	// +kubebuilder:validation:Optional
 	WatermarkWidth *float64 `json:"watermarkWidth,omitempty" tf:"watermark_width,omitempty"`
 
+	// (String) The URL for webhook notifications.
 	// The URL for webhook notifications.
 	// +kubebuilder:validation:Optional
 	WebhookURL *string `json:"webhookUrl,omitempty" tf:"webhook_url,omitempty"`
@@ -516,7 +651,7 @@ type LibraryStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Library is the Schema for the Librarys API. <no value>
+// Library is the Schema for the Librarys API. This resource manages libraries in bunny.net Stream.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

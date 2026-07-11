@@ -18,3 +18,7 @@ Thumbs.db
 .agent-output/
 .work/
 .cache/
+
+# Monolith provider main is generated but not shipped by this repo; keep it out
+# of version control so `make check-diff` stays clean after `make generate`.
+cmd/provider/monolith/

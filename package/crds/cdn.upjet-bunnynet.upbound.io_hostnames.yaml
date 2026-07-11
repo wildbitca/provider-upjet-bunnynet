@@ -34,7 +34,9 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Hostname is the Schema for the Hostnames API. <no value>
+        description: Hostname is the Schema for the Hostnames API. This resource manages
+          custom hostnames for a bunny.net pull zone. It is used to add and configure
+          custom hostnames for pullzones.
         properties:
           apiVersion:
             description: |-
@@ -73,33 +75,34 @@ spec:
               forProvider:
                 properties:
                   certificate:
-                    description: 'The certificate for the hostname, in PEM format.
-                      ***Important***: the Bunny API will not return the certificate
-                      data, so you''ll have to make sure you''re importing the correct
-                      certificate.'
+                    description: |-
+                      (String) The certificate for the hostname, in PEM format. Important: the Bunny API will not return the certificate data, so you'll have to make sure you're importing the correct certificate.
+                      The certificate for the hostname, in PEM format. ***Important***: the Bunny API will not return the certificate data, so you'll have to make sure you're importing the correct certificate.
                     type: string
                   certificateKey:
-                    description: 'The certificate private key for the hostname, in
-                      PEM format. ***Important***: the Bunny API will not return the
-                      certificate key, so you''ll have to make sure you''re importing
-                      the correct certificate key.'
+                    description: |-
+                      (String) The certificate private key for the hostname, in PEM format. Important: the Bunny API will not return the certificate key, so you'll have to make sure you're importing the correct certificate key.
+                      The certificate private key for the hostname, in PEM format. ***Important***: the Bunny API will not return the certificate key, so you'll have to make sure you're importing the correct certificate key.
                     type: string
                   forceSsl:
-                    description: Indicates whether SSL should be enforced for the
-                      hostname.
+                    description: |-
+                      (Boolean) Indicates whether SSL should be enforced for the hostname.
+                      Indicates whether SSL should be enforced for the hostname.
                     type: boolean
                   name:
-                    description: The hostname value for the domain name.
+                    description: |-
+                      (String) The hostname value for the domain name.
+                      The hostname value for the domain name.
                     type: string
                   pullzone:
-                    description: The ID of the linked pull zone.
+                    description: |-
+                      (Number) The ID of the linked pull zone.
+                      The ID of the linked pull zone.
                     type: number
                   tlsEnabled:
-                    description: 'Indicates whether the hostname should support HTTPS.
-                      If a custom certificate is not provided via the <code>certificate</code>
-                      attribute, a Domain-validated TLS certificate will be automatically
-                      obtained and managed by Bunny. ***Important***: it is not possible
-                      to tell managed and custom certificates apart for imported resources.'
+                    description: |-
+                      validated TLS certificate will be automatically obtained and managed by Bunny. Important: it is not possible to tell managed and custom certificates apart for imported resources.
+                      Indicates whether the hostname should support HTTPS. If a custom certificate is not provided via the <code>certificate</code> attribute, a Domain-validated TLS certificate will be automatically obtained and managed by Bunny. ***Important***: it is not possible to tell managed and custom certificates apart for imported resources.
                     type: boolean
                 type: object
               initProvider:
@@ -116,33 +119,34 @@ spec:
                   autoscaler.
                 properties:
                   certificate:
-                    description: 'The certificate for the hostname, in PEM format.
-                      ***Important***: the Bunny API will not return the certificate
-                      data, so you''ll have to make sure you''re importing the correct
-                      certificate.'
+                    description: |-
+                      (String) The certificate for the hostname, in PEM format. Important: the Bunny API will not return the certificate data, so you'll have to make sure you're importing the correct certificate.
+                      The certificate for the hostname, in PEM format. ***Important***: the Bunny API will not return the certificate data, so you'll have to make sure you're importing the correct certificate.
                     type: string
                   certificateKey:
-                    description: 'The certificate private key for the hostname, in
-                      PEM format. ***Important***: the Bunny API will not return the
-                      certificate key, so you''ll have to make sure you''re importing
-                      the correct certificate key.'
+                    description: |-
+                      (String) The certificate private key for the hostname, in PEM format. Important: the Bunny API will not return the certificate key, so you'll have to make sure you're importing the correct certificate key.
+                      The certificate private key for the hostname, in PEM format. ***Important***: the Bunny API will not return the certificate key, so you'll have to make sure you're importing the correct certificate key.
                     type: string
                   forceSsl:
-                    description: Indicates whether SSL should be enforced for the
-                      hostname.
+                    description: |-
+                      (Boolean) Indicates whether SSL should be enforced for the hostname.
+                      Indicates whether SSL should be enforced for the hostname.
                     type: boolean
                   name:
-                    description: The hostname value for the domain name.
+                    description: |-
+                      (String) The hostname value for the domain name.
+                      The hostname value for the domain name.
                     type: string
                   pullzone:
-                    description: The ID of the linked pull zone.
+                    description: |-
+                      (Number) The ID of the linked pull zone.
+                      The ID of the linked pull zone.
                     type: number
                   tlsEnabled:
-                    description: 'Indicates whether the hostname should support HTTPS.
-                      If a custom certificate is not provided via the <code>certificate</code>
-                      attribute, a Domain-validated TLS certificate will be automatically
-                      obtained and managed by Bunny. ***Important***: it is not possible
-                      to tell managed and custom certificates apart for imported resources.'
+                    description: |-
+                      validated TLS certificate will be automatically obtained and managed by Bunny. Important: it is not possible to tell managed and custom certificates apart for imported resources.
+                      Indicates whether the hostname should support HTTPS. If a custom certificate is not provided via the <code>certificate</code> attribute, a Domain-validated TLS certificate will be automatically obtained and managed by Bunny. ***Important***: it is not possible to tell managed and custom certificates apart for imported resources.
                     type: boolean
                 type: object
               managementPolicies:
@@ -246,39 +250,42 @@ spec:
               atProvider:
                 properties:
                   certificate:
-                    description: 'The certificate for the hostname, in PEM format.
-                      ***Important***: the Bunny API will not return the certificate
-                      data, so you''ll have to make sure you''re importing the correct
-                      certificate.'
+                    description: |-
+                      (String) The certificate for the hostname, in PEM format. Important: the Bunny API will not return the certificate data, so you'll have to make sure you're importing the correct certificate.
+                      The certificate for the hostname, in PEM format. ***Important***: the Bunny API will not return the certificate data, so you'll have to make sure you're importing the correct certificate.
                     type: string
                   certificateKey:
-                    description: 'The certificate private key for the hostname, in
-                      PEM format. ***Important***: the Bunny API will not return the
-                      certificate key, so you''ll have to make sure you''re importing
-                      the correct certificate key.'
+                    description: |-
+                      (String) The certificate private key for the hostname, in PEM format. Important: the Bunny API will not return the certificate key, so you'll have to make sure you're importing the correct certificate key.
+                      The certificate private key for the hostname, in PEM format. ***Important***: the Bunny API will not return the certificate key, so you'll have to make sure you're importing the correct certificate key.
                     type: string
                   forceSsl:
-                    description: Indicates whether SSL should be enforced for the
-                      hostname.
+                    description: |-
+                      (Boolean) Indicates whether SSL should be enforced for the hostname.
+                      Indicates whether SSL should be enforced for the hostname.
                     type: boolean
                   id:
+                    description: (Number) The unique ID of the hostname.
                     type: string
                   isInternal:
-                    description: Indicates whether the hostname is internal (in the
-                      CDN domain) or provided by the user.
+                    description: |-
+                      (Boolean) Indicates whether the hostname is internal (in the CDN domain) or provided by the user.
+                      Indicates whether the hostname is internal (in the CDN domain) or provided by the user.
                     type: boolean
                   name:
-                    description: The hostname value for the domain name.
+                    description: |-
+                      (String) The hostname value for the domain name.
+                      The hostname value for the domain name.
                     type: string
                   pullzone:
-                    description: The ID of the linked pull zone.
+                    description: |-
+                      (Number) The ID of the linked pull zone.
+                      The ID of the linked pull zone.
                     type: number
                   tlsEnabled:
-                    description: 'Indicates whether the hostname should support HTTPS.
-                      If a custom certificate is not provided via the <code>certificate</code>
-                      attribute, a Domain-validated TLS certificate will be automatically
-                      obtained and managed by Bunny. ***Important***: it is not possible
-                      to tell managed and custom certificates apart for imported resources.'
+                    description: |-
+                      validated TLS certificate will be automatically obtained and managed by Bunny. Important: it is not possible to tell managed and custom certificates apart for imported resources.
+                      Indicates whether the hostname should support HTTPS. If a custom certificate is not provided via the <code>certificate</code> attribute, a Domain-validated TLS certificate will be automatically obtained and managed by Bunny. ***Important***: it is not possible to tell managed and custom certificates apart for imported resources.
                     type: boolean
                 type: object
               conditions:

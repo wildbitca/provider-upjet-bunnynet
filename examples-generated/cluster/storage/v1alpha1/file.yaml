@@ -1,0 +1,14 @@
+apiVersion: storage.upjet-bunnynet.upbound.io/v1alpha1
+kind: File
+metadata:
+  annotations:
+    meta.upbound.io/example-id: storage/v1alpha1/file
+  labels:
+    testing.upbound.io/example-name: homepage
+  name: homepage
+spec:
+  forProvider:
+    content: <h1>Hello world</h1>
+    path: index.html
+    source: data/index.html
+    zone: ${bunnynet_storage_zone.example.id}

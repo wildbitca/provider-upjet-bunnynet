@@ -16,50 +16,63 @@ import (
 
 type ScriptVariableInitParameters struct {
 
+	// (String) The default value of the environment variable.
 	// The default value of the environment variable.
 	DefaultValue *string `json:"defaultValue,omitempty" tf:"default_value,omitempty"`
 
+	// (String) The name of the environment variable.
 	// The name of the environment variable.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Boolean) Indicates whether the environment variable is required.
 	// Indicates whether the environment variable is required.
 	Required *bool `json:"required,omitempty" tf:"required,omitempty"`
 
+	// (Number) The ID of the associated compute script.
 	// The ID of the associated compute script.
 	Script *float64 `json:"script,omitempty" tf:"script,omitempty"`
 }
 
 type ScriptVariableObservation struct {
 
+	// (String) The default value of the environment variable.
 	// The default value of the environment variable.
 	DefaultValue *string `json:"defaultValue,omitempty" tf:"default_value,omitempty"`
 
+	// (Number) The ID of the environment variable.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (String) The name of the environment variable.
 	// The name of the environment variable.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Boolean) Indicates whether the environment variable is required.
 	// Indicates whether the environment variable is required.
 	Required *bool `json:"required,omitempty" tf:"required,omitempty"`
 
+	// (Number) The ID of the associated compute script.
 	// The ID of the associated compute script.
 	Script *float64 `json:"script,omitempty" tf:"script,omitempty"`
 }
 
 type ScriptVariableParameters struct {
 
+	// (String) The default value of the environment variable.
 	// The default value of the environment variable.
 	// +kubebuilder:validation:Optional
 	DefaultValue *string `json:"defaultValue,omitempty" tf:"default_value,omitempty"`
 
+	// (String) The name of the environment variable.
 	// The name of the environment variable.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Boolean) Indicates whether the environment variable is required.
 	// Indicates whether the environment variable is required.
 	// +kubebuilder:validation:Optional
 	Required *bool `json:"required,omitempty" tf:"required,omitempty"`
 
+	// (Number) The ID of the associated compute script.
 	// The ID of the associated compute script.
 	// +kubebuilder:validation:Optional
 	Script *float64 `json:"script,omitempty" tf:"script,omitempty"`
@@ -92,7 +105,7 @@ type ScriptVariableStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// ScriptVariable is the Schema for the ScriptVariables API. <no value>
+// ScriptVariable is the Schema for the ScriptVariables API. This resource manages an Environment variable for a Compute Script in bunny.net.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

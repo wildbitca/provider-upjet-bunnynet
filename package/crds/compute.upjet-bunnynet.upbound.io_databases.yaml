@@ -34,7 +34,8 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Database is the Schema for the Databases API. <no value>
+        description: Database is the Schema for the Databases API. This resource manages
+          an Database in bunny.net.
         properties:
           apiVersion:
             description: |-
@@ -73,14 +74,18 @@ spec:
               forProvider:
                 properties:
                   name:
-                    description: The name of the database.
+                    description: |-
+                      (String) The name of the database.
+                      The name of the database.
                     type: string
                   regionsPrimary:
+                    description: (Set of String)
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   regionsReplica:
+                    description: (Set of String)
                     items:
                       type: string
                     type: array
@@ -100,14 +105,18 @@ spec:
                   autoscaler.
                 properties:
                   name:
-                    description: The name of the database.
+                    description: |-
+                      (String) The name of the database.
+                      The name of the database.
                     type: string
                   regionsPrimary:
+                    description: (Set of String)
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   regionsReplica:
+                    description: (Set of String)
                     items:
                       type: string
                     type: array
@@ -214,22 +223,29 @@ spec:
               atProvider:
                 properties:
                   id:
+                    description: (String) The unique identifier for the database.
                     type: string
                   name:
-                    description: The name of the database.
+                    description: |-
+                      (String) The name of the database.
+                      The name of the database.
                     type: string
                   regionsPrimary:
+                    description: (Set of String)
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   regionsReplica:
+                    description: (Set of String)
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   url:
-                    description: The connection URL for the database.
+                    description: |-
+                      (String) The connection URL for the database.
+                      The connection URL for the database.
                     type: string
                 type: object
               conditions:

@@ -1,0 +1,11 @@
+apiVersion: dns.upjet-bunnynet.upbound.io/v1alpha1
+kind: Zone
+metadata:
+  annotations:
+    meta.upbound.io/example-id: dns/v1alpha1/zone
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    domain: example.com

@@ -9,6 +9,7 @@ import (
 
 	"github.com/crossplane/upjet/v2/pkg/controller"
 
+	subuser "github.com/wildbitca/provider-upjet-bunnynet/internal/controller/namespaced/account/subuser"
 	accesslist "github.com/wildbitca/provider-upjet-bunnynet/internal/controller/namespaced/cdn/accesslist"
 	edgerule "github.com/wildbitca/provider-upjet-bunnynet/internal/controller/namespaced/cdn/edgerule"
 	hostname "github.com/wildbitca/provider-upjet-bunnynet/internal/controller/namespaced/cdn/hostname"
@@ -39,6 +40,7 @@ import (
 // the supplied manager.
 func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
+		subuser.Setup,
 		accesslist.Setup,
 		edgerule.Setup,
 		hostname.Setup,
@@ -75,6 +77,7 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 // the supplied manager gated.
 func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
+		subuser.SetupGated,
 		accesslist.SetupGated,
 		edgerule.SetupGated,
 		hostname.SetupGated,

@@ -1,0 +1,22 @@
+apiVersion: cdn.upjet-bunnynet.m.upbound.io/v1alpha1
+kind: RatelimitRule
+metadata:
+  annotations:
+    meta.upbound.io/example-id: cdn/v1alpha1/ratelimitrule
+  labels:
+    testing.upbound.io/example-name: wplogin
+  name: wplogin
+  namespace: crossplane-system
+spec:
+  forProvider:
+    condition:
+    - operator: BEGINSWITH
+      value: /wp-login.php
+      variable: REQUEST_URI
+    description: WordPress Login
+    name: WordPress Login
+    pullzone: ${bunnynet_pullzone.test.id}
+    transformations:
+    - LOWERCASE
+    - NORMALIZEPATH
+    - URLDECODE

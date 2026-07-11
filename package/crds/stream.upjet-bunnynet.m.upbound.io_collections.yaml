@@ -34,7 +34,9 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Collection is the Schema for the Collections API. <no value>
+        description: Collection is the Schema for the Collections API. This resource
+          manages collections in bunny.net Stream. It is used to create and organize
+          collections of video content.
         properties:
           apiVersion:
             description: |-
@@ -59,11 +61,14 @@ spec:
               forProvider:
                 properties:
                   library:
-                    description: The ID of the stream library to which the collection
-                      belongs.
+                    description: |-
+                      (Number) The ID of the stream library to which the collection belongs.
+                      The ID of the stream library to which the collection belongs.
                     type: number
                   name:
-                    description: The name of the stream collection.
+                    description: |-
+                      (String) The name of the stream collection.
+                      The name of the stream collection.
                     type: string
                 type: object
               initProvider:
@@ -80,11 +85,14 @@ spec:
                   autoscaler.
                 properties:
                   library:
-                    description: The ID of the stream library to which the collection
-                      belongs.
+                    description: |-
+                      (Number) The ID of the stream library to which the collection belongs.
+                      The ID of the stream library to which the collection belongs.
                     type: number
                   name:
-                    description: The name of the stream collection.
+                    description: |-
+                      (String) The name of the stream collection.
+                      The name of the stream collection.
                     type: string
                 type: object
               managementPolicies:
@@ -160,13 +168,17 @@ spec:
               atProvider:
                 properties:
                   id:
+                    description: (String) The unique identifier for the stream collection.
                     type: string
                   library:
-                    description: The ID of the stream library to which the collection
-                      belongs.
+                    description: |-
+                      (Number) The ID of the stream library to which the collection belongs.
+                      The ID of the stream library to which the collection belongs.
                     type: number
                   name:
-                    description: The name of the stream collection.
+                    description: |-
+                      (String) The name of the stream collection.
+                      The name of the stream collection.
                     type: string
                 type: object
               conditions:

@@ -34,7 +34,9 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Record is the Schema for the Records API. <no value>
+        description: Record is the Schema for the Records API. This resource manages
+          DNS records in a bunny.net DNS zone. It is used to create, update, and delete
+          DNS records within a specific DNS zone managed by bunny.net.
         properties:
           apiVersion:
             description: |-
@@ -59,69 +61,99 @@ spec:
               forProvider:
                 properties:
                   accelerated:
-                    description: Indicates whether the DNS record should utilize bunny.net’s
-                      acceleration services.
+                    description: |-
+                      (Boolean) Indicates whether the DNS record should utilize bunny.net’s acceleration services.
+                      Indicates whether the DNS record should utilize bunny.net’s acceleration services.
                     type: boolean
                   comment:
-                    description: This property allows users to add descriptive notes
-                      for documentation and management purposes.
+                    description: |-
+                      (String) This property allows users to add descriptive notes for documentation and management purposes.
+                      This property allows users to add descriptive notes for documentation and management purposes.
                     type: string
                   enabled:
-                    description: Indicates whether the DNS record is enabled.
+                    description: |-
+                      (Boolean) Indicates whether the DNS record is enabled.
+                      Indicates whether the DNS record is enabled.
                     type: boolean
                   flags:
-                    description: Flags for advanced DNS settings.
+                    description: |-
+                      (Number) Flags for advanced DNS settings.
+                      Flags for advanced DNS settings.
                     type: number
                   geolocationLat:
-                    description: The latitude for geolocation-based routing.
+                    description: |-
+                      based routing.
+                      The latitude for geolocation-based routing.
                     type: number
                   geolocationLong:
-                    description: The longitude for geolocation-based routing.
+                    description: |-
+                      based routing.
+                      The longitude for geolocation-based routing.
                     type: number
                   latencyZone:
-                    description: The latency zone for latency-based routing.
+                    description: |-
+                      based routing.
+                      The latency zone for latency-based routing.
                     type: string
                   monitorType:
-                    description: 'Options: `Http`, `Monitor`, `None`, `Ping`'
+                    description: |-
+                      (String) Options: Http, Monitor, None, Ping
+                      Options: `Http`, `Monitor`, `None`, `Ping`
                     type: string
                   name:
-                    description: The name of the DNS record. Use <code>name = ""</code>
-                      for apex domain records.
+                    description: |-
+                      (String) The name of the DNS record. Use name = "" for apex domain records.
+                      The name of the DNS record. Use <code>name = ""</code> for apex domain records.
                     type: string
                   port:
-                    description: The port number for services that require a specific
-                      port.
+                    description: |-
+                      (Number) The port number for services that require a specific port.
+                      The port number for services that require a specific port.
                     type: number
                   priority:
-                    description: The priority of the DNS record.
+                    description: |-
+                      (Number) The priority of the DNS record.
+                      The priority of the DNS record.
                     type: number
                   pullzoneId:
-                    description: The ID of the linked pullzone.
+                    description: |-
+                      (Number) The ID of the linked pullzone.
+                      The ID of the linked pullzone.
                     type: number
                   smartRoutingType:
-                    description: 'Options: `Geolocation`, `Latency`, `None`'
+                    description: |-
+                      (String) Options: Geolocation, Latency, None
+                      Options: `Geolocation`, `Latency`, `None`
                     type: string
                   tag:
-                    description: A tag for the DNS record.
+                    description: |-
+                      (String) A tag for the DNS record.
+                      A tag for the DNS record.
                     type: string
                   ttl:
-                    description: The time-to-live value for the DNS record.
+                    description: |-
+                      to-live value for the DNS record.
+                      The time-to-live value for the DNS record.
                     type: number
                   type:
-                    description: 'Options: `A`, `AAAA`, `CAA`, `CNAME`, `Flatten`,
-                      `HTTPS`, `MX`, `NS`, `PTR`, `PullZone`, `Redirect`, `SRV`, `SVCB`,
-                      `Script`, `TLSA`, `TXT`'
+                    description: |-
+                      (String) Options: A, AAAA, CAA, CNAME, Flatten, HTTPS, MX, NS, PTR, PullZone, Redirect, SRV, SVCB, Script, TLSA, TXT
+                      Options: `A`, `AAAA`, `CAA`, `CNAME`, `Flatten`, `HTTPS`, `MX`, `NS`, `PTR`, `PullZone`, `Redirect`, `SRV`, `SVCB`, `Script`, `TLSA`, `TXT`
                     type: string
                   value:
-                    description: The value of the DNS record.
+                    description: |-
+                      (String) The value of the DNS record.
+                      The value of the DNS record.
                     type: string
                   weight:
-                    description: The weight of the DNS record. It is used in load
-                      balancing scenarios to distribute traffic based on the specified
-                      weight.
+                    description: |-
+                      (Number) The weight of the DNS record. It is used in load balancing scenarios to distribute traffic based on the specified weight.
+                      The weight of the DNS record. It is used in load balancing scenarios to distribute traffic based on the specified weight.
                     type: number
                   zone:
-                    description: ID of the related DNS zone.
+                    description: |-
+                      (Number) ID of the related DNS zone.
+                      ID of the related DNS zone.
                     type: number
                 type: object
               initProvider:
@@ -138,69 +170,99 @@ spec:
                   autoscaler.
                 properties:
                   accelerated:
-                    description: Indicates whether the DNS record should utilize bunny.net’s
-                      acceleration services.
+                    description: |-
+                      (Boolean) Indicates whether the DNS record should utilize bunny.net’s acceleration services.
+                      Indicates whether the DNS record should utilize bunny.net’s acceleration services.
                     type: boolean
                   comment:
-                    description: This property allows users to add descriptive notes
-                      for documentation and management purposes.
+                    description: |-
+                      (String) This property allows users to add descriptive notes for documentation and management purposes.
+                      This property allows users to add descriptive notes for documentation and management purposes.
                     type: string
                   enabled:
-                    description: Indicates whether the DNS record is enabled.
+                    description: |-
+                      (Boolean) Indicates whether the DNS record is enabled.
+                      Indicates whether the DNS record is enabled.
                     type: boolean
                   flags:
-                    description: Flags for advanced DNS settings.
+                    description: |-
+                      (Number) Flags for advanced DNS settings.
+                      Flags for advanced DNS settings.
                     type: number
                   geolocationLat:
-                    description: The latitude for geolocation-based routing.
+                    description: |-
+                      based routing.
+                      The latitude for geolocation-based routing.
                     type: number
                   geolocationLong:
-                    description: The longitude for geolocation-based routing.
+                    description: |-
+                      based routing.
+                      The longitude for geolocation-based routing.
                     type: number
                   latencyZone:
-                    description: The latency zone for latency-based routing.
+                    description: |-
+                      based routing.
+                      The latency zone for latency-based routing.
                     type: string
                   monitorType:
-                    description: 'Options: `Http`, `Monitor`, `None`, `Ping`'
+                    description: |-
+                      (String) Options: Http, Monitor, None, Ping
+                      Options: `Http`, `Monitor`, `None`, `Ping`
                     type: string
                   name:
-                    description: The name of the DNS record. Use <code>name = ""</code>
-                      for apex domain records.
+                    description: |-
+                      (String) The name of the DNS record. Use name = "" for apex domain records.
+                      The name of the DNS record. Use <code>name = ""</code> for apex domain records.
                     type: string
                   port:
-                    description: The port number for services that require a specific
-                      port.
+                    description: |-
+                      (Number) The port number for services that require a specific port.
+                      The port number for services that require a specific port.
                     type: number
                   priority:
-                    description: The priority of the DNS record.
+                    description: |-
+                      (Number) The priority of the DNS record.
+                      The priority of the DNS record.
                     type: number
                   pullzoneId:
-                    description: The ID of the linked pullzone.
+                    description: |-
+                      (Number) The ID of the linked pullzone.
+                      The ID of the linked pullzone.
                     type: number
                   smartRoutingType:
-                    description: 'Options: `Geolocation`, `Latency`, `None`'
+                    description: |-
+                      (String) Options: Geolocation, Latency, None
+                      Options: `Geolocation`, `Latency`, `None`
                     type: string
                   tag:
-                    description: A tag for the DNS record.
+                    description: |-
+                      (String) A tag for the DNS record.
+                      A tag for the DNS record.
                     type: string
                   ttl:
-                    description: The time-to-live value for the DNS record.
+                    description: |-
+                      to-live value for the DNS record.
+                      The time-to-live value for the DNS record.
                     type: number
                   type:
-                    description: 'Options: `A`, `AAAA`, `CAA`, `CNAME`, `Flatten`,
-                      `HTTPS`, `MX`, `NS`, `PTR`, `PullZone`, `Redirect`, `SRV`, `SVCB`,
-                      `Script`, `TLSA`, `TXT`'
+                    description: |-
+                      (String) Options: A, AAAA, CAA, CNAME, Flatten, HTTPS, MX, NS, PTR, PullZone, Redirect, SRV, SVCB, Script, TLSA, TXT
+                      Options: `A`, `AAAA`, `CAA`, `CNAME`, `Flatten`, `HTTPS`, `MX`, `NS`, `PTR`, `PullZone`, `Redirect`, `SRV`, `SVCB`, `Script`, `TLSA`, `TXT`
                     type: string
                   value:
-                    description: The value of the DNS record.
+                    description: |-
+                      (String) The value of the DNS record.
+                      The value of the DNS record.
                     type: string
                   weight:
-                    description: The weight of the DNS record. It is used in load
-                      balancing scenarios to distribute traffic based on the specified
-                      weight.
+                    description: |-
+                      (Number) The weight of the DNS record. It is used in load balancing scenarios to distribute traffic based on the specified weight.
+                      The weight of the DNS record. It is used in load balancing scenarios to distribute traffic based on the specified weight.
                     type: number
                   zone:
-                    description: ID of the related DNS zone.
+                    description: |-
+                      (Number) ID of the related DNS zone.
+                      ID of the related DNS zone.
                     type: number
                 type: object
               managementPolicies:
@@ -284,77 +346,112 @@ spec:
               atProvider:
                 properties:
                   accelerated:
-                    description: Indicates whether the DNS record should utilize bunny.net’s
-                      acceleration services.
+                    description: |-
+                      (Boolean) Indicates whether the DNS record should utilize bunny.net’s acceleration services.
+                      Indicates whether the DNS record should utilize bunny.net’s acceleration services.
                     type: boolean
                   acceleratedPullzone:
-                    description: The ID of the accelerated pull zone.
+                    description: |-
+                      (Number) The ID of the accelerated pull zone.
+                      The ID of the accelerated pull zone.
                     type: number
                   comment:
-                    description: This property allows users to add descriptive notes
-                      for documentation and management purposes.
+                    description: |-
+                      (String) This property allows users to add descriptive notes for documentation and management purposes.
+                      This property allows users to add descriptive notes for documentation and management purposes.
                     type: string
                   enabled:
-                    description: Indicates whether the DNS record is enabled.
+                    description: |-
+                      (Boolean) Indicates whether the DNS record is enabled.
+                      Indicates whether the DNS record is enabled.
                     type: boolean
                   flags:
-                    description: Flags for advanced DNS settings.
+                    description: |-
+                      (Number) Flags for advanced DNS settings.
+                      Flags for advanced DNS settings.
                     type: number
                   geolocationLat:
-                    description: The latitude for geolocation-based routing.
+                    description: |-
+                      based routing.
+                      The latitude for geolocation-based routing.
                     type: number
                   geolocationLong:
-                    description: The longitude for geolocation-based routing.
+                    description: |-
+                      based routing.
+                      The longitude for geolocation-based routing.
                     type: number
                   id:
+                    description: (Number) The unique identifier for the DNS record.
                     type: string
                   latencyZone:
-                    description: The latency zone for latency-based routing.
+                    description: |-
+                      based routing.
+                      The latency zone for latency-based routing.
                     type: string
                   linkName:
-                    description: The name of the linked resource.
+                    description: |-
+                      (String) The name of the linked resource.
+                      The name of the linked resource.
                     type: string
                   monitorType:
-                    description: 'Options: `Http`, `Monitor`, `None`, `Ping`'
+                    description: |-
+                      (String) Options: Http, Monitor, None, Ping
+                      Options: `Http`, `Monitor`, `None`, `Ping`
                     type: string
                   name:
-                    description: The name of the DNS record. Use <code>name = ""</code>
-                      for apex domain records.
+                    description: |-
+                      (String) The name of the DNS record. Use name = "" for apex domain records.
+                      The name of the DNS record. Use <code>name = ""</code> for apex domain records.
                     type: string
                   port:
-                    description: The port number for services that require a specific
-                      port.
+                    description: |-
+                      (Number) The port number for services that require a specific port.
+                      The port number for services that require a specific port.
                     type: number
                   priority:
-                    description: The priority of the DNS record.
+                    description: |-
+                      (Number) The priority of the DNS record.
+                      The priority of the DNS record.
                     type: number
                   pullzoneId:
-                    description: The ID of the linked pullzone.
+                    description: |-
+                      (Number) The ID of the linked pullzone.
+                      The ID of the linked pullzone.
                     type: number
                   smartRoutingType:
-                    description: 'Options: `Geolocation`, `Latency`, `None`'
+                    description: |-
+                      (String) Options: Geolocation, Latency, None
+                      Options: `Geolocation`, `Latency`, `None`
                     type: string
                   tag:
-                    description: A tag for the DNS record.
+                    description: |-
+                      (String) A tag for the DNS record.
+                      A tag for the DNS record.
                     type: string
                   ttl:
-                    description: The time-to-live value for the DNS record.
+                    description: |-
+                      to-live value for the DNS record.
+                      The time-to-live value for the DNS record.
                     type: number
                   type:
-                    description: 'Options: `A`, `AAAA`, `CAA`, `CNAME`, `Flatten`,
-                      `HTTPS`, `MX`, `NS`, `PTR`, `PullZone`, `Redirect`, `SRV`, `SVCB`,
-                      `Script`, `TLSA`, `TXT`'
+                    description: |-
+                      (String) Options: A, AAAA, CAA, CNAME, Flatten, HTTPS, MX, NS, PTR, PullZone, Redirect, SRV, SVCB, Script, TLSA, TXT
+                      Options: `A`, `AAAA`, `CAA`, `CNAME`, `Flatten`, `HTTPS`, `MX`, `NS`, `PTR`, `PullZone`, `Redirect`, `SRV`, `SVCB`, `Script`, `TLSA`, `TXT`
                     type: string
                   value:
-                    description: The value of the DNS record.
+                    description: |-
+                      (String) The value of the DNS record.
+                      The value of the DNS record.
                     type: string
                   weight:
-                    description: The weight of the DNS record. It is used in load
-                      balancing scenarios to distribute traffic based on the specified
-                      weight.
+                    description: |-
+                      (Number) The weight of the DNS record. It is used in load balancing scenarios to distribute traffic based on the specified weight.
+                      The weight of the DNS record. It is used in load balancing scenarios to distribute traffic based on the specified weight.
                     type: number
                   zone:
-                    description: ID of the related DNS zone.
+                    description: |-
+                      (Number) ID of the related DNS zone.
+                      ID of the related DNS zone.
                     type: number
                 type: object
               conditions:

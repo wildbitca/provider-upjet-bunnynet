@@ -1,0 +1,13 @@
+apiVersion: cdn.upjet-bunnynet.upbound.io/v1alpha1
+kind: Hostname
+metadata:
+  annotations:
+    meta.upbound.io/example-id: cdn/v1alpha1/hostname
+  labels:
+    testing.upbound.io/example-name: bunnynet
+  name: bunnynet
+spec:
+  forProvider:
+    forceSsl: false
+    name: my-pullzone.b-cdn.net
+    pullzone: ${bunnynet_pullzone.example.id}

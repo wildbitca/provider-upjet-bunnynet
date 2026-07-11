@@ -34,8 +34,8 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: ScriptVariable is the Schema for the ScriptVariables API. <no
-          value>
+        description: ScriptVariable is the Schema for the ScriptVariables API. This
+          resource manages an Environment variable for a Compute Script in bunny.net.
         properties:
           apiVersion:
             description: |-
@@ -60,16 +60,24 @@ spec:
               forProvider:
                 properties:
                   defaultValue:
-                    description: The default value of the environment variable.
+                    description: |-
+                      (String) The default value of the environment variable.
+                      The default value of the environment variable.
                     type: string
                   name:
-                    description: The name of the environment variable.
+                    description: |-
+                      (String) The name of the environment variable.
+                      The name of the environment variable.
                     type: string
                   required:
-                    description: Indicates whether the environment variable is required.
+                    description: |-
+                      (Boolean) Indicates whether the environment variable is required.
+                      Indicates whether the environment variable is required.
                     type: boolean
                   script:
-                    description: The ID of the associated compute script.
+                    description: |-
+                      (Number) The ID of the associated compute script.
+                      The ID of the associated compute script.
                     type: number
                 type: object
               initProvider:
@@ -86,16 +94,24 @@ spec:
                   autoscaler.
                 properties:
                   defaultValue:
-                    description: The default value of the environment variable.
+                    description: |-
+                      (String) The default value of the environment variable.
+                      The default value of the environment variable.
                     type: string
                   name:
-                    description: The name of the environment variable.
+                    description: |-
+                      (String) The name of the environment variable.
+                      The name of the environment variable.
                     type: string
                   required:
-                    description: Indicates whether the environment variable is required.
+                    description: |-
+                      (Boolean) Indicates whether the environment variable is required.
+                      Indicates whether the environment variable is required.
                     type: boolean
                   script:
-                    description: The ID of the associated compute script.
+                    description: |-
+                      (Number) The ID of the associated compute script.
+                      The ID of the associated compute script.
                     type: number
                 type: object
               managementPolicies:
@@ -179,18 +195,27 @@ spec:
               atProvider:
                 properties:
                   defaultValue:
-                    description: The default value of the environment variable.
+                    description: |-
+                      (String) The default value of the environment variable.
+                      The default value of the environment variable.
                     type: string
                   id:
+                    description: (Number) The ID of the environment variable.
                     type: string
                   name:
-                    description: The name of the environment variable.
+                    description: |-
+                      (String) The name of the environment variable.
+                      The name of the environment variable.
                     type: string
                   required:
-                    description: Indicates whether the environment variable is required.
+                    description: |-
+                      (Boolean) Indicates whether the environment variable is required.
+                      Indicates whether the environment variable is required.
                     type: boolean
                   script:
-                    description: The ID of the associated compute script.
+                    description: |-
+                      (Number) The ID of the associated compute script.
+                      The ID of the associated compute script.
                     type: number
                 type: object
               conditions:

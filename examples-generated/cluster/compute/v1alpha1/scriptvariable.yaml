@@ -1,0 +1,14 @@
+apiVersion: compute.upjet-bunnynet.upbound.io/v1alpha1
+kind: ScriptVariable
+metadata:
+  annotations:
+    meta.upbound.io/example-id: compute/v1alpha1/scriptvariable
+  labels:
+    testing.upbound.io/example-name: APP_ENV
+  name: app-env
+spec:
+  forProvider:
+    defaultValue: prod
+    name: APP_ENV
+    required: true
+    script: ${bunnynet_compute_script.test.id}

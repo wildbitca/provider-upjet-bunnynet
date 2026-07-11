@@ -15,120 +15,158 @@ import (
 )
 
 type ChaptersInitParameters struct {
+
+	// (String)
 	End *string `json:"end,omitempty" tf:"end"`
 
+	// (String)
 	Start *string `json:"start,omitempty" tf:"start"`
 
+	// (String) The title of the video.
 	Title *string `json:"title,omitempty" tf:"title"`
 }
 
 type ChaptersObservation struct {
+
+	// (String)
 	End *string `json:"end,omitempty" tf:"end,omitempty"`
 
+	// (String)
 	Start *string `json:"start,omitempty" tf:"start,omitempty"`
 
+	// (String) The title of the video.
 	Title *string `json:"title,omitempty" tf:"title,omitempty"`
 }
 
 type ChaptersParameters struct {
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	End *string `json:"end,omitempty" tf:"end"`
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	Start *string `json:"start,omitempty" tf:"start"`
 
+	// (String) The title of the video.
 	// +kubebuilder:validation:Optional
 	Title *string `json:"title,omitempty" tf:"title"`
 }
 
 type MomentsInitParameters struct {
+
+	// (String)
 	Label *string `json:"label,omitempty" tf:"label"`
 
+	// (String)
 	Timestamp *string `json:"timestamp,omitempty" tf:"timestamp"`
 }
 
 type MomentsObservation struct {
+
+	// (String)
 	Label *string `json:"label,omitempty" tf:"label,omitempty"`
 
+	// (String)
 	Timestamp *string `json:"timestamp,omitempty" tf:"timestamp,omitempty"`
 }
 
 type MomentsParameters struct {
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	Label *string `json:"label,omitempty" tf:"label"`
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	Timestamp *string `json:"timestamp,omitempty" tf:"timestamp"`
 }
 
 type VideoInitParameters struct {
 
+	// (Set of Object) The list of chapters available in the video. (see below for nested schema)
 	// The list of chapters available in the video.
 	Chapters []ChaptersInitParameters `json:"chapters,omitempty" tf:"chapters,omitempty"`
 
+	// (String) The ID of the collection to which the video belongs.
 	// The ID of the collection to which the video belongs.
 	Collection *string `json:"collection,omitempty" tf:"collection,omitempty"`
 
+	// (String) The description of the video.
 	// The description of the video.
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// (Number) The ID of the stream library to which the video belongs.
 	// The ID of the stream library to which the video belongs.
 	Library *float64 `json:"library,omitempty" tf:"library,omitempty"`
 
+	// (Set of Object) The list of moments available in the video. (see below for nested schema)
 	// The list of moments available in the video.
 	Moments []MomentsInitParameters `json:"moments,omitempty" tf:"moments,omitempty"`
 
+	// (String) The title of the video.
 	// The title of the video.
 	Title *string `json:"title,omitempty" tf:"title,omitempty"`
 }
 
 type VideoObservation struct {
 
+	// (Set of Object) The list of chapters available in the video. (see below for nested schema)
 	// The list of chapters available in the video.
 	Chapters []ChaptersObservation `json:"chapters,omitempty" tf:"chapters,omitempty"`
 
+	// (String) The ID of the collection to which the video belongs.
 	// The ID of the collection to which the video belongs.
 	Collection *string `json:"collection,omitempty" tf:"collection,omitempty"`
 
+	// (String) The description of the video.
 	// The description of the video.
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// (String) The unique ID of the video.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (Number) The ID of the stream library to which the video belongs.
 	// The ID of the stream library to which the video belongs.
 	Library *float64 `json:"library,omitempty" tf:"library,omitempty"`
 
+	// (Set of Object) The list of moments available in the video. (see below for nested schema)
 	// The list of moments available in the video.
 	Moments []MomentsObservation `json:"moments,omitempty" tf:"moments,omitempty"`
 
+	// (String) The title of the video.
 	// The title of the video.
 	Title *string `json:"title,omitempty" tf:"title,omitempty"`
 }
 
 type VideoParameters struct {
 
+	// (Set of Object) The list of chapters available in the video. (see below for nested schema)
 	// The list of chapters available in the video.
 	// +kubebuilder:validation:Optional
 	Chapters []ChaptersParameters `json:"chapters,omitempty" tf:"chapters,omitempty"`
 
+	// (String) The ID of the collection to which the video belongs.
 	// The ID of the collection to which the video belongs.
 	// +kubebuilder:validation:Optional
 	Collection *string `json:"collection,omitempty" tf:"collection,omitempty"`
 
+	// (String) The description of the video.
 	// The description of the video.
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// (Number) The ID of the stream library to which the video belongs.
 	// The ID of the stream library to which the video belongs.
 	// +kubebuilder:validation:Optional
 	Library *float64 `json:"library,omitempty" tf:"library,omitempty"`
 
+	// (Set of Object) The list of moments available in the video. (see below for nested schema)
 	// The list of moments available in the video.
 	// +kubebuilder:validation:Optional
 	Moments []MomentsParameters `json:"moments,omitempty" tf:"moments,omitempty"`
 
+	// (String) The title of the video.
 	// The title of the video.
 	// +kubebuilder:validation:Optional
 	Title *string `json:"title,omitempty" tf:"title,omitempty"`
@@ -161,7 +199,7 @@ type VideoStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Video is the Schema for the Videos API. <no value>
+// Video is the Schema for the Videos API. This resource manages individual video files in bunny.net Stream. It is used to manage individual video files in a stream library.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

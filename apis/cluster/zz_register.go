@@ -10,7 +10,8 @@ package cluster
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha1 "github.com/wildbitca/provider-upjet-bunnynet/apis/cluster/cdn/v1alpha1"
+	v1alpha1 "github.com/wildbitca/provider-upjet-bunnynet/apis/cluster/account/v1alpha1"
+	v1alpha1cdn "github.com/wildbitca/provider-upjet-bunnynet/apis/cluster/cdn/v1alpha1"
 	v1alpha1compute "github.com/wildbitca/provider-upjet-bunnynet/apis/cluster/compute/v1alpha1"
 	v1alpha1dns "github.com/wildbitca/provider-upjet-bunnynet/apis/cluster/dns/v1alpha1"
 	v1alpha1storage "github.com/wildbitca/provider-upjet-bunnynet/apis/cluster/storage/v1alpha1"
@@ -23,6 +24,7 @@ func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
 		v1alpha1.SchemeBuilder.AddToScheme,
+		v1alpha1cdn.SchemeBuilder.AddToScheme,
 		v1alpha1compute.SchemeBuilder.AddToScheme,
 		v1alpha1dns.SchemeBuilder.AddToScheme,
 		v1alpha1storage.SchemeBuilder.AddToScheme,

@@ -34,7 +34,8 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: ContainerApp is the Schema for the ContainerApps API. <no value>
+        description: ContainerApp is the Schema for the ContainerApps API. This resource
+          manages a Magic Containers application in bunny.net.
         properties:
           apiVersion:
             description: |-
@@ -59,45 +60,58 @@ spec:
               forProvider:
                 properties:
                   autoscalingMax:
-                    description: The maximum number of instances that will be provisioned
-                      per active region.
+                    description: |-
+                      (Number) The maximum number of instances that will be provisioned per active region.
+                      The maximum number of instances that will be provisioned per active region.
                     type: number
                   autoscalingMin:
-                    description: The minimum number of instances that will be provisioned
-                      per active region.
+                    description: |-
+                      (Number) The minimum number of instances that will be provisioned per active region.
+                      The minimum number of instances that will be provisioned per active region.
                     type: number
                   container:
-                    description: Defines a container for the application.
+                    description: |-
+                      (Block List) Defines a container for the application. (see below for nested schema)
+                      Defines a container for the application.
                     items:
                       properties:
                         arguments:
-                          description: The arguments that will be added to the container
-                            entry point when starting the image.
+                          description: |-
+                            (String) The arguments that will be added to the container entry point when starting the image.
+                            The arguments that will be added to the container entry point when starting the image.
                           type: string
                         command:
-                          description: A custom startup command that will execute
-                            once the container is launched.
+                          description: |-
+                            (String) A custom startup command that will execute once the container is launched.
+                            A custom startup command that will execute once the container is launched.
                           type: string
                         endpoint:
-                          description: Defines a public endpoint for the application.
+                          description: |-
+                            (Block List) Defines a public endpoint for the application. (see below for nested schema)
+                            Defines a public endpoint for the application.
                           items:
                             properties:
                               cdn:
-                                description: Configurations for CDN endpoint.
+                                description: |-
+                                  (Block List) Configurations for CDN endpoint. (see below for nested schema)
+                                  Configurations for CDN endpoint.
                                 items:
                                   properties:
                                     originSsl:
-                                      description: Indicates whether the container
-                                        will handle TLS termination.
+                                      description: |-
+                                        (Boolean) Indicates whether the container will handle TLS termination.
+                                        Indicates whether the container will handle TLS termination.
                                       type: boolean
                                     stickySessions:
-                                      description: Indicates whether sticky sessions
-                                        is enabled.
+                                      description: |-
+                                        (Block List) Indicates whether sticky sessions is enabled. (see below for nested schema)
+                                        Indicates whether sticky sessions is enabled.
                                       items:
                                         properties:
                                           headers:
-                                            description: Incoming request headers
-                                              used to select a pod for sticky sessions.
+                                            description: |-
+                                              (Set of String) Incoming request headers used to select a pod for sticky sessions.
+                                              Incoming request headers used to select a pod for sticky sessions.
                                             items:
                                               type: string
                                             type: array
@@ -107,20 +121,30 @@ spec:
                                   type: object
                                 type: array
                               name:
-                                description: The name of the endpoint.
+                                description: |-
+                                  (String) The name of the application.
+                                  The name of the endpoint.
                                 type: string
                               port:
-                                description: Endpoint port configuration.
+                                description: |-
+                                  (Block List) Endpoint port configuration. (see below for nested schema)
+                                  Endpoint port configuration.
                                 items:
                                   properties:
                                     container:
-                                      description: The container port number.
+                                      description: |-
+                                        (Block List) Defines a container for the application. (see below for nested schema)
+                                        The container port number.
                                       type: number
                                     exposed:
-                                      description: The exposed port number.
+                                      description: |-
+                                        (Number) The exposed port number.
+                                        The exposed port number.
                                       type: number
                                     protocols:
-                                      description: 'Options: `SCTP`, `TCP`, `UDP`'
+                                      description: |-
+                                        (Set of String) Options: SCTP, TCP, UDP
+                                        Options: `SCTP`, `TCP`, `UDP`
                                       items:
                                         type: string
                                       type: array
@@ -128,273 +152,356 @@ spec:
                                   type: object
                                 type: array
                               type:
-                                description: 'Options: `Anycast`, `CDN`, `InternalIP`'
+                                description: |-
+                                  (String) Options: Anycast, CDN, InternalIP
+                                  Options: `Anycast`, `CDN`, `InternalIP`
                                 type: string
                             type: object
                           type: array
                         env:
-                          description: Defines an environment variable for the container
+                          description: |-
+                            (Block List) Defines an environment variable for the container (see below for nested schema)
+                            Defines an environment variable for the container
                           items:
                             properties:
                               name:
-                                description: The name of the environment variable.
+                                description: |-
+                                  (String) The name of the application.
+                                  The name of the environment variable.
                                 type: string
                               value:
-                                description: The value of the environment variable.
+                                description: |-
+                                  (String) The value of the environment variable.
+                                  The value of the environment variable.
                                 type: string
                             type: object
                           type: array
                         imageDigest:
-                          description: The image digest.
+                          description: |-
+                            (String) The image digest.
+                            The image digest.
                           type: string
                         imageName:
-                          description: 'The image name within the registry, without
-                            the domain prefix (i.e.: `my-app`).'
+                          description: |-
+                            app).
+                            The image name within the registry, without the domain prefix (i.e.: `my-app`).
                           type: string
                         imageNamespace:
-                          description: 'The image namespace within the registry, without
-                            the domain prefix (i.e.: `my-org`).'
+                          description: |-
+                            org).
+                            The image namespace within the registry, without the domain prefix (i.e.: `my-org`).
                           type: string
                         imagePullPolicy:
-                          description: 'Options: `Always`, `IfNotPresent`'
+                          description: |-
+                            (String) Options: Always, IfNotPresent
+                            Options: `Always`, `IfNotPresent`
                           type: string
                         imageRegistry:
-                          description: The image registry for the container.
+                          description: |-
+                            (Number) The image registry for the container.
+                            The image registry for the container.
                           type: number
                         imageTag:
-                          description: 'The image tag (i.e.: `2.9-alpine`).'
+                          description: |-
+                            alpine).
+                            The image tag (i.e.: `2.9-alpine`).
                           type: string
                         livenessProbe:
-                          description: Checks that the application is actively running
-                            without issues. It the check fails, the container will
-                            be automatically restarted
+                          description: |-
+                            (Block List) Checks that the application is actively running without issues. It the check fails, the container will be automatically restarted (see below for nested schema)
+                            Checks that the application is actively running without issues. It the check fails, the container will be automatically restarted
                           items:
                             properties:
                               failureThreshold:
-                                description: The number of failed probes to consider
-                                  the container unhealthy.
+                                description: |-
+                                  (Number) The number of failed probes to consider the container unhealthy.
+                                  The number of failed probes to consider the container unhealthy.
                                 type: number
                               grpc:
-                                description: gRPC-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  gRPC-specific configurations.
                                 items:
                                   properties:
                                     service:
-                                      description: The gRPC service name.
+                                      description: |-
+                                        (String) The gRPC service name.
+                                        The gRPC service name.
                                       type: string
                                   type: object
                                 type: array
                               http:
-                                description: HTTP-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  HTTP-specific configurations.
                                 items:
                                   properties:
                                     expectedStatus:
-                                      description: The expected HTTP response status
-                                        code.
+                                      description: |-
+                                        (Number) The expected HTTP response status code.
+                                        The expected HTTP response status code.
                                       type: number
                                     path:
-                                      description: The HTTP path to be requested.
+                                      description: |-
+                                        (String) The HTTP path to be requested.
+                                        The HTTP path to be requested.
                                       type: string
                                   type: object
                                 type: array
                               initialDelay:
-                                description: The amount of time in seconds after the
-                                  container is started to wait before the first probe
-                                  is sent.
+                                description: |-
+                                  (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
+                                  The amount of time in seconds after the container is started to wait before the first probe is sent.
                                 type: number
                               period:
-                                description: The amount of time in seconds between
-                                  each probe.
+                                description: |-
+                                  (Number) The amount of time in seconds between each probe.
+                                  The amount of time in seconds between each probe.
                                 type: number
                               port:
-                                description: The port within the container the probe
-                                  will connect to.
+                                description: |-
+                                  (Block List) Endpoint port configuration. (see below for nested schema)
+                                  The port within the container the probe will connect to.
                                 type: number
                               successThreshold:
-                                description: The number of successful probes to consider
-                                  the container healthy.
+                                description: |-
+                                  (Number) The number of successful probes to consider the container healthy.
+                                  The number of successful probes to consider the container healthy.
                                 type: number
                               timeout:
-                                description: The amount of time in seconds the probe
-                                  will wait for a response before considering it a
-                                  failure.
+                                description: |-
+                                  (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
+                                  The amount of time in seconds the probe will wait for a response before considering it a failure.
                                 type: number
                               type:
-                                description: 'Options: `grpc`, `http`, `tcp`'
+                                description: |-
+                                  (String) Options: Anycast, CDN, InternalIP
+                                  Options: `grpc`, `http`, `tcp`
                                 type: string
                             type: object
                           type: array
                         name:
-                          description: The name of the container.
+                          description: |-
+                            (String) The name of the application.
+                            The name of the container.
                           type: string
                         readinessProbe:
-                          description: Checks if the application is fully prepared
-                            to handle incoming requests. No requests will be routed
-                            to the application until this check is successful.
+                          description: |-
+                            (Block List) Checks if the application is fully prepared to handle incoming requests. No requests will be routed to the application until this check is successful. (see below for nested schema)
+                            Checks if the application is fully prepared to handle incoming requests. No requests will be routed to the application until this check is successful.
                           items:
                             properties:
                               failureThreshold:
-                                description: The number of failed probes to consider
-                                  the container unhealthy.
+                                description: |-
+                                  (Number) The number of failed probes to consider the container unhealthy.
+                                  The number of failed probes to consider the container unhealthy.
                                 type: number
                               grpc:
-                                description: gRPC-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  gRPC-specific configurations.
                                 items:
                                   properties:
                                     service:
-                                      description: The gRPC service name.
+                                      description: |-
+                                        (String) The gRPC service name.
+                                        The gRPC service name.
                                       type: string
                                   type: object
                                 type: array
                               http:
-                                description: HTTP-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  HTTP-specific configurations.
                                 items:
                                   properties:
                                     expectedStatus:
-                                      description: The expected HTTP response status
-                                        code.
+                                      description: |-
+                                        (Number) The expected HTTP response status code.
+                                        The expected HTTP response status code.
                                       type: number
                                     path:
-                                      description: The HTTP path to be requested.
+                                      description: |-
+                                        (String) The HTTP path to be requested.
+                                        The HTTP path to be requested.
                                       type: string
                                   type: object
                                 type: array
                               initialDelay:
-                                description: The amount of time in seconds after the
-                                  container is started to wait before the first probe
-                                  is sent.
+                                description: |-
+                                  (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
+                                  The amount of time in seconds after the container is started to wait before the first probe is sent.
                                 type: number
                               period:
-                                description: The amount of time in seconds between
-                                  each probe.
+                                description: |-
+                                  (Number) The amount of time in seconds between each probe.
+                                  The amount of time in seconds between each probe.
                                 type: number
                               port:
-                                description: The port within the container the probe
-                                  will connect to.
+                                description: |-
+                                  (Block List) Endpoint port configuration. (see below for nested schema)
+                                  The port within the container the probe will connect to.
                                 type: number
                               successThreshold:
-                                description: The number of successful probes to consider
-                                  the container healthy.
+                                description: |-
+                                  (Number) The number of successful probes to consider the container healthy.
+                                  The number of successful probes to consider the container healthy.
                                 type: number
                               timeout:
-                                description: The amount of time in seconds the probe
-                                  will wait for a response before considering it a
-                                  failure.
+                                description: |-
+                                  (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
+                                  The amount of time in seconds the probe will wait for a response before considering it a failure.
                                 type: number
                               type:
-                                description: 'Options: `grpc`, `http`, `tcp`'
+                                description: |-
+                                  (String) Options: Anycast, CDN, InternalIP
+                                  Options: `grpc`, `http`, `tcp`
                                 type: string
                             type: object
                           type: array
                         startupProbe:
-                          description: Checks if the application has successfully
-                            started. No requests will be routed to the application
-                            until this check is successful.
+                          description: |-
+                            (Block List) Checks if the application has successfully started. No requests will be routed to the application until this check is successful. (see below for nested schema)
+                            Checks if the application has successfully started. No requests will be routed to the application until this check is successful.
                           items:
                             properties:
                               failureThreshold:
-                                description: The number of failed probes to consider
-                                  the container unhealthy.
+                                description: |-
+                                  (Number) The number of failed probes to consider the container unhealthy.
+                                  The number of failed probes to consider the container unhealthy.
                                 type: number
                               grpc:
-                                description: gRPC-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  gRPC-specific configurations.
                                 items:
                                   properties:
                                     service:
-                                      description: The gRPC service name.
+                                      description: |-
+                                        (String) The gRPC service name.
+                                        The gRPC service name.
                                       type: string
                                   type: object
                                 type: array
                               http:
-                                description: HTTP-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  HTTP-specific configurations.
                                 items:
                                   properties:
                                     expectedStatus:
-                                      description: The expected HTTP response status
-                                        code.
+                                      description: |-
+                                        (Number) The expected HTTP response status code.
+                                        The expected HTTP response status code.
                                       type: number
                                     path:
-                                      description: The HTTP path to be requested.
+                                      description: |-
+                                        (String) The HTTP path to be requested.
+                                        The HTTP path to be requested.
                                       type: string
                                   type: object
                                 type: array
                               initialDelay:
-                                description: The amount of time in seconds after the
-                                  container is started to wait before the first probe
-                                  is sent.
+                                description: |-
+                                  (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
+                                  The amount of time in seconds after the container is started to wait before the first probe is sent.
                                 type: number
                               period:
-                                description: The amount of time in seconds between
-                                  each probe.
+                                description: |-
+                                  (Number) The amount of time in seconds between each probe.
+                                  The amount of time in seconds between each probe.
                                 type: number
                               port:
-                                description: The port within the container the probe
-                                  will connect to.
+                                description: |-
+                                  (Block List) Endpoint port configuration. (see below for nested schema)
+                                  The port within the container the probe will connect to.
                                 type: number
                               successThreshold:
-                                description: The number of successful probes to consider
-                                  the container healthy.
+                                description: |-
+                                  (Number) The number of successful probes to consider the container healthy.
+                                  The number of successful probes to consider the container healthy.
                                 type: number
                               timeout:
-                                description: The amount of time in seconds the probe
-                                  will wait for a response before considering it a
-                                  failure.
+                                description: |-
+                                  (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
+                                  The amount of time in seconds the probe will wait for a response before considering it a failure.
                                 type: number
                               type:
-                                description: 'Options: `grpc`, `http`, `tcp`'
+                                description: |-
+                                  (String) Options: Anycast, CDN, InternalIP
+                                  Options: `grpc`, `http`, `tcp`
                                 type: string
                             type: object
                           type: array
                         volumemount:
-                          description: Mounts a volume within a container
+                          description: |-
+                            (Block List) Mounts a volume within a container (see below for nested schema)
+                            Mounts a volume within a container
                           items:
                             properties:
                               name:
-                                description: The name of the volume.
+                                description: |-
+                                  (String) The name of the application.
+                                  The name of the volume.
                                 type: string
                               path:
-                                description: The path within the container where the
-                                  volume will be mounted.
+                                description: |-
+                                  (String) The HTTP path to be requested.
+                                  The path within the container where the volume will be mounted.
                                 type: string
                             type: object
                           type: array
                         workingDir:
-                          description: The working directory of the container runtime.
+                          description: |-
+                            (String) The working directory of the container runtime.
+                            The working directory of the container runtime.
                           type: string
                       type: object
                     type: array
                   name:
-                    description: The name of the application.
+                    description: |-
+                      (String) The name of the application.
+                      The name of the application.
                     type: string
                   regionsAllowed:
-                    description: The regions that will be dynamically provisionable
-                      based on the user latency.
+                    description: |-
+                      (Set of String) The regions that will be dynamically provisionable based on the user latency.
+                      The regions that will be dynamically provisionable based on the user latency.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   regionsMaxAllowed:
-                    description: The maximum amount of regions to be deployed at any
-                      given time.
+                    description: |-
+                      (Number) The maximum amount of regions to be deployed at any given time.
+                      The maximum amount of regions to be deployed at any given time.
                     type: number
                   regionsRequired:
-                    description: The regions that will be statically provisioned and
-                      will always be running and available to users.
+                    description: |-
+                      (Set of String) The regions that will be statically provisioned and will always be running and available to users.
+                      The regions that will be statically provisioned and will always be running and available to users.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   version:
+                    description: (Number)
                     type: number
                   volume:
-                    description: Defines a persistent volume to be used by the application.
+                    description: |-
+                      (Block List) Defines a persistent volume to be used by the application. (see below for nested schema)
+                      Defines a persistent volume to be used by the application.
                     items:
                       properties:
                         name:
-                          description: The name of the volume.
+                          description: |-
+                            (String) The name of the application.
+                            The name of the volume.
                           type: string
                         size:
-                          description: The size of the volume, in Gigabytes (10^9
-                            bytes).
+                          description: |-
+                            (Number) The size of the volume, in Gigabytes (10^9 bytes).
+                            The size of the volume, in Gigabytes (10^9 bytes).
                           type: number
                       type: object
                     type: array
@@ -413,45 +520,58 @@ spec:
                   autoscaler.
                 properties:
                   autoscalingMax:
-                    description: The maximum number of instances that will be provisioned
-                      per active region.
+                    description: |-
+                      (Number) The maximum number of instances that will be provisioned per active region.
+                      The maximum number of instances that will be provisioned per active region.
                     type: number
                   autoscalingMin:
-                    description: The minimum number of instances that will be provisioned
-                      per active region.
+                    description: |-
+                      (Number) The minimum number of instances that will be provisioned per active region.
+                      The minimum number of instances that will be provisioned per active region.
                     type: number
                   container:
-                    description: Defines a container for the application.
+                    description: |-
+                      (Block List) Defines a container for the application. (see below for nested schema)
+                      Defines a container for the application.
                     items:
                       properties:
                         arguments:
-                          description: The arguments that will be added to the container
-                            entry point when starting the image.
+                          description: |-
+                            (String) The arguments that will be added to the container entry point when starting the image.
+                            The arguments that will be added to the container entry point when starting the image.
                           type: string
                         command:
-                          description: A custom startup command that will execute
-                            once the container is launched.
+                          description: |-
+                            (String) A custom startup command that will execute once the container is launched.
+                            A custom startup command that will execute once the container is launched.
                           type: string
                         endpoint:
-                          description: Defines a public endpoint for the application.
+                          description: |-
+                            (Block List) Defines a public endpoint for the application. (see below for nested schema)
+                            Defines a public endpoint for the application.
                           items:
                             properties:
                               cdn:
-                                description: Configurations for CDN endpoint.
+                                description: |-
+                                  (Block List) Configurations for CDN endpoint. (see below for nested schema)
+                                  Configurations for CDN endpoint.
                                 items:
                                   properties:
                                     originSsl:
-                                      description: Indicates whether the container
-                                        will handle TLS termination.
+                                      description: |-
+                                        (Boolean) Indicates whether the container will handle TLS termination.
+                                        Indicates whether the container will handle TLS termination.
                                       type: boolean
                                     stickySessions:
-                                      description: Indicates whether sticky sessions
-                                        is enabled.
+                                      description: |-
+                                        (Block List) Indicates whether sticky sessions is enabled. (see below for nested schema)
+                                        Indicates whether sticky sessions is enabled.
                                       items:
                                         properties:
                                           headers:
-                                            description: Incoming request headers
-                                              used to select a pod for sticky sessions.
+                                            description: |-
+                                              (Set of String) Incoming request headers used to select a pod for sticky sessions.
+                                              Incoming request headers used to select a pod for sticky sessions.
                                             items:
                                               type: string
                                             type: array
@@ -461,20 +581,30 @@ spec:
                                   type: object
                                 type: array
                               name:
-                                description: The name of the endpoint.
+                                description: |-
+                                  (String) The name of the application.
+                                  The name of the endpoint.
                                 type: string
                               port:
-                                description: Endpoint port configuration.
+                                description: |-
+                                  (Block List) Endpoint port configuration. (see below for nested schema)
+                                  Endpoint port configuration.
                                 items:
                                   properties:
                                     container:
-                                      description: The container port number.
+                                      description: |-
+                                        (Block List) Defines a container for the application. (see below for nested schema)
+                                        The container port number.
                                       type: number
                                     exposed:
-                                      description: The exposed port number.
+                                      description: |-
+                                        (Number) The exposed port number.
+                                        The exposed port number.
                                       type: number
                                     protocols:
-                                      description: 'Options: `SCTP`, `TCP`, `UDP`'
+                                      description: |-
+                                        (Set of String) Options: SCTP, TCP, UDP
+                                        Options: `SCTP`, `TCP`, `UDP`
                                       items:
                                         type: string
                                       type: array
@@ -482,273 +612,356 @@ spec:
                                   type: object
                                 type: array
                               type:
-                                description: 'Options: `Anycast`, `CDN`, `InternalIP`'
+                                description: |-
+                                  (String) Options: Anycast, CDN, InternalIP
+                                  Options: `Anycast`, `CDN`, `InternalIP`
                                 type: string
                             type: object
                           type: array
                         env:
-                          description: Defines an environment variable for the container
+                          description: |-
+                            (Block List) Defines an environment variable for the container (see below for nested schema)
+                            Defines an environment variable for the container
                           items:
                             properties:
                               name:
-                                description: The name of the environment variable.
+                                description: |-
+                                  (String) The name of the application.
+                                  The name of the environment variable.
                                 type: string
                               value:
-                                description: The value of the environment variable.
+                                description: |-
+                                  (String) The value of the environment variable.
+                                  The value of the environment variable.
                                 type: string
                             type: object
                           type: array
                         imageDigest:
-                          description: The image digest.
+                          description: |-
+                            (String) The image digest.
+                            The image digest.
                           type: string
                         imageName:
-                          description: 'The image name within the registry, without
-                            the domain prefix (i.e.: `my-app`).'
+                          description: |-
+                            app).
+                            The image name within the registry, without the domain prefix (i.e.: `my-app`).
                           type: string
                         imageNamespace:
-                          description: 'The image namespace within the registry, without
-                            the domain prefix (i.e.: `my-org`).'
+                          description: |-
+                            org).
+                            The image namespace within the registry, without the domain prefix (i.e.: `my-org`).
                           type: string
                         imagePullPolicy:
-                          description: 'Options: `Always`, `IfNotPresent`'
+                          description: |-
+                            (String) Options: Always, IfNotPresent
+                            Options: `Always`, `IfNotPresent`
                           type: string
                         imageRegistry:
-                          description: The image registry for the container.
+                          description: |-
+                            (Number) The image registry for the container.
+                            The image registry for the container.
                           type: number
                         imageTag:
-                          description: 'The image tag (i.e.: `2.9-alpine`).'
+                          description: |-
+                            alpine).
+                            The image tag (i.e.: `2.9-alpine`).
                           type: string
                         livenessProbe:
-                          description: Checks that the application is actively running
-                            without issues. It the check fails, the container will
-                            be automatically restarted
+                          description: |-
+                            (Block List) Checks that the application is actively running without issues. It the check fails, the container will be automatically restarted (see below for nested schema)
+                            Checks that the application is actively running without issues. It the check fails, the container will be automatically restarted
                           items:
                             properties:
                               failureThreshold:
-                                description: The number of failed probes to consider
-                                  the container unhealthy.
+                                description: |-
+                                  (Number) The number of failed probes to consider the container unhealthy.
+                                  The number of failed probes to consider the container unhealthy.
                                 type: number
                               grpc:
-                                description: gRPC-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  gRPC-specific configurations.
                                 items:
                                   properties:
                                     service:
-                                      description: The gRPC service name.
+                                      description: |-
+                                        (String) The gRPC service name.
+                                        The gRPC service name.
                                       type: string
                                   type: object
                                 type: array
                               http:
-                                description: HTTP-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  HTTP-specific configurations.
                                 items:
                                   properties:
                                     expectedStatus:
-                                      description: The expected HTTP response status
-                                        code.
+                                      description: |-
+                                        (Number) The expected HTTP response status code.
+                                        The expected HTTP response status code.
                                       type: number
                                     path:
-                                      description: The HTTP path to be requested.
+                                      description: |-
+                                        (String) The HTTP path to be requested.
+                                        The HTTP path to be requested.
                                       type: string
                                   type: object
                                 type: array
                               initialDelay:
-                                description: The amount of time in seconds after the
-                                  container is started to wait before the first probe
-                                  is sent.
+                                description: |-
+                                  (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
+                                  The amount of time in seconds after the container is started to wait before the first probe is sent.
                                 type: number
                               period:
-                                description: The amount of time in seconds between
-                                  each probe.
+                                description: |-
+                                  (Number) The amount of time in seconds between each probe.
+                                  The amount of time in seconds between each probe.
                                 type: number
                               port:
-                                description: The port within the container the probe
-                                  will connect to.
+                                description: |-
+                                  (Block List) Endpoint port configuration. (see below for nested schema)
+                                  The port within the container the probe will connect to.
                                 type: number
                               successThreshold:
-                                description: The number of successful probes to consider
-                                  the container healthy.
+                                description: |-
+                                  (Number) The number of successful probes to consider the container healthy.
+                                  The number of successful probes to consider the container healthy.
                                 type: number
                               timeout:
-                                description: The amount of time in seconds the probe
-                                  will wait for a response before considering it a
-                                  failure.
+                                description: |-
+                                  (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
+                                  The amount of time in seconds the probe will wait for a response before considering it a failure.
                                 type: number
                               type:
-                                description: 'Options: `grpc`, `http`, `tcp`'
+                                description: |-
+                                  (String) Options: Anycast, CDN, InternalIP
+                                  Options: `grpc`, `http`, `tcp`
                                 type: string
                             type: object
                           type: array
                         name:
-                          description: The name of the container.
+                          description: |-
+                            (String) The name of the application.
+                            The name of the container.
                           type: string
                         readinessProbe:
-                          description: Checks if the application is fully prepared
-                            to handle incoming requests. No requests will be routed
-                            to the application until this check is successful.
+                          description: |-
+                            (Block List) Checks if the application is fully prepared to handle incoming requests. No requests will be routed to the application until this check is successful. (see below for nested schema)
+                            Checks if the application is fully prepared to handle incoming requests. No requests will be routed to the application until this check is successful.
                           items:
                             properties:
                               failureThreshold:
-                                description: The number of failed probes to consider
-                                  the container unhealthy.
+                                description: |-
+                                  (Number) The number of failed probes to consider the container unhealthy.
+                                  The number of failed probes to consider the container unhealthy.
                                 type: number
                               grpc:
-                                description: gRPC-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  gRPC-specific configurations.
                                 items:
                                   properties:
                                     service:
-                                      description: The gRPC service name.
+                                      description: |-
+                                        (String) The gRPC service name.
+                                        The gRPC service name.
                                       type: string
                                   type: object
                                 type: array
                               http:
-                                description: HTTP-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  HTTP-specific configurations.
                                 items:
                                   properties:
                                     expectedStatus:
-                                      description: The expected HTTP response status
-                                        code.
+                                      description: |-
+                                        (Number) The expected HTTP response status code.
+                                        The expected HTTP response status code.
                                       type: number
                                     path:
-                                      description: The HTTP path to be requested.
+                                      description: |-
+                                        (String) The HTTP path to be requested.
+                                        The HTTP path to be requested.
                                       type: string
                                   type: object
                                 type: array
                               initialDelay:
-                                description: The amount of time in seconds after the
-                                  container is started to wait before the first probe
-                                  is sent.
+                                description: |-
+                                  (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
+                                  The amount of time in seconds after the container is started to wait before the first probe is sent.
                                 type: number
                               period:
-                                description: The amount of time in seconds between
-                                  each probe.
+                                description: |-
+                                  (Number) The amount of time in seconds between each probe.
+                                  The amount of time in seconds between each probe.
                                 type: number
                               port:
-                                description: The port within the container the probe
-                                  will connect to.
+                                description: |-
+                                  (Block List) Endpoint port configuration. (see below for nested schema)
+                                  The port within the container the probe will connect to.
                                 type: number
                               successThreshold:
-                                description: The number of successful probes to consider
-                                  the container healthy.
+                                description: |-
+                                  (Number) The number of successful probes to consider the container healthy.
+                                  The number of successful probes to consider the container healthy.
                                 type: number
                               timeout:
-                                description: The amount of time in seconds the probe
-                                  will wait for a response before considering it a
-                                  failure.
+                                description: |-
+                                  (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
+                                  The amount of time in seconds the probe will wait for a response before considering it a failure.
                                 type: number
                               type:
-                                description: 'Options: `grpc`, `http`, `tcp`'
+                                description: |-
+                                  (String) Options: Anycast, CDN, InternalIP
+                                  Options: `grpc`, `http`, `tcp`
                                 type: string
                             type: object
                           type: array
                         startupProbe:
-                          description: Checks if the application has successfully
-                            started. No requests will be routed to the application
-                            until this check is successful.
+                          description: |-
+                            (Block List) Checks if the application has successfully started. No requests will be routed to the application until this check is successful. (see below for nested schema)
+                            Checks if the application has successfully started. No requests will be routed to the application until this check is successful.
                           items:
                             properties:
                               failureThreshold:
-                                description: The number of failed probes to consider
-                                  the container unhealthy.
+                                description: |-
+                                  (Number) The number of failed probes to consider the container unhealthy.
+                                  The number of failed probes to consider the container unhealthy.
                                 type: number
                               grpc:
-                                description: gRPC-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  gRPC-specific configurations.
                                 items:
                                   properties:
                                     service:
-                                      description: The gRPC service name.
+                                      description: |-
+                                        (String) The gRPC service name.
+                                        The gRPC service name.
                                       type: string
                                   type: object
                                 type: array
                               http:
-                                description: HTTP-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  HTTP-specific configurations.
                                 items:
                                   properties:
                                     expectedStatus:
-                                      description: The expected HTTP response status
-                                        code.
+                                      description: |-
+                                        (Number) The expected HTTP response status code.
+                                        The expected HTTP response status code.
                                       type: number
                                     path:
-                                      description: The HTTP path to be requested.
+                                      description: |-
+                                        (String) The HTTP path to be requested.
+                                        The HTTP path to be requested.
                                       type: string
                                   type: object
                                 type: array
                               initialDelay:
-                                description: The amount of time in seconds after the
-                                  container is started to wait before the first probe
-                                  is sent.
+                                description: |-
+                                  (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
+                                  The amount of time in seconds after the container is started to wait before the first probe is sent.
                                 type: number
                               period:
-                                description: The amount of time in seconds between
-                                  each probe.
+                                description: |-
+                                  (Number) The amount of time in seconds between each probe.
+                                  The amount of time in seconds between each probe.
                                 type: number
                               port:
-                                description: The port within the container the probe
-                                  will connect to.
+                                description: |-
+                                  (Block List) Endpoint port configuration. (see below for nested schema)
+                                  The port within the container the probe will connect to.
                                 type: number
                               successThreshold:
-                                description: The number of successful probes to consider
-                                  the container healthy.
+                                description: |-
+                                  (Number) The number of successful probes to consider the container healthy.
+                                  The number of successful probes to consider the container healthy.
                                 type: number
                               timeout:
-                                description: The amount of time in seconds the probe
-                                  will wait for a response before considering it a
-                                  failure.
+                                description: |-
+                                  (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
+                                  The amount of time in seconds the probe will wait for a response before considering it a failure.
                                 type: number
                               type:
-                                description: 'Options: `grpc`, `http`, `tcp`'
+                                description: |-
+                                  (String) Options: Anycast, CDN, InternalIP
+                                  Options: `grpc`, `http`, `tcp`
                                 type: string
                             type: object
                           type: array
                         volumemount:
-                          description: Mounts a volume within a container
+                          description: |-
+                            (Block List) Mounts a volume within a container (see below for nested schema)
+                            Mounts a volume within a container
                           items:
                             properties:
                               name:
-                                description: The name of the volume.
+                                description: |-
+                                  (String) The name of the application.
+                                  The name of the volume.
                                 type: string
                               path:
-                                description: The path within the container where the
-                                  volume will be mounted.
+                                description: |-
+                                  (String) The HTTP path to be requested.
+                                  The path within the container where the volume will be mounted.
                                 type: string
                             type: object
                           type: array
                         workingDir:
-                          description: The working directory of the container runtime.
+                          description: |-
+                            (String) The working directory of the container runtime.
+                            The working directory of the container runtime.
                           type: string
                       type: object
                     type: array
                   name:
-                    description: The name of the application.
+                    description: |-
+                      (String) The name of the application.
+                      The name of the application.
                     type: string
                   regionsAllowed:
-                    description: The regions that will be dynamically provisionable
-                      based on the user latency.
+                    description: |-
+                      (Set of String) The regions that will be dynamically provisionable based on the user latency.
+                      The regions that will be dynamically provisionable based on the user latency.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   regionsMaxAllowed:
-                    description: The maximum amount of regions to be deployed at any
-                      given time.
+                    description: |-
+                      (Number) The maximum amount of regions to be deployed at any given time.
+                      The maximum amount of regions to be deployed at any given time.
                     type: number
                   regionsRequired:
-                    description: The regions that will be statically provisioned and
-                      will always be running and available to users.
+                    description: |-
+                      (Set of String) The regions that will be statically provisioned and will always be running and available to users.
+                      The regions that will be statically provisioned and will always be running and available to users.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   version:
+                    description: (Number)
                     type: number
                   volume:
-                    description: Defines a persistent volume to be used by the application.
+                    description: |-
+                      (Block List) Defines a persistent volume to be used by the application. (see below for nested schema)
+                      Defines a persistent volume to be used by the application.
                     items:
                       properties:
                         name:
-                          description: The name of the volume.
+                          description: |-
+                            (String) The name of the application.
+                            The name of the volume.
                           type: string
                         size:
-                          description: The size of the volume, in Gigabytes (10^9
-                            bytes).
+                          description: |-
+                            (Number) The size of the volume, in Gigabytes (10^9 bytes).
+                            The size of the volume, in Gigabytes (10^9 bytes).
                           type: number
                       type: object
                     type: array
@@ -830,49 +1043,63 @@ spec:
               atProvider:
                 properties:
                   autoscalingMax:
-                    description: The maximum number of instances that will be provisioned
-                      per active region.
+                    description: |-
+                      (Number) The maximum number of instances that will be provisioned per active region.
+                      The maximum number of instances that will be provisioned per active region.
                     type: number
                   autoscalingMin:
-                    description: The minimum number of instances that will be provisioned
-                      per active region.
+                    description: |-
+                      (Number) The minimum number of instances that will be provisioned per active region.
+                      The minimum number of instances that will be provisioned per active region.
                     type: number
                   container:
-                    description: Defines a container for the application.
+                    description: |-
+                      (Block List) Defines a container for the application. (see below for nested schema)
+                      Defines a container for the application.
                     items:
                       properties:
                         arguments:
-                          description: The arguments that will be added to the container
-                            entry point when starting the image.
+                          description: |-
+                            (String) The arguments that will be added to the container entry point when starting the image.
+                            The arguments that will be added to the container entry point when starting the image.
                           type: string
                         command:
-                          description: A custom startup command that will execute
-                            once the container is launched.
+                          description: |-
+                            (String) A custom startup command that will execute once the container is launched.
+                            A custom startup command that will execute once the container is launched.
                           type: string
                         endpoint:
-                          description: Defines a public endpoint for the application.
+                          description: |-
+                            (Block List) Defines a public endpoint for the application. (see below for nested schema)
+                            Defines a public endpoint for the application.
                           items:
                             properties:
                               cdn:
-                                description: Configurations for CDN endpoint.
+                                description: |-
+                                  (Block List) Configurations for CDN endpoint. (see below for nested schema)
+                                  Configurations for CDN endpoint.
                                 items:
                                   properties:
                                     originSsl:
-                                      description: Indicates whether the container
-                                        will handle TLS termination.
+                                      description: |-
+                                        (Boolean) Indicates whether the container will handle TLS termination.
+                                        Indicates whether the container will handle TLS termination.
                                       type: boolean
                                     pullzoneId:
-                                      description: The ID of the pullzone associated
-                                        with the endpoint.
+                                      description: |-
+                                        (Number) The ID of the pullzone associated with the endpoint.
+                                        The ID of the pullzone associated with the endpoint.
                                       type: number
                                     stickySessions:
-                                      description: Indicates whether sticky sessions
-                                        is enabled.
+                                      description: |-
+                                        (Block List) Indicates whether sticky sessions is enabled. (see below for nested schema)
+                                        Indicates whether sticky sessions is enabled.
                                       items:
                                         properties:
                                           headers:
-                                            description: Incoming request headers
-                                              used to select a pod for sticky sessions.
+                                            description: |-
+                                              (Set of String) Incoming request headers used to select a pod for sticky sessions.
+                                              Incoming request headers used to select a pod for sticky sessions.
                                             items:
                                               type: string
                                             type: array
@@ -882,20 +1109,30 @@ spec:
                                   type: object
                                 type: array
                               name:
-                                description: The name of the endpoint.
+                                description: |-
+                                  (String) The name of the application.
+                                  The name of the endpoint.
                                 type: string
                               port:
-                                description: Endpoint port configuration.
+                                description: |-
+                                  (Block List) Endpoint port configuration. (see below for nested schema)
+                                  Endpoint port configuration.
                                 items:
                                   properties:
                                     container:
-                                      description: The container port number.
+                                      description: |-
+                                        (Block List) Defines a container for the application. (see below for nested schema)
+                                        The container port number.
                                       type: number
                                     exposed:
-                                      description: The exposed port number.
+                                      description: |-
+                                        (Number) The exposed port number.
+                                        The exposed port number.
                                       type: number
                                     protocols:
-                                      description: 'Options: `SCTP`, `TCP`, `UDP`'
+                                      description: |-
+                                        (Set of String) Options: SCTP, TCP, UDP
+                                        Options: `SCTP`, `TCP`, `UDP`
                                       items:
                                         type: string
                                       type: array
@@ -903,278 +1140,364 @@ spec:
                                   type: object
                                 type: array
                               type:
-                                description: 'Options: `Anycast`, `CDN`, `InternalIP`'
+                                description: |-
+                                  (String) Options: Anycast, CDN, InternalIP
+                                  Options: `Anycast`, `CDN`, `InternalIP`
                                 type: string
                             type: object
                           type: array
                         env:
-                          description: Defines an environment variable for the container
+                          description: |-
+                            (Block List) Defines an environment variable for the container (see below for nested schema)
+                            Defines an environment variable for the container
                           items:
                             properties:
                               name:
-                                description: The name of the environment variable.
+                                description: |-
+                                  (String) The name of the application.
+                                  The name of the environment variable.
                                 type: string
                               value:
-                                description: The value of the environment variable.
+                                description: |-
+                                  (String) The value of the environment variable.
+                                  The value of the environment variable.
                                 type: string
                             type: object
                           type: array
                         id:
-                          description: The unique identifier for the container.
+                          description: |-
+                            (String) The unique identifier for the application.
+                            The unique identifier for the container.
                           type: string
                         imageDigest:
-                          description: The image digest.
+                          description: |-
+                            (String) The image digest.
+                            The image digest.
                           type: string
                         imageName:
-                          description: 'The image name within the registry, without
-                            the domain prefix (i.e.: `my-app`).'
+                          description: |-
+                            app).
+                            The image name within the registry, without the domain prefix (i.e.: `my-app`).
                           type: string
                         imageNamespace:
-                          description: 'The image namespace within the registry, without
-                            the domain prefix (i.e.: `my-org`).'
+                          description: |-
+                            org).
+                            The image namespace within the registry, without the domain prefix (i.e.: `my-org`).
                           type: string
                         imagePullPolicy:
-                          description: 'Options: `Always`, `IfNotPresent`'
+                          description: |-
+                            (String) Options: Always, IfNotPresent
+                            Options: `Always`, `IfNotPresent`
                           type: string
                         imageRegistry:
-                          description: The image registry for the container.
+                          description: |-
+                            (Number) The image registry for the container.
+                            The image registry for the container.
                           type: number
                         imageTag:
-                          description: 'The image tag (i.e.: `2.9-alpine`).'
+                          description: |-
+                            alpine).
+                            The image tag (i.e.: `2.9-alpine`).
                           type: string
                         livenessProbe:
-                          description: Checks that the application is actively running
-                            without issues. It the check fails, the container will
-                            be automatically restarted
+                          description: |-
+                            (Block List) Checks that the application is actively running without issues. It the check fails, the container will be automatically restarted (see below for nested schema)
+                            Checks that the application is actively running without issues. It the check fails, the container will be automatically restarted
                           items:
                             properties:
                               failureThreshold:
-                                description: The number of failed probes to consider
-                                  the container unhealthy.
+                                description: |-
+                                  (Number) The number of failed probes to consider the container unhealthy.
+                                  The number of failed probes to consider the container unhealthy.
                                 type: number
                               grpc:
-                                description: gRPC-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  gRPC-specific configurations.
                                 items:
                                   properties:
                                     service:
-                                      description: The gRPC service name.
+                                      description: |-
+                                        (String) The gRPC service name.
+                                        The gRPC service name.
                                       type: string
                                   type: object
                                 type: array
                               http:
-                                description: HTTP-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  HTTP-specific configurations.
                                 items:
                                   properties:
                                     expectedStatus:
-                                      description: The expected HTTP response status
-                                        code.
+                                      description: |-
+                                        (Number) The expected HTTP response status code.
+                                        The expected HTTP response status code.
                                       type: number
                                     path:
-                                      description: The HTTP path to be requested.
+                                      description: |-
+                                        (String) The HTTP path to be requested.
+                                        The HTTP path to be requested.
                                       type: string
                                   type: object
                                 type: array
                               initialDelay:
-                                description: The amount of time in seconds after the
-                                  container is started to wait before the first probe
-                                  is sent.
+                                description: |-
+                                  (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
+                                  The amount of time in seconds after the container is started to wait before the first probe is sent.
                                 type: number
                               period:
-                                description: The amount of time in seconds between
-                                  each probe.
+                                description: |-
+                                  (Number) The amount of time in seconds between each probe.
+                                  The amount of time in seconds between each probe.
                                 type: number
                               port:
-                                description: The port within the container the probe
-                                  will connect to.
+                                description: |-
+                                  (Block List) Endpoint port configuration. (see below for nested schema)
+                                  The port within the container the probe will connect to.
                                 type: number
                               successThreshold:
-                                description: The number of successful probes to consider
-                                  the container healthy.
+                                description: |-
+                                  (Number) The number of successful probes to consider the container healthy.
+                                  The number of successful probes to consider the container healthy.
                                 type: number
                               timeout:
-                                description: The amount of time in seconds the probe
-                                  will wait for a response before considering it a
-                                  failure.
+                                description: |-
+                                  (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
+                                  The amount of time in seconds the probe will wait for a response before considering it a failure.
                                 type: number
                               type:
-                                description: 'Options: `grpc`, `http`, `tcp`'
+                                description: |-
+                                  (String) Options: Anycast, CDN, InternalIP
+                                  Options: `grpc`, `http`, `tcp`
                                 type: string
                             type: object
                           type: array
                         name:
-                          description: The name of the container.
+                          description: |-
+                            (String) The name of the application.
+                            The name of the container.
                           type: string
                         readinessProbe:
-                          description: Checks if the application is fully prepared
-                            to handle incoming requests. No requests will be routed
-                            to the application until this check is successful.
+                          description: |-
+                            (Block List) Checks if the application is fully prepared to handle incoming requests. No requests will be routed to the application until this check is successful. (see below for nested schema)
+                            Checks if the application is fully prepared to handle incoming requests. No requests will be routed to the application until this check is successful.
                           items:
                             properties:
                               failureThreshold:
-                                description: The number of failed probes to consider
-                                  the container unhealthy.
+                                description: |-
+                                  (Number) The number of failed probes to consider the container unhealthy.
+                                  The number of failed probes to consider the container unhealthy.
                                 type: number
                               grpc:
-                                description: gRPC-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  gRPC-specific configurations.
                                 items:
                                   properties:
                                     service:
-                                      description: The gRPC service name.
+                                      description: |-
+                                        (String) The gRPC service name.
+                                        The gRPC service name.
                                       type: string
                                   type: object
                                 type: array
                               http:
-                                description: HTTP-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  HTTP-specific configurations.
                                 items:
                                   properties:
                                     expectedStatus:
-                                      description: The expected HTTP response status
-                                        code.
+                                      description: |-
+                                        (Number) The expected HTTP response status code.
+                                        The expected HTTP response status code.
                                       type: number
                                     path:
-                                      description: The HTTP path to be requested.
+                                      description: |-
+                                        (String) The HTTP path to be requested.
+                                        The HTTP path to be requested.
                                       type: string
                                   type: object
                                 type: array
                               initialDelay:
-                                description: The amount of time in seconds after the
-                                  container is started to wait before the first probe
-                                  is sent.
+                                description: |-
+                                  (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
+                                  The amount of time in seconds after the container is started to wait before the first probe is sent.
                                 type: number
                               period:
-                                description: The amount of time in seconds between
-                                  each probe.
+                                description: |-
+                                  (Number) The amount of time in seconds between each probe.
+                                  The amount of time in seconds between each probe.
                                 type: number
                               port:
-                                description: The port within the container the probe
-                                  will connect to.
+                                description: |-
+                                  (Block List) Endpoint port configuration. (see below for nested schema)
+                                  The port within the container the probe will connect to.
                                 type: number
                               successThreshold:
-                                description: The number of successful probes to consider
-                                  the container healthy.
+                                description: |-
+                                  (Number) The number of successful probes to consider the container healthy.
+                                  The number of successful probes to consider the container healthy.
                                 type: number
                               timeout:
-                                description: The amount of time in seconds the probe
-                                  will wait for a response before considering it a
-                                  failure.
+                                description: |-
+                                  (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
+                                  The amount of time in seconds the probe will wait for a response before considering it a failure.
                                 type: number
                               type:
-                                description: 'Options: `grpc`, `http`, `tcp`'
+                                description: |-
+                                  (String) Options: Anycast, CDN, InternalIP
+                                  Options: `grpc`, `http`, `tcp`
                                 type: string
                             type: object
                           type: array
                         startupProbe:
-                          description: Checks if the application has successfully
-                            started. No requests will be routed to the application
-                            until this check is successful.
+                          description: |-
+                            (Block List) Checks if the application has successfully started. No requests will be routed to the application until this check is successful. (see below for nested schema)
+                            Checks if the application has successfully started. No requests will be routed to the application until this check is successful.
                           items:
                             properties:
                               failureThreshold:
-                                description: The number of failed probes to consider
-                                  the container unhealthy.
+                                description: |-
+                                  (Number) The number of failed probes to consider the container unhealthy.
+                                  The number of failed probes to consider the container unhealthy.
                                 type: number
                               grpc:
-                                description: gRPC-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  gRPC-specific configurations.
                                 items:
                                   properties:
                                     service:
-                                      description: The gRPC service name.
+                                      description: |-
+                                        (String) The gRPC service name.
+                                        The gRPC service name.
                                       type: string
                                   type: object
                                 type: array
                               http:
-                                description: HTTP-specific configurations.
+                                description: |-
+                                  specific configurations. (see below for nested schema)
+                                  HTTP-specific configurations.
                                 items:
                                   properties:
                                     expectedStatus:
-                                      description: The expected HTTP response status
-                                        code.
+                                      description: |-
+                                        (Number) The expected HTTP response status code.
+                                        The expected HTTP response status code.
                                       type: number
                                     path:
-                                      description: The HTTP path to be requested.
+                                      description: |-
+                                        (String) The HTTP path to be requested.
+                                        The HTTP path to be requested.
                                       type: string
                                   type: object
                                 type: array
                               initialDelay:
-                                description: The amount of time in seconds after the
-                                  container is started to wait before the first probe
-                                  is sent.
+                                description: |-
+                                  (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
+                                  The amount of time in seconds after the container is started to wait before the first probe is sent.
                                 type: number
                               period:
-                                description: The amount of time in seconds between
-                                  each probe.
+                                description: |-
+                                  (Number) The amount of time in seconds between each probe.
+                                  The amount of time in seconds between each probe.
                                 type: number
                               port:
-                                description: The port within the container the probe
-                                  will connect to.
+                                description: |-
+                                  (Block List) Endpoint port configuration. (see below for nested schema)
+                                  The port within the container the probe will connect to.
                                 type: number
                               successThreshold:
-                                description: The number of successful probes to consider
-                                  the container healthy.
+                                description: |-
+                                  (Number) The number of successful probes to consider the container healthy.
+                                  The number of successful probes to consider the container healthy.
                                 type: number
                               timeout:
-                                description: The amount of time in seconds the probe
-                                  will wait for a response before considering it a
-                                  failure.
+                                description: |-
+                                  (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
+                                  The amount of time in seconds the probe will wait for a response before considering it a failure.
                                 type: number
                               type:
-                                description: 'Options: `grpc`, `http`, `tcp`'
+                                description: |-
+                                  (String) Options: Anycast, CDN, InternalIP
+                                  Options: `grpc`, `http`, `tcp`
                                 type: string
                             type: object
                           type: array
                         volumemount:
-                          description: Mounts a volume within a container
+                          description: |-
+                            (Block List) Mounts a volume within a container (see below for nested schema)
+                            Mounts a volume within a container
                           items:
                             properties:
                               name:
-                                description: The name of the volume.
+                                description: |-
+                                  (String) The name of the application.
+                                  The name of the volume.
                                 type: string
                               path:
-                                description: The path within the container where the
-                                  volume will be mounted.
+                                description: |-
+                                  (String) The HTTP path to be requested.
+                                  The path within the container where the volume will be mounted.
                                 type: string
                             type: object
                           type: array
                         workingDir:
-                          description: The working directory of the container runtime.
+                          description: |-
+                            (String) The working directory of the container runtime.
+                            The working directory of the container runtime.
                           type: string
                       type: object
                     type: array
                   id:
+                    description: (String) The unique identifier for the application.
                     type: string
                   name:
-                    description: The name of the application.
+                    description: |-
+                      (String) The name of the application.
+                      The name of the application.
                     type: string
                   regionsAllowed:
-                    description: The regions that will be dynamically provisionable
-                      based on the user latency.
+                    description: |-
+                      (Set of String) The regions that will be dynamically provisionable based on the user latency.
+                      The regions that will be dynamically provisionable based on the user latency.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   regionsMaxAllowed:
-                    description: The maximum amount of regions to be deployed at any
-                      given time.
+                    description: |-
+                      (Number) The maximum amount of regions to be deployed at any given time.
+                      The maximum amount of regions to be deployed at any given time.
                     type: number
                   regionsRequired:
-                    description: The regions that will be statically provisioned and
-                      will always be running and available to users.
+                    description: |-
+                      (Set of String) The regions that will be statically provisioned and will always be running and available to users.
+                      The regions that will be statically provisioned and will always be running and available to users.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   version:
+                    description: (Number)
                     type: number
                   volume:
-                    description: Defines a persistent volume to be used by the application.
+                    description: |-
+                      (Block List) Defines a persistent volume to be used by the application. (see below for nested schema)
+                      Defines a persistent volume to be used by the application.
                     items:
                       properties:
                         name:
-                          description: The name of the volume.
+                          description: |-
+                            (String) The name of the application.
+                            The name of the volume.
                           type: string
                         size:
-                          description: The size of the volume, in Gigabytes (10^9
-                            bytes).
+                          description: |-
+                            (Number) The size of the volume, in Gigabytes (10^9 bytes).
+                            The size of the volume, in Gigabytes (10^9 bytes).
                           type: number
                       type: object
                     type: array

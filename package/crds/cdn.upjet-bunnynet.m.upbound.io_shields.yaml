@@ -34,7 +34,8 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Shield is the Schema for the Shields API. <no value>
+        description: Shield is the Schema for the Shields API. This resource manages
+          Bunny Shield for a bunny.net pullzone.
         properties:
           apiVersion:
             description: |-
@@ -59,56 +60,73 @@ spec:
               forProvider:
                 properties:
                   accessList:
+                    description: (Block Set) (see below for nested schema)
                     items:
                       properties:
                         action:
-                          description: 'Options: `Allow`, `Block`, `Bypass`, `Challenge`,
-                            `Log`'
+                          description: |-
+                            (String) Options: Allow, Block, Bypass, Challenge, Log
+                            Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
                           type: string
                         id:
-                          description: The ID of the Access List.
+                          description: |-
+                            (Number) The ID of the Bunny Shield.
+                            The ID of the Access List.
                           type: number
                       type: object
                     type: array
                   botDetection:
-                    description: Configures Bot Detection settings.
+                    description: |-
+                      (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
+                      Configures Bot Detection settings.
                     items:
                       properties:
                         complexFingerprinting:
-                          description: Combines advanced entropy analysis and cross-session
-                            consistency.
+                          description: |-
+                            session consistency.
+                            Combines advanced entropy analysis and cross-session consistency.
                           type: boolean
                         fingerprintAggression:
-                          description: Controls how assertively unusual fingerprints
-                            are treated as bots.
+                          description: |-
+                            (Number) Controls how assertively unusual fingerprints are treated as bots.
+                            Controls how assertively unusual fingerprints are treated as bots.
                           type: number
                         fingerprintSensitivity:
-                          description: Adjusts how precisely browsers are checked
-                            for signs of automation.
+                          description: |-
+                            (Number) Adjusts how precisely browsers are checked for signs of automation.
+                            Adjusts how precisely browsers are checked for signs of automation.
                           type: number
                         ipSensitivity:
-                          description: Monitors IP behaviour, reputation, and rate
-                            patterns.
+                          description: |-
+                            (Number) Monitors IP behaviour, reputation, and rate patterns.
+                            Monitors IP behaviour, reputation, and rate patterns.
                           type: number
                         mode:
-                          description: 'Indicates the mode the Bot Detection engine
-                            is running. Options: `Challenge`, `Log`'
+                          description: |-
+                            (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
+                            Indicates the mode the Bot Detection engine is running. Options: `Challenge`, `Log`
                           type: string
                         requestIntegrity:
-                          description: Analyzes request headers, query structure,
-                            and protocol anomalies.
+                          description: |-
+                            (Number) Analyzes request headers, query structure, and protocol anomalies.
+                            Analyzes request headers, query structure, and protocol anomalies.
                           type: number
                       type: object
                     type: array
                   pullzone:
-                    description: The ID of the linked pullzone.
+                    description: |-
+                      (Number) The ID of the linked pullzone.
+                      The ID of the linked pullzone.
                     type: number
                   tier:
-                    description: 'Options: `Advanced`, `Basic`, `Business`, `Enterprise`'
+                    description: |-
+                      (String) Options: Advanced, Basic, Business, Enterprise
+                      Options: `Advanced`, `Basic`, `Business`, `Enterprise`
                     type: string
                   whitelabel:
-                    description: Replace our bunny.net branded block and challenge
-                      pages with a white-labelled experience.
+                    description: |-
+                      labelled experience.
+                      Replace our bunny.net branded block and challenge pages with a white-labelled experience.
                     type: boolean
                 type: object
               initProvider:
@@ -125,56 +143,73 @@ spec:
                   autoscaler.
                 properties:
                   accessList:
+                    description: (Block Set) (see below for nested schema)
                     items:
                       properties:
                         action:
-                          description: 'Options: `Allow`, `Block`, `Bypass`, `Challenge`,
-                            `Log`'
+                          description: |-
+                            (String) Options: Allow, Block, Bypass, Challenge, Log
+                            Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
                           type: string
                         id:
-                          description: The ID of the Access List.
+                          description: |-
+                            (Number) The ID of the Bunny Shield.
+                            The ID of the Access List.
                           type: number
                       type: object
                     type: array
                   botDetection:
-                    description: Configures Bot Detection settings.
+                    description: |-
+                      (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
+                      Configures Bot Detection settings.
                     items:
                       properties:
                         complexFingerprinting:
-                          description: Combines advanced entropy analysis and cross-session
-                            consistency.
+                          description: |-
+                            session consistency.
+                            Combines advanced entropy analysis and cross-session consistency.
                           type: boolean
                         fingerprintAggression:
-                          description: Controls how assertively unusual fingerprints
-                            are treated as bots.
+                          description: |-
+                            (Number) Controls how assertively unusual fingerprints are treated as bots.
+                            Controls how assertively unusual fingerprints are treated as bots.
                           type: number
                         fingerprintSensitivity:
-                          description: Adjusts how precisely browsers are checked
-                            for signs of automation.
+                          description: |-
+                            (Number) Adjusts how precisely browsers are checked for signs of automation.
+                            Adjusts how precisely browsers are checked for signs of automation.
                           type: number
                         ipSensitivity:
-                          description: Monitors IP behaviour, reputation, and rate
-                            patterns.
+                          description: |-
+                            (Number) Monitors IP behaviour, reputation, and rate patterns.
+                            Monitors IP behaviour, reputation, and rate patterns.
                           type: number
                         mode:
-                          description: 'Indicates the mode the Bot Detection engine
-                            is running. Options: `Challenge`, `Log`'
+                          description: |-
+                            (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
+                            Indicates the mode the Bot Detection engine is running. Options: `Challenge`, `Log`
                           type: string
                         requestIntegrity:
-                          description: Analyzes request headers, query structure,
-                            and protocol anomalies.
+                          description: |-
+                            (Number) Analyzes request headers, query structure, and protocol anomalies.
+                            Analyzes request headers, query structure, and protocol anomalies.
                           type: number
                       type: object
                     type: array
                   pullzone:
-                    description: The ID of the linked pullzone.
+                    description: |-
+                      (Number) The ID of the linked pullzone.
+                      The ID of the linked pullzone.
                     type: number
                   tier:
-                    description: 'Options: `Advanced`, `Basic`, `Business`, `Enterprise`'
+                    description: |-
+                      (String) Options: Advanced, Basic, Business, Enterprise
+                      Options: `Advanced`, `Basic`, `Business`, `Enterprise`
                     type: string
                   whitelabel:
-                    description: Replace our bunny.net branded block and challenge
-                      pages with a white-labelled experience.
+                    description: |-
+                      labelled experience.
+                      Replace our bunny.net branded block and challenge pages with a white-labelled experience.
                     type: boolean
                 type: object
               managementPolicies:
@@ -246,152 +281,190 @@ spec:
               atProvider:
                 properties:
                   accessList:
+                    description: (Block Set) (see below for nested schema)
                     items:
                       properties:
                         action:
-                          description: 'Options: `Allow`, `Block`, `Bypass`, `Challenge`,
-                            `Log`'
+                          description: |-
+                            (String) Options: Allow, Block, Bypass, Challenge, Log
+                            Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
                           type: string
                         id:
-                          description: The ID of the Access List.
+                          description: |-
+                            (Number) The ID of the Bunny Shield.
+                            The ID of the Access List.
                           type: number
                       type: object
                     type: array
                   botDetection:
-                    description: Configures Bot Detection settings.
+                    description: |-
+                      (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
+                      Configures Bot Detection settings.
                     items:
                       properties:
                         complexFingerprinting:
-                          description: Combines advanced entropy analysis and cross-session
-                            consistency.
+                          description: |-
+                            session consistency.
+                            Combines advanced entropy analysis and cross-session consistency.
                           type: boolean
                         fingerprintAggression:
-                          description: Controls how assertively unusual fingerprints
-                            are treated as bots.
+                          description: |-
+                            (Number) Controls how assertively unusual fingerprints are treated as bots.
+                            Controls how assertively unusual fingerprints are treated as bots.
                           type: number
                         fingerprintSensitivity:
-                          description: Adjusts how precisely browsers are checked
-                            for signs of automation.
+                          description: |-
+                            (Number) Adjusts how precisely browsers are checked for signs of automation.
+                            Adjusts how precisely browsers are checked for signs of automation.
                           type: number
                         ipSensitivity:
-                          description: Monitors IP behaviour, reputation, and rate
-                            patterns.
+                          description: |-
+                            (Number) Monitors IP behaviour, reputation, and rate patterns.
+                            Monitors IP behaviour, reputation, and rate patterns.
                           type: number
                         mode:
-                          description: 'Indicates the mode the Bot Detection engine
-                            is running. Options: `Challenge`, `Log`'
+                          description: |-
+                            (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
+                            Indicates the mode the Bot Detection engine is running. Options: `Challenge`, `Log`
                           type: string
                         requestIntegrity:
-                          description: Analyzes request headers, query structure,
-                            and protocol anomalies.
+                          description: |-
+                            (Number) Analyzes request headers, query structure, and protocol anomalies.
+                            Analyzes request headers, query structure, and protocol anomalies.
                           type: number
                       type: object
                     type: array
                   ddos:
-                    description: Configures DDoS settings.
+                    description: |-
+                      (Block, Optional) Configures DDoS settings. (see below for nested schema)
+                      Configures DDoS settings.
                     items:
                       properties:
                         challengeWindow:
-                          description: The window of time a visitor can access your
-                            website after passing a challenge. Once the timeout expires,
-                            they'll face a new challenge.
+                          description: |-
+                            (Number) The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
+                            The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
                           type: number
                         level:
-                          description: 'Options: `Asleep`, `Extreme`, `High`, `Low`,
-                            `Medium`'
+                          description: |-
+                            (String) Options: Asleep, Extreme, High, Low, Medium
+                            Options: `Asleep`, `Extreme`, `High`, `Low`, `Medium`
                           type: string
                         mode:
-                          description: 'Indicates the mode the engine is running.
-                            Options: `Block`, `Log`'
+                          description: |-
+                            (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
+                            Indicates the mode the engine is running. Options: `Block`, `Log`
                           type: string
                       type: object
                     type: array
                   id:
+                    description: (Number) The ID of the Bunny Shield.
                     type: string
                   pullzone:
-                    description: The ID of the linked pullzone.
+                    description: |-
+                      (Number) The ID of the linked pullzone.
+                      The ID of the linked pullzone.
                     type: number
                   tier:
-                    description: 'Options: `Advanced`, `Basic`, `Business`, `Enterprise`'
+                    description: |-
+                      (String) Options: Advanced, Basic, Business, Enterprise
+                      Options: `Advanced`, `Basic`, `Business`, `Enterprise`
                     type: string
                   waf:
-                    description: Configures WAF settings.
+                    description: |-
+                      (Block, Optional) Configures WAF settings. (see below for nested schema)
+                      Configures WAF settings.
                     items:
                       properties:
                         allowedHttpMethods:
-                          description: Indicates allowed HTTP methods.
+                          description: |-
+                            (Set of String) Indicates allowed HTTP methods.
+                            Indicates allowed HTTP methods.
                           items:
                             type: string
                           type: array
                           x-kubernetes-list-type: set
                         allowedHttpVersions:
-                          description: Indicates allowed HTTP versions.
+                          description: |-
+                            (Set of String) Indicates allowed HTTP versions.
+                            Indicates allowed HTTP versions.
                           items:
                             type: string
                           type: array
                           x-kubernetes-list-type: set
                         allowedRequestContentTypes:
-                          description: Indicates allowed values for request Content-Type.
+                          description: |-
+                            Type.
+                            Indicates allowed values for request Content-Type.
                           items:
                             type: string
                           type: array
                           x-kubernetes-list-type: set
                         blockingSensitivity:
-                          description: Determines which severity level of rules will
-                            block requests.
+                          description: |-
+                            (Number) Determines which severity level of rules will block requests.
+                            Determines which severity level of rules will block requests.
                           type: number
                         bodyLimitRequest:
-                          description: 'Determines the action to take when the request
-                            body length exceeds your plan limit. Options: `Block`,
-                            `Ignore`, `Log`'
+                          description: |-
+                            (String) Determines the action to take when the request body length exceeds your plan limit. Options: Block, Ignore, Log
+                            Determines the action to take when the request body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
                           type: string
                         bodyLimitResponse:
-                          description: 'Determines the action to take when the response
-                            body length exceeds your plan limit. Options: `Block`,
-                            `Ignore`, `Log`'
+                          description: |-
+                            (String) Determines the action to take when the response body length exceeds your plan limit. Options: Block, Ignore, Log
+                            Determines the action to take when the response body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
                           type: string
                         detectionSensitivity:
-                          description: Determines which severity level of rules will
-                            trigger a detection log.
+                          description: |-
+                            (Number) Determines which severity level of rules will trigger a detection log.
+                            Determines which severity level of rules will trigger a detection log.
                           type: number
                         enabled:
-                          description: Indicates whether the WAF (Web Application
-                            Firewall) is enabled.
+                          description: |-
+                            (Boolean) Indicates whether the WAF (Web Application Firewall) is enabled.
+                            Indicates whether the WAF (Web Application Firewall) is enabled.
                           type: boolean
                         executionSensitivity:
-                          description: Determines which severity level of rules will
-                            trigger the rules and their action.
+                          description: |-
+                            (Number) Determines which severity level of rules will trigger the rules and their action.
+                            Determines which severity level of rules will trigger the rules and their action.
                           type: number
                         logHeaders:
-                          description: When enabled, detected WAF audit logs will
-                            contain the full list of request headers sent during the
-                            request.
+                          description: |-
+                            (Boolean) When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
+                            When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
                           type: boolean
                         logHeadersExcluded:
-                          description: The list of headers excluded from the logs.
-                            They will still be used for processing WAF rules.
+                          description: |-
+                            (Set of String) The list of headers excluded from the logs. They will still be used for processing WAF rules.
+                            The list of headers excluded from the logs. They will still be used for processing WAF rules.
                           items:
                             type: string
                           type: array
                           x-kubernetes-list-type: set
                         mode:
-                          description: 'Indicates the mode the engine is running.
-                            Options: `Block`, `Log`'
+                          description: |-
+                            (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
+                            Indicates the mode the engine is running. Options: `Block`, `Log`
                           type: string
                         realtimeThreatIntelligence:
-                          description: Real-time Threat Intelligence delivers zero-day
-                            protection by instantly detecting and blocking emerging
-                            threats.
+                          description: |-
+                            time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
+                            Real-time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
                           type: boolean
                         rulesDisabled:
-                          description: List of disabled WAF rules.
+                          description: |-
+                            (Set of String) List of disabled WAF rules.
+                            List of disabled WAF rules.
                           items:
                             type: string
                           type: array
                           x-kubernetes-list-type: set
                         rulesLogonly:
-                          description: List of WAF rules that will not be blocked,
-                            but will be logged when triggered.
+                          description: |-
+                            (Set of String) List of WAF rules that will not be blocked, but will be logged when triggered.
+                            List of WAF rules that will not be blocked, but will be logged when triggered.
                           items:
                             type: string
                           type: array
@@ -399,8 +472,9 @@ spec:
                       type: object
                     type: array
                   whitelabel:
-                    description: Replace our bunny.net branded block and challenge
-                      pages with a white-labelled experience.
+                    description: |-
+                      labelled experience.
+                      Replace our bunny.net branded block and challenge pages with a white-labelled experience.
                     type: boolean
                 type: object
               conditions:

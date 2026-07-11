@@ -1,0 +1,14 @@
+apiVersion: dns.upjet-bunnynet.upbound.io/v1alpha1
+kind: Record
+metadata:
+  annotations:
+    meta.upbound.io/example-id: dns/v1alpha1/record
+  labels:
+    testing.upbound.io/example-name: MX
+  name: mx
+spec:
+  forProvider:
+    name: ""
+    type: A
+    value: 192.0.2.33
+    zone: ${bunnynet_dns_zone.example.id}

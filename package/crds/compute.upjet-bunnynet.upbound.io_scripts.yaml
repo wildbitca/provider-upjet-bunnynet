@@ -34,7 +34,8 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Script is the Schema for the Scripts API. <no value>
+        description: Script is the Schema for the Scripts API. This resource manages
+          a compute script in bunny.net.
         properties:
           apiVersion:
             description: |-
@@ -73,13 +74,19 @@ spec:
               forProvider:
                 properties:
                   content:
-                    description: The code of the script.
+                    description: |-
+                      (String) The code of the script.
+                      The code of the script.
                     type: string
                   name:
-                    description: The name of the script.
+                    description: |-
+                      (String) The name of the script.
+                      The name of the script.
                     type: string
                   type:
-                    description: 'Options: `middleware`, `standalone`'
+                    description: |-
+                      (String) Options: middleware, standalone
+                      Options: `middleware`, `standalone`
                     type: string
                 type: object
               initProvider:
@@ -96,13 +103,19 @@ spec:
                   autoscaler.
                 properties:
                   content:
-                    description: The code of the script.
+                    description: |-
+                      (String) The code of the script.
+                      The code of the script.
                     type: string
                   name:
-                    description: The name of the script.
+                    description: |-
+                      (String) The name of the script.
+                      The name of the script.
                     type: string
                   type:
-                    description: 'Options: `middleware`, `standalone`'
+                    description: |-
+                      (String) Options: middleware, standalone
+                      Options: `middleware`, `standalone`
                     type: string
                 type: object
               managementPolicies:
@@ -210,21 +223,32 @@ spec:
               atProvider:
                 properties:
                   content:
-                    description: The code of the script.
+                    description: |-
+                      (String) The code of the script.
+                      The code of the script.
                     type: string
                   deploymentKey:
-                    description: The deployment key for the script.
+                    description: |-
+                      (String) The deployment key for the script.
+                      The deployment key for the script.
                     type: string
                   id:
+                    description: (Number) The ID of the script.
                     type: string
                   name:
-                    description: The name of the script.
+                    description: |-
+                      (String) The name of the script.
+                      The name of the script.
                     type: string
                   release:
-                    description: The current release identifier for the script.
+                    description: |-
+                      (String) The current release identifier for the script.
+                      The current release identifier for the script.
                     type: string
                   type:
-                    description: 'Options: `middleware`, `standalone`'
+                    description: |-
+                      (String) Options: middleware, standalone
+                      Options: `middleware`, `standalone`
                     type: string
                 type: object
               conditions:

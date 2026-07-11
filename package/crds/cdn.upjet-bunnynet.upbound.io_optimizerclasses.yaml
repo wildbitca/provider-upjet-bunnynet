@@ -34,8 +34,9 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: OptimizerClass is the Schema for the OptimizerClasss API. <no
-          value>
+        description: OptimizerClass is the Schema for the OptimizerClasss API. This
+          resource manages optimizer classes for a bunny.net pull zone. It is used
+          to define Bunny Optimizer settings for pullzones.
         properties:
           apiVersion:
             description: |-
@@ -74,59 +75,94 @@ spec:
               forProvider:
                 properties:
                   aspectRatio:
-                    description: The aspect ratio for image optimization.
+                    description: |-
+                      (String) The aspect ratio for image optimization.
+                      The aspect ratio for image optimization.
                     type: string
                   autoOptimize:
-                    description: Indicates whether automatic optimization for images
-                      is enabled.
+                    description: |-
+                      (String) Indicates whether automatic optimization for images is enabled.
+                      Indicates whether automatic optimization for images is enabled.
                     type: string
                   blur:
-                    description: The level of blur to apply to images.
+                    description: |-
+                      (Number) The level of blur to apply to images.
+                      The level of blur to apply to images.
                     type: number
                   brightness:
-                    description: The brightness adjustment for images.
+                    description: |-
+                      (Number) The brightness adjustment for images.
+                      The brightness adjustment for images.
                     type: number
                   contrast:
-                    description: The contrast adjustment for images.
+                    description: |-
+                      (Number) The contrast adjustment for images.
+                      The contrast adjustment for images.
                     type: number
                   crop:
-                    description: The cropping settings for images.
+                    description: |-
+                      (String) The cropping settings for images.
+                      The cropping settings for images.
                     type: string
                   cropGravity:
-                    description: The gravity setting for cropping.
+                    description: |-
+                      (String) The gravity setting for cropping.
+                      The gravity setting for cropping.
                     type: string
                   flip:
-                    description: Indicates whether to flip images horizontally.
+                    description: |-
+                      (Boolean) Indicates whether to flip images horizontally.
+                      Indicates whether to flip images horizontally.
                     type: boolean
                   flop:
-                    description: Indicates whether to flip images vertically.
+                    description: |-
+                      (Boolean) Indicates whether to flip images vertically.
+                      Indicates whether to flip images vertically.
                     type: boolean
                   height:
-                    description: The height to which images should be resized.
+                    description: |-
+                      (Number) The height to which images should be resized.
+                      The height to which images should be resized.
                     type: number
                   hue:
-                    description: The hue adjustment for images.
+                    description: |-
+                      (Number) The hue adjustment for images.
+                      The hue adjustment for images.
                     type: number
                   name:
-                    description: The name of the optimizer class.
+                    description: |-
+                      (String) The name of the optimizer class.
+                      The name of the optimizer class.
                     type: string
                   pullzone:
-                    description: The ID of the linked pull zone.
+                    description: |-
+                      (Number) The ID of the linked pull zone.
+                      The ID of the linked pull zone.
                     type: number
                   quality:
-                    description: The quality setting for image optimization.
+                    description: |-
+                      (Number) The quality setting for image optimization.
+                      The quality setting for image optimization.
                     type: number
                   saturation:
-                    description: The saturation adjustment for images.
+                    description: |-
+                      (Number) The saturation adjustment for images.
+                      The saturation adjustment for images.
                     type: number
                   sepia:
-                    description: The level of sepia tone to apply to images.
+                    description: |-
+                      (Number) The level of sepia tone to apply to images.
+                      The level of sepia tone to apply to images.
                     type: number
                   sharpen:
-                    description: Indicates whether to sharpen images.
+                    description: |-
+                      (Boolean) Indicates whether to sharpen images.
+                      Indicates whether to sharpen images.
                     type: boolean
                   width:
-                    description: The width to which images should be resized.
+                    description: |-
+                      (Number) The width to which images should be resized.
+                      The width to which images should be resized.
                     type: number
                 type: object
               initProvider:
@@ -143,59 +179,94 @@ spec:
                   autoscaler.
                 properties:
                   aspectRatio:
-                    description: The aspect ratio for image optimization.
+                    description: |-
+                      (String) The aspect ratio for image optimization.
+                      The aspect ratio for image optimization.
                     type: string
                   autoOptimize:
-                    description: Indicates whether automatic optimization for images
-                      is enabled.
+                    description: |-
+                      (String) Indicates whether automatic optimization for images is enabled.
+                      Indicates whether automatic optimization for images is enabled.
                     type: string
                   blur:
-                    description: The level of blur to apply to images.
+                    description: |-
+                      (Number) The level of blur to apply to images.
+                      The level of blur to apply to images.
                     type: number
                   brightness:
-                    description: The brightness adjustment for images.
+                    description: |-
+                      (Number) The brightness adjustment for images.
+                      The brightness adjustment for images.
                     type: number
                   contrast:
-                    description: The contrast adjustment for images.
+                    description: |-
+                      (Number) The contrast adjustment for images.
+                      The contrast adjustment for images.
                     type: number
                   crop:
-                    description: The cropping settings for images.
+                    description: |-
+                      (String) The cropping settings for images.
+                      The cropping settings for images.
                     type: string
                   cropGravity:
-                    description: The gravity setting for cropping.
+                    description: |-
+                      (String) The gravity setting for cropping.
+                      The gravity setting for cropping.
                     type: string
                   flip:
-                    description: Indicates whether to flip images horizontally.
+                    description: |-
+                      (Boolean) Indicates whether to flip images horizontally.
+                      Indicates whether to flip images horizontally.
                     type: boolean
                   flop:
-                    description: Indicates whether to flip images vertically.
+                    description: |-
+                      (Boolean) Indicates whether to flip images vertically.
+                      Indicates whether to flip images vertically.
                     type: boolean
                   height:
-                    description: The height to which images should be resized.
+                    description: |-
+                      (Number) The height to which images should be resized.
+                      The height to which images should be resized.
                     type: number
                   hue:
-                    description: The hue adjustment for images.
+                    description: |-
+                      (Number) The hue adjustment for images.
+                      The hue adjustment for images.
                     type: number
                   name:
-                    description: The name of the optimizer class.
+                    description: |-
+                      (String) The name of the optimizer class.
+                      The name of the optimizer class.
                     type: string
                   pullzone:
-                    description: The ID of the linked pull zone.
+                    description: |-
+                      (Number) The ID of the linked pull zone.
+                      The ID of the linked pull zone.
                     type: number
                   quality:
-                    description: The quality setting for image optimization.
+                    description: |-
+                      (Number) The quality setting for image optimization.
+                      The quality setting for image optimization.
                     type: number
                   saturation:
-                    description: The saturation adjustment for images.
+                    description: |-
+                      (Number) The saturation adjustment for images.
+                      The saturation adjustment for images.
                     type: number
                   sepia:
-                    description: The level of sepia tone to apply to images.
+                    description: |-
+                      (Number) The level of sepia tone to apply to images.
+                      The level of sepia tone to apply to images.
                     type: number
                   sharpen:
-                    description: Indicates whether to sharpen images.
+                    description: |-
+                      (Boolean) Indicates whether to sharpen images.
+                      Indicates whether to sharpen images.
                     type: boolean
                   width:
-                    description: The width to which images should be resized.
+                    description: |-
+                      (Number) The width to which images should be resized.
+                      The width to which images should be resized.
                     type: number
                 type: object
               managementPolicies:
@@ -299,61 +370,96 @@ spec:
               atProvider:
                 properties:
                   aspectRatio:
-                    description: The aspect ratio for image optimization.
+                    description: |-
+                      (String) The aspect ratio for image optimization.
+                      The aspect ratio for image optimization.
                     type: string
                   autoOptimize:
-                    description: Indicates whether automatic optimization for images
-                      is enabled.
+                    description: |-
+                      (String) Indicates whether automatic optimization for images is enabled.
+                      Indicates whether automatic optimization for images is enabled.
                     type: string
                   blur:
-                    description: The level of blur to apply to images.
+                    description: |-
+                      (Number) The level of blur to apply to images.
+                      The level of blur to apply to images.
                     type: number
                   brightness:
-                    description: The brightness adjustment for images.
+                    description: |-
+                      (Number) The brightness adjustment for images.
+                      The brightness adjustment for images.
                     type: number
                   contrast:
-                    description: The contrast adjustment for images.
+                    description: |-
+                      (Number) The contrast adjustment for images.
+                      The contrast adjustment for images.
                     type: number
                   crop:
-                    description: The cropping settings for images.
+                    description: |-
+                      (String) The cropping settings for images.
+                      The cropping settings for images.
                     type: string
                   cropGravity:
-                    description: The gravity setting for cropping.
+                    description: |-
+                      (String) The gravity setting for cropping.
+                      The gravity setting for cropping.
                     type: string
                   flip:
-                    description: Indicates whether to flip images horizontally.
+                    description: |-
+                      (Boolean) Indicates whether to flip images horizontally.
+                      Indicates whether to flip images horizontally.
                     type: boolean
                   flop:
-                    description: Indicates whether to flip images vertically.
+                    description: |-
+                      (Boolean) Indicates whether to flip images vertically.
+                      Indicates whether to flip images vertically.
                     type: boolean
                   height:
-                    description: The height to which images should be resized.
+                    description: |-
+                      (Number) The height to which images should be resized.
+                      The height to which images should be resized.
                     type: number
                   hue:
-                    description: The hue adjustment for images.
+                    description: |-
+                      (Number) The hue adjustment for images.
+                      The hue adjustment for images.
                     type: number
                   id:
                     type: string
                   name:
-                    description: The name of the optimizer class.
+                    description: |-
+                      (String) The name of the optimizer class.
+                      The name of the optimizer class.
                     type: string
                   pullzone:
-                    description: The ID of the linked pull zone.
+                    description: |-
+                      (Number) The ID of the linked pull zone.
+                      The ID of the linked pull zone.
                     type: number
                   quality:
-                    description: The quality setting for image optimization.
+                    description: |-
+                      (Number) The quality setting for image optimization.
+                      The quality setting for image optimization.
                     type: number
                   saturation:
-                    description: The saturation adjustment for images.
+                    description: |-
+                      (Number) The saturation adjustment for images.
+                      The saturation adjustment for images.
                     type: number
                   sepia:
-                    description: The level of sepia tone to apply to images.
+                    description: |-
+                      (Number) The level of sepia tone to apply to images.
+                      The level of sepia tone to apply to images.
                     type: number
                   sharpen:
-                    description: Indicates whether to sharpen images.
+                    description: |-
+                      (Boolean) Indicates whether to sharpen images.
+                      Indicates whether to sharpen images.
                     type: boolean
                   width:
-                    description: The width to which images should be resized.
+                    description: |-
+                      (Number) The width to which images should be resized.
+                      The width to which images should be resized.
                     type: number
                 type: object
               conditions:

@@ -15,42 +15,54 @@ import (
 
 type DatabaseInitParameters struct {
 
+	// (String) The name of the database.
 	// The name of the database.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Set of String)
 	// +listType=set
 	RegionsPrimary []*string `json:"regionsPrimary,omitempty" tf:"regions_primary,omitempty"`
 
+	// (Set of String)
 	// +listType=set
 	RegionsReplica []*string `json:"regionsReplica,omitempty" tf:"regions_replica,omitempty"`
 }
 
 type DatabaseObservation struct {
+
+	// (String) The unique identifier for the database.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (String) The name of the database.
 	// The name of the database.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Set of String)
 	// +listType=set
 	RegionsPrimary []*string `json:"regionsPrimary,omitempty" tf:"regions_primary,omitempty"`
 
+	// (Set of String)
 	// +listType=set
 	RegionsReplica []*string `json:"regionsReplica,omitempty" tf:"regions_replica,omitempty"`
 
+	// (String) The connection URL for the database.
 	// The connection URL for the database.
 	URL *string `json:"url,omitempty" tf:"url,omitempty"`
 }
 
 type DatabaseParameters struct {
 
+	// (String) The name of the database.
 	// The name of the database.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Set of String)
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	RegionsPrimary []*string `json:"regionsPrimary,omitempty" tf:"regions_primary,omitempty"`
 
+	// (Set of String)
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	RegionsReplica []*string `json:"regionsReplica,omitempty" tf:"regions_replica,omitempty"`
@@ -83,7 +95,7 @@ type DatabaseStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Database is the Schema for the Databases API. <no value>
+// Database is the Schema for the Databases API. This resource manages an Database in bunny.net.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

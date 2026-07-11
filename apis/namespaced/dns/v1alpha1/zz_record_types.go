@@ -16,206 +16,266 @@ import (
 
 type RecordInitParameters struct {
 
+	// (Boolean) Indicates whether the DNS record should utilize bunny.net’s acceleration services.
 	// Indicates whether the DNS record should utilize bunny.net’s acceleration services.
 	Accelerated *bool `json:"accelerated,omitempty" tf:"accelerated,omitempty"`
 
+	// (String) This property allows users to add descriptive notes for documentation and management purposes.
 	// This property allows users to add descriptive notes for documentation and management purposes.
 	Comment *string `json:"comment,omitempty" tf:"comment,omitempty"`
 
+	// (Boolean) Indicates whether the DNS record is enabled.
 	// Indicates whether the DNS record is enabled.
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
+	// (Number) Flags for advanced DNS settings.
 	// Flags for advanced DNS settings.
 	Flags *float64 `json:"flags,omitempty" tf:"flags,omitempty"`
 
+	// based routing.
 	// The latitude for geolocation-based routing.
 	GeolocationLat *float64 `json:"geolocationLat,omitempty" tf:"geolocation_lat,omitempty"`
 
+	// based routing.
 	// The longitude for geolocation-based routing.
 	GeolocationLong *float64 `json:"geolocationLong,omitempty" tf:"geolocation_long,omitempty"`
 
+	// based routing.
 	// The latency zone for latency-based routing.
 	LatencyZone *string `json:"latencyZone,omitempty" tf:"latency_zone,omitempty"`
 
+	// (String) Options: Http, Monitor, None, Ping
 	// Options: `Http`, `Monitor`, `None`, `Ping`
 	MonitorType *string `json:"monitorType,omitempty" tf:"monitor_type,omitempty"`
 
+	// (String) The name of the DNS record. Use name = "" for apex domain records.
 	// The name of the DNS record. Use <code>name = ""</code> for apex domain records.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The port number for services that require a specific port.
 	// The port number for services that require a specific port.
 	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
+	// (Number) The priority of the DNS record.
 	// The priority of the DNS record.
 	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
+	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
 	PullzoneID *float64 `json:"pullzoneId,omitempty" tf:"pullzone_id,omitempty"`
 
+	// (String) Options: Geolocation, Latency, None
 	// Options: `Geolocation`, `Latency`, `None`
 	SmartRoutingType *string `json:"smartRoutingType,omitempty" tf:"smart_routing_type,omitempty"`
 
+	// to-live value for the DNS record.
 	// The time-to-live value for the DNS record.
 	TTL *float64 `json:"ttl,omitempty" tf:"ttl,omitempty"`
 
+	// (String) A tag for the DNS record.
 	// A tag for the DNS record.
 	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 
+	// (String) Options: A, AAAA, CAA, CNAME, Flatten, HTTPS, MX, NS, PTR, PullZone, Redirect, SRV, SVCB, Script, TLSA, TXT
 	// Options: `A`, `AAAA`, `CAA`, `CNAME`, `Flatten`, `HTTPS`, `MX`, `NS`, `PTR`, `PullZone`, `Redirect`, `SRV`, `SVCB`, `Script`, `TLSA`, `TXT`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
+	// (String) The value of the DNS record.
 	// The value of the DNS record.
 	Value *string `json:"value,omitempty" tf:"value,omitempty"`
 
+	// (Number) The weight of the DNS record. It is used in load balancing scenarios to distribute traffic based on the specified weight.
 	// The weight of the DNS record. It is used in load balancing scenarios to distribute traffic based on the specified weight.
 	Weight *float64 `json:"weight,omitempty" tf:"weight,omitempty"`
 
+	// (Number) ID of the related DNS zone.
 	// ID of the related DNS zone.
 	Zone *float64 `json:"zone,omitempty" tf:"zone,omitempty"`
 }
 
 type RecordObservation struct {
 
+	// (Boolean) Indicates whether the DNS record should utilize bunny.net’s acceleration services.
 	// Indicates whether the DNS record should utilize bunny.net’s acceleration services.
 	Accelerated *bool `json:"accelerated,omitempty" tf:"accelerated,omitempty"`
 
+	// (Number) The ID of the accelerated pull zone.
 	// The ID of the accelerated pull zone.
 	AcceleratedPullzone *float64 `json:"acceleratedPullzone,omitempty" tf:"accelerated_pullzone,omitempty"`
 
+	// (String) This property allows users to add descriptive notes for documentation and management purposes.
 	// This property allows users to add descriptive notes for documentation and management purposes.
 	Comment *string `json:"comment,omitempty" tf:"comment,omitempty"`
 
+	// (Boolean) Indicates whether the DNS record is enabled.
 	// Indicates whether the DNS record is enabled.
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
+	// (Number) Flags for advanced DNS settings.
 	// Flags for advanced DNS settings.
 	Flags *float64 `json:"flags,omitempty" tf:"flags,omitempty"`
 
+	// based routing.
 	// The latitude for geolocation-based routing.
 	GeolocationLat *float64 `json:"geolocationLat,omitempty" tf:"geolocation_lat,omitempty"`
 
+	// based routing.
 	// The longitude for geolocation-based routing.
 	GeolocationLong *float64 `json:"geolocationLong,omitempty" tf:"geolocation_long,omitempty"`
 
+	// (Number) The unique identifier for the DNS record.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// based routing.
 	// The latency zone for latency-based routing.
 	LatencyZone *string `json:"latencyZone,omitempty" tf:"latency_zone,omitempty"`
 
+	// (String) The name of the linked resource.
 	// The name of the linked resource.
 	LinkName *string `json:"linkName,omitempty" tf:"link_name,omitempty"`
 
+	// (String) Options: Http, Monitor, None, Ping
 	// Options: `Http`, `Monitor`, `None`, `Ping`
 	MonitorType *string `json:"monitorType,omitempty" tf:"monitor_type,omitempty"`
 
+	// (String) The name of the DNS record. Use name = "" for apex domain records.
 	// The name of the DNS record. Use <code>name = ""</code> for apex domain records.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The port number for services that require a specific port.
 	// The port number for services that require a specific port.
 	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
+	// (Number) The priority of the DNS record.
 	// The priority of the DNS record.
 	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
+	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
 	PullzoneID *float64 `json:"pullzoneId,omitempty" tf:"pullzone_id,omitempty"`
 
+	// (String) Options: Geolocation, Latency, None
 	// Options: `Geolocation`, `Latency`, `None`
 	SmartRoutingType *string `json:"smartRoutingType,omitempty" tf:"smart_routing_type,omitempty"`
 
+	// to-live value for the DNS record.
 	// The time-to-live value for the DNS record.
 	TTL *float64 `json:"ttl,omitempty" tf:"ttl,omitempty"`
 
+	// (String) A tag for the DNS record.
 	// A tag for the DNS record.
 	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 
+	// (String) Options: A, AAAA, CAA, CNAME, Flatten, HTTPS, MX, NS, PTR, PullZone, Redirect, SRV, SVCB, Script, TLSA, TXT
 	// Options: `A`, `AAAA`, `CAA`, `CNAME`, `Flatten`, `HTTPS`, `MX`, `NS`, `PTR`, `PullZone`, `Redirect`, `SRV`, `SVCB`, `Script`, `TLSA`, `TXT`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
+	// (String) The value of the DNS record.
 	// The value of the DNS record.
 	Value *string `json:"value,omitempty" tf:"value,omitempty"`
 
+	// (Number) The weight of the DNS record. It is used in load balancing scenarios to distribute traffic based on the specified weight.
 	// The weight of the DNS record. It is used in load balancing scenarios to distribute traffic based on the specified weight.
 	Weight *float64 `json:"weight,omitempty" tf:"weight,omitempty"`
 
+	// (Number) ID of the related DNS zone.
 	// ID of the related DNS zone.
 	Zone *float64 `json:"zone,omitempty" tf:"zone,omitempty"`
 }
 
 type RecordParameters struct {
 
+	// (Boolean) Indicates whether the DNS record should utilize bunny.net’s acceleration services.
 	// Indicates whether the DNS record should utilize bunny.net’s acceleration services.
 	// +kubebuilder:validation:Optional
 	Accelerated *bool `json:"accelerated,omitempty" tf:"accelerated,omitempty"`
 
+	// (String) This property allows users to add descriptive notes for documentation and management purposes.
 	// This property allows users to add descriptive notes for documentation and management purposes.
 	// +kubebuilder:validation:Optional
 	Comment *string `json:"comment,omitempty" tf:"comment,omitempty"`
 
+	// (Boolean) Indicates whether the DNS record is enabled.
 	// Indicates whether the DNS record is enabled.
 	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
+	// (Number) Flags for advanced DNS settings.
 	// Flags for advanced DNS settings.
 	// +kubebuilder:validation:Optional
 	Flags *float64 `json:"flags,omitempty" tf:"flags,omitempty"`
 
+	// based routing.
 	// The latitude for geolocation-based routing.
 	// +kubebuilder:validation:Optional
 	GeolocationLat *float64 `json:"geolocationLat,omitempty" tf:"geolocation_lat,omitempty"`
 
+	// based routing.
 	// The longitude for geolocation-based routing.
 	// +kubebuilder:validation:Optional
 	GeolocationLong *float64 `json:"geolocationLong,omitempty" tf:"geolocation_long,omitempty"`
 
+	// based routing.
 	// The latency zone for latency-based routing.
 	// +kubebuilder:validation:Optional
 	LatencyZone *string `json:"latencyZone,omitempty" tf:"latency_zone,omitempty"`
 
+	// (String) Options: Http, Monitor, None, Ping
 	// Options: `Http`, `Monitor`, `None`, `Ping`
 	// +kubebuilder:validation:Optional
 	MonitorType *string `json:"monitorType,omitempty" tf:"monitor_type,omitempty"`
 
+	// (String) The name of the DNS record. Use name = "" for apex domain records.
 	// The name of the DNS record. Use <code>name = ""</code> for apex domain records.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The port number for services that require a specific port.
 	// The port number for services that require a specific port.
 	// +kubebuilder:validation:Optional
 	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
+	// (Number) The priority of the DNS record.
 	// The priority of the DNS record.
 	// +kubebuilder:validation:Optional
 	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
+	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
 	// +kubebuilder:validation:Optional
 	PullzoneID *float64 `json:"pullzoneId,omitempty" tf:"pullzone_id,omitempty"`
 
+	// (String) Options: Geolocation, Latency, None
 	// Options: `Geolocation`, `Latency`, `None`
 	// +kubebuilder:validation:Optional
 	SmartRoutingType *string `json:"smartRoutingType,omitempty" tf:"smart_routing_type,omitempty"`
 
+	// to-live value for the DNS record.
 	// The time-to-live value for the DNS record.
 	// +kubebuilder:validation:Optional
 	TTL *float64 `json:"ttl,omitempty" tf:"ttl,omitempty"`
 
+	// (String) A tag for the DNS record.
 	// A tag for the DNS record.
 	// +kubebuilder:validation:Optional
 	Tag *string `json:"tag,omitempty" tf:"tag,omitempty"`
 
+	// (String) Options: A, AAAA, CAA, CNAME, Flatten, HTTPS, MX, NS, PTR, PullZone, Redirect, SRV, SVCB, Script, TLSA, TXT
 	// Options: `A`, `AAAA`, `CAA`, `CNAME`, `Flatten`, `HTTPS`, `MX`, `NS`, `PTR`, `PullZone`, `Redirect`, `SRV`, `SVCB`, `Script`, `TLSA`, `TXT`
 	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
+	// (String) The value of the DNS record.
 	// The value of the DNS record.
 	// +kubebuilder:validation:Optional
 	Value *string `json:"value,omitempty" tf:"value,omitempty"`
 
+	// (Number) The weight of the DNS record. It is used in load balancing scenarios to distribute traffic based on the specified weight.
 	// The weight of the DNS record. It is used in load balancing scenarios to distribute traffic based on the specified weight.
 	// +kubebuilder:validation:Optional
 	Weight *float64 `json:"weight,omitempty" tf:"weight,omitempty"`
 
+	// (Number) ID of the related DNS zone.
 	// ID of the related DNS zone.
 	// +kubebuilder:validation:Optional
 	Zone *float64 `json:"zone,omitempty" tf:"zone,omitempty"`
@@ -248,7 +308,7 @@ type RecordStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Record is the Schema for the Records API. <no value>
+// Record is the Schema for the Records API. This resource manages DNS records in a bunny.net DNS zone. It is used to create, update, and delete DNS records within a specific DNS zone managed by bunny.net.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

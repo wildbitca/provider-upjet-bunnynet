@@ -16,89 +16,113 @@ import (
 
 type ZoneInitParameters struct {
 
+	// (String) The file path for a custom 404 error page.
 	// The file path for a custom 404 error page.
 	Custom404FilePath *string `json:"custom404FilePath,omitempty" tf:"custom_404_file_path,omitempty"`
 
+	// (String) The name of the storage zone.
 	// The name of the storage zone.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (String) The region where the storage zone is located.
 	// The region where the storage zone is located.
 	Region *string `json:"region,omitempty" tf:"region,omitempty"`
 
+	// (Set of String) A set of regions for data replication.
 	// A set of regions for data replication.
 	// +listType=set
 	ReplicationRegions []*string `json:"replicationRegions,omitempty" tf:"replication_regions,omitempty"`
 
+	// (Boolean) Indicates whether to rewrite 404 errors to 200 status.
 	// Indicates whether to rewrite 404 errors to 200 status.
 	Rewrite404To200 *bool `json:"rewrite404To200,omitempty" tf:"rewrite_404_to_200,omitempty"`
 
+	// (String) Options: S3, Standard
 	// Options: `S3`, `Standard`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
+	// (String) Options: Edge, Standard
 	// Options: `Edge`, `Standard`
 	ZoneTier *string `json:"zoneTier,omitempty" tf:"zone_tier,omitempty"`
 }
 
 type ZoneObservation struct {
 
+	// (String) The file path for a custom 404 error page.
 	// The file path for a custom 404 error page.
 	Custom404FilePath *string `json:"custom404FilePath,omitempty" tf:"custom_404_file_path,omitempty"`
 
+	// (String) The date when the zone was last modified.
 	// The date when the zone was last modified.
 	DateModified *string `json:"dateModified,omitempty" tf:"date_modified,omitempty"`
 
+	// (String) The hostname for accessing the storage zone.
 	// The hostname for accessing the storage zone.
 	Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
 
+	// (Number) The ID of the storage zone.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (String) The name of the storage zone.
 	// The name of the storage zone.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (String) The region where the storage zone is located.
 	// The region where the storage zone is located.
 	Region *string `json:"region,omitempty" tf:"region,omitempty"`
 
+	// (Set of String) A set of regions for data replication.
 	// A set of regions for data replication.
 	// +listType=set
 	ReplicationRegions []*string `json:"replicationRegions,omitempty" tf:"replication_regions,omitempty"`
 
+	// (Boolean) Indicates whether to rewrite 404 errors to 200 status.
 	// Indicates whether to rewrite 404 errors to 200 status.
 	Rewrite404To200 *bool `json:"rewrite404To200,omitempty" tf:"rewrite_404_to_200,omitempty"`
 
+	// (String) Options: S3, Standard
 	// Options: `S3`, `Standard`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
+	// (String) Options: Edge, Standard
 	// Options: `Edge`, `Standard`
 	ZoneTier *string `json:"zoneTier,omitempty" tf:"zone_tier,omitempty"`
 }
 
 type ZoneParameters struct {
 
+	// (String) The file path for a custom 404 error page.
 	// The file path for a custom 404 error page.
 	// +kubebuilder:validation:Optional
 	Custom404FilePath *string `json:"custom404FilePath,omitempty" tf:"custom_404_file_path,omitempty"`
 
+	// (String) The name of the storage zone.
 	// The name of the storage zone.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (String) The region where the storage zone is located.
 	// The region where the storage zone is located.
 	// +kubebuilder:validation:Optional
 	Region *string `json:"region,omitempty" tf:"region,omitempty"`
 
+	// (Set of String) A set of regions for data replication.
 	// A set of regions for data replication.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	ReplicationRegions []*string `json:"replicationRegions,omitempty" tf:"replication_regions,omitempty"`
 
+	// (Boolean) Indicates whether to rewrite 404 errors to 200 status.
 	// Indicates whether to rewrite 404 errors to 200 status.
 	// +kubebuilder:validation:Optional
 	Rewrite404To200 *bool `json:"rewrite404To200,omitempty" tf:"rewrite_404_to_200,omitempty"`
 
+	// (String) Options: S3, Standard
 	// Options: `S3`, `Standard`
 	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
+	// (String) Options: Edge, Standard
 	// Options: `Edge`, `Standard`
 	// +kubebuilder:validation:Optional
 	ZoneTier *string `json:"zoneTier,omitempty" tf:"zone_tier,omitempty"`
@@ -131,7 +155,7 @@ type ZoneStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Zone is the Schema for the Zones API. <no value>
+// Zone is the Schema for the Zones API. This resource manages a bunny.net storage zone. It is used to create and manage storage zones.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

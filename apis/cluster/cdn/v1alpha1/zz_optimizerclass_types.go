@@ -15,190 +15,244 @@ import (
 
 type OptimizerClassInitParameters struct {
 
+	// (String) The aspect ratio for image optimization.
 	// The aspect ratio for image optimization.
 	AspectRatio *string `json:"aspectRatio,omitempty" tf:"aspect_ratio,omitempty"`
 
+	// (String) Indicates whether automatic optimization for images is enabled.
 	// Indicates whether automatic optimization for images is enabled.
 	AutoOptimize *string `json:"autoOptimize,omitempty" tf:"auto_optimize,omitempty"`
 
+	// (Number) The level of blur to apply to images.
 	// The level of blur to apply to images.
 	Blur *float64 `json:"blur,omitempty" tf:"blur,omitempty"`
 
+	// (Number) The brightness adjustment for images.
 	// The brightness adjustment for images.
 	Brightness *float64 `json:"brightness,omitempty" tf:"brightness,omitempty"`
 
+	// (Number) The contrast adjustment for images.
 	// The contrast adjustment for images.
 	Contrast *float64 `json:"contrast,omitempty" tf:"contrast,omitempty"`
 
+	// (String) The cropping settings for images.
 	// The cropping settings for images.
 	Crop *string `json:"crop,omitempty" tf:"crop,omitempty"`
 
+	// (String) The gravity setting for cropping.
 	// The gravity setting for cropping.
 	CropGravity *string `json:"cropGravity,omitempty" tf:"crop_gravity,omitempty"`
 
+	// (Boolean) Indicates whether to flip images horizontally.
 	// Indicates whether to flip images horizontally.
 	Flip *bool `json:"flip,omitempty" tf:"flip,omitempty"`
 
+	// (Boolean) Indicates whether to flip images vertically.
 	// Indicates whether to flip images vertically.
 	Flop *bool `json:"flop,omitempty" tf:"flop,omitempty"`
 
+	// (Number) The height to which images should be resized.
 	// The height to which images should be resized.
 	Height *float64 `json:"height,omitempty" tf:"height,omitempty"`
 
+	// (Number) The hue adjustment for images.
 	// The hue adjustment for images.
 	Hue *float64 `json:"hue,omitempty" tf:"hue,omitempty"`
 
+	// (String) The name of the optimizer class.
 	// The name of the optimizer class.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The ID of the linked pull zone.
 	// The ID of the linked pull zone.
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (Number) The quality setting for image optimization.
 	// The quality setting for image optimization.
 	Quality *float64 `json:"quality,omitempty" tf:"quality,omitempty"`
 
+	// (Number) The saturation adjustment for images.
 	// The saturation adjustment for images.
 	Saturation *float64 `json:"saturation,omitempty" tf:"saturation,omitempty"`
 
+	// (Number) The level of sepia tone to apply to images.
 	// The level of sepia tone to apply to images.
 	Sepia *float64 `json:"sepia,omitempty" tf:"sepia,omitempty"`
 
+	// (Boolean) Indicates whether to sharpen images.
 	// Indicates whether to sharpen images.
 	Sharpen *bool `json:"sharpen,omitempty" tf:"sharpen,omitempty"`
 
+	// (Number) The width to which images should be resized.
 	// The width to which images should be resized.
 	Width *float64 `json:"width,omitempty" tf:"width,omitempty"`
 }
 
 type OptimizerClassObservation struct {
 
+	// (String) The aspect ratio for image optimization.
 	// The aspect ratio for image optimization.
 	AspectRatio *string `json:"aspectRatio,omitempty" tf:"aspect_ratio,omitempty"`
 
+	// (String) Indicates whether automatic optimization for images is enabled.
 	// Indicates whether automatic optimization for images is enabled.
 	AutoOptimize *string `json:"autoOptimize,omitempty" tf:"auto_optimize,omitempty"`
 
+	// (Number) The level of blur to apply to images.
 	// The level of blur to apply to images.
 	Blur *float64 `json:"blur,omitempty" tf:"blur,omitempty"`
 
+	// (Number) The brightness adjustment for images.
 	// The brightness adjustment for images.
 	Brightness *float64 `json:"brightness,omitempty" tf:"brightness,omitempty"`
 
+	// (Number) The contrast adjustment for images.
 	// The contrast adjustment for images.
 	Contrast *float64 `json:"contrast,omitempty" tf:"contrast,omitempty"`
 
+	// (String) The cropping settings for images.
 	// The cropping settings for images.
 	Crop *string `json:"crop,omitempty" tf:"crop,omitempty"`
 
+	// (String) The gravity setting for cropping.
 	// The gravity setting for cropping.
 	CropGravity *string `json:"cropGravity,omitempty" tf:"crop_gravity,omitempty"`
 
+	// (Boolean) Indicates whether to flip images horizontally.
 	// Indicates whether to flip images horizontally.
 	Flip *bool `json:"flip,omitempty" tf:"flip,omitempty"`
 
+	// (Boolean) Indicates whether to flip images vertically.
 	// Indicates whether to flip images vertically.
 	Flop *bool `json:"flop,omitempty" tf:"flop,omitempty"`
 
+	// (Number) The height to which images should be resized.
 	// The height to which images should be resized.
 	Height *float64 `json:"height,omitempty" tf:"height,omitempty"`
 
+	// (Number) The hue adjustment for images.
 	// The hue adjustment for images.
 	Hue *float64 `json:"hue,omitempty" tf:"hue,omitempty"`
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (String) The name of the optimizer class.
 	// The name of the optimizer class.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The ID of the linked pull zone.
 	// The ID of the linked pull zone.
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (Number) The quality setting for image optimization.
 	// The quality setting for image optimization.
 	Quality *float64 `json:"quality,omitempty" tf:"quality,omitempty"`
 
+	// (Number) The saturation adjustment for images.
 	// The saturation adjustment for images.
 	Saturation *float64 `json:"saturation,omitempty" tf:"saturation,omitempty"`
 
+	// (Number) The level of sepia tone to apply to images.
 	// The level of sepia tone to apply to images.
 	Sepia *float64 `json:"sepia,omitempty" tf:"sepia,omitempty"`
 
+	// (Boolean) Indicates whether to sharpen images.
 	// Indicates whether to sharpen images.
 	Sharpen *bool `json:"sharpen,omitempty" tf:"sharpen,omitempty"`
 
+	// (Number) The width to which images should be resized.
 	// The width to which images should be resized.
 	Width *float64 `json:"width,omitempty" tf:"width,omitempty"`
 }
 
 type OptimizerClassParameters struct {
 
+	// (String) The aspect ratio for image optimization.
 	// The aspect ratio for image optimization.
 	// +kubebuilder:validation:Optional
 	AspectRatio *string `json:"aspectRatio,omitempty" tf:"aspect_ratio,omitempty"`
 
+	// (String) Indicates whether automatic optimization for images is enabled.
 	// Indicates whether automatic optimization for images is enabled.
 	// +kubebuilder:validation:Optional
 	AutoOptimize *string `json:"autoOptimize,omitempty" tf:"auto_optimize,omitempty"`
 
+	// (Number) The level of blur to apply to images.
 	// The level of blur to apply to images.
 	// +kubebuilder:validation:Optional
 	Blur *float64 `json:"blur,omitempty" tf:"blur,omitempty"`
 
+	// (Number) The brightness adjustment for images.
 	// The brightness adjustment for images.
 	// +kubebuilder:validation:Optional
 	Brightness *float64 `json:"brightness,omitempty" tf:"brightness,omitempty"`
 
+	// (Number) The contrast adjustment for images.
 	// The contrast adjustment for images.
 	// +kubebuilder:validation:Optional
 	Contrast *float64 `json:"contrast,omitempty" tf:"contrast,omitempty"`
 
+	// (String) The cropping settings for images.
 	// The cropping settings for images.
 	// +kubebuilder:validation:Optional
 	Crop *string `json:"crop,omitempty" tf:"crop,omitempty"`
 
+	// (String) The gravity setting for cropping.
 	// The gravity setting for cropping.
 	// +kubebuilder:validation:Optional
 	CropGravity *string `json:"cropGravity,omitempty" tf:"crop_gravity,omitempty"`
 
+	// (Boolean) Indicates whether to flip images horizontally.
 	// Indicates whether to flip images horizontally.
 	// +kubebuilder:validation:Optional
 	Flip *bool `json:"flip,omitempty" tf:"flip,omitempty"`
 
+	// (Boolean) Indicates whether to flip images vertically.
 	// Indicates whether to flip images vertically.
 	// +kubebuilder:validation:Optional
 	Flop *bool `json:"flop,omitempty" tf:"flop,omitempty"`
 
+	// (Number) The height to which images should be resized.
 	// The height to which images should be resized.
 	// +kubebuilder:validation:Optional
 	Height *float64 `json:"height,omitempty" tf:"height,omitempty"`
 
+	// (Number) The hue adjustment for images.
 	// The hue adjustment for images.
 	// +kubebuilder:validation:Optional
 	Hue *float64 `json:"hue,omitempty" tf:"hue,omitempty"`
 
+	// (String) The name of the optimizer class.
 	// The name of the optimizer class.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The ID of the linked pull zone.
 	// The ID of the linked pull zone.
 	// +kubebuilder:validation:Optional
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (Number) The quality setting for image optimization.
 	// The quality setting for image optimization.
 	// +kubebuilder:validation:Optional
 	Quality *float64 `json:"quality,omitempty" tf:"quality,omitempty"`
 
+	// (Number) The saturation adjustment for images.
 	// The saturation adjustment for images.
 	// +kubebuilder:validation:Optional
 	Saturation *float64 `json:"saturation,omitempty" tf:"saturation,omitempty"`
 
+	// (Number) The level of sepia tone to apply to images.
 	// The level of sepia tone to apply to images.
 	// +kubebuilder:validation:Optional
 	Sepia *float64 `json:"sepia,omitempty" tf:"sepia,omitempty"`
 
+	// (Boolean) Indicates whether to sharpen images.
 	// Indicates whether to sharpen images.
 	// +kubebuilder:validation:Optional
 	Sharpen *bool `json:"sharpen,omitempty" tf:"sharpen,omitempty"`
 
+	// (Number) The width to which images should be resized.
 	// The width to which images should be resized.
 	// +kubebuilder:validation:Optional
 	Width *float64 `json:"width,omitempty" tf:"width,omitempty"`
@@ -231,7 +285,7 @@ type OptimizerClassStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// OptimizerClass is the Schema for the OptimizerClasss API. <no value>
+// OptimizerClass is the Schema for the OptimizerClasss API. This resource manages optimizer classes for a bunny.net pull zone. It is used to define Bunny Optimizer settings for pullzones.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

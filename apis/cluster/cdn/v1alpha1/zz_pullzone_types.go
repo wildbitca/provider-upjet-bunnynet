@@ -15,138 +15,177 @@ import (
 
 type OriginInitParameters struct {
 
+	// (String) The ID if the compute container app.
 	// The ID if the compute container app.
 	ContainerAppID *string `json:"containerAppId,omitempty" tf:"container_app_id,omitempty"`
 
+	// (String) The ID if the compute container app endpoint.
 	// The ID if the compute container app endpoint.
 	ContainerEndpointID *string `json:"containerEndpointId,omitempty" tf:"container_endpoint_id,omitempty"`
 
+	// (Number) The port for DNS Accelerated endpoints.
 	// The port for DNS Accelerated endpoints.
 	DNSPort *float64 `json:"dnsPort,omitempty" tf:"dns_port,omitempty"`
 
+	// (String) The scheme for DNS Accelerated endpoints.
 	// The scheme for DNS Accelerated endpoints.
 	DNSScheme *string `json:"dnsScheme,omitempty" tf:"dns_scheme,omitempty"`
 
+	// (Boolean) Indicates whether the zone will follow origin redirects.
 	// Indicates whether the zone will follow origin redirects.
 	FollowRedirects *bool `json:"followRedirects,omitempty" tf:"follow_redirects,omitempty"`
 
+	// (Boolean) Indicates whether the current hostname is forwarded to the origin.
 	// Indicates whether the current hostname is forwarded to the origin.
 	ForwardHostHeader *bool `json:"forwardHostHeader,omitempty" tf:"forward_host_header,omitempty"`
 
+	// (String) The host header that will be sent to the origin.
 	// The host header that will be sent to the origin.
 	HostHeader *string `json:"hostHeader,omitempty" tf:"host_header,omitempty"`
 
+	// (Number) The ID of the compute script used as a middleware.
 	// The ID of the compute script used as a middleware.
 	MiddlewareScript *float64 `json:"middlewareScript,omitempty" tf:"middleware_script,omitempty"`
 
+	// (Number) The ID of the linked compute script.
 	// The ID of the linked compute script.
 	Script *float64 `json:"script,omitempty" tf:"script,omitempty"`
 
+	// (Number) The ID of the linked storage zone.
 	// The ID of the linked storage zone.
 	Storagezone *float64 `json:"storagezone,omitempty" tf:"storagezone,omitempty"`
 
+	// (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, OriginUrl, StorageZone
 	// Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `OriginUrl`, `StorageZone`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
+	// (String) The origin URL from where the files are fetched.
 	// The origin URL from where the files are fetched.
 	URL *string `json:"url,omitempty" tf:"url,omitempty"`
 
+	// (Boolean) Indicates whether the Origin's TLS certificate should be verified.
 	// Indicates whether the Origin's TLS certificate should be verified.
 	VerifySSL *bool `json:"verifySsl,omitempty" tf:"verify_ssl,omitempty"`
 }
 
 type OriginObservation struct {
 
+	// (String) The ID if the compute container app.
 	// The ID if the compute container app.
 	ContainerAppID *string `json:"containerAppId,omitempty" tf:"container_app_id,omitempty"`
 
+	// (String) The ID if the compute container app endpoint.
 	// The ID if the compute container app endpoint.
 	ContainerEndpointID *string `json:"containerEndpointId,omitempty" tf:"container_endpoint_id,omitempty"`
 
+	// (Number) The port for DNS Accelerated endpoints.
 	// The port for DNS Accelerated endpoints.
 	DNSPort *float64 `json:"dnsPort,omitempty" tf:"dns_port,omitempty"`
 
+	// (String) The scheme for DNS Accelerated endpoints.
 	// The scheme for DNS Accelerated endpoints.
 	DNSScheme *string `json:"dnsScheme,omitempty" tf:"dns_scheme,omitempty"`
 
+	// (Boolean) Indicates whether the zone will follow origin redirects.
 	// Indicates whether the zone will follow origin redirects.
 	FollowRedirects *bool `json:"followRedirects,omitempty" tf:"follow_redirects,omitempty"`
 
+	// (Boolean) Indicates whether the current hostname is forwarded to the origin.
 	// Indicates whether the current hostname is forwarded to the origin.
 	ForwardHostHeader *bool `json:"forwardHostHeader,omitempty" tf:"forward_host_header,omitempty"`
 
+	// (String) The host header that will be sent to the origin.
 	// The host header that will be sent to the origin.
 	HostHeader *string `json:"hostHeader,omitempty" tf:"host_header,omitempty"`
 
+	// (Number) The ID of the compute script used as a middleware.
 	// The ID of the compute script used as a middleware.
 	MiddlewareScript *float64 `json:"middlewareScript,omitempty" tf:"middleware_script,omitempty"`
 
+	// (Number) The ID of the linked compute script.
 	// The ID of the linked compute script.
 	Script *float64 `json:"script,omitempty" tf:"script,omitempty"`
 
+	// (Number) The ID of the linked storage zone.
 	// The ID of the linked storage zone.
 	Storagezone *float64 `json:"storagezone,omitempty" tf:"storagezone,omitempty"`
 
+	// (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, OriginUrl, StorageZone
 	// Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `OriginUrl`, `StorageZone`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
+	// (String) The origin URL from where the files are fetched.
 	// The origin URL from where the files are fetched.
 	URL *string `json:"url,omitempty" tf:"url,omitempty"`
 
+	// (Boolean) Indicates whether the Origin's TLS certificate should be verified.
 	// Indicates whether the Origin's TLS certificate should be verified.
 	VerifySSL *bool `json:"verifySsl,omitempty" tf:"verify_ssl,omitempty"`
 }
 
 type OriginParameters struct {
 
+	// (String) The ID if the compute container app.
 	// The ID if the compute container app.
 	// +kubebuilder:validation:Optional
 	ContainerAppID *string `json:"containerAppId,omitempty" tf:"container_app_id,omitempty"`
 
+	// (String) The ID if the compute container app endpoint.
 	// The ID if the compute container app endpoint.
 	// +kubebuilder:validation:Optional
 	ContainerEndpointID *string `json:"containerEndpointId,omitempty" tf:"container_endpoint_id,omitempty"`
 
+	// (Number) The port for DNS Accelerated endpoints.
 	// The port for DNS Accelerated endpoints.
 	// +kubebuilder:validation:Optional
 	DNSPort *float64 `json:"dnsPort,omitempty" tf:"dns_port,omitempty"`
 
+	// (String) The scheme for DNS Accelerated endpoints.
 	// The scheme for DNS Accelerated endpoints.
 	// +kubebuilder:validation:Optional
 	DNSScheme *string `json:"dnsScheme,omitempty" tf:"dns_scheme,omitempty"`
 
+	// (Boolean) Indicates whether the zone will follow origin redirects.
 	// Indicates whether the zone will follow origin redirects.
 	// +kubebuilder:validation:Optional
 	FollowRedirects *bool `json:"followRedirects,omitempty" tf:"follow_redirects,omitempty"`
 
+	// (Boolean) Indicates whether the current hostname is forwarded to the origin.
 	// Indicates whether the current hostname is forwarded to the origin.
 	// +kubebuilder:validation:Optional
 	ForwardHostHeader *bool `json:"forwardHostHeader,omitempty" tf:"forward_host_header,omitempty"`
 
+	// (String) The host header that will be sent to the origin.
 	// The host header that will be sent to the origin.
 	// +kubebuilder:validation:Optional
 	HostHeader *string `json:"hostHeader,omitempty" tf:"host_header,omitempty"`
 
+	// (Number) The ID of the compute script used as a middleware.
 	// The ID of the compute script used as a middleware.
 	// +kubebuilder:validation:Optional
 	MiddlewareScript *float64 `json:"middlewareScript,omitempty" tf:"middleware_script,omitempty"`
 
+	// (Number) The ID of the linked compute script.
 	// The ID of the linked compute script.
 	// +kubebuilder:validation:Optional
 	Script *float64 `json:"script,omitempty" tf:"script,omitempty"`
 
+	// (Number) The ID of the linked storage zone.
 	// The ID of the linked storage zone.
 	// +kubebuilder:validation:Optional
 	Storagezone *float64 `json:"storagezone,omitempty" tf:"storagezone,omitempty"`
 
+	// (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, OriginUrl, StorageZone
 	// Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `OriginUrl`, `StorageZone`
 	// +kubebuilder:validation:Optional
 	Type *string `json:"type" tf:"type,omitempty"`
 
+	// (String) The origin URL from where the files are fetched.
 	// The origin URL from where the files are fetched.
 	// +kubebuilder:validation:Optional
 	URL *string `json:"url,omitempty" tf:"url,omitempty"`
 
+	// (Boolean) Indicates whether the Origin's TLS certificate should be verified.
 	// Indicates whether the Origin's TLS certificate should be verified.
 	// +kubebuilder:validation:Optional
 	VerifySSL *bool `json:"verifySsl,omitempty" tf:"verify_ssl,omitempty"`
@@ -154,932 +193,1202 @@ type OriginParameters struct {
 
 type PullzoneInitParameters struct {
 
+	// (Boolean) Indicates whether the Canonical header is added to the responses.
 	// Indicates whether the Canonical header is added to the responses.
 	AddCanonicalHeader *bool `json:"addCanonicalHeader,omitempty" tf:"add_canonical_header,omitempty"`
 
+	// (Set of String) The list of referrer hostnames that are allowed to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
 	// The list of referrer hostnames that are allowed to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
 	// +listType=set
 	AllowReferers []*string `json:"allowReferers,omitempty" tf:"allow_referers,omitempty"`
 
+	// (Set of String) The list of IPs that are blocked from accessing the pull zone. Requests coming from the following IPs will be rejected. If empty, all the IPs will be allowed
 	// The list of IPs that are blocked from accessing the pull zone. Requests coming from the following IPs will be rejected. If empty, all the IPs will be allowed
 	// +listType=set
 	BlockIps []*string `json:"blockIps,omitempty" tf:"block_ips,omitempty"`
 
+	// (Boolean) Indicates whether requests without a referer should be blocked.
 	// Indicates whether requests without a referer should be blocked.
 	BlockNoReferer *bool `json:"blockNoReferer,omitempty" tf:"block_no_referer,omitempty"`
 
+	// (Boolean) Indicates whether to block POST requests.
 	// Indicates whether to block POST requests.
 	BlockPostRequests *bool `json:"blockPostRequests,omitempty" tf:"block_post_requests,omitempty"`
 
+	// (Set of String) The list of referrer hostnames that are blocked to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
 	// The list of referrer hostnames that are blocked to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
 	// +listType=set
 	BlockReferers []*string `json:"blockReferers,omitempty" tf:"block_referers,omitempty"`
 
+	// (Boolean) This property indicates whether to block the root path.
 	// This property indicates whether to block the root path.
 	BlockRootPath *bool `json:"blockRootPath,omitempty" tf:"block_root_path,omitempty"`
 
+	// (Boolean) Indicates whether the cache slice (Optimize for large object delivery) feature is enabled for the Pull Zone
 	// Indicates whether the cache slice (Optimize for large object delivery) feature is enabled for the Pull Zone
 	CacheChunked *bool `json:"cacheChunked,omitempty" tf:"cache_chunked,omitempty"`
 
+	// (Boolean) Indicates whether smart caching is enabled.
 	// Indicates whether smart caching is enabled.
 	CacheEnabled *bool `json:"cacheEnabled,omitempty" tf:"cache_enabled,omitempty"`
 
+	// (Boolean) Indicates whether bunny.net should be caching error responses.
 	// Indicates whether bunny.net should be caching error responses.
 	CacheErrors *bool `json:"cacheErrors,omitempty" tf:"cache_errors,omitempty"`
 
+	// (Number) The override cache time, in seconds.
 	// The override cache time, in seconds.
 	CacheExpirationTime *float64 `json:"cacheExpirationTime,omitempty" tf:"cache_expiration_time,omitempty"`
 
+	// (Number) The override cache time for the end client, in seconds.
 	// The override cache time for the end client, in seconds.
 	CacheExpirationTimeBrowser *float64 `json:"cacheExpirationTimeBrowser,omitempty" tf:"cache_expiration_time_browser,omitempty"`
 
+	// (Set of String) Options: offline, updating
 	// Options: `offline`, `updating`
 	// +listType=set
 	CacheStale []*string `json:"cacheStale,omitempty" tf:"cache_stale,omitempty"`
 
+	// (Set of String) Options: avif, cookie, country, hostname, mobile, querystring, state, webp
 	// Options: `avif`, `cookie`, `country`, `hostname`, `mobile`, `querystring`, `state`, `webp`
 	// +listType=set
 	CacheVary []*string `json:"cacheVary,omitempty" tf:"cache_vary,omitempty"`
 
+	// (Set of String) Contains the list of vary parameters that will be used for vary cache by cookie string. If empty, cookie vary will not be used.
 	// Contains the list of vary parameters that will be used for vary cache by cookie string. If empty, cookie vary will not be used.
 	// +listType=set
 	CacheVaryCookie []*string `json:"cacheVaryCookie,omitempty" tf:"cache_vary_cookie,omitempty"`
 
+	// (Set of String) Contains the list of request headers will be used for vary cache. If empty, it will not be used.
 	// Contains the list of request headers will be used for vary cache. If empty, it will not be used.
 	// +listType=set
 	CacheVaryHeaders []*string `json:"cacheVaryHeaders,omitempty" tf:"cache_vary_headers,omitempty"`
 
+	// (Set of String) Contains the list of vary parameters that will be used for vary cache by query string. If empty, all parameters will be used to construct the key
 	// Contains the list of vary parameters that will be used for vary cache by query string. If empty, all parameters will be used to construct the key
 	// +listType=set
 	CacheVaryQuerystring []*string `json:"cacheVaryQuerystring,omitempty" tf:"cache_vary_querystring,omitempty"`
 
+	// Origin Resource Sharing) is enabled.
 	// Indicates whether CORS (Cross-Origin Resource Sharing) is enabled.
 	CorsEnabled *bool `json:"corsEnabled,omitempty" tf:"cors_enabled,omitempty"`
 
+	// (Set of String) A list of file extensions for which CORS is enabled.
 	// A list of file extensions for which CORS is enabled.
 	// +listType=set
 	CorsExtensions []*string `json:"corsExtensions,omitempty" tf:"cors_extensions,omitempty"`
 
+	// in let's encrypt is disabled and requests are passed to the origin.
 	// If true, the built-in let's encrypt is disabled and requests are passed to the origin.
 	DisableLetsencrypt *bool `json:"disableLetsencrypt,omitempty" tf:"disable_letsencrypt,omitempty"`
 
+	// (String) Contains the custom error page code that will be returned.
 	// Contains the custom error page code that will be returned.
 	ErrorpageCustomContent *string `json:"errorpageCustomContent,omitempty" tf:"errorpage_custom_content,omitempty"`
 
+	// (Boolean) Indicates whether custom error page code should be enabled.
 	// Indicates whether custom error page code should be enabled.
 	ErrorpageCustomEnabled *bool `json:"errorpageCustomEnabled,omitempty" tf:"errorpage_custom_enabled,omitempty"`
 
+	// (String) The statuspage code that will be used to build the status widget.
 	// The statuspage code that will be used to build the status widget.
 	ErrorpageStatuspageCode *string `json:"errorpageStatuspageCode,omitempty" tf:"errorpage_statuspage_code,omitempty"`
 
+	// (Boolean) Indicates whether the statuspage widget should be displayed on the error pages.
 	// Indicates whether the statuspage widget should be displayed on the error pages.
 	ErrorpageStatuspageEnabled *bool `json:"errorpageStatuspageEnabled,omitempty" tf:"errorpage_statuspage_enabled,omitempty"`
 
+	// labelled or not
 	// Indicates whether the error pages should be white-labelled or not
 	ErrorpageWhitelabel *bool `json:"errorpageWhitelabel,omitempty" tf:"errorpage_whitelabel,omitempty"`
 
+	// (Number) The amount of data after the rate limit will be activated.
 	// The amount of data after the rate limit will be activated.
 	LimitAfter *float64 `json:"limitAfter,omitempty" tf:"limit_after,omitempty"`
 
+	// (Number) The maximum bandwidth limit in bytes.
 	// The maximum bandwidth limit in bytes.
 	LimitBandwidth *float64 `json:"limitBandwidth,omitempty" tf:"limit_bandwidth,omitempty"`
 
+	// (Number) Excessive requests are delayed until their number exceeds the maximum burst size.
 	// Excessive requests are delayed until their number exceeds the maximum burst size.
 	LimitBurst *float64 `json:"limitBurst,omitempty" tf:"limit_burst,omitempty"`
 
+	// (Number) The number of connections limited per IP.
 	// The number of connections limited per IP.
 	LimitConnections *float64 `json:"limitConnections,omitempty" tf:"limit_connections,omitempty"`
 
+	// (Number) The maximum download speed, in kb/s. Use 0 for unlimited.
 	// The maximum download speed, in kb/s. Use 0 for unlimited.
 	LimitDownloadSpeed *float64 `json:"limitDownloadSpeed,omitempty" tf:"limit_download_speed,omitempty"`
 
+	// (Number) The maximum amount of requests per IP per second.
 	// The maximum amount of requests per IP per second.
 	LimitRequests *float64 `json:"limitRequests,omitempty" tf:"limit_requests,omitempty"`
 
+	// (Boolean) Indicates whether logs are anonymized.
 	// Indicates whether logs are anonymized.
 	LogAnonymized *bool `json:"logAnonymized,omitempty" tf:"log_anonymized,omitempty"`
 
+	// (String) Options: Drop, OneDigit
 	// Options: `Drop`, `OneDigit`
 	LogAnonymizedStyle *string `json:"logAnonymizedStyle,omitempty" tf:"log_anonymized_style,omitempty"`
 
+	// (Boolean) Indicates whether logging is enabled.
 	// Indicates whether logging is enabled.
 	LogEnabled *bool `json:"logEnabled,omitempty" tf:"log_enabled,omitempty"`
 
+	// (Boolean) Indicates whether log forwarding is enabled.
 	// Indicates whether log forwarding is enabled.
 	LogForwardEnabled *bool `json:"logForwardEnabled,omitempty" tf:"log_forward_enabled,omitempty"`
 
+	// (String) Options: JSON, Plain
 	// Options: `JSON`, `Plain`
 	LogForwardFormat *string `json:"logForwardFormat,omitempty" tf:"log_forward_format,omitempty"`
 
+	// (Number) The port number for log forwarding.
 	// The port number for log forwarding.
 	LogForwardPort *float64 `json:"logForwardPort,omitempty" tf:"log_forward_port,omitempty"`
 
+	// (String) Options: DataDog, TCP, TCPEncrypted, UDP
 	// Options: `DataDog`, `TCP`, `TCPEncrypted`, `UDP`
 	LogForwardProtocol *string `json:"logForwardProtocol,omitempty" tf:"log_forward_protocol,omitempty"`
 
+	// (String) The server address for log forwarding.
 	// The server address for log forwarding.
 	LogForwardServer *string `json:"logForwardServer,omitempty" tf:"log_forward_server,omitempty"`
 
+	// (String) The token used for log forwarding authentication.
 	// The token used for log forwarding authentication.
 	LogForwardToken *string `json:"logForwardToken,omitempty" tf:"log_forward_token,omitempty"`
 
+	// (Boolean) Indicates whether log storage is enabled.
 	// Indicates whether log storage is enabled.
 	LogStorageEnabled *bool `json:"logStorageEnabled,omitempty" tf:"log_storage_enabled,omitempty"`
 
+	// (Number) The storage zone ID for log storage.
 	// The storage zone ID for log storage.
 	LogStorageZone *float64 `json:"logStorageZone,omitempty" tf:"log_storage_zone,omitempty"`
 
+	// (String) The name of the pull zone.
 	// The name of the pull zone.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Boolean) Indicates whether Burrow Smart Routing should be enabled.
 	// Indicates whether Burrow Smart Routing should be enabled.
 	OptimizerBurrow *bool `json:"optimizerBurrow,omitempty" tf:"optimizer_burrow,omitempty"`
 
+	// (Boolean) Indicates whether the optimizer class list should be enforced.
 	// Indicates whether the optimizer class list should be enforced.
 	OptimizerClassesForce *bool `json:"optimizerClassesForce,omitempty" tf:"optimizer_classes_force,omitempty"`
 
+	// (Boolean) Indicates whether the image manipulation should be enabled.
 	// Indicates whether the image manipulation should be enabled.
 	OptimizerDynamicImageAPI *bool `json:"optimizerDynamicImageApi,omitempty" tf:"optimizer_dynamic_image_api,omitempty"`
 
+	// (Boolean) Indicates whether Bunny Optimizer should be enabled.
 	// Indicates whether Bunny Optimizer should be enabled.
 	OptimizerEnabled *bool `json:"optimizerEnabled,omitempty" tf:"optimizer_enabled,omitempty"`
 
+	// (Boolean) Indicates whether HTML Prerender should be enabled.
 	// Indicates whether HTML Prerender should be enabled.
 	OptimizerHTMLPrerender *bool `json:"optimizerHtmlPrerender,omitempty" tf:"optimizer_html_prerender,omitempty"`
 
+	// (Boolean) Indicates whether the CSS minification should be enabled.
 	// Indicates whether the CSS minification should be enabled.
 	OptimizerMinifyCSS *bool `json:"optimizerMinifyCss,omitempty" tf:"optimizer_minify_css,omitempty"`
 
+	// (Boolean) Indicates whether the JavaScript minification should be enabled.
 	// Indicates whether the JavaScript minification should be enabled.
 	OptimizerMinifyJs *bool `json:"optimizerMinifyJs,omitempty" tf:"optimizer_minify_js,omitempty"`
 
+	// (Boolean) Indicates whether the automatic image optimization should be enabled.
 	// Indicates whether the automatic image optimization should be enabled.
 	OptimizerSmartimage *bool `json:"optimizerSmartimage,omitempty" tf:"optimizer_smartimage,omitempty"`
 
+	// (Number) The maximum automatic image size for desktop clients.
 	// The maximum automatic image size for desktop clients.
 	OptimizerSmartimageDesktopMaxwidth *float64 `json:"optimizerSmartimageDesktopMaxwidth,omitempty" tf:"optimizer_smartimage_desktop_maxwidth,omitempty"`
 
+	// (Number) The image quality for desktop clients.
 	// The image quality for desktop clients.
 	OptimizerSmartimageDesktopQuality *float64 `json:"optimizerSmartimageDesktopQuality,omitempty" tf:"optimizer_smartimage_desktop_quality,omitempty"`
 
+	// (Number) The maximum automatic image size for mobile clients.
 	// The maximum automatic image size for mobile clients.
 	OptimizerSmartimageMobileMaxwidth *float64 `json:"optimizerSmartimageMobileMaxwidth,omitempty" tf:"optimizer_smartimage_mobile_maxwidth,omitempty"`
 
+	// (Number) Determines the image quality for mobile clients
 	// Determines the image quality for mobile clients
 	OptimizerSmartimageMobileQuality *float64 `json:"optimizerSmartimageMobileQuality,omitempty" tf:"optimizer_smartimage_mobile_quality,omitempty"`
 
+	// (Boolean) Indicates whether image watermarking should be enabled.
 	// Indicates whether image watermarking should be enabled.
 	OptimizerWatermark *bool `json:"optimizerWatermark,omitempty" tf:"optimizer_watermark,omitempty"`
 
+	// (Number) The offset of the watermark image.
 	// The offset of the watermark image.
 	OptimizerWatermarkBorderoffset *float64 `json:"optimizerWatermarkBorderoffset,omitempty" tf:"optimizer_watermark_borderoffset,omitempty"`
 
+	// (Number) The minimum image size to which the watermark will be added.
 	// The minimum image size to which the watermark will be added.
 	OptimizerWatermarkMinsize *float64 `json:"optimizerWatermarkMinsize,omitempty" tf:"optimizer_watermark_minsize,omitempty"`
 
+	// (String) Options: BottomLeft, BottomRight, Center, CenterStretch, TopLeft, TopRight
 	// Options: `BottomLeft`, `BottomRight`, `Center`, `CenterStretch`, `TopLeft`, `TopRight`
 	OptimizerWatermarkPosition *string `json:"optimizerWatermarkPosition,omitempty" tf:"optimizer_watermark_position,omitempty"`
 
+	// (String) The URL of the watermark image.
 	// The URL of the watermark image.
 	OptimizerWatermarkURL *string `json:"optimizerWatermarkUrl,omitempty" tf:"optimizer_watermark_url,omitempty"`
 
+	// (Boolean) Indicates whether the WebP optimization should be enabled.
 	// Indicates whether the WebP optimization should be enabled.
 	OptimizerWebp *bool `json:"optimizerWebp,omitempty" tf:"optimizer_webp,omitempty"`
 
+	// (Boolean) Indicates whether there is a concurrency limit for Origin Shield.
 	// Indicates whether there is a concurrency limit for Origin Shield.
 	OriginshieldConcurrencyLimit *bool `json:"originshieldConcurrencyLimit,omitempty" tf:"originshield_concurrency_limit,omitempty"`
 
+	// (Number) The number of concurrent requests for Origin Shield.
 	// The number of concurrent requests for Origin Shield.
 	OriginshieldConcurrencyRequests *float64 `json:"originshieldConcurrencyRequests,omitempty" tf:"originshield_concurrency_requests,omitempty"`
 
+	// (Boolean) Indicates whether Origin Shield is enabled.
 	// Indicates whether Origin Shield is enabled.
 	OriginshieldEnabled *bool `json:"originshieldEnabled,omitempty" tf:"originshield_enabled,omitempty"`
 
+	// (Number) The number of queued requests for Origin Shield.
 	// The number of queued requests for Origin Shield.
 	OriginshieldQueueRequests *float64 `json:"originshieldQueueRequests,omitempty" tf:"originshield_queue_requests,omitempty"`
 
+	// (Number) The maximum wait time for queued requests in Origin Shield, in seconds.
 	// The maximum wait time for queued requests in Origin Shield, in seconds.
 	OriginshieldQueueWait *float64 `json:"originshieldQueueWait,omitempty" tf:"originshield_queue_wait,omitempty"`
 
+	// (String) Options: FR, IL
 	// Options: `FR`, `IL`
 	OriginshieldZone *string `json:"originshieldZone,omitempty" tf:"originshield_zone,omitempty"`
 
+	// Cache.
 	// The storage zone ID for Perma-Cache.
 	PermacacheStoragezone *float64 `json:"permacacheStoragezone,omitempty" tf:"permacache_storagezone,omitempty"`
 
+	// (Boolean) Indicates whether request coalescing is enabled.
 	// Indicates whether request coalescing is enabled.
 	RequestCoalescingEnabled *bool `json:"requestCoalescingEnabled,omitempty" tf:"request_coalescing_enabled,omitempty"`
 
+	// (Number) Specifies the timeout period, in seconds, for request coalescing, determining how long to wait before sending combined requests to the origin.
 	// Specifies the timeout period, in seconds, for request coalescing, determining how long to wait before sending combined requests to the origin.
 	RequestCoalescingTimeout *float64 `json:"requestCoalescingTimeout,omitempty" tf:"request_coalescing_timeout,omitempty"`
 
+	// (Block, Optional) (see below for nested schema)
 	Routing []RoutingInitParameters `json:"routing,omitempty" tf:"routing,omitempty"`
 
+	// (Boolean) Indicates whether requests to origin will be signed with AWS Signature Version 4.
 	// Indicates whether requests to origin will be signed with AWS Signature Version 4.
 	S3AuthEnabled *bool `json:"s3AuthEnabled,omitempty" tf:"s3_auth_enabled,omitempty"`
 
+	// (String) The access key used to authenticate the requests.
 	// The access key used to authenticate the requests.
 	S3AuthKey *string `json:"s3AuthKey,omitempty" tf:"s3_auth_key,omitempty"`
 
+	// (String) The region name of the bucket used to authenticate the requests.
 	// The region name of the bucket used to authenticate the requests.
 	S3AuthRegion *string `json:"s3AuthRegion,omitempty" tf:"s3_auth_region,omitempty"`
 
+	// (String) The secret key used to authenticate the requests.
 	// The secret key used to authenticate the requests.
 	S3AuthSecret *string `json:"s3AuthSecret,omitempty" tf:"s3_auth_secret,omitempty"`
 
+	// (Number) The amount of seconds to wait when connecting to the origin. Otherwise the request will fail or retry.
 	// The amount of seconds to wait when connecting to the origin. Otherwise the request will fail or retry.
 	SafehopConnectionTimeout *float64 `json:"safehopConnectionTimeout,omitempty" tf:"safehop_connection_timeout,omitempty"`
 
+	// (Boolean)
 	SafehopEnabled *bool `json:"safehopEnabled,omitempty" tf:"safehop_enabled,omitempty"`
 
+	// (Number) The amount of seconds to wait when waiting for the origin reply. Otherwise the request will fail or retry.
 	// The amount of seconds to wait when waiting for the origin reply. Otherwise the request will fail or retry.
 	SafehopResponseTimeout *float64 `json:"safehopResponseTimeout,omitempty" tf:"safehop_response_timeout,omitempty"`
 
+	// (Number) The number of retries to the origin server.
 	// The number of retries to the origin server.
 	SafehopRetryCount *float64 `json:"safehopRetryCount,omitempty" tf:"safehop_retry_count,omitempty"`
 
+	// (Number) The amount of time that the CDN should wait before retrying an origin request.
 	// The amount of time that the CDN should wait before retrying an origin request.
 	SafehopRetryDelay *float64 `json:"safehopRetryDelay,omitempty" tf:"safehop_retry_delay,omitempty"`
 
+	// (Set of String) Options: 5xxResponse, connectionTimeout, responseTimeout
 	// Options: `5xxResponse`, `connectionTimeout`, `responseTimeout`
 	// +listType=set
 	SafehopRetryReasons []*string `json:"safehopRetryReasons,omitempty" tf:"safehop_retry_reasons,omitempty"`
 
+	// (Boolean) If enabled, the query parameters will be automatically sorted into a consistent order before checking the cache.
 	// If enabled, the query parameters will be automatically sorted into a consistent order before checking the cache.
 	SortQuerystring *bool `json:"sortQuerystring,omitempty" tf:"sort_querystring,omitempty"`
 
+	// Cookie headers from the HTTP responses.
 	// If enabled, bunny.net will strip all the Set-Cookie headers from the HTTP responses.
 	StripCookies *bool `json:"stripCookies,omitempty" tf:"strip_cookies,omitempty"`
 
+	// (Set of String) Options: TLSv1.0, TLSv1.1
 	// Options: `TLSv1.0`, `TLSv1.1`
 	// +listType=set
 	TLSSupport []*string `json:"tlsSupport,omitempty" tf:"tls_support,omitempty"`
 
+	// (Boolean) Indicates whether requests without a valid token and expiry timestamp will be rejected.
 	// Indicates whether requests without a valid token and expiry timestamp will be rejected.
 	TokenAuthEnabled *bool `json:"tokenAuthEnabled,omitempty" tf:"token_auth_enabled,omitempty"`
 
+	// (Boolean) Indicates whether the secure hash generated by the server will also include an IP address.
 	// Indicates whether the secure hash generated by the server will also include an IP address.
 	TokenAuthIPValidation *bool `json:"tokenAuthIpValidation,omitempty" tf:"token_auth_ip_validation,omitempty"`
 
+	// (Boolean) Indicates whether cache update is performed in the background.
 	// Indicates whether cache update is performed in the background.
 	UseBackgroundUpdate *bool `json:"useBackgroundUpdate,omitempty" tf:"use_background_update,omitempty"`
 
+	// (Boolean) Indicates whether the WebSocket support is enabled.
 	// Indicates whether the WebSocket support is enabled.
 	WebsocketsEnabled *bool `json:"websocketsEnabled,omitempty" tf:"websockets_enabled,omitempty"`
 
+	// (Number) The maximum allowed concurrent WebSocket connections.
 	// The maximum allowed concurrent WebSocket connections.
 	WebsocketsMaxConnections *float64 `json:"websocketsMaxConnections,omitempty" tf:"websockets_max_connections,omitempty"`
 }
 
 type PullzoneObservation struct {
 
+	// (Boolean) Indicates whether the Canonical header is added to the responses.
 	// Indicates whether the Canonical header is added to the responses.
 	AddCanonicalHeader *bool `json:"addCanonicalHeader,omitempty" tf:"add_canonical_header,omitempty"`
 
+	// (Set of String) The list of referrer hostnames that are allowed to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
 	// The list of referrer hostnames that are allowed to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
 	// +listType=set
 	AllowReferers []*string `json:"allowReferers,omitempty" tf:"allow_referers,omitempty"`
 
+	// (Set of String) The list of IPs that are blocked from accessing the pull zone. Requests coming from the following IPs will be rejected. If empty, all the IPs will be allowed
 	// The list of IPs that are blocked from accessing the pull zone. Requests coming from the following IPs will be rejected. If empty, all the IPs will be allowed
 	// +listType=set
 	BlockIps []*string `json:"blockIps,omitempty" tf:"block_ips,omitempty"`
 
+	// (Boolean) Indicates whether requests without a referer should be blocked.
 	// Indicates whether requests without a referer should be blocked.
 	BlockNoReferer *bool `json:"blockNoReferer,omitempty" tf:"block_no_referer,omitempty"`
 
+	// (Boolean) Indicates whether to block POST requests.
 	// Indicates whether to block POST requests.
 	BlockPostRequests *bool `json:"blockPostRequests,omitempty" tf:"block_post_requests,omitempty"`
 
+	// (Set of String) The list of referrer hostnames that are blocked to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
 	// The list of referrer hostnames that are blocked to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
 	// +listType=set
 	BlockReferers []*string `json:"blockReferers,omitempty" tf:"block_referers,omitempty"`
 
+	// (Boolean) This property indicates whether to block the root path.
 	// This property indicates whether to block the root path.
 	BlockRootPath *bool `json:"blockRootPath,omitempty" tf:"block_root_path,omitempty"`
 
+	// (Boolean) Indicates whether the cache slice (Optimize for large object delivery) feature is enabled for the Pull Zone
 	// Indicates whether the cache slice (Optimize for large object delivery) feature is enabled for the Pull Zone
 	CacheChunked *bool `json:"cacheChunked,omitempty" tf:"cache_chunked,omitempty"`
 
+	// (Boolean) Indicates whether smart caching is enabled.
 	// Indicates whether smart caching is enabled.
 	CacheEnabled *bool `json:"cacheEnabled,omitempty" tf:"cache_enabled,omitempty"`
 
+	// (Boolean) Indicates whether bunny.net should be caching error responses.
 	// Indicates whether bunny.net should be caching error responses.
 	CacheErrors *bool `json:"cacheErrors,omitempty" tf:"cache_errors,omitempty"`
 
+	// (Number) The override cache time, in seconds.
 	// The override cache time, in seconds.
 	CacheExpirationTime *float64 `json:"cacheExpirationTime,omitempty" tf:"cache_expiration_time,omitempty"`
 
+	// (Number) The override cache time for the end client, in seconds.
 	// The override cache time for the end client, in seconds.
 	CacheExpirationTimeBrowser *float64 `json:"cacheExpirationTimeBrowser,omitempty" tf:"cache_expiration_time_browser,omitempty"`
 
+	// (Set of String) Options: offline, updating
 	// Options: `offline`, `updating`
 	// +listType=set
 	CacheStale []*string `json:"cacheStale,omitempty" tf:"cache_stale,omitempty"`
 
+	// (Set of String) Options: avif, cookie, country, hostname, mobile, querystring, state, webp
 	// Options: `avif`, `cookie`, `country`, `hostname`, `mobile`, `querystring`, `state`, `webp`
 	// +listType=set
 	CacheVary []*string `json:"cacheVary,omitempty" tf:"cache_vary,omitempty"`
 
+	// (Set of String) Contains the list of vary parameters that will be used for vary cache by cookie string. If empty, cookie vary will not be used.
 	// Contains the list of vary parameters that will be used for vary cache by cookie string. If empty, cookie vary will not be used.
 	// +listType=set
 	CacheVaryCookie []*string `json:"cacheVaryCookie,omitempty" tf:"cache_vary_cookie,omitempty"`
 
+	// (Set of String) Contains the list of request headers will be used for vary cache. If empty, it will not be used.
 	// Contains the list of request headers will be used for vary cache. If empty, it will not be used.
 	// +listType=set
 	CacheVaryHeaders []*string `json:"cacheVaryHeaders,omitempty" tf:"cache_vary_headers,omitempty"`
 
+	// (Set of String) Contains the list of vary parameters that will be used for vary cache by query string. If empty, all parameters will be used to construct the key
 	// Contains the list of vary parameters that will be used for vary cache by query string. If empty, all parameters will be used to construct the key
 	// +listType=set
 	CacheVaryQuerystring []*string `json:"cacheVaryQuerystring,omitempty" tf:"cache_vary_querystring,omitempty"`
 
+	// (String) The CNAME domain of the pull zone for setting up custom hostnames
 	// The CNAME domain of the pull zone for setting up custom hostnames
 	CdnDomain *string `json:"cdnDomain,omitempty" tf:"cdn_domain,omitempty"`
 
+	// Origin Resource Sharing) is enabled.
 	// Indicates whether CORS (Cross-Origin Resource Sharing) is enabled.
 	CorsEnabled *bool `json:"corsEnabled,omitempty" tf:"cors_enabled,omitempty"`
 
+	// (Set of String) A list of file extensions for which CORS is enabled.
 	// A list of file extensions for which CORS is enabled.
 	// +listType=set
 	CorsExtensions []*string `json:"corsExtensions,omitempty" tf:"cors_extensions,omitempty"`
 
+	// in let's encrypt is disabled and requests are passed to the origin.
 	// If true, the built-in let's encrypt is disabled and requests are passed to the origin.
 	DisableLetsencrypt *bool `json:"disableLetsencrypt,omitempty" tf:"disable_letsencrypt,omitempty"`
 
+	// (String) Contains the custom error page code that will be returned.
 	// Contains the custom error page code that will be returned.
 	ErrorpageCustomContent *string `json:"errorpageCustomContent,omitempty" tf:"errorpage_custom_content,omitempty"`
 
+	// (Boolean) Indicates whether custom error page code should be enabled.
 	// Indicates whether custom error page code should be enabled.
 	ErrorpageCustomEnabled *bool `json:"errorpageCustomEnabled,omitempty" tf:"errorpage_custom_enabled,omitempty"`
 
+	// (String) The statuspage code that will be used to build the status widget.
 	// The statuspage code that will be used to build the status widget.
 	ErrorpageStatuspageCode *string `json:"errorpageStatuspageCode,omitempty" tf:"errorpage_statuspage_code,omitempty"`
 
+	// (Boolean) Indicates whether the statuspage widget should be displayed on the error pages.
 	// Indicates whether the statuspage widget should be displayed on the error pages.
 	ErrorpageStatuspageEnabled *bool `json:"errorpageStatuspageEnabled,omitempty" tf:"errorpage_statuspage_enabled,omitempty"`
 
+	// labelled or not
 	// Indicates whether the error pages should be white-labelled or not
 	ErrorpageWhitelabel *bool `json:"errorpageWhitelabel,omitempty" tf:"errorpage_whitelabel,omitempty"`
 
+	// (Number) The unique ID of the pull zone.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (Number) The amount of data after the rate limit will be activated.
 	// The amount of data after the rate limit will be activated.
 	LimitAfter *float64 `json:"limitAfter,omitempty" tf:"limit_after,omitempty"`
 
+	// (Number) The maximum bandwidth limit in bytes.
 	// The maximum bandwidth limit in bytes.
 	LimitBandwidth *float64 `json:"limitBandwidth,omitempty" tf:"limit_bandwidth,omitempty"`
 
+	// (Number) Excessive requests are delayed until their number exceeds the maximum burst size.
 	// Excessive requests are delayed until their number exceeds the maximum burst size.
 	LimitBurst *float64 `json:"limitBurst,omitempty" tf:"limit_burst,omitempty"`
 
+	// (Number) The number of connections limited per IP.
 	// The number of connections limited per IP.
 	LimitConnections *float64 `json:"limitConnections,omitempty" tf:"limit_connections,omitempty"`
 
+	// (Number) The maximum download speed, in kb/s. Use 0 for unlimited.
 	// The maximum download speed, in kb/s. Use 0 for unlimited.
 	LimitDownloadSpeed *float64 `json:"limitDownloadSpeed,omitempty" tf:"limit_download_speed,omitempty"`
 
+	// (Number) The maximum amount of requests per IP per second.
 	// The maximum amount of requests per IP per second.
 	LimitRequests *float64 `json:"limitRequests,omitempty" tf:"limit_requests,omitempty"`
 
+	// (Boolean) Indicates whether logs are anonymized.
 	// Indicates whether logs are anonymized.
 	LogAnonymized *bool `json:"logAnonymized,omitempty" tf:"log_anonymized,omitempty"`
 
+	// (String) Options: Drop, OneDigit
 	// Options: `Drop`, `OneDigit`
 	LogAnonymizedStyle *string `json:"logAnonymizedStyle,omitempty" tf:"log_anonymized_style,omitempty"`
 
+	// (Boolean) Indicates whether logging is enabled.
 	// Indicates whether logging is enabled.
 	LogEnabled *bool `json:"logEnabled,omitempty" tf:"log_enabled,omitempty"`
 
+	// (Boolean) Indicates whether log forwarding is enabled.
 	// Indicates whether log forwarding is enabled.
 	LogForwardEnabled *bool `json:"logForwardEnabled,omitempty" tf:"log_forward_enabled,omitempty"`
 
+	// (String) Options: JSON, Plain
 	// Options: `JSON`, `Plain`
 	LogForwardFormat *string `json:"logForwardFormat,omitempty" tf:"log_forward_format,omitempty"`
 
+	// (Number) The port number for log forwarding.
 	// The port number for log forwarding.
 	LogForwardPort *float64 `json:"logForwardPort,omitempty" tf:"log_forward_port,omitempty"`
 
+	// (String) Options: DataDog, TCP, TCPEncrypted, UDP
 	// Options: `DataDog`, `TCP`, `TCPEncrypted`, `UDP`
 	LogForwardProtocol *string `json:"logForwardProtocol,omitempty" tf:"log_forward_protocol,omitempty"`
 
+	// (String) The server address for log forwarding.
 	// The server address for log forwarding.
 	LogForwardServer *string `json:"logForwardServer,omitempty" tf:"log_forward_server,omitempty"`
 
+	// (String) The token used for log forwarding authentication.
 	// The token used for log forwarding authentication.
 	LogForwardToken *string `json:"logForwardToken,omitempty" tf:"log_forward_token,omitempty"`
 
+	// (Boolean) Indicates whether log storage is enabled.
 	// Indicates whether log storage is enabled.
 	LogStorageEnabled *bool `json:"logStorageEnabled,omitempty" tf:"log_storage_enabled,omitempty"`
 
+	// (Number) The storage zone ID for log storage.
 	// The storage zone ID for log storage.
 	LogStorageZone *float64 `json:"logStorageZone,omitempty" tf:"log_storage_zone,omitempty"`
 
+	// (String) The name of the pull zone.
 	// The name of the pull zone.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Boolean) Indicates whether Burrow Smart Routing should be enabled.
 	// Indicates whether Burrow Smart Routing should be enabled.
 	OptimizerBurrow *bool `json:"optimizerBurrow,omitempty" tf:"optimizer_burrow,omitempty"`
 
+	// (Boolean) Indicates whether the optimizer class list should be enforced.
 	// Indicates whether the optimizer class list should be enforced.
 	OptimizerClassesForce *bool `json:"optimizerClassesForce,omitempty" tf:"optimizer_classes_force,omitempty"`
 
+	// (Boolean) Indicates whether the image manipulation should be enabled.
 	// Indicates whether the image manipulation should be enabled.
 	OptimizerDynamicImageAPI *bool `json:"optimizerDynamicImageApi,omitempty" tf:"optimizer_dynamic_image_api,omitempty"`
 
+	// (Boolean) Indicates whether Bunny Optimizer should be enabled.
 	// Indicates whether Bunny Optimizer should be enabled.
 	OptimizerEnabled *bool `json:"optimizerEnabled,omitempty" tf:"optimizer_enabled,omitempty"`
 
+	// (Boolean) Indicates whether HTML Prerender should be enabled.
 	// Indicates whether HTML Prerender should be enabled.
 	OptimizerHTMLPrerender *bool `json:"optimizerHtmlPrerender,omitempty" tf:"optimizer_html_prerender,omitempty"`
 
+	// (Boolean) Indicates whether the CSS minification should be enabled.
 	// Indicates whether the CSS minification should be enabled.
 	OptimizerMinifyCSS *bool `json:"optimizerMinifyCss,omitempty" tf:"optimizer_minify_css,omitempty"`
 
+	// (Boolean) Indicates whether the JavaScript minification should be enabled.
 	// Indicates whether the JavaScript minification should be enabled.
 	OptimizerMinifyJs *bool `json:"optimizerMinifyJs,omitempty" tf:"optimizer_minify_js,omitempty"`
 
+	// (Boolean) Indicates whether the automatic image optimization should be enabled.
 	// Indicates whether the automatic image optimization should be enabled.
 	OptimizerSmartimage *bool `json:"optimizerSmartimage,omitempty" tf:"optimizer_smartimage,omitempty"`
 
+	// (Number) The maximum automatic image size for desktop clients.
 	// The maximum automatic image size for desktop clients.
 	OptimizerSmartimageDesktopMaxwidth *float64 `json:"optimizerSmartimageDesktopMaxwidth,omitempty" tf:"optimizer_smartimage_desktop_maxwidth,omitempty"`
 
+	// (Number) The image quality for desktop clients.
 	// The image quality for desktop clients.
 	OptimizerSmartimageDesktopQuality *float64 `json:"optimizerSmartimageDesktopQuality,omitempty" tf:"optimizer_smartimage_desktop_quality,omitempty"`
 
+	// (Number) The maximum automatic image size for mobile clients.
 	// The maximum automatic image size for mobile clients.
 	OptimizerSmartimageMobileMaxwidth *float64 `json:"optimizerSmartimageMobileMaxwidth,omitempty" tf:"optimizer_smartimage_mobile_maxwidth,omitempty"`
 
+	// (Number) Determines the image quality for mobile clients
 	// Determines the image quality for mobile clients
 	OptimizerSmartimageMobileQuality *float64 `json:"optimizerSmartimageMobileQuality,omitempty" tf:"optimizer_smartimage_mobile_quality,omitempty"`
 
+	// (Boolean) Indicates whether image watermarking should be enabled.
 	// Indicates whether image watermarking should be enabled.
 	OptimizerWatermark *bool `json:"optimizerWatermark,omitempty" tf:"optimizer_watermark,omitempty"`
 
+	// (Number) The offset of the watermark image.
 	// The offset of the watermark image.
 	OptimizerWatermarkBorderoffset *float64 `json:"optimizerWatermarkBorderoffset,omitempty" tf:"optimizer_watermark_borderoffset,omitempty"`
 
+	// (Number) The minimum image size to which the watermark will be added.
 	// The minimum image size to which the watermark will be added.
 	OptimizerWatermarkMinsize *float64 `json:"optimizerWatermarkMinsize,omitempty" tf:"optimizer_watermark_minsize,omitempty"`
 
+	// (String) Options: BottomLeft, BottomRight, Center, CenterStretch, TopLeft, TopRight
 	// Options: `BottomLeft`, `BottomRight`, `Center`, `CenterStretch`, `TopLeft`, `TopRight`
 	OptimizerWatermarkPosition *string `json:"optimizerWatermarkPosition,omitempty" tf:"optimizer_watermark_position,omitempty"`
 
+	// (String) The URL of the watermark image.
 	// The URL of the watermark image.
 	OptimizerWatermarkURL *string `json:"optimizerWatermarkUrl,omitempty" tf:"optimizer_watermark_url,omitempty"`
 
+	// (Boolean) Indicates whether the WebP optimization should be enabled.
 	// Indicates whether the WebP optimization should be enabled.
 	OptimizerWebp *bool `json:"optimizerWebp,omitempty" tf:"optimizer_webp,omitempty"`
 
+	// (Block, Optional) (see below for nested schema)
 	Origin []OriginObservation `json:"origin,omitempty" tf:"origin,omitempty"`
 
+	// (Boolean) Indicates whether there is a concurrency limit for Origin Shield.
 	// Indicates whether there is a concurrency limit for Origin Shield.
 	OriginshieldConcurrencyLimit *bool `json:"originshieldConcurrencyLimit,omitempty" tf:"originshield_concurrency_limit,omitempty"`
 
+	// (Number) The number of concurrent requests for Origin Shield.
 	// The number of concurrent requests for Origin Shield.
 	OriginshieldConcurrencyRequests *float64 `json:"originshieldConcurrencyRequests,omitempty" tf:"originshield_concurrency_requests,omitempty"`
 
+	// (Boolean) Indicates whether Origin Shield is enabled.
 	// Indicates whether Origin Shield is enabled.
 	OriginshieldEnabled *bool `json:"originshieldEnabled,omitempty" tf:"originshield_enabled,omitempty"`
 
+	// (Number) The number of queued requests for Origin Shield.
 	// The number of queued requests for Origin Shield.
 	OriginshieldQueueRequests *float64 `json:"originshieldQueueRequests,omitempty" tf:"originshield_queue_requests,omitempty"`
 
+	// (Number) The maximum wait time for queued requests in Origin Shield, in seconds.
 	// The maximum wait time for queued requests in Origin Shield, in seconds.
 	OriginshieldQueueWait *float64 `json:"originshieldQueueWait,omitempty" tf:"originshield_queue_wait,omitempty"`
 
+	// (String) Options: FR, IL
 	// Options: `FR`, `IL`
 	OriginshieldZone *string `json:"originshieldZone,omitempty" tf:"originshield_zone,omitempty"`
 
+	// Cache.
 	// The storage zone ID for Perma-Cache.
 	PermacacheStoragezone *float64 `json:"permacacheStoragezone,omitempty" tf:"permacache_storagezone,omitempty"`
 
+	// (Boolean) Indicates whether request coalescing is enabled.
 	// Indicates whether request coalescing is enabled.
 	RequestCoalescingEnabled *bool `json:"requestCoalescingEnabled,omitempty" tf:"request_coalescing_enabled,omitempty"`
 
+	// (Number) Specifies the timeout period, in seconds, for request coalescing, determining how long to wait before sending combined requests to the origin.
 	// Specifies the timeout period, in seconds, for request coalescing, determining how long to wait before sending combined requests to the origin.
 	RequestCoalescingTimeout *float64 `json:"requestCoalescingTimeout,omitempty" tf:"request_coalescing_timeout,omitempty"`
 
+	// (Block, Optional) (see below for nested schema)
 	Routing []RoutingObservation `json:"routing,omitempty" tf:"routing,omitempty"`
 
+	// (Boolean) Indicates whether requests to origin will be signed with AWS Signature Version 4.
 	// Indicates whether requests to origin will be signed with AWS Signature Version 4.
 	S3AuthEnabled *bool `json:"s3AuthEnabled,omitempty" tf:"s3_auth_enabled,omitempty"`
 
+	// (String) The access key used to authenticate the requests.
 	// The access key used to authenticate the requests.
 	S3AuthKey *string `json:"s3AuthKey,omitempty" tf:"s3_auth_key,omitempty"`
 
+	// (String) The region name of the bucket used to authenticate the requests.
 	// The region name of the bucket used to authenticate the requests.
 	S3AuthRegion *string `json:"s3AuthRegion,omitempty" tf:"s3_auth_region,omitempty"`
 
+	// (String) The secret key used to authenticate the requests.
 	// The secret key used to authenticate the requests.
 	S3AuthSecret *string `json:"s3AuthSecret,omitempty" tf:"s3_auth_secret,omitempty"`
 
+	// (Number) The amount of seconds to wait when connecting to the origin. Otherwise the request will fail or retry.
 	// The amount of seconds to wait when connecting to the origin. Otherwise the request will fail or retry.
 	SafehopConnectionTimeout *float64 `json:"safehopConnectionTimeout,omitempty" tf:"safehop_connection_timeout,omitempty"`
 
+	// (Boolean)
 	SafehopEnabled *bool `json:"safehopEnabled,omitempty" tf:"safehop_enabled,omitempty"`
 
+	// (Number) The amount of seconds to wait when waiting for the origin reply. Otherwise the request will fail or retry.
 	// The amount of seconds to wait when waiting for the origin reply. Otherwise the request will fail or retry.
 	SafehopResponseTimeout *float64 `json:"safehopResponseTimeout,omitempty" tf:"safehop_response_timeout,omitempty"`
 
+	// (Number) The number of retries to the origin server.
 	// The number of retries to the origin server.
 	SafehopRetryCount *float64 `json:"safehopRetryCount,omitempty" tf:"safehop_retry_count,omitempty"`
 
+	// (Number) The amount of time that the CDN should wait before retrying an origin request.
 	// The amount of time that the CDN should wait before retrying an origin request.
 	SafehopRetryDelay *float64 `json:"safehopRetryDelay,omitempty" tf:"safehop_retry_delay,omitempty"`
 
+	// (Set of String) Options: 5xxResponse, connectionTimeout, responseTimeout
 	// Options: `5xxResponse`, `connectionTimeout`, `responseTimeout`
 	// +listType=set
 	SafehopRetryReasons []*string `json:"safehopRetryReasons,omitempty" tf:"safehop_retry_reasons,omitempty"`
 
+	// (Boolean) If enabled, the query parameters will be automatically sorted into a consistent order before checking the cache.
 	// If enabled, the query parameters will be automatically sorted into a consistent order before checking the cache.
 	SortQuerystring *bool `json:"sortQuerystring,omitempty" tf:"sort_querystring,omitempty"`
 
+	// Cookie headers from the HTTP responses.
 	// If enabled, bunny.net will strip all the Set-Cookie headers from the HTTP responses.
 	StripCookies *bool `json:"stripCookies,omitempty" tf:"strip_cookies,omitempty"`
 
+	// (Set of String) Options: TLSv1.0, TLSv1.1
 	// Options: `TLSv1.0`, `TLSv1.1`
 	// +listType=set
 	TLSSupport []*string `json:"tlsSupport,omitempty" tf:"tls_support,omitempty"`
 
+	// (Boolean) Indicates whether requests without a valid token and expiry timestamp will be rejected.
 	// Indicates whether requests without a valid token and expiry timestamp will be rejected.
 	TokenAuthEnabled *bool `json:"tokenAuthEnabled,omitempty" tf:"token_auth_enabled,omitempty"`
 
+	// (Boolean) Indicates whether the secure hash generated by the server will also include an IP address.
 	// Indicates whether the secure hash generated by the server will also include an IP address.
 	TokenAuthIPValidation *bool `json:"tokenAuthIpValidation,omitempty" tf:"token_auth_ip_validation,omitempty"`
 
+	// (Boolean) Indicates whether cache update is performed in the background.
 	// Indicates whether cache update is performed in the background.
 	UseBackgroundUpdate *bool `json:"useBackgroundUpdate,omitempty" tf:"use_background_update,omitempty"`
 
+	// (Boolean) Indicates whether the WebSocket support is enabled.
 	// Indicates whether the WebSocket support is enabled.
 	WebsocketsEnabled *bool `json:"websocketsEnabled,omitempty" tf:"websockets_enabled,omitempty"`
 
+	// (Number) The maximum allowed concurrent WebSocket connections.
 	// The maximum allowed concurrent WebSocket connections.
 	WebsocketsMaxConnections *float64 `json:"websocketsMaxConnections,omitempty" tf:"websockets_max_connections,omitempty"`
 }
 
 type PullzoneParameters struct {
 
+	// (Boolean) Indicates whether the Canonical header is added to the responses.
 	// Indicates whether the Canonical header is added to the responses.
 	// +kubebuilder:validation:Optional
 	AddCanonicalHeader *bool `json:"addCanonicalHeader,omitempty" tf:"add_canonical_header,omitempty"`
 
+	// (Set of String) The list of referrer hostnames that are allowed to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
 	// The list of referrer hostnames that are allowed to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	AllowReferers []*string `json:"allowReferers,omitempty" tf:"allow_referers,omitempty"`
 
+	// (Set of String) The list of IPs that are blocked from accessing the pull zone. Requests coming from the following IPs will be rejected. If empty, all the IPs will be allowed
 	// The list of IPs that are blocked from accessing the pull zone. Requests coming from the following IPs will be rejected. If empty, all the IPs will be allowed
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	BlockIps []*string `json:"blockIps,omitempty" tf:"block_ips,omitempty"`
 
+	// (Boolean) Indicates whether requests without a referer should be blocked.
 	// Indicates whether requests without a referer should be blocked.
 	// +kubebuilder:validation:Optional
 	BlockNoReferer *bool `json:"blockNoReferer,omitempty" tf:"block_no_referer,omitempty"`
 
+	// (Boolean) Indicates whether to block POST requests.
 	// Indicates whether to block POST requests.
 	// +kubebuilder:validation:Optional
 	BlockPostRequests *bool `json:"blockPostRequests,omitempty" tf:"block_post_requests,omitempty"`
 
+	// (Set of String) The list of referrer hostnames that are blocked to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
 	// The list of referrer hostnames that are blocked to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	BlockReferers []*string `json:"blockReferers,omitempty" tf:"block_referers,omitempty"`
 
+	// (Boolean) This property indicates whether to block the root path.
 	// This property indicates whether to block the root path.
 	// +kubebuilder:validation:Optional
 	BlockRootPath *bool `json:"blockRootPath,omitempty" tf:"block_root_path,omitempty"`
 
+	// (Boolean) Indicates whether the cache slice (Optimize for large object delivery) feature is enabled for the Pull Zone
 	// Indicates whether the cache slice (Optimize for large object delivery) feature is enabled for the Pull Zone
 	// +kubebuilder:validation:Optional
 	CacheChunked *bool `json:"cacheChunked,omitempty" tf:"cache_chunked,omitempty"`
 
+	// (Boolean) Indicates whether smart caching is enabled.
 	// Indicates whether smart caching is enabled.
 	// +kubebuilder:validation:Optional
 	CacheEnabled *bool `json:"cacheEnabled,omitempty" tf:"cache_enabled,omitempty"`
 
+	// (Boolean) Indicates whether bunny.net should be caching error responses.
 	// Indicates whether bunny.net should be caching error responses.
 	// +kubebuilder:validation:Optional
 	CacheErrors *bool `json:"cacheErrors,omitempty" tf:"cache_errors,omitempty"`
 
+	// (Number) The override cache time, in seconds.
 	// The override cache time, in seconds.
 	// +kubebuilder:validation:Optional
 	CacheExpirationTime *float64 `json:"cacheExpirationTime,omitempty" tf:"cache_expiration_time,omitempty"`
 
+	// (Number) The override cache time for the end client, in seconds.
 	// The override cache time for the end client, in seconds.
 	// +kubebuilder:validation:Optional
 	CacheExpirationTimeBrowser *float64 `json:"cacheExpirationTimeBrowser,omitempty" tf:"cache_expiration_time_browser,omitempty"`
 
+	// (Set of String) Options: offline, updating
 	// Options: `offline`, `updating`
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	CacheStale []*string `json:"cacheStale,omitempty" tf:"cache_stale,omitempty"`
 
+	// (Set of String) Options: avif, cookie, country, hostname, mobile, querystring, state, webp
 	// Options: `avif`, `cookie`, `country`, `hostname`, `mobile`, `querystring`, `state`, `webp`
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	CacheVary []*string `json:"cacheVary,omitempty" tf:"cache_vary,omitempty"`
 
+	// (Set of String) Contains the list of vary parameters that will be used for vary cache by cookie string. If empty, cookie vary will not be used.
 	// Contains the list of vary parameters that will be used for vary cache by cookie string. If empty, cookie vary will not be used.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	CacheVaryCookie []*string `json:"cacheVaryCookie,omitempty" tf:"cache_vary_cookie,omitempty"`
 
+	// (Set of String) Contains the list of request headers will be used for vary cache. If empty, it will not be used.
 	// Contains the list of request headers will be used for vary cache. If empty, it will not be used.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	CacheVaryHeaders []*string `json:"cacheVaryHeaders,omitempty" tf:"cache_vary_headers,omitempty"`
 
+	// (Set of String) Contains the list of vary parameters that will be used for vary cache by query string. If empty, all parameters will be used to construct the key
 	// Contains the list of vary parameters that will be used for vary cache by query string. If empty, all parameters will be used to construct the key
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	CacheVaryQuerystring []*string `json:"cacheVaryQuerystring,omitempty" tf:"cache_vary_querystring,omitempty"`
 
+	// Origin Resource Sharing) is enabled.
 	// Indicates whether CORS (Cross-Origin Resource Sharing) is enabled.
 	// +kubebuilder:validation:Optional
 	CorsEnabled *bool `json:"corsEnabled,omitempty" tf:"cors_enabled,omitempty"`
 
+	// (Set of String) A list of file extensions for which CORS is enabled.
 	// A list of file extensions for which CORS is enabled.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	CorsExtensions []*string `json:"corsExtensions,omitempty" tf:"cors_extensions,omitempty"`
 
+	// in let's encrypt is disabled and requests are passed to the origin.
 	// If true, the built-in let's encrypt is disabled and requests are passed to the origin.
 	// +kubebuilder:validation:Optional
 	DisableLetsencrypt *bool `json:"disableLetsencrypt,omitempty" tf:"disable_letsencrypt,omitempty"`
 
+	// (String) Contains the custom error page code that will be returned.
 	// Contains the custom error page code that will be returned.
 	// +kubebuilder:validation:Optional
 	ErrorpageCustomContent *string `json:"errorpageCustomContent,omitempty" tf:"errorpage_custom_content,omitempty"`
 
+	// (Boolean) Indicates whether custom error page code should be enabled.
 	// Indicates whether custom error page code should be enabled.
 	// +kubebuilder:validation:Optional
 	ErrorpageCustomEnabled *bool `json:"errorpageCustomEnabled,omitempty" tf:"errorpage_custom_enabled,omitempty"`
 
+	// (String) The statuspage code that will be used to build the status widget.
 	// The statuspage code that will be used to build the status widget.
 	// +kubebuilder:validation:Optional
 	ErrorpageStatuspageCode *string `json:"errorpageStatuspageCode,omitempty" tf:"errorpage_statuspage_code,omitempty"`
 
+	// (Boolean) Indicates whether the statuspage widget should be displayed on the error pages.
 	// Indicates whether the statuspage widget should be displayed on the error pages.
 	// +kubebuilder:validation:Optional
 	ErrorpageStatuspageEnabled *bool `json:"errorpageStatuspageEnabled,omitempty" tf:"errorpage_statuspage_enabled,omitempty"`
 
+	// labelled or not
 	// Indicates whether the error pages should be white-labelled or not
 	// +kubebuilder:validation:Optional
 	ErrorpageWhitelabel *bool `json:"errorpageWhitelabel,omitempty" tf:"errorpage_whitelabel,omitempty"`
 
+	// (Number) The amount of data after the rate limit will be activated.
 	// The amount of data after the rate limit will be activated.
 	// +kubebuilder:validation:Optional
 	LimitAfter *float64 `json:"limitAfter,omitempty" tf:"limit_after,omitempty"`
 
+	// (Number) The maximum bandwidth limit in bytes.
 	// The maximum bandwidth limit in bytes.
 	// +kubebuilder:validation:Optional
 	LimitBandwidth *float64 `json:"limitBandwidth,omitempty" tf:"limit_bandwidth,omitempty"`
 
+	// (Number) Excessive requests are delayed until their number exceeds the maximum burst size.
 	// Excessive requests are delayed until their number exceeds the maximum burst size.
 	// +kubebuilder:validation:Optional
 	LimitBurst *float64 `json:"limitBurst,omitempty" tf:"limit_burst,omitempty"`
 
+	// (Number) The number of connections limited per IP.
 	// The number of connections limited per IP.
 	// +kubebuilder:validation:Optional
 	LimitConnections *float64 `json:"limitConnections,omitempty" tf:"limit_connections,omitempty"`
 
+	// (Number) The maximum download speed, in kb/s. Use 0 for unlimited.
 	// The maximum download speed, in kb/s. Use 0 for unlimited.
 	// +kubebuilder:validation:Optional
 	LimitDownloadSpeed *float64 `json:"limitDownloadSpeed,omitempty" tf:"limit_download_speed,omitempty"`
 
+	// (Number) The maximum amount of requests per IP per second.
 	// The maximum amount of requests per IP per second.
 	// +kubebuilder:validation:Optional
 	LimitRequests *float64 `json:"limitRequests,omitempty" tf:"limit_requests,omitempty"`
 
+	// (Boolean) Indicates whether logs are anonymized.
 	// Indicates whether logs are anonymized.
 	// +kubebuilder:validation:Optional
 	LogAnonymized *bool `json:"logAnonymized,omitempty" tf:"log_anonymized,omitempty"`
 
+	// (String) Options: Drop, OneDigit
 	// Options: `Drop`, `OneDigit`
 	// +kubebuilder:validation:Optional
 	LogAnonymizedStyle *string `json:"logAnonymizedStyle,omitempty" tf:"log_anonymized_style,omitempty"`
 
+	// (Boolean) Indicates whether logging is enabled.
 	// Indicates whether logging is enabled.
 	// +kubebuilder:validation:Optional
 	LogEnabled *bool `json:"logEnabled,omitempty" tf:"log_enabled,omitempty"`
 
+	// (Boolean) Indicates whether log forwarding is enabled.
 	// Indicates whether log forwarding is enabled.
 	// +kubebuilder:validation:Optional
 	LogForwardEnabled *bool `json:"logForwardEnabled,omitempty" tf:"log_forward_enabled,omitempty"`
 
+	// (String) Options: JSON, Plain
 	// Options: `JSON`, `Plain`
 	// +kubebuilder:validation:Optional
 	LogForwardFormat *string `json:"logForwardFormat,omitempty" tf:"log_forward_format,omitempty"`
 
+	// (Number) The port number for log forwarding.
 	// The port number for log forwarding.
 	// +kubebuilder:validation:Optional
 	LogForwardPort *float64 `json:"logForwardPort,omitempty" tf:"log_forward_port,omitempty"`
 
+	// (String) Options: DataDog, TCP, TCPEncrypted, UDP
 	// Options: `DataDog`, `TCP`, `TCPEncrypted`, `UDP`
 	// +kubebuilder:validation:Optional
 	LogForwardProtocol *string `json:"logForwardProtocol,omitempty" tf:"log_forward_protocol,omitempty"`
 
+	// (String) The server address for log forwarding.
 	// The server address for log forwarding.
 	// +kubebuilder:validation:Optional
 	LogForwardServer *string `json:"logForwardServer,omitempty" tf:"log_forward_server,omitempty"`
 
+	// (String) The token used for log forwarding authentication.
 	// The token used for log forwarding authentication.
 	// +kubebuilder:validation:Optional
 	LogForwardToken *string `json:"logForwardToken,omitempty" tf:"log_forward_token,omitempty"`
 
+	// (Boolean) Indicates whether log storage is enabled.
 	// Indicates whether log storage is enabled.
 	// +kubebuilder:validation:Optional
 	LogStorageEnabled *bool `json:"logStorageEnabled,omitempty" tf:"log_storage_enabled,omitempty"`
 
+	// (Number) The storage zone ID for log storage.
 	// The storage zone ID for log storage.
 	// +kubebuilder:validation:Optional
 	LogStorageZone *float64 `json:"logStorageZone,omitempty" tf:"log_storage_zone,omitempty"`
 
+	// (String) The name of the pull zone.
 	// The name of the pull zone.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Boolean) Indicates whether Burrow Smart Routing should be enabled.
 	// Indicates whether Burrow Smart Routing should be enabled.
 	// +kubebuilder:validation:Optional
 	OptimizerBurrow *bool `json:"optimizerBurrow,omitempty" tf:"optimizer_burrow,omitempty"`
 
+	// (Boolean) Indicates whether the optimizer class list should be enforced.
 	// Indicates whether the optimizer class list should be enforced.
 	// +kubebuilder:validation:Optional
 	OptimizerClassesForce *bool `json:"optimizerClassesForce,omitempty" tf:"optimizer_classes_force,omitempty"`
 
+	// (Boolean) Indicates whether the image manipulation should be enabled.
 	// Indicates whether the image manipulation should be enabled.
 	// +kubebuilder:validation:Optional
 	OptimizerDynamicImageAPI *bool `json:"optimizerDynamicImageApi,omitempty" tf:"optimizer_dynamic_image_api,omitempty"`
 
+	// (Boolean) Indicates whether Bunny Optimizer should be enabled.
 	// Indicates whether Bunny Optimizer should be enabled.
 	// +kubebuilder:validation:Optional
 	OptimizerEnabled *bool `json:"optimizerEnabled,omitempty" tf:"optimizer_enabled,omitempty"`
 
+	// (Boolean) Indicates whether HTML Prerender should be enabled.
 	// Indicates whether HTML Prerender should be enabled.
 	// +kubebuilder:validation:Optional
 	OptimizerHTMLPrerender *bool `json:"optimizerHtmlPrerender,omitempty" tf:"optimizer_html_prerender,omitempty"`
 
+	// (Boolean) Indicates whether the CSS minification should be enabled.
 	// Indicates whether the CSS minification should be enabled.
 	// +kubebuilder:validation:Optional
 	OptimizerMinifyCSS *bool `json:"optimizerMinifyCss,omitempty" tf:"optimizer_minify_css,omitempty"`
 
+	// (Boolean) Indicates whether the JavaScript minification should be enabled.
 	// Indicates whether the JavaScript minification should be enabled.
 	// +kubebuilder:validation:Optional
 	OptimizerMinifyJs *bool `json:"optimizerMinifyJs,omitempty" tf:"optimizer_minify_js,omitempty"`
 
+	// (Boolean) Indicates whether the automatic image optimization should be enabled.
 	// Indicates whether the automatic image optimization should be enabled.
 	// +kubebuilder:validation:Optional
 	OptimizerSmartimage *bool `json:"optimizerSmartimage,omitempty" tf:"optimizer_smartimage,omitempty"`
 
+	// (Number) The maximum automatic image size for desktop clients.
 	// The maximum automatic image size for desktop clients.
 	// +kubebuilder:validation:Optional
 	OptimizerSmartimageDesktopMaxwidth *float64 `json:"optimizerSmartimageDesktopMaxwidth,omitempty" tf:"optimizer_smartimage_desktop_maxwidth,omitempty"`
 
+	// (Number) The image quality for desktop clients.
 	// The image quality for desktop clients.
 	// +kubebuilder:validation:Optional
 	OptimizerSmartimageDesktopQuality *float64 `json:"optimizerSmartimageDesktopQuality,omitempty" tf:"optimizer_smartimage_desktop_quality,omitempty"`
 
+	// (Number) The maximum automatic image size for mobile clients.
 	// The maximum automatic image size for mobile clients.
 	// +kubebuilder:validation:Optional
 	OptimizerSmartimageMobileMaxwidth *float64 `json:"optimizerSmartimageMobileMaxwidth,omitempty" tf:"optimizer_smartimage_mobile_maxwidth,omitempty"`
 
+	// (Number) Determines the image quality for mobile clients
 	// Determines the image quality for mobile clients
 	// +kubebuilder:validation:Optional
 	OptimizerSmartimageMobileQuality *float64 `json:"optimizerSmartimageMobileQuality,omitempty" tf:"optimizer_smartimage_mobile_quality,omitempty"`
 
+	// (Boolean) Indicates whether image watermarking should be enabled.
 	// Indicates whether image watermarking should be enabled.
 	// +kubebuilder:validation:Optional
 	OptimizerWatermark *bool `json:"optimizerWatermark,omitempty" tf:"optimizer_watermark,omitempty"`
 
+	// (Number) The offset of the watermark image.
 	// The offset of the watermark image.
 	// +kubebuilder:validation:Optional
 	OptimizerWatermarkBorderoffset *float64 `json:"optimizerWatermarkBorderoffset,omitempty" tf:"optimizer_watermark_borderoffset,omitempty"`
 
+	// (Number) The minimum image size to which the watermark will be added.
 	// The minimum image size to which the watermark will be added.
 	// +kubebuilder:validation:Optional
 	OptimizerWatermarkMinsize *float64 `json:"optimizerWatermarkMinsize,omitempty" tf:"optimizer_watermark_minsize,omitempty"`
 
+	// (String) Options: BottomLeft, BottomRight, Center, CenterStretch, TopLeft, TopRight
 	// Options: `BottomLeft`, `BottomRight`, `Center`, `CenterStretch`, `TopLeft`, `TopRight`
 	// +kubebuilder:validation:Optional
 	OptimizerWatermarkPosition *string `json:"optimizerWatermarkPosition,omitempty" tf:"optimizer_watermark_position,omitempty"`
 
+	// (String) The URL of the watermark image.
 	// The URL of the watermark image.
 	// +kubebuilder:validation:Optional
 	OptimizerWatermarkURL *string `json:"optimizerWatermarkUrl,omitempty" tf:"optimizer_watermark_url,omitempty"`
 
+	// (Boolean) Indicates whether the WebP optimization should be enabled.
 	// Indicates whether the WebP optimization should be enabled.
 	// +kubebuilder:validation:Optional
 	OptimizerWebp *bool `json:"optimizerWebp,omitempty" tf:"optimizer_webp,omitempty"`
 
+	// (Boolean) Indicates whether there is a concurrency limit for Origin Shield.
 	// Indicates whether there is a concurrency limit for Origin Shield.
 	// +kubebuilder:validation:Optional
 	OriginshieldConcurrencyLimit *bool `json:"originshieldConcurrencyLimit,omitempty" tf:"originshield_concurrency_limit,omitempty"`
 
+	// (Number) The number of concurrent requests for Origin Shield.
 	// The number of concurrent requests for Origin Shield.
 	// +kubebuilder:validation:Optional
 	OriginshieldConcurrencyRequests *float64 `json:"originshieldConcurrencyRequests,omitempty" tf:"originshield_concurrency_requests,omitempty"`
 
+	// (Boolean) Indicates whether Origin Shield is enabled.
 	// Indicates whether Origin Shield is enabled.
 	// +kubebuilder:validation:Optional
 	OriginshieldEnabled *bool `json:"originshieldEnabled,omitempty" tf:"originshield_enabled,omitempty"`
 
+	// (Number) The number of queued requests for Origin Shield.
 	// The number of queued requests for Origin Shield.
 	// +kubebuilder:validation:Optional
 	OriginshieldQueueRequests *float64 `json:"originshieldQueueRequests,omitempty" tf:"originshield_queue_requests,omitempty"`
 
+	// (Number) The maximum wait time for queued requests in Origin Shield, in seconds.
 	// The maximum wait time for queued requests in Origin Shield, in seconds.
 	// +kubebuilder:validation:Optional
 	OriginshieldQueueWait *float64 `json:"originshieldQueueWait,omitempty" tf:"originshield_queue_wait,omitempty"`
 
+	// (String) Options: FR, IL
 	// Options: `FR`, `IL`
 	// +kubebuilder:validation:Optional
 	OriginshieldZone *string `json:"originshieldZone,omitempty" tf:"originshield_zone,omitempty"`
 
+	// Cache.
 	// The storage zone ID for Perma-Cache.
 	// +kubebuilder:validation:Optional
 	PermacacheStoragezone *float64 `json:"permacacheStoragezone,omitempty" tf:"permacache_storagezone,omitempty"`
 
+	// (Boolean) Indicates whether request coalescing is enabled.
 	// Indicates whether request coalescing is enabled.
 	// +kubebuilder:validation:Optional
 	RequestCoalescingEnabled *bool `json:"requestCoalescingEnabled,omitempty" tf:"request_coalescing_enabled,omitempty"`
 
+	// (Number) Specifies the timeout period, in seconds, for request coalescing, determining how long to wait before sending combined requests to the origin.
 	// Specifies the timeout period, in seconds, for request coalescing, determining how long to wait before sending combined requests to the origin.
 	// +kubebuilder:validation:Optional
 	RequestCoalescingTimeout *float64 `json:"requestCoalescingTimeout,omitempty" tf:"request_coalescing_timeout,omitempty"`
 
+	// (Block, Optional) (see below for nested schema)
 	// +kubebuilder:validation:Optional
 	Routing []RoutingParameters `json:"routing,omitempty" tf:"routing,omitempty"`
 
+	// (Boolean) Indicates whether requests to origin will be signed with AWS Signature Version 4.
 	// Indicates whether requests to origin will be signed with AWS Signature Version 4.
 	// +kubebuilder:validation:Optional
 	S3AuthEnabled *bool `json:"s3AuthEnabled,omitempty" tf:"s3_auth_enabled,omitempty"`
 
+	// (String) The access key used to authenticate the requests.
 	// The access key used to authenticate the requests.
 	// +kubebuilder:validation:Optional
 	S3AuthKey *string `json:"s3AuthKey,omitempty" tf:"s3_auth_key,omitempty"`
 
+	// (String) The region name of the bucket used to authenticate the requests.
 	// The region name of the bucket used to authenticate the requests.
 	// +kubebuilder:validation:Optional
 	S3AuthRegion *string `json:"s3AuthRegion,omitempty" tf:"s3_auth_region,omitempty"`
 
+	// (String) The secret key used to authenticate the requests.
 	// The secret key used to authenticate the requests.
 	// +kubebuilder:validation:Optional
 	S3AuthSecret *string `json:"s3AuthSecret,omitempty" tf:"s3_auth_secret,omitempty"`
 
+	// (Number) The amount of seconds to wait when connecting to the origin. Otherwise the request will fail or retry.
 	// The amount of seconds to wait when connecting to the origin. Otherwise the request will fail or retry.
 	// +kubebuilder:validation:Optional
 	SafehopConnectionTimeout *float64 `json:"safehopConnectionTimeout,omitempty" tf:"safehop_connection_timeout,omitempty"`
 
+	// (Boolean)
 	// +kubebuilder:validation:Optional
 	SafehopEnabled *bool `json:"safehopEnabled,omitempty" tf:"safehop_enabled,omitempty"`
 
+	// (Number) The amount of seconds to wait when waiting for the origin reply. Otherwise the request will fail or retry.
 	// The amount of seconds to wait when waiting for the origin reply. Otherwise the request will fail or retry.
 	// +kubebuilder:validation:Optional
 	SafehopResponseTimeout *float64 `json:"safehopResponseTimeout,omitempty" tf:"safehop_response_timeout,omitempty"`
 
+	// (Number) The number of retries to the origin server.
 	// The number of retries to the origin server.
 	// +kubebuilder:validation:Optional
 	SafehopRetryCount *float64 `json:"safehopRetryCount,omitempty" tf:"safehop_retry_count,omitempty"`
 
+	// (Number) The amount of time that the CDN should wait before retrying an origin request.
 	// The amount of time that the CDN should wait before retrying an origin request.
 	// +kubebuilder:validation:Optional
 	SafehopRetryDelay *float64 `json:"safehopRetryDelay,omitempty" tf:"safehop_retry_delay,omitempty"`
 
+	// (Set of String) Options: 5xxResponse, connectionTimeout, responseTimeout
 	// Options: `5xxResponse`, `connectionTimeout`, `responseTimeout`
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	SafehopRetryReasons []*string `json:"safehopRetryReasons,omitempty" tf:"safehop_retry_reasons,omitempty"`
 
+	// (Boolean) If enabled, the query parameters will be automatically sorted into a consistent order before checking the cache.
 	// If enabled, the query parameters will be automatically sorted into a consistent order before checking the cache.
 	// +kubebuilder:validation:Optional
 	SortQuerystring *bool `json:"sortQuerystring,omitempty" tf:"sort_querystring,omitempty"`
 
+	// Cookie headers from the HTTP responses.
 	// If enabled, bunny.net will strip all the Set-Cookie headers from the HTTP responses.
 	// +kubebuilder:validation:Optional
 	StripCookies *bool `json:"stripCookies,omitempty" tf:"strip_cookies,omitempty"`
 
+	// (Set of String) Options: TLSv1.0, TLSv1.1
 	// Options: `TLSv1.0`, `TLSv1.1`
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	TLSSupport []*string `json:"tlsSupport,omitempty" tf:"tls_support,omitempty"`
 
+	// (Boolean) Indicates whether requests without a valid token and expiry timestamp will be rejected.
 	// Indicates whether requests without a valid token and expiry timestamp will be rejected.
 	// +kubebuilder:validation:Optional
 	TokenAuthEnabled *bool `json:"tokenAuthEnabled,omitempty" tf:"token_auth_enabled,omitempty"`
 
+	// (Boolean) Indicates whether the secure hash generated by the server will also include an IP address.
 	// Indicates whether the secure hash generated by the server will also include an IP address.
 	// +kubebuilder:validation:Optional
 	TokenAuthIPValidation *bool `json:"tokenAuthIpValidation,omitempty" tf:"token_auth_ip_validation,omitempty"`
 
+	// (Boolean) Indicates whether cache update is performed in the background.
 	// Indicates whether cache update is performed in the background.
 	// +kubebuilder:validation:Optional
 	UseBackgroundUpdate *bool `json:"useBackgroundUpdate,omitempty" tf:"use_background_update,omitempty"`
 
+	// (Boolean) Indicates whether the WebSocket support is enabled.
 	// Indicates whether the WebSocket support is enabled.
 	// +kubebuilder:validation:Optional
 	WebsocketsEnabled *bool `json:"websocketsEnabled,omitempty" tf:"websockets_enabled,omitempty"`
 
+	// (Number) The maximum allowed concurrent WebSocket connections.
 	// The maximum allowed concurrent WebSocket connections.
 	// +kubebuilder:validation:Optional
 	WebsocketsMaxConnections *float64 `json:"websocketsMaxConnections,omitempty" tf:"websockets_max_connections,omitempty"`
@@ -1087,21 +1396,26 @@ type PullzoneParameters struct {
 
 type RoutingInitParameters struct {
 
+	// letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
 	// The list of blocked countries with the two-letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
 	// +listType=set
 	BlockedCountries []*string `json:"blockedCountries,omitempty" tf:"blocked_countries,omitempty"`
 
+	// (Set of String) Options: all, eu, scripting
 	// Options: `all`, `eu`, `scripting`
 	// +listType=set
 	Filters []*string `json:"filters,omitempty" tf:"filters,omitempty"`
 
+	// letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
 	// The list of budget redirected countries with the two-letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
 	// +listType=set
 	RedirectedCountries []*string `json:"redirectedCountries,omitempty" tf:"redirected_countries,omitempty"`
 
+	// (String) Options: Standard, Volume
 	// Options: `Standard`, `Volume`
 	Tier *string `json:"tier,omitempty" tf:"tier,omitempty"`
 
+	// (Set of String) Options: AF, ASIA, EU, SA, US
 	// Options: `AF`, `ASIA`, `EU`, `SA`, `US`
 	// +listType=set
 	Zones []*string `json:"zones,omitempty" tf:"zones,omitempty"`
@@ -1109,21 +1423,26 @@ type RoutingInitParameters struct {
 
 type RoutingObservation struct {
 
+	// letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
 	// The list of blocked countries with the two-letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
 	// +listType=set
 	BlockedCountries []*string `json:"blockedCountries,omitempty" tf:"blocked_countries,omitempty"`
 
+	// (Set of String) Options: all, eu, scripting
 	// Options: `all`, `eu`, `scripting`
 	// +listType=set
 	Filters []*string `json:"filters,omitempty" tf:"filters,omitempty"`
 
+	// letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
 	// The list of budget redirected countries with the two-letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
 	// +listType=set
 	RedirectedCountries []*string `json:"redirectedCountries,omitempty" tf:"redirected_countries,omitempty"`
 
+	// (String) Options: Standard, Volume
 	// Options: `Standard`, `Volume`
 	Tier *string `json:"tier,omitempty" tf:"tier,omitempty"`
 
+	// (Set of String) Options: AF, ASIA, EU, SA, US
 	// Options: `AF`, `ASIA`, `EU`, `SA`, `US`
 	// +listType=set
 	Zones []*string `json:"zones,omitempty" tf:"zones,omitempty"`
@@ -1131,25 +1450,30 @@ type RoutingObservation struct {
 
 type RoutingParameters struct {
 
+	// letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
 	// The list of blocked countries with the two-letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	BlockedCountries []*string `json:"blockedCountries,omitempty" tf:"blocked_countries,omitempty"`
 
+	// (Set of String) Options: all, eu, scripting
 	// Options: `all`, `eu`, `scripting`
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	Filters []*string `json:"filters,omitempty" tf:"filters,omitempty"`
 
+	// letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
 	// The list of budget redirected countries with the two-letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	RedirectedCountries []*string `json:"redirectedCountries,omitempty" tf:"redirected_countries,omitempty"`
 
+	// (String) Options: Standard, Volume
 	// Options: `Standard`, `Volume`
 	// +kubebuilder:validation:Optional
 	Tier *string `json:"tier,omitempty" tf:"tier,omitempty"`
 
+	// (Set of String) Options: AF, ASIA, EU, SA, US
 	// Options: `AF`, `ASIA`, `EU`, `SA`, `US`
 	// +kubebuilder:validation:Optional
 	// +listType=set
@@ -1183,7 +1507,7 @@ type PullzoneStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Pullzone is the Schema for the Pullzones API. <no value>
+// Pullzone is the Schema for the Pullzones API. This resource manages a bunny.net pullzone. Pullzones fetch content from the origin server and deliver it to end-users.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

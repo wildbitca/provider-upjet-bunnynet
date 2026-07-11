@@ -16,118 +16,152 @@ import (
 
 type ZoneInitParameters struct {
 
+	// (Boolean) Indicates whether DNSSEC is enabled.
 	// Indicates whether DNSSEC is enabled.
 	DNSSECEnabled *bool `json:"dnssecEnabled,omitempty" tf:"dnssec_enabled,omitempty"`
 
+	// (String) The domain name for the DNS zone.
 	// The domain name for the DNS zone.
 	Domain *string `json:"domain,omitempty" tf:"domain,omitempty"`
 
+	// (Boolean) Indicates whether DNS logs are anonymized.
 	// Indicates whether DNS logs are anonymized.
 	LogAnonymized *bool `json:"logAnonymized,omitempty" tf:"log_anonymized,omitempty"`
 
+	// (String) Options: Drop, OneDigit
 	// Options: `Drop`, `OneDigit`
 	LogAnonymizedStyle *string `json:"logAnonymizedStyle,omitempty" tf:"log_anonymized_style,omitempty"`
 
+	// (Boolean) Indicates whether permanent logging for DNS queries is enabled.
 	// Indicates whether permanent logging for DNS queries is enabled.
 	LogEnabled *bool `json:"logEnabled,omitempty" tf:"log_enabled,omitempty"`
 
+	// (String) The primary nameserver for the DNS zone.
 	// The primary nameserver for the DNS zone.
 	Nameserver1 *string `json:"nameserver1,omitempty" tf:"nameserver1,omitempty"`
 
+	// (String) The secondary nameserver for the DNS zone.
 	// The secondary nameserver for the DNS zone.
 	Nameserver2 *string `json:"nameserver2,omitempty" tf:"nameserver2,omitempty"`
 
+	// (Boolean) Indicates whether custom nameservers are used.
 	// Indicates whether custom nameservers are used.
 	NameserverCustom *bool `json:"nameserverCustom,omitempty" tf:"nameserver_custom,omitempty"`
 
+	// (String) The email address used in the Start of Authority (SOA) record for the DNS zone.
 	// The email address used in the Start of Authority (SOA) record for the DNS zone.
 	SoaEmail *string `json:"soaEmail,omitempty" tf:"soa_email,omitempty"`
 }
 
 type ZoneObservation struct {
 
+	// (Number) The DNSSEC algorithm.
 	// The DNSSEC algorithm.
 	DNSSECAlgorithm *float64 `json:"dnssecAlgorithm,omitempty" tf:"dnssec_algorithm,omitempty"`
 
+	// (String) The DNSSEC digest.
 	// The DNSSEC digest.
 	DNSSECDigest *string `json:"dnssecDigest,omitempty" tf:"dnssec_digest,omitempty"`
 
+	// (Number) The DNSSEC digest type.
 	// The DNSSEC digest type.
 	DNSSECDigestType *float64 `json:"dnssecDigestType,omitempty" tf:"dnssec_digest_type,omitempty"`
 
+	// (Boolean) Indicates whether DNSSEC is enabled.
 	// Indicates whether DNSSEC is enabled.
 	DNSSECEnabled *bool `json:"dnssecEnabled,omitempty" tf:"dnssec_enabled,omitempty"`
 
+	// (Number) The DNSSEC flags.
 	// The DNSSEC flags.
 	DNSSECFlags *float64 `json:"dnssecFlags,omitempty" tf:"dnssec_flags,omitempty"`
 
+	// (Number) The DNSSEC key tag.
 	// The DNSSEC key tag.
 	DNSSECKeytag *float64 `json:"dnssecKeytag,omitempty" tf:"dnssec_keytag,omitempty"`
 
+	// (String) The DNSSEC public key.
 	// The DNSSEC public key.
 	DNSSECPublicKey *string `json:"dnssecPublicKey,omitempty" tf:"dnssec_public_key,omitempty"`
 
+	// (String) The domain name for the DNS zone.
 	// The domain name for the DNS zone.
 	Domain *string `json:"domain,omitempty" tf:"domain,omitempty"`
 
+	// (Number) The unique identifier for the DNS zone.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (Boolean) Indicates whether DNS logs are anonymized.
 	// Indicates whether DNS logs are anonymized.
 	LogAnonymized *bool `json:"logAnonymized,omitempty" tf:"log_anonymized,omitempty"`
 
+	// (String) Options: Drop, OneDigit
 	// Options: `Drop`, `OneDigit`
 	LogAnonymizedStyle *string `json:"logAnonymizedStyle,omitempty" tf:"log_anonymized_style,omitempty"`
 
+	// (Boolean) Indicates whether permanent logging for DNS queries is enabled.
 	// Indicates whether permanent logging for DNS queries is enabled.
 	LogEnabled *bool `json:"logEnabled,omitempty" tf:"log_enabled,omitempty"`
 
+	// (String) The primary nameserver for the DNS zone.
 	// The primary nameserver for the DNS zone.
 	Nameserver1 *string `json:"nameserver1,omitempty" tf:"nameserver1,omitempty"`
 
+	// (String) The secondary nameserver for the DNS zone.
 	// The secondary nameserver for the DNS zone.
 	Nameserver2 *string `json:"nameserver2,omitempty" tf:"nameserver2,omitempty"`
 
+	// (Boolean) Indicates whether custom nameservers are used.
 	// Indicates whether custom nameservers are used.
 	NameserverCustom *bool `json:"nameserverCustom,omitempty" tf:"nameserver_custom,omitempty"`
 
+	// (String) The email address used in the Start of Authority (SOA) record for the DNS zone.
 	// The email address used in the Start of Authority (SOA) record for the DNS zone.
 	SoaEmail *string `json:"soaEmail,omitempty" tf:"soa_email,omitempty"`
 }
 
 type ZoneParameters struct {
 
+	// (Boolean) Indicates whether DNSSEC is enabled.
 	// Indicates whether DNSSEC is enabled.
 	// +kubebuilder:validation:Optional
 	DNSSECEnabled *bool `json:"dnssecEnabled,omitempty" tf:"dnssec_enabled,omitempty"`
 
+	// (String) The domain name for the DNS zone.
 	// The domain name for the DNS zone.
 	// +kubebuilder:validation:Optional
 	Domain *string `json:"domain,omitempty" tf:"domain,omitempty"`
 
+	// (Boolean) Indicates whether DNS logs are anonymized.
 	// Indicates whether DNS logs are anonymized.
 	// +kubebuilder:validation:Optional
 	LogAnonymized *bool `json:"logAnonymized,omitempty" tf:"log_anonymized,omitempty"`
 
+	// (String) Options: Drop, OneDigit
 	// Options: `Drop`, `OneDigit`
 	// +kubebuilder:validation:Optional
 	LogAnonymizedStyle *string `json:"logAnonymizedStyle,omitempty" tf:"log_anonymized_style,omitempty"`
 
+	// (Boolean) Indicates whether permanent logging for DNS queries is enabled.
 	// Indicates whether permanent logging for DNS queries is enabled.
 	// +kubebuilder:validation:Optional
 	LogEnabled *bool `json:"logEnabled,omitempty" tf:"log_enabled,omitempty"`
 
+	// (String) The primary nameserver for the DNS zone.
 	// The primary nameserver for the DNS zone.
 	// +kubebuilder:validation:Optional
 	Nameserver1 *string `json:"nameserver1,omitempty" tf:"nameserver1,omitempty"`
 
+	// (String) The secondary nameserver for the DNS zone.
 	// The secondary nameserver for the DNS zone.
 	// +kubebuilder:validation:Optional
 	Nameserver2 *string `json:"nameserver2,omitempty" tf:"nameserver2,omitempty"`
 
+	// (Boolean) Indicates whether custom nameservers are used.
 	// Indicates whether custom nameservers are used.
 	// +kubebuilder:validation:Optional
 	NameserverCustom *bool `json:"nameserverCustom,omitempty" tf:"nameserver_custom,omitempty"`
 
+	// (String) The email address used in the Start of Authority (SOA) record for the DNS zone.
 	// The email address used in the Start of Authority (SOA) record for the DNS zone.
 	// +kubebuilder:validation:Optional
 	SoaEmail *string `json:"soaEmail,omitempty" tf:"soa_email,omitempty"`
@@ -160,7 +194,7 @@ type ZoneStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Zone is the Schema for the Zones API. <no value>
+// Zone is the Schema for the Zones API. This resource manages a DNS zone in bunny.net. It is used to create and manage DNS zones.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

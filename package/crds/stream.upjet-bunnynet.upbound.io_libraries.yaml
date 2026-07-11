@@ -34,7 +34,8 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Library is the Schema for the Librarys API. <no value>
+        description: Library is the Schema for the Librarys API. This resource manages
+          libraries in bunny.net Stream.
         properties:
           apiVersion:
             description: |-
@@ -73,176 +74,242 @@ spec:
               forProvider:
                 properties:
                   bitrate240P:
-                    description: The bitrate used for encoding 240p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 240p videos, in kilobits per second.
+                      The bitrate used for encoding 240p videos, in kilobits per second.
                     type: number
                   bitrate360P:
-                    description: The bitrate used for encoding 360p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 360p videos, in kilobits per second.
+                      The bitrate used for encoding 360p videos, in kilobits per second.
                     type: number
                   bitrate480P:
-                    description: The bitrate used for encoding 480p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 480p videos, in kilobits per second.
+                      The bitrate used for encoding 480p videos, in kilobits per second.
                     type: number
                   bitrate720P:
-                    description: The bitrate used for encoding 720p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 720p videos, in kilobits per second.
+                      The bitrate used for encoding 720p videos, in kilobits per second.
                     type: number
                   bitrate1080P:
-                    description: The bitrate used for encoding 1080p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 1080p videos, in kilobits per second.
+                      The bitrate used for encoding 1080p videos, in kilobits per second.
                     type: number
                   bitrate1440P:
-                    description: The bitrate used for encoding 1440p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 1440p videos, in kilobits per second.
+                      The bitrate used for encoding 1440p videos, in kilobits per second.
                     type: number
                   bitrate2160P:
-                    description: The bitrate used for encoding 2160p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 2160p videos, in kilobits per second.
+                      The bitrate used for encoding 2160p videos, in kilobits per second.
                     type: number
                   cdnTokenAuthenticationRequired:
-                    description: Indicates whether CDN token authentication is required.
+                    description: |-
+                      (Boolean) Indicates whether CDN token authentication is required.
+                      Indicates whether CDN token authentication is required.
                     type: boolean
                   contentTaggingEnabled:
-                    description: Indicates whether content tagging is enabled.
+                    description: |-
+                      (Boolean) Indicates whether content tagging is enabled.
+                      Indicates whether content tagging is enabled.
                     type: boolean
                   directPlayEnabled:
-                    description: Determines direct play URLs are enabled.
+                    description: |-
+                      (Boolean) Determines direct play URLs are enabled.
+                      Determines direct play URLs are enabled.
                     type: boolean
                   directUrlFileAccessBlocked:
-                    description: Indicates whether the requests without a referrer
-                      are blocked.
+                    description: |-
+                      (Boolean) Indicates whether the requests without a referrer are blocked.
+                      Indicates whether the requests without a referrer are blocked.
                     type: boolean
                   drmMediacageBasicEnabled:
-                    description: Indicates whether the MediaCage basic DRM is enabled
+                    description: |-
+                      (Boolean) Indicates whether the MediaCage basic DRM is enabled
+                      Indicates whether the MediaCage basic DRM is enabled
                     type: boolean
                   earlyPlayEnabled:
-                    description: Indicates whether the Early-Play feature is enabled.
+                    description: |-
+                      Play feature is enabled.
+                      Indicates whether the Early-Play feature is enabled.
                     type: boolean
                   encodingTier:
-                    description: 'Options: `Free`, `Premium`'
+                    description: |-
+                      (String) Options: Free, Premium
+                      Options: `Free`, `Premium`
                     type: string
                   jitEncoding:
-                    description: Indicates whether Just-In-Time Encoding is enabled
+                    description: |-
+                      In-Time Encoding is enabled
+                      Indicates whether Just-In-Time Encoding is enabled
                     type: boolean
                   mp4FallbackEnabled:
-                    description: Indicates whether the MP4 fallback feature is enabled.
+                    description: |-
+                      (Boolean) Indicates whether the MP4 fallback feature is enabled.
+                      Indicates whether the MP4 fallback feature is enabled.
                     type: boolean
                   multiAudioTrackSupportEnabled:
-                    description: Indicates whether multiple output audio track support
-                      is enabled.
+                    description: |-
+                      (Boolean) Indicates whether multiple output audio track support is enabled.
+                      Indicates whether multiple output audio track support is enabled.
                     type: boolean
                   name:
-                    description: The name of the stream library.
+                    description: |-
+                      (String) The name of the stream library.
+                      The name of the stream library.
                     type: string
                   originalFilesKeep:
-                    description: Indicates whether to keep original files after encoding.
+                    description: |-
+                      (Boolean) Indicates whether to keep original files after encoding.
+                      Indicates whether to keep original files after encoding.
                     type: boolean
                   outputCodecs:
-                    description: 'Options: `av1`, `hevc`, `vp9`, `x264`'
+                    description: |-
+                      (Set of String) Options: av1, hevc, vp9, x264
+                      Options: `av1`, `hevc`, `vp9`, `x264`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   playerCaptionsBackgroundColor:
-                    description: The background color of the captions in the video
-                      player.
+                    description: |-
+                      (String) The background color of the captions in the video player.
+                      The background color of the captions in the video player.
                     type: string
                   playerCaptionsFontColor:
-                    description: The font color of the captions in the video player.
+                    description: |-
+                      (String) The font color of the captions in the video player.
+                      The font color of the captions in the video player.
                     type: string
                   playerCaptionsFontSize:
-                    description: The font size of the captions in the video player.
+                    description: |-
+                      (Number) The font size of the captions in the video player.
+                      The font size of the captions in the video player.
                     type: number
                   playerControls:
-                    description: 'Options: `airplay`, `captions`, `chromecast`, `current-time`,
-                      `duration`, `fast-forward`, `fullscreen`, `mute`, `pip`, `play`,
-                      `play-large`, `progress`, `rewind`, `settings`, `volume`'
+                    description: |-
+                      time, duration, fast-forward, fullscreen, mute, pip, play, play-large, progress, rewind, settings, volume
+                      Options: `airplay`, `captions`, `chromecast`, `current-time`, `duration`, `fast-forward`, `fullscreen`, `mute`, `pip`, `play`, `play-large`, `progress`, `rewind`, `settings`, `volume`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   playerCustomHead:
-                    description: Custom HTML to be included in the head of the video
-                      player.
+                    description: |-
+                      (String) Custom HTML to be included in the head of the video player.
+                      Custom HTML to be included in the head of the video player.
                     type: string
                   playerFontFamily:
-                    description: 'Options: `arial`, `inter`, `lato`, `oswald`, `raleway`,
-                      `roboto`, `rubik`, `ubuntu`'
+                    description: |-
+                      (String) Options: arial, inter, lato, oswald, raleway, roboto, rubik, ubuntu
+                      Options: `arial`, `inter`, `lato`, `oswald`, `raleway`, `roboto`, `rubik`, `ubuntu`
                     type: string
                   playerLanguage:
-                    description: Specifies the language for the video player interface.
+                    description: |-
+                      (String) Specifies the language for the video player interface.
+                      Specifies the language for the video player interface.
                     type: string
                   playerPrimaryColor:
-                    description: Customizes the appearance of the video player.
+                    description: |-
+                      (String) Customizes the appearance of the video player.
+                      Customizes the appearance of the video player.
                     type: string
                   playerVersion:
-                    description: Specifies the video player version.
+                    description: |-
+                      (Number) Specifies the video player version.
+                      Specifies the video player version.
                     type: number
                   playerWatchtimeHeatmapEnabled:
-                    description: Indicates whether the video watch heatmap should
-                      be displayed in the player.
+                    description: |-
+                      (Boolean) Indicates whether the video watch heatmap should be displayed in the player.
+                      Indicates whether the video watch heatmap should be displayed in the player.
                     type: boolean
                   referersAllowed:
-                    description: The list of allowed referrer domains allowed to access
-                      videos in this library.
+                    description: |-
+                      (Set of String) The list of allowed referrer domains allowed to access videos in this library.
+                      The list of allowed referrer domains allowed to access videos in this library.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   referersBlocked:
-                    description: The list of blocked referrer domains blocked from
-                      accessing videos in this library.
+                    description: |-
+                      (Set of String) The list of blocked referrer domains blocked from accessing videos in this library.
+                      The list of blocked referrer domains blocked from accessing videos in this library.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   resolutions:
-                    description: A list of resolutions available for the videos.
+                    description: |-
+                      (Set of String) A list of resolutions available for the videos.
+                      A list of resolutions available for the videos.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   transcribingEnabled:
-                    description: Indicates whether the automatic audio transcribing
-                      is currently enabled for this zone.
+                    description: |-
+                      (Boolean) Indicates whether the automatic audio transcribing is currently enabled for this zone.
+                      Indicates whether the automatic audio transcribing is currently enabled for this zone.
                     type: boolean
                   transcribingLanguages:
-                    description: The list of languages that the captions will be automatically
-                      transcribed to.
+                    description: |-
+                      (Set of String) The list of languages that the captions will be automatically transcribed to.
+                      The list of languages that the captions will be automatically transcribed to.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   transcribingSmartDescriptionEnabled:
-                    description: Indicates whether automatic transcribing description
-                      generation is currently enabled.
+                    description: |-
+                      (Boolean) Indicates whether automatic transcribing description generation is currently enabled.
+                      Indicates whether automatic transcribing description generation is currently enabled.
                     type: boolean
                   transcribingSmartTitleEnabled:
-                    description: Indicates whether automatic transcribing title generation
-                      is currently enabled.
+                    description: |-
+                      (Boolean) Indicates whether automatic transcribing title generation is currently enabled.
+                      Indicates whether automatic transcribing title generation is currently enabled.
                     type: boolean
                   vastTagUrl:
-                    description: The URL of the VAST tag for ad integration.
+                    description: |-
+                      (String) The URL of the VAST tag for ad integration.
+                      The URL of the VAST tag for ad integration.
                     type: string
                   viewTokenAuthenticationRequired:
-                    description: Indicates whether the player token authentication
-                      is enabled
+                    description: |-
+                      (Boolean) Indicates whether the player token authentication is enabled
+                      Indicates whether the player token authentication is enabled
                     type: boolean
                   watermarkHeight:
-                    description: The height of the watermark (in %).
+                    description: |-
+                      (Number) The height of the watermark (in %).
+                      The height of the watermark (in %).
                     type: number
                   watermarkPositionLeft:
-                    description: The left offset of the watermark position (in %).
+                    description: |-
+                      (Number) The left offset of the watermark position (in %).
+                      The left offset of the watermark position (in %).
                     type: number
                   watermarkPositionTop:
-                    description: The top offset of the watermark position (in %).
+                    description: |-
+                      (Number) The top offset of the watermark position (in %).
+                      The top offset of the watermark position (in %).
                     type: number
                   watermarkWidth:
-                    description: The width of the watermark (in %).
+                    description: |-
+                      (Number) The width of the watermark (in %).
+                      The width of the watermark (in %).
                     type: number
                   webhookUrl:
-                    description: The URL for webhook notifications.
+                    description: |-
+                      (String) The URL for webhook notifications.
+                      The URL for webhook notifications.
                     type: string
                 type: object
               initProvider:
@@ -259,176 +326,242 @@ spec:
                   autoscaler.
                 properties:
                   bitrate240P:
-                    description: The bitrate used for encoding 240p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 240p videos, in kilobits per second.
+                      The bitrate used for encoding 240p videos, in kilobits per second.
                     type: number
                   bitrate360P:
-                    description: The bitrate used for encoding 360p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 360p videos, in kilobits per second.
+                      The bitrate used for encoding 360p videos, in kilobits per second.
                     type: number
                   bitrate480P:
-                    description: The bitrate used for encoding 480p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 480p videos, in kilobits per second.
+                      The bitrate used for encoding 480p videos, in kilobits per second.
                     type: number
                   bitrate720P:
-                    description: The bitrate used for encoding 720p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 720p videos, in kilobits per second.
+                      The bitrate used for encoding 720p videos, in kilobits per second.
                     type: number
                   bitrate1080P:
-                    description: The bitrate used for encoding 1080p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 1080p videos, in kilobits per second.
+                      The bitrate used for encoding 1080p videos, in kilobits per second.
                     type: number
                   bitrate1440P:
-                    description: The bitrate used for encoding 1440p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 1440p videos, in kilobits per second.
+                      The bitrate used for encoding 1440p videos, in kilobits per second.
                     type: number
                   bitrate2160P:
-                    description: The bitrate used for encoding 2160p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 2160p videos, in kilobits per second.
+                      The bitrate used for encoding 2160p videos, in kilobits per second.
                     type: number
                   cdnTokenAuthenticationRequired:
-                    description: Indicates whether CDN token authentication is required.
+                    description: |-
+                      (Boolean) Indicates whether CDN token authentication is required.
+                      Indicates whether CDN token authentication is required.
                     type: boolean
                   contentTaggingEnabled:
-                    description: Indicates whether content tagging is enabled.
+                    description: |-
+                      (Boolean) Indicates whether content tagging is enabled.
+                      Indicates whether content tagging is enabled.
                     type: boolean
                   directPlayEnabled:
-                    description: Determines direct play URLs are enabled.
+                    description: |-
+                      (Boolean) Determines direct play URLs are enabled.
+                      Determines direct play URLs are enabled.
                     type: boolean
                   directUrlFileAccessBlocked:
-                    description: Indicates whether the requests without a referrer
-                      are blocked.
+                    description: |-
+                      (Boolean) Indicates whether the requests without a referrer are blocked.
+                      Indicates whether the requests without a referrer are blocked.
                     type: boolean
                   drmMediacageBasicEnabled:
-                    description: Indicates whether the MediaCage basic DRM is enabled
+                    description: |-
+                      (Boolean) Indicates whether the MediaCage basic DRM is enabled
+                      Indicates whether the MediaCage basic DRM is enabled
                     type: boolean
                   earlyPlayEnabled:
-                    description: Indicates whether the Early-Play feature is enabled.
+                    description: |-
+                      Play feature is enabled.
+                      Indicates whether the Early-Play feature is enabled.
                     type: boolean
                   encodingTier:
-                    description: 'Options: `Free`, `Premium`'
+                    description: |-
+                      (String) Options: Free, Premium
+                      Options: `Free`, `Premium`
                     type: string
                   jitEncoding:
-                    description: Indicates whether Just-In-Time Encoding is enabled
+                    description: |-
+                      In-Time Encoding is enabled
+                      Indicates whether Just-In-Time Encoding is enabled
                     type: boolean
                   mp4FallbackEnabled:
-                    description: Indicates whether the MP4 fallback feature is enabled.
+                    description: |-
+                      (Boolean) Indicates whether the MP4 fallback feature is enabled.
+                      Indicates whether the MP4 fallback feature is enabled.
                     type: boolean
                   multiAudioTrackSupportEnabled:
-                    description: Indicates whether multiple output audio track support
-                      is enabled.
+                    description: |-
+                      (Boolean) Indicates whether multiple output audio track support is enabled.
+                      Indicates whether multiple output audio track support is enabled.
                     type: boolean
                   name:
-                    description: The name of the stream library.
+                    description: |-
+                      (String) The name of the stream library.
+                      The name of the stream library.
                     type: string
                   originalFilesKeep:
-                    description: Indicates whether to keep original files after encoding.
+                    description: |-
+                      (Boolean) Indicates whether to keep original files after encoding.
+                      Indicates whether to keep original files after encoding.
                     type: boolean
                   outputCodecs:
-                    description: 'Options: `av1`, `hevc`, `vp9`, `x264`'
+                    description: |-
+                      (Set of String) Options: av1, hevc, vp9, x264
+                      Options: `av1`, `hevc`, `vp9`, `x264`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   playerCaptionsBackgroundColor:
-                    description: The background color of the captions in the video
-                      player.
+                    description: |-
+                      (String) The background color of the captions in the video player.
+                      The background color of the captions in the video player.
                     type: string
                   playerCaptionsFontColor:
-                    description: The font color of the captions in the video player.
+                    description: |-
+                      (String) The font color of the captions in the video player.
+                      The font color of the captions in the video player.
                     type: string
                   playerCaptionsFontSize:
-                    description: The font size of the captions in the video player.
+                    description: |-
+                      (Number) The font size of the captions in the video player.
+                      The font size of the captions in the video player.
                     type: number
                   playerControls:
-                    description: 'Options: `airplay`, `captions`, `chromecast`, `current-time`,
-                      `duration`, `fast-forward`, `fullscreen`, `mute`, `pip`, `play`,
-                      `play-large`, `progress`, `rewind`, `settings`, `volume`'
+                    description: |-
+                      time, duration, fast-forward, fullscreen, mute, pip, play, play-large, progress, rewind, settings, volume
+                      Options: `airplay`, `captions`, `chromecast`, `current-time`, `duration`, `fast-forward`, `fullscreen`, `mute`, `pip`, `play`, `play-large`, `progress`, `rewind`, `settings`, `volume`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   playerCustomHead:
-                    description: Custom HTML to be included in the head of the video
-                      player.
+                    description: |-
+                      (String) Custom HTML to be included in the head of the video player.
+                      Custom HTML to be included in the head of the video player.
                     type: string
                   playerFontFamily:
-                    description: 'Options: `arial`, `inter`, `lato`, `oswald`, `raleway`,
-                      `roboto`, `rubik`, `ubuntu`'
+                    description: |-
+                      (String) Options: arial, inter, lato, oswald, raleway, roboto, rubik, ubuntu
+                      Options: `arial`, `inter`, `lato`, `oswald`, `raleway`, `roboto`, `rubik`, `ubuntu`
                     type: string
                   playerLanguage:
-                    description: Specifies the language for the video player interface.
+                    description: |-
+                      (String) Specifies the language for the video player interface.
+                      Specifies the language for the video player interface.
                     type: string
                   playerPrimaryColor:
-                    description: Customizes the appearance of the video player.
+                    description: |-
+                      (String) Customizes the appearance of the video player.
+                      Customizes the appearance of the video player.
                     type: string
                   playerVersion:
-                    description: Specifies the video player version.
+                    description: |-
+                      (Number) Specifies the video player version.
+                      Specifies the video player version.
                     type: number
                   playerWatchtimeHeatmapEnabled:
-                    description: Indicates whether the video watch heatmap should
-                      be displayed in the player.
+                    description: |-
+                      (Boolean) Indicates whether the video watch heatmap should be displayed in the player.
+                      Indicates whether the video watch heatmap should be displayed in the player.
                     type: boolean
                   referersAllowed:
-                    description: The list of allowed referrer domains allowed to access
-                      videos in this library.
+                    description: |-
+                      (Set of String) The list of allowed referrer domains allowed to access videos in this library.
+                      The list of allowed referrer domains allowed to access videos in this library.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   referersBlocked:
-                    description: The list of blocked referrer domains blocked from
-                      accessing videos in this library.
+                    description: |-
+                      (Set of String) The list of blocked referrer domains blocked from accessing videos in this library.
+                      The list of blocked referrer domains blocked from accessing videos in this library.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   resolutions:
-                    description: A list of resolutions available for the videos.
+                    description: |-
+                      (Set of String) A list of resolutions available for the videos.
+                      A list of resolutions available for the videos.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   transcribingEnabled:
-                    description: Indicates whether the automatic audio transcribing
-                      is currently enabled for this zone.
+                    description: |-
+                      (Boolean) Indicates whether the automatic audio transcribing is currently enabled for this zone.
+                      Indicates whether the automatic audio transcribing is currently enabled for this zone.
                     type: boolean
                   transcribingLanguages:
-                    description: The list of languages that the captions will be automatically
-                      transcribed to.
+                    description: |-
+                      (Set of String) The list of languages that the captions will be automatically transcribed to.
+                      The list of languages that the captions will be automatically transcribed to.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   transcribingSmartDescriptionEnabled:
-                    description: Indicates whether automatic transcribing description
-                      generation is currently enabled.
+                    description: |-
+                      (Boolean) Indicates whether automatic transcribing description generation is currently enabled.
+                      Indicates whether automatic transcribing description generation is currently enabled.
                     type: boolean
                   transcribingSmartTitleEnabled:
-                    description: Indicates whether automatic transcribing title generation
-                      is currently enabled.
+                    description: |-
+                      (Boolean) Indicates whether automatic transcribing title generation is currently enabled.
+                      Indicates whether automatic transcribing title generation is currently enabled.
                     type: boolean
                   vastTagUrl:
-                    description: The URL of the VAST tag for ad integration.
+                    description: |-
+                      (String) The URL of the VAST tag for ad integration.
+                      The URL of the VAST tag for ad integration.
                     type: string
                   viewTokenAuthenticationRequired:
-                    description: Indicates whether the player token authentication
-                      is enabled
+                    description: |-
+                      (Boolean) Indicates whether the player token authentication is enabled
+                      Indicates whether the player token authentication is enabled
                     type: boolean
                   watermarkHeight:
-                    description: The height of the watermark (in %).
+                    description: |-
+                      (Number) The height of the watermark (in %).
+                      The height of the watermark (in %).
                     type: number
                   watermarkPositionLeft:
-                    description: The left offset of the watermark position (in %).
+                    description: |-
+                      (Number) The left offset of the watermark position (in %).
+                      The left offset of the watermark position (in %).
                     type: number
                   watermarkPositionTop:
-                    description: The top offset of the watermark position (in %).
+                    description: |-
+                      (Number) The top offset of the watermark position (in %).
+                      The top offset of the watermark position (in %).
                     type: number
                   watermarkWidth:
-                    description: The width of the watermark (in %).
+                    description: |-
+                      (Number) The width of the watermark (in %).
+                      The width of the watermark (in %).
                     type: number
                   webhookUrl:
-                    description: The URL for webhook notifications.
+                    description: |-
+                      (String) The URL for webhook notifications.
+                      The URL for webhook notifications.
                     type: string
                 type: object
               managementPolicies:
@@ -528,184 +661,255 @@ spec:
               atProvider:
                 properties:
                   bitrate240P:
-                    description: The bitrate used for encoding 240p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 240p videos, in kilobits per second.
+                      The bitrate used for encoding 240p videos, in kilobits per second.
                     type: number
                   bitrate360P:
-                    description: The bitrate used for encoding 360p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 360p videos, in kilobits per second.
+                      The bitrate used for encoding 360p videos, in kilobits per second.
                     type: number
                   bitrate480P:
-                    description: The bitrate used for encoding 480p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 480p videos, in kilobits per second.
+                      The bitrate used for encoding 480p videos, in kilobits per second.
                     type: number
                   bitrate720P:
-                    description: The bitrate used for encoding 720p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 720p videos, in kilobits per second.
+                      The bitrate used for encoding 720p videos, in kilobits per second.
                     type: number
                   bitrate1080P:
-                    description: The bitrate used for encoding 1080p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 1080p videos, in kilobits per second.
+                      The bitrate used for encoding 1080p videos, in kilobits per second.
                     type: number
                   bitrate1440P:
-                    description: The bitrate used for encoding 1440p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 1440p videos, in kilobits per second.
+                      The bitrate used for encoding 1440p videos, in kilobits per second.
                     type: number
                   bitrate2160P:
-                    description: The bitrate used for encoding 2160p videos, in kilobits
-                      per second.
+                    description: |-
+                      (Number) The bitrate used for encoding 2160p videos, in kilobits per second.
+                      The bitrate used for encoding 2160p videos, in kilobits per second.
                     type: number
                   cdnTokenAuthenticationRequired:
-                    description: Indicates whether CDN token authentication is required.
+                    description: |-
+                      (Boolean) Indicates whether CDN token authentication is required.
+                      Indicates whether CDN token authentication is required.
                     type: boolean
                   contentTaggingEnabled:
-                    description: Indicates whether content tagging is enabled.
+                    description: |-
+                      (Boolean) Indicates whether content tagging is enabled.
+                      Indicates whether content tagging is enabled.
                     type: boolean
                   directPlayEnabled:
-                    description: Determines direct play URLs are enabled.
+                    description: |-
+                      (Boolean) Determines direct play URLs are enabled.
+                      Determines direct play URLs are enabled.
                     type: boolean
                   directUrlFileAccessBlocked:
-                    description: Indicates whether the requests without a referrer
-                      are blocked.
+                    description: |-
+                      (Boolean) Indicates whether the requests without a referrer are blocked.
+                      Indicates whether the requests without a referrer are blocked.
                     type: boolean
                   drmMediacageBasicEnabled:
-                    description: Indicates whether the MediaCage basic DRM is enabled
+                    description: |-
+                      (Boolean) Indicates whether the MediaCage basic DRM is enabled
+                      Indicates whether the MediaCage basic DRM is enabled
                     type: boolean
                   earlyPlayEnabled:
-                    description: Indicates whether the Early-Play feature is enabled.
+                    description: |-
+                      Play feature is enabled.
+                      Indicates whether the Early-Play feature is enabled.
                     type: boolean
                   encodingTier:
-                    description: 'Options: `Free`, `Premium`'
+                    description: |-
+                      (String) Options: Free, Premium
+                      Options: `Free`, `Premium`
                     type: string
                   id:
+                    description: (Number) The ID of this resource.
                     type: string
                   jitEncoding:
-                    description: Indicates whether Just-In-Time Encoding is enabled
+                    description: |-
+                      In-Time Encoding is enabled
+                      Indicates whether Just-In-Time Encoding is enabled
                     type: boolean
                   mp4FallbackEnabled:
-                    description: Indicates whether the MP4 fallback feature is enabled.
+                    description: |-
+                      (Boolean) Indicates whether the MP4 fallback feature is enabled.
+                      Indicates whether the MP4 fallback feature is enabled.
                     type: boolean
                   multiAudioTrackSupportEnabled:
-                    description: Indicates whether multiple output audio track support
-                      is enabled.
+                    description: |-
+                      (Boolean) Indicates whether multiple output audio track support is enabled.
+                      Indicates whether multiple output audio track support is enabled.
                     type: boolean
                   name:
-                    description: The name of the stream library.
+                    description: |-
+                      (String) The name of the stream library.
+                      The name of the stream library.
                     type: string
                   originalFilesKeep:
-                    description: Indicates whether to keep original files after encoding.
+                    description: |-
+                      (Boolean) Indicates whether to keep original files after encoding.
+                      Indicates whether to keep original files after encoding.
                     type: boolean
                   outputCodecs:
-                    description: 'Options: `av1`, `hevc`, `vp9`, `x264`'
+                    description: |-
+                      (Set of String) Options: av1, hevc, vp9, x264
+                      Options: `av1`, `hevc`, `vp9`, `x264`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   playerCaptionsBackgroundColor:
-                    description: The background color of the captions in the video
-                      player.
+                    description: |-
+                      (String) The background color of the captions in the video player.
+                      The background color of the captions in the video player.
                     type: string
                   playerCaptionsFontColor:
-                    description: The font color of the captions in the video player.
+                    description: |-
+                      (String) The font color of the captions in the video player.
+                      The font color of the captions in the video player.
                     type: string
                   playerCaptionsFontSize:
-                    description: The font size of the captions in the video player.
+                    description: |-
+                      (Number) The font size of the captions in the video player.
+                      The font size of the captions in the video player.
                     type: number
                   playerControls:
-                    description: 'Options: `airplay`, `captions`, `chromecast`, `current-time`,
-                      `duration`, `fast-forward`, `fullscreen`, `mute`, `pip`, `play`,
-                      `play-large`, `progress`, `rewind`, `settings`, `volume`'
+                    description: |-
+                      time, duration, fast-forward, fullscreen, mute, pip, play, play-large, progress, rewind, settings, volume
+                      Options: `airplay`, `captions`, `chromecast`, `current-time`, `duration`, `fast-forward`, `fullscreen`, `mute`, `pip`, `play`, `play-large`, `progress`, `rewind`, `settings`, `volume`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   playerCustomHead:
-                    description: Custom HTML to be included in the head of the video
-                      player.
+                    description: |-
+                      (String) Custom HTML to be included in the head of the video player.
+                      Custom HTML to be included in the head of the video player.
                     type: string
                   playerFontFamily:
-                    description: 'Options: `arial`, `inter`, `lato`, `oswald`, `raleway`,
-                      `roboto`, `rubik`, `ubuntu`'
+                    description: |-
+                      (String) Options: arial, inter, lato, oswald, raleway, roboto, rubik, ubuntu
+                      Options: `arial`, `inter`, `lato`, `oswald`, `raleway`, `roboto`, `rubik`, `ubuntu`
                     type: string
                   playerLanguage:
-                    description: Specifies the language for the video player interface.
+                    description: |-
+                      (String) Specifies the language for the video player interface.
+                      Specifies the language for the video player interface.
                     type: string
                   playerPrimaryColor:
-                    description: Customizes the appearance of the video player.
+                    description: |-
+                      (String) Customizes the appearance of the video player.
+                      Customizes the appearance of the video player.
                     type: string
                   playerVersion:
-                    description: Specifies the video player version.
+                    description: |-
+                      (Number) Specifies the video player version.
+                      Specifies the video player version.
                     type: number
                   playerWatchtimeHeatmapEnabled:
-                    description: Indicates whether the video watch heatmap should
-                      be displayed in the player.
+                    description: |-
+                      (Boolean) Indicates whether the video watch heatmap should be displayed in the player.
+                      Indicates whether the video watch heatmap should be displayed in the player.
                     type: boolean
                   pullzone:
-                    description: The ID of the linked pullzone.
+                    description: |-
+                      (Number) The ID of the linked pullzone.
+                      The ID of the linked pullzone.
                     type: number
                   referersAllowed:
-                    description: The list of allowed referrer domains allowed to access
-                      videos in this library.
+                    description: |-
+                      (Set of String) The list of allowed referrer domains allowed to access videos in this library.
+                      The list of allowed referrer domains allowed to access videos in this library.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   referersBlocked:
-                    description: The list of blocked referrer domains blocked from
-                      accessing videos in this library.
+                    description: |-
+                      (Set of String) The list of blocked referrer domains blocked from accessing videos in this library.
+                      The list of blocked referrer domains blocked from accessing videos in this library.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   resolutions:
-                    description: A list of resolutions available for the videos.
+                    description: |-
+                      (Set of String) A list of resolutions available for the videos.
+                      A list of resolutions available for the videos.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   storageZone:
-                    description: The ID of the linked storage zone.
+                    description: |-
+                      (Number) The ID of the linked storage zone.
+                      The ID of the linked storage zone.
                     type: number
                   transcribingEnabled:
-                    description: Indicates whether the automatic audio transcribing
-                      is currently enabled for this zone.
+                    description: |-
+                      (Boolean) Indicates whether the automatic audio transcribing is currently enabled for this zone.
+                      Indicates whether the automatic audio transcribing is currently enabled for this zone.
                     type: boolean
                   transcribingLanguages:
-                    description: The list of languages that the captions will be automatically
-                      transcribed to.
+                    description: |-
+                      (Set of String) The list of languages that the captions will be automatically transcribed to.
+                      The list of languages that the captions will be automatically transcribed to.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   transcribingSmartDescriptionEnabled:
-                    description: Indicates whether automatic transcribing description
-                      generation is currently enabled.
+                    description: |-
+                      (Boolean) Indicates whether automatic transcribing description generation is currently enabled.
+                      Indicates whether automatic transcribing description generation is currently enabled.
                     type: boolean
                   transcribingSmartTitleEnabled:
-                    description: Indicates whether automatic transcribing title generation
-                      is currently enabled.
+                    description: |-
+                      (Boolean) Indicates whether automatic transcribing title generation is currently enabled.
+                      Indicates whether automatic transcribing title generation is currently enabled.
                     type: boolean
                   vastTagUrl:
-                    description: The URL of the VAST tag for ad integration.
+                    description: |-
+                      (String) The URL of the VAST tag for ad integration.
+                      The URL of the VAST tag for ad integration.
                     type: string
                   viewTokenAuthenticationRequired:
-                    description: Indicates whether the player token authentication
-                      is enabled
+                    description: |-
+                      (Boolean) Indicates whether the player token authentication is enabled
+                      Indicates whether the player token authentication is enabled
                     type: boolean
                   watermarkHeight:
-                    description: The height of the watermark (in %).
+                    description: |-
+                      (Number) The height of the watermark (in %).
+                      The height of the watermark (in %).
                     type: number
                   watermarkPositionLeft:
-                    description: The left offset of the watermark position (in %).
+                    description: |-
+                      (Number) The left offset of the watermark position (in %).
+                      The left offset of the watermark position (in %).
                     type: number
                   watermarkPositionTop:
-                    description: The top offset of the watermark position (in %).
+                    description: |-
+                      (Number) The top offset of the watermark position (in %).
+                      The top offset of the watermark position (in %).
                     type: number
                   watermarkWidth:
-                    description: The width of the watermark (in %).
+                    description: |-
+                      (Number) The width of the watermark (in %).
+                      The width of the watermark (in %).
                     type: number
                   webhookUrl:
-                    description: The URL for webhook notifications.
+                    description: |-
+                      (String) The URL for webhook notifications.
+                      The URL for webhook notifications.
                     type: string
                 type: object
               conditions:

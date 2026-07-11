@@ -1,0 +1,22 @@
+apiVersion: cdn.upjet-bunnynet.m.upbound.io/v1alpha1
+kind: WafRule
+metadata:
+  annotations:
+    meta.upbound.io/example-id: cdn/v1alpha1/wafrule
+  labels:
+    testing.upbound.io/example-name: test
+  name: test
+  namespace: crossplane-system
+spec:
+  forProvider:
+    condition:
+    - operator: BEGINSWITH
+      value: /wp-login.php
+      variable: REQUEST_URI
+    description: Challenge any request
+    name: WordPress Login
+    pullzone: ${bunnynet_pullzone.test.id}
+    transformations:
+    - LOWERCASE
+    - NORMALIZEPATH
+    - URLDECODE

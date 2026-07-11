@@ -1,0 +1,39 @@
+apiVersion: stream.upjet-bunnynet.upbound.io/v1alpha1
+kind: Library
+metadata:
+  annotations:
+    meta.upbound.io/example-id: stream/v1alpha1/library
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    directPlayEnabled: true
+    name: example
+    playerCaptionsBackgroundColor: '#fff'
+    playerCaptionsFontColor: '#000'
+    playerCaptionsFontSize: 20
+    playerControls:
+    - airplay
+    - play
+    - volume
+    - captions
+    - current-time
+    - fullscreen
+    - mute
+    - pip
+    - play-large
+    - progress
+    - settings
+    resolutions:
+    - 240p
+    - 360p
+    - 480p
+    - 720p
+    - 1080p
+    transcribingEnabled: true
+    transcribingLanguages:
+    - en
+    - fr
+    - es
+    - de

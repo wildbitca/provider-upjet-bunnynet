@@ -34,7 +34,9 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Edgerule is the Schema for the Edgerules API. <no value>
+        description: Edgerule is the Schema for the Edgerules API. This resource manages
+          edge rules for a bunny.net pull zone. It is used to define and configure
+          rules that determine how content is delivered at the edge.
         properties:
           apiVersion:
             description: |-
@@ -59,68 +61,82 @@ spec:
               forProvider:
                 properties:
                   action:
-                    description: 'Options: `BlockRequest`, `BypassAwsS3Authentication`,
-                      `BypassPermaCache`, `DisableOptimizer`, `DisableRequestCoalescing`,
-                      `DisableShield`, `DisableShieldAccessLists`, `DisableShieldBotDetection`,
-                      `DisableShieldChallenge`, `DisableShieldRateLimiting`, `DisableTokenAuthentication`,
-                      `DisableWAF`, `EnableRequestCoalescing`, `EnableTokenAuthentication`,
-                      `ForceCompression`, `ForceDownload`, `ForceSSL`, `IgnoreQueryString`,
-                      `OriginMagicContainers`, `OriginStorage`, `OriginUrl`, `OverrideBrowserCacheResponseHeader`,
-                      `OverrideBrowserCacheTime`, `OverrideCacheTime`, `OverrideCacheTimePublic`,
-                      `Redirect`, `RemoveBrowserCacheResponseHeader`, `RetryOrigin`,
-                      `RunEdgeScript`, `SetConnectionLimit`, `SetNetworkRateLimit`,
-                      `SetRequestHeader`, `SetRequestsPerSecondLimit`, `SetResponseHeader`,
-                      `SetStatusCode`'
+                    description: |-
+                      (String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode
+                      Options: `BlockRequest`, `BypassAwsS3Authentication`, `BypassPermaCache`, `DisableOptimizer`, `DisableRequestCoalescing`, `DisableShield`, `DisableShieldAccessLists`, `DisableShieldBotDetection`, `DisableShieldChallenge`, `DisableShieldRateLimiting`, `DisableTokenAuthentication`, `DisableWAF`, `EnableRequestCoalescing`, `EnableTokenAuthentication`, `ForceCompression`, `ForceDownload`, `ForceSSL`, `IgnoreQueryString`, `OriginMagicContainers`, `OriginStorage`, `OriginUrl`, `OverrideBrowserCacheResponseHeader`, `OverrideBrowserCacheTime`, `OverrideCacheTime`, `OverrideCacheTimePublic`, `Redirect`, `RemoveBrowserCacheResponseHeader`, `RetryOrigin`, `RunEdgeScript`, `SetConnectionLimit`, `SetNetworkRateLimit`, `SetRequestHeader`, `SetRequestsPerSecondLimit`, `SetResponseHeader`, `SetStatusCode`
                     type: string
                   actionParameter1:
+                    description: (String)
                     type: string
                   actionParameter2:
+                    description: (String)
                     type: string
                   actionParameter3:
+                    description: (String)
                     type: string
                   actions:
-                    description: List of actions for the edge rule.
+                    description: |-
+                      (List of Object) List of actions for the edge rule. (see below for nested schema)
+                      List of actions for the edge rule.
                     items:
                       properties:
                         parameter1:
+                          description: (String)
                           type: string
                         parameter2:
+                          description: (String)
                           type: string
                         parameter3:
+                          description: (String)
                           type: string
                         type:
+                          description: (String)
                           type: string
                       type: object
                     type: array
                   description:
-                    description: The description of the edge rule.
+                    description: |-
+                      (String) The description of the edge rule.
+                      The description of the edge rule.
                     type: string
                   enabled:
-                    description: Indicates whether the edge rule is enabled.
+                    description: |-
+                      (Boolean) Indicates whether the edge rule is enabled.
+                      Indicates whether the edge rule is enabled.
                     type: boolean
                   matchType:
-                    description: 'Options: `MatchAll`, `MatchAny`, `MatchNone`'
+                    description: |-
+                      (String) Options: MatchAll, MatchAny, MatchNone
+                      Options: `MatchAll`, `MatchAny`, `MatchNone`
                     type: string
                   priority:
-                    description: The priority of the edge rule. The lower number is
-                      executed first.
+                    description: |-
+                      (Number) The priority of the edge rule. The lower number is executed first.
+                      The priority of the edge rule. The lower number is executed first.
                     type: number
                   pullzone:
+                    description: (Number)
                     type: number
                   triggers:
+                    description: (List of Object) (see below for nested schema)
                     items:
                       properties:
                         matchType:
+                          description: '(String) Options: MatchAll, MatchAny, MatchNone'
                           type: string
                         parameter1:
+                          description: (String)
                           type: string
                         parameter2:
+                          description: (String)
                           type: string
                         patterns:
+                          description: (List of String)
                           items:
                             type: string
                           type: array
                         type:
+                          description: (String)
                           type: string
                       type: object
                     type: array
@@ -139,68 +155,82 @@ spec:
                   autoscaler.
                 properties:
                   action:
-                    description: 'Options: `BlockRequest`, `BypassAwsS3Authentication`,
-                      `BypassPermaCache`, `DisableOptimizer`, `DisableRequestCoalescing`,
-                      `DisableShield`, `DisableShieldAccessLists`, `DisableShieldBotDetection`,
-                      `DisableShieldChallenge`, `DisableShieldRateLimiting`, `DisableTokenAuthentication`,
-                      `DisableWAF`, `EnableRequestCoalescing`, `EnableTokenAuthentication`,
-                      `ForceCompression`, `ForceDownload`, `ForceSSL`, `IgnoreQueryString`,
-                      `OriginMagicContainers`, `OriginStorage`, `OriginUrl`, `OverrideBrowserCacheResponseHeader`,
-                      `OverrideBrowserCacheTime`, `OverrideCacheTime`, `OverrideCacheTimePublic`,
-                      `Redirect`, `RemoveBrowserCacheResponseHeader`, `RetryOrigin`,
-                      `RunEdgeScript`, `SetConnectionLimit`, `SetNetworkRateLimit`,
-                      `SetRequestHeader`, `SetRequestsPerSecondLimit`, `SetResponseHeader`,
-                      `SetStatusCode`'
+                    description: |-
+                      (String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode
+                      Options: `BlockRequest`, `BypassAwsS3Authentication`, `BypassPermaCache`, `DisableOptimizer`, `DisableRequestCoalescing`, `DisableShield`, `DisableShieldAccessLists`, `DisableShieldBotDetection`, `DisableShieldChallenge`, `DisableShieldRateLimiting`, `DisableTokenAuthentication`, `DisableWAF`, `EnableRequestCoalescing`, `EnableTokenAuthentication`, `ForceCompression`, `ForceDownload`, `ForceSSL`, `IgnoreQueryString`, `OriginMagicContainers`, `OriginStorage`, `OriginUrl`, `OverrideBrowserCacheResponseHeader`, `OverrideBrowserCacheTime`, `OverrideCacheTime`, `OverrideCacheTimePublic`, `Redirect`, `RemoveBrowserCacheResponseHeader`, `RetryOrigin`, `RunEdgeScript`, `SetConnectionLimit`, `SetNetworkRateLimit`, `SetRequestHeader`, `SetRequestsPerSecondLimit`, `SetResponseHeader`, `SetStatusCode`
                     type: string
                   actionParameter1:
+                    description: (String)
                     type: string
                   actionParameter2:
+                    description: (String)
                     type: string
                   actionParameter3:
+                    description: (String)
                     type: string
                   actions:
-                    description: List of actions for the edge rule.
+                    description: |-
+                      (List of Object) List of actions for the edge rule. (see below for nested schema)
+                      List of actions for the edge rule.
                     items:
                       properties:
                         parameter1:
+                          description: (String)
                           type: string
                         parameter2:
+                          description: (String)
                           type: string
                         parameter3:
+                          description: (String)
                           type: string
                         type:
+                          description: (String)
                           type: string
                       type: object
                     type: array
                   description:
-                    description: The description of the edge rule.
+                    description: |-
+                      (String) The description of the edge rule.
+                      The description of the edge rule.
                     type: string
                   enabled:
-                    description: Indicates whether the edge rule is enabled.
+                    description: |-
+                      (Boolean) Indicates whether the edge rule is enabled.
+                      Indicates whether the edge rule is enabled.
                     type: boolean
                   matchType:
-                    description: 'Options: `MatchAll`, `MatchAny`, `MatchNone`'
+                    description: |-
+                      (String) Options: MatchAll, MatchAny, MatchNone
+                      Options: `MatchAll`, `MatchAny`, `MatchNone`
                     type: string
                   priority:
-                    description: The priority of the edge rule. The lower number is
-                      executed first.
+                    description: |-
+                      (Number) The priority of the edge rule. The lower number is executed first.
+                      The priority of the edge rule. The lower number is executed first.
                     type: number
                   pullzone:
+                    description: (Number)
                     type: number
                   triggers:
+                    description: (List of Object) (see below for nested schema)
                     items:
                       properties:
                         matchType:
+                          description: '(String) Options: MatchAll, MatchAny, MatchNone'
                           type: string
                         parameter1:
+                          description: (String)
                           type: string
                         parameter2:
+                          description: (String)
                           type: string
                         patterns:
+                          description: (List of String)
                           items:
                             type: string
                           type: array
                         type:
+                          description: (String)
                           type: string
                       type: object
                     type: array
@@ -282,70 +312,85 @@ spec:
               atProvider:
                 properties:
                   action:
-                    description: 'Options: `BlockRequest`, `BypassAwsS3Authentication`,
-                      `BypassPermaCache`, `DisableOptimizer`, `DisableRequestCoalescing`,
-                      `DisableShield`, `DisableShieldAccessLists`, `DisableShieldBotDetection`,
-                      `DisableShieldChallenge`, `DisableShieldRateLimiting`, `DisableTokenAuthentication`,
-                      `DisableWAF`, `EnableRequestCoalescing`, `EnableTokenAuthentication`,
-                      `ForceCompression`, `ForceDownload`, `ForceSSL`, `IgnoreQueryString`,
-                      `OriginMagicContainers`, `OriginStorage`, `OriginUrl`, `OverrideBrowserCacheResponseHeader`,
-                      `OverrideBrowserCacheTime`, `OverrideCacheTime`, `OverrideCacheTimePublic`,
-                      `Redirect`, `RemoveBrowserCacheResponseHeader`, `RetryOrigin`,
-                      `RunEdgeScript`, `SetConnectionLimit`, `SetNetworkRateLimit`,
-                      `SetRequestHeader`, `SetRequestsPerSecondLimit`, `SetResponseHeader`,
-                      `SetStatusCode`'
+                    description: |-
+                      (String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode
+                      Options: `BlockRequest`, `BypassAwsS3Authentication`, `BypassPermaCache`, `DisableOptimizer`, `DisableRequestCoalescing`, `DisableShield`, `DisableShieldAccessLists`, `DisableShieldBotDetection`, `DisableShieldChallenge`, `DisableShieldRateLimiting`, `DisableTokenAuthentication`, `DisableWAF`, `EnableRequestCoalescing`, `EnableTokenAuthentication`, `ForceCompression`, `ForceDownload`, `ForceSSL`, `IgnoreQueryString`, `OriginMagicContainers`, `OriginStorage`, `OriginUrl`, `OverrideBrowserCacheResponseHeader`, `OverrideBrowserCacheTime`, `OverrideCacheTime`, `OverrideCacheTimePublic`, `Redirect`, `RemoveBrowserCacheResponseHeader`, `RetryOrigin`, `RunEdgeScript`, `SetConnectionLimit`, `SetNetworkRateLimit`, `SetRequestHeader`, `SetRequestsPerSecondLimit`, `SetResponseHeader`, `SetStatusCode`
                     type: string
                   actionParameter1:
+                    description: (String)
                     type: string
                   actionParameter2:
+                    description: (String)
                     type: string
                   actionParameter3:
+                    description: (String)
                     type: string
                   actions:
-                    description: List of actions for the edge rule.
+                    description: |-
+                      (List of Object) List of actions for the edge rule. (see below for nested schema)
+                      List of actions for the edge rule.
                     items:
                       properties:
                         parameter1:
+                          description: (String)
                           type: string
                         parameter2:
+                          description: (String)
                           type: string
                         parameter3:
+                          description: (String)
                           type: string
                         type:
+                          description: (String)
                           type: string
                       type: object
                     type: array
                   description:
-                    description: The description of the edge rule.
+                    description: |-
+                      (String) The description of the edge rule.
+                      The description of the edge rule.
                     type: string
                   enabled:
-                    description: Indicates whether the edge rule is enabled.
+                    description: |-
+                      (Boolean) Indicates whether the edge rule is enabled.
+                      Indicates whether the edge rule is enabled.
                     type: boolean
                   id:
+                    description: (String) The unique GUID of the edge rule.
                     type: string
                   matchType:
-                    description: 'Options: `MatchAll`, `MatchAny`, `MatchNone`'
+                    description: |-
+                      (String) Options: MatchAll, MatchAny, MatchNone
+                      Options: `MatchAll`, `MatchAny`, `MatchNone`
                     type: string
                   priority:
-                    description: The priority of the edge rule. The lower number is
-                      executed first.
+                    description: |-
+                      (Number) The priority of the edge rule. The lower number is executed first.
+                      The priority of the edge rule. The lower number is executed first.
                     type: number
                   pullzone:
+                    description: (Number)
                     type: number
                   triggers:
+                    description: (List of Object) (see below for nested schema)
                     items:
                       properties:
                         matchType:
+                          description: '(String) Options: MatchAll, MatchAny, MatchNone'
                           type: string
                         parameter1:
+                          description: (String)
                           type: string
                         parameter2:
+                          description: (String)
                           type: string
                         patterns:
+                          description: (List of String)
                           items:
                             type: string
                           type: array
                         type:
+                          description: (String)
                           type: string
                       type: object
                     type: array

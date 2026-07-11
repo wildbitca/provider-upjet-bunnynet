@@ -8,11 +8,13 @@ import (
 
 	"github.com/wildbitca/provider-upjet-bunnynet/hack"
 
+	accountCluster "github.com/wildbitca/provider-upjet-bunnynet/config/cluster/account"
 	cdnCluster "github.com/wildbitca/provider-upjet-bunnynet/config/cluster/cdn"
 	computeCluster "github.com/wildbitca/provider-upjet-bunnynet/config/cluster/compute"
 	dnsCluster "github.com/wildbitca/provider-upjet-bunnynet/config/cluster/dns"
 	storageCluster "github.com/wildbitca/provider-upjet-bunnynet/config/cluster/storage"
 	streamCluster "github.com/wildbitca/provider-upjet-bunnynet/config/cluster/stream"
+	accountNamespaced "github.com/wildbitca/provider-upjet-bunnynet/config/namespaced/account"
 	cdnNamespaced "github.com/wildbitca/provider-upjet-bunnynet/config/namespaced/cdn"
 	computeNamespaced "github.com/wildbitca/provider-upjet-bunnynet/config/namespaced/compute"
 	dnsNamespaced "github.com/wildbitca/provider-upjet-bunnynet/config/namespaced/dns"
@@ -43,6 +45,7 @@ func GetProvider() *ujconfig.Provider {
 		))
 
 	for _, configure := range []func(provider *ujconfig.Provider){
+		accountCluster.Configure,
 		cdnCluster.Configure,
 		dnsCluster.Configure,
 		storageCluster.Configure,
@@ -71,6 +74,7 @@ func GetProviderNamespaced() *ujconfig.Provider {
 		}))
 
 	for _, configure := range []func(provider *ujconfig.Provider){
+		accountNamespaced.Configure,
 		cdnNamespaced.Configure,
 		dnsNamespaced.Configure,
 		storageNamespaced.Configure,

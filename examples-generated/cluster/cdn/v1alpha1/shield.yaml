@@ -1,0 +1,12 @@
+apiVersion: cdn.upjet-bunnynet.upbound.io/v1alpha1
+kind: Shield
+metadata:
+  annotations:
+    meta.upbound.io/example-id: cdn/v1alpha1/shield
+  labels:
+    testing.upbound.io/example-name: test
+  name: test
+spec:
+  forProvider:
+    pullzone: ${bunnynet_pullzone.test.id}
+    tier: Standard

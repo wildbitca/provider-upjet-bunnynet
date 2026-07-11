@@ -1,0 +1,34 @@
+apiVersion: stream.upjet-bunnynet.upbound.io/v1alpha1
+kind: Video
+metadata:
+  annotations:
+    meta.upbound.io/example-id: stream/v1alpha1/video
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    chapters:
+    - end: "00:05"
+      start: "00:00"
+      title: Title
+    - end: "08:15"
+      start: "00:05"
+      title: Film
+    - end: "10:19"
+      start: "08:15"
+      title: Credits
+    - end: "10:35"
+      start: "10:19"
+      title: Outro
+    collection: ${bunnynet_stream_collection.example.id}
+    description: Big Buck Bunny (code-named Project Peach) is a 2008 animated comedy
+      short film featuring animals of the forest, made by the Blender Institute, part
+      of the Blender Foundation.
+    library: ${bunnynet_stream_library.example.id}
+    moments:
+    - label: Bird gets hit with an acorn
+      timestamp: "00:25"
+    - label: Buck gets hit with an acorn
+      timestamp: "02:43"
+    title: Big Buck Bunny (2008)

@@ -16,36 +16,46 @@ import (
 
 type ContainerImageregistryInitParameters struct {
 
+	// (String) Options: DockerHub, GitHub
 	// Options: `DockerHub`, `GitHub`
 	Registry *string `json:"registry,omitempty" tf:"registry,omitempty"`
 
+	// (String, Sensitive) The token used to authenticate to the registry. If you are importing a resource, declare the token as an empty string.
 	// The token used to authenticate to the registry. If you are importing a resource, declare the token as an empty string.
 	TokenSecretRef v1.LocalSecretKeySelector `json:"tokenSecretRef" tf:"-"`
 
+	// (String) The username used to authenticate to the registry.
 	// The username used to authenticate to the registry.
 	Username *string `json:"username,omitempty" tf:"username,omitempty"`
 }
 
 type ContainerImageregistryObservation struct {
+
+	// (Number) The unique identifier for the image registry.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (String) Options: DockerHub, GitHub
 	// Options: `DockerHub`, `GitHub`
 	Registry *string `json:"registry,omitempty" tf:"registry,omitempty"`
 
+	// (String) The username used to authenticate to the registry.
 	// The username used to authenticate to the registry.
 	Username *string `json:"username,omitempty" tf:"username,omitempty"`
 }
 
 type ContainerImageregistryParameters struct {
 
+	// (String) Options: DockerHub, GitHub
 	// Options: `DockerHub`, `GitHub`
 	// +kubebuilder:validation:Optional
 	Registry *string `json:"registry,omitempty" tf:"registry,omitempty"`
 
+	// (String, Sensitive) The token used to authenticate to the registry. If you are importing a resource, declare the token as an empty string.
 	// The token used to authenticate to the registry. If you are importing a resource, declare the token as an empty string.
 	// +kubebuilder:validation:Optional
 	TokenSecretRef v1.LocalSecretKeySelector `json:"tokenSecretRef" tf:"-"`
 
+	// (String) The username used to authenticate to the registry.
 	// The username used to authenticate to the registry.
 	// +kubebuilder:validation:Optional
 	Username *string `json:"username,omitempty" tf:"username,omitempty"`
@@ -78,7 +88,7 @@ type ContainerImageregistryStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// ContainerImageregistry is the Schema for the ContainerImageregistrys API. <no value>
+// ContainerImageregistry is the Schema for the ContainerImageregistrys API. This resource manages an Image Registry connection for Magic Containers in bunny.net.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

@@ -15,31 +15,38 @@ import (
 
 type CdnInitParameters struct {
 
+	// (Boolean) Indicates whether the container will handle TLS termination.
 	// Indicates whether the container will handle TLS termination.
 	OriginSSL *bool `json:"originSsl,omitempty" tf:"origin_ssl,omitempty"`
 
+	// (Block List) Indicates whether sticky sessions is enabled. (see below for nested schema)
 	// Indicates whether sticky sessions is enabled.
 	StickySessions []StickySessionsInitParameters `json:"stickySessions,omitempty" tf:"sticky_sessions,omitempty"`
 }
 
 type CdnObservation struct {
 
+	// (Boolean) Indicates whether the container will handle TLS termination.
 	// Indicates whether the container will handle TLS termination.
 	OriginSSL *bool `json:"originSsl,omitempty" tf:"origin_ssl,omitempty"`
 
+	// (Number) The ID of the pullzone associated with the endpoint.
 	// The ID of the pullzone associated with the endpoint.
 	PullzoneID *float64 `json:"pullzoneId,omitempty" tf:"pullzone_id,omitempty"`
 
+	// (Block List) Indicates whether sticky sessions is enabled. (see below for nested schema)
 	// Indicates whether sticky sessions is enabled.
 	StickySessions []StickySessionsObservation `json:"stickySessions,omitempty" tf:"sticky_sessions,omitempty"`
 }
 
 type CdnParameters struct {
 
+	// (Boolean) Indicates whether the container will handle TLS termination.
 	// Indicates whether the container will handle TLS termination.
 	// +kubebuilder:validation:Optional
 	OriginSSL *bool `json:"originSsl,omitempty" tf:"origin_ssl,omitempty"`
 
+	// (Block List) Indicates whether sticky sessions is enabled. (see below for nested schema)
 	// Indicates whether sticky sessions is enabled.
 	// +kubebuilder:validation:Optional
 	StickySessions []StickySessionsParameters `json:"stickySessions,omitempty" tf:"sticky_sessions,omitempty"`
@@ -47,103 +54,131 @@ type CdnParameters struct {
 
 type ContainerAppInitParameters struct {
 
+	// (Number) The maximum number of instances that will be provisioned per active region.
 	// The maximum number of instances that will be provisioned per active region.
 	AutoscalingMax *float64 `json:"autoscalingMax,omitempty" tf:"autoscaling_max,omitempty"`
 
+	// (Number) The minimum number of instances that will be provisioned per active region.
 	// The minimum number of instances that will be provisioned per active region.
 	AutoscalingMin *float64 `json:"autoscalingMin,omitempty" tf:"autoscaling_min,omitempty"`
 
+	// (Block List) Defines a container for the application. (see below for nested schema)
 	// Defines a container for the application.
 	Container []ContainerInitParameters `json:"container,omitempty" tf:"container,omitempty"`
 
+	// (String) The name of the application.
 	// The name of the application.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Set of String) The regions that will be dynamically provisionable based on the user latency.
 	// The regions that will be dynamically provisionable based on the user latency.
 	// +listType=set
 	RegionsAllowed []*string `json:"regionsAllowed,omitempty" tf:"regions_allowed,omitempty"`
 
+	// (Number) The maximum amount of regions to be deployed at any given time.
 	// The maximum amount of regions to be deployed at any given time.
 	RegionsMaxAllowed *float64 `json:"regionsMaxAllowed,omitempty" tf:"regions_max_allowed,omitempty"`
 
+	// (Set of String) The regions that will be statically provisioned and will always be running and available to users.
 	// The regions that will be statically provisioned and will always be running and available to users.
 	// +listType=set
 	RegionsRequired []*string `json:"regionsRequired,omitempty" tf:"regions_required,omitempty"`
 
+	// (Number)
 	Version *float64 `json:"version,omitempty" tf:"version,omitempty"`
 
+	// (Block List) Defines a persistent volume to be used by the application. (see below for nested schema)
 	// Defines a persistent volume to be used by the application.
 	Volume []VolumeInitParameters `json:"volume,omitempty" tf:"volume,omitempty"`
 }
 
 type ContainerAppObservation struct {
 
+	// (Number) The maximum number of instances that will be provisioned per active region.
 	// The maximum number of instances that will be provisioned per active region.
 	AutoscalingMax *float64 `json:"autoscalingMax,omitempty" tf:"autoscaling_max,omitempty"`
 
+	// (Number) The minimum number of instances that will be provisioned per active region.
 	// The minimum number of instances that will be provisioned per active region.
 	AutoscalingMin *float64 `json:"autoscalingMin,omitempty" tf:"autoscaling_min,omitempty"`
 
+	// (Block List) Defines a container for the application. (see below for nested schema)
 	// Defines a container for the application.
 	Container []ContainerObservation `json:"container,omitempty" tf:"container,omitempty"`
 
+	// (String) The unique identifier for the application.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (String) The name of the application.
 	// The name of the application.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Set of String) The regions that will be dynamically provisionable based on the user latency.
 	// The regions that will be dynamically provisionable based on the user latency.
 	// +listType=set
 	RegionsAllowed []*string `json:"regionsAllowed,omitempty" tf:"regions_allowed,omitempty"`
 
+	// (Number) The maximum amount of regions to be deployed at any given time.
 	// The maximum amount of regions to be deployed at any given time.
 	RegionsMaxAllowed *float64 `json:"regionsMaxAllowed,omitempty" tf:"regions_max_allowed,omitempty"`
 
+	// (Set of String) The regions that will be statically provisioned and will always be running and available to users.
 	// The regions that will be statically provisioned and will always be running and available to users.
 	// +listType=set
 	RegionsRequired []*string `json:"regionsRequired,omitempty" tf:"regions_required,omitempty"`
 
+	// (Number)
 	Version *float64 `json:"version,omitempty" tf:"version,omitempty"`
 
+	// (Block List) Defines a persistent volume to be used by the application. (see below for nested schema)
 	// Defines a persistent volume to be used by the application.
 	Volume []VolumeObservation `json:"volume,omitempty" tf:"volume,omitempty"`
 }
 
 type ContainerAppParameters struct {
 
+	// (Number) The maximum number of instances that will be provisioned per active region.
 	// The maximum number of instances that will be provisioned per active region.
 	// +kubebuilder:validation:Optional
 	AutoscalingMax *float64 `json:"autoscalingMax,omitempty" tf:"autoscaling_max,omitempty"`
 
+	// (Number) The minimum number of instances that will be provisioned per active region.
 	// The minimum number of instances that will be provisioned per active region.
 	// +kubebuilder:validation:Optional
 	AutoscalingMin *float64 `json:"autoscalingMin,omitempty" tf:"autoscaling_min,omitempty"`
 
+	// (Block List) Defines a container for the application. (see below for nested schema)
 	// Defines a container for the application.
 	// +kubebuilder:validation:Optional
 	Container []ContainerParameters `json:"container,omitempty" tf:"container,omitempty"`
 
+	// (String) The name of the application.
 	// The name of the application.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Set of String) The regions that will be dynamically provisionable based on the user latency.
 	// The regions that will be dynamically provisionable based on the user latency.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	RegionsAllowed []*string `json:"regionsAllowed,omitempty" tf:"regions_allowed,omitempty"`
 
+	// (Number) The maximum amount of regions to be deployed at any given time.
 	// The maximum amount of regions to be deployed at any given time.
 	// +kubebuilder:validation:Optional
 	RegionsMaxAllowed *float64 `json:"regionsMaxAllowed,omitempty" tf:"regions_max_allowed,omitempty"`
 
+	// (Set of String) The regions that will be statically provisioned and will always be running and available to users.
 	// The regions that will be statically provisioned and will always be running and available to users.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	RegionsRequired []*string `json:"regionsRequired,omitempty" tf:"regions_required,omitempty"`
 
+	// (Number)
 	// +kubebuilder:validation:Optional
 	Version *float64 `json:"version,omitempty" tf:"version,omitempty"`
 
+	// (Block List) Defines a persistent volume to be used by the application. (see below for nested schema)
 	// Defines a persistent volume to be used by the application.
 	// +kubebuilder:validation:Optional
 	Volume []VolumeParameters `json:"volume,omitempty" tf:"volume,omitempty"`
@@ -151,171 +186,220 @@ type ContainerAppParameters struct {
 
 type ContainerInitParameters struct {
 
+	// (String) The arguments that will be added to the container entry point when starting the image.
 	// The arguments that will be added to the container entry point when starting the image.
 	Arguments *string `json:"arguments,omitempty" tf:"arguments,omitempty"`
 
+	// (String) A custom startup command that will execute once the container is launched.
 	// A custom startup command that will execute once the container is launched.
 	Command *string `json:"command,omitempty" tf:"command,omitempty"`
 
+	// (Block List) Defines a public endpoint for the application. (see below for nested schema)
 	// Defines a public endpoint for the application.
 	Endpoint []EndpointInitParameters `json:"endpoint,omitempty" tf:"endpoint,omitempty"`
 
+	// (Block List) Defines an environment variable for the container (see below for nested schema)
 	// Defines an environment variable for the container
 	Env []EnvInitParameters `json:"env,omitempty" tf:"env,omitempty"`
 
+	// (String) The image digest.
 	// The image digest.
 	ImageDigest *string `json:"imageDigest,omitempty" tf:"image_digest,omitempty"`
 
+	// app).
 	// The image name within the registry, without the domain prefix (i.e.: `my-app`).
 	ImageName *string `json:"imageName,omitempty" tf:"image_name,omitempty"`
 
+	// org).
 	// The image namespace within the registry, without the domain prefix (i.e.: `my-org`).
 	ImageNamespace *string `json:"imageNamespace,omitempty" tf:"image_namespace,omitempty"`
 
+	// (String) Options: Always, IfNotPresent
 	// Options: `Always`, `IfNotPresent`
 	ImagePullPolicy *string `json:"imagePullPolicy,omitempty" tf:"image_pull_policy,omitempty"`
 
+	// (Number) The image registry for the container.
 	// The image registry for the container.
 	ImageRegistry *float64 `json:"imageRegistry,omitempty" tf:"image_registry,omitempty"`
 
+	// alpine).
 	// The image tag (i.e.: `2.9-alpine`).
 	ImageTag *string `json:"imageTag,omitempty" tf:"image_tag,omitempty"`
 
+	// (Block List) Checks that the application is actively running without issues. It the check fails, the container will be automatically restarted (see below for nested schema)
 	// Checks that the application is actively running without issues. It the check fails, the container will be automatically restarted
 	LivenessProbe []LivenessProbeInitParameters `json:"livenessProbe,omitempty" tf:"liveness_probe,omitempty"`
 
+	// (String) The name of the application.
 	// The name of the container.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Block List) Checks if the application is fully prepared to handle incoming requests. No requests will be routed to the application until this check is successful. (see below for nested schema)
 	// Checks if the application is fully prepared to handle incoming requests. No requests will be routed to the application until this check is successful.
 	ReadinessProbe []ReadinessProbeInitParameters `json:"readinessProbe,omitempty" tf:"readiness_probe,omitempty"`
 
+	// (Block List) Checks if the application has successfully started. No requests will be routed to the application until this check is successful. (see below for nested schema)
 	// Checks if the application has successfully started. No requests will be routed to the application until this check is successful.
 	StartupProbe []StartupProbeInitParameters `json:"startupProbe,omitempty" tf:"startup_probe,omitempty"`
 
+	// (Block List) Mounts a volume within a container (see below for nested schema)
 	// Mounts a volume within a container
 	Volumemount []VolumemountInitParameters `json:"volumemount,omitempty" tf:"volumemount,omitempty"`
 
+	// (String) The working directory of the container runtime.
 	// The working directory of the container runtime.
 	WorkingDir *string `json:"workingDir,omitempty" tf:"working_dir,omitempty"`
 }
 
 type ContainerObservation struct {
 
+	// (String) The arguments that will be added to the container entry point when starting the image.
 	// The arguments that will be added to the container entry point when starting the image.
 	Arguments *string `json:"arguments,omitempty" tf:"arguments,omitempty"`
 
+	// (String) A custom startup command that will execute once the container is launched.
 	// A custom startup command that will execute once the container is launched.
 	Command *string `json:"command,omitempty" tf:"command,omitempty"`
 
+	// (Block List) Defines a public endpoint for the application. (see below for nested schema)
 	// Defines a public endpoint for the application.
 	Endpoint []EndpointObservation `json:"endpoint,omitempty" tf:"endpoint,omitempty"`
 
+	// (Block List) Defines an environment variable for the container (see below for nested schema)
 	// Defines an environment variable for the container
 	Env []EnvObservation `json:"env,omitempty" tf:"env,omitempty"`
 
+	// (String) The unique identifier for the application.
 	// The unique identifier for the container.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (String) The image digest.
 	// The image digest.
 	ImageDigest *string `json:"imageDigest,omitempty" tf:"image_digest,omitempty"`
 
+	// app).
 	// The image name within the registry, without the domain prefix (i.e.: `my-app`).
 	ImageName *string `json:"imageName,omitempty" tf:"image_name,omitempty"`
 
+	// org).
 	// The image namespace within the registry, without the domain prefix (i.e.: `my-org`).
 	ImageNamespace *string `json:"imageNamespace,omitempty" tf:"image_namespace,omitempty"`
 
+	// (String) Options: Always, IfNotPresent
 	// Options: `Always`, `IfNotPresent`
 	ImagePullPolicy *string `json:"imagePullPolicy,omitempty" tf:"image_pull_policy,omitempty"`
 
+	// (Number) The image registry for the container.
 	// The image registry for the container.
 	ImageRegistry *float64 `json:"imageRegistry,omitempty" tf:"image_registry,omitempty"`
 
+	// alpine).
 	// The image tag (i.e.: `2.9-alpine`).
 	ImageTag *string `json:"imageTag,omitempty" tf:"image_tag,omitempty"`
 
+	// (Block List) Checks that the application is actively running without issues. It the check fails, the container will be automatically restarted (see below for nested schema)
 	// Checks that the application is actively running without issues. It the check fails, the container will be automatically restarted
 	LivenessProbe []LivenessProbeObservation `json:"livenessProbe,omitempty" tf:"liveness_probe,omitempty"`
 
+	// (String) The name of the application.
 	// The name of the container.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Block List) Checks if the application is fully prepared to handle incoming requests. No requests will be routed to the application until this check is successful. (see below for nested schema)
 	// Checks if the application is fully prepared to handle incoming requests. No requests will be routed to the application until this check is successful.
 	ReadinessProbe []ReadinessProbeObservation `json:"readinessProbe,omitempty" tf:"readiness_probe,omitempty"`
 
+	// (Block List) Checks if the application has successfully started. No requests will be routed to the application until this check is successful. (see below for nested schema)
 	// Checks if the application has successfully started. No requests will be routed to the application until this check is successful.
 	StartupProbe []StartupProbeObservation `json:"startupProbe,omitempty" tf:"startup_probe,omitempty"`
 
+	// (Block List) Mounts a volume within a container (see below for nested schema)
 	// Mounts a volume within a container
 	Volumemount []VolumemountObservation `json:"volumemount,omitempty" tf:"volumemount,omitempty"`
 
+	// (String) The working directory of the container runtime.
 	// The working directory of the container runtime.
 	WorkingDir *string `json:"workingDir,omitempty" tf:"working_dir,omitempty"`
 }
 
 type ContainerParameters struct {
 
+	// (String) The arguments that will be added to the container entry point when starting the image.
 	// The arguments that will be added to the container entry point when starting the image.
 	// +kubebuilder:validation:Optional
 	Arguments *string `json:"arguments,omitempty" tf:"arguments,omitempty"`
 
+	// (String) A custom startup command that will execute once the container is launched.
 	// A custom startup command that will execute once the container is launched.
 	// +kubebuilder:validation:Optional
 	Command *string `json:"command,omitempty" tf:"command,omitempty"`
 
+	// (Block List) Defines a public endpoint for the application. (see below for nested schema)
 	// Defines a public endpoint for the application.
 	// +kubebuilder:validation:Optional
 	Endpoint []EndpointParameters `json:"endpoint,omitempty" tf:"endpoint,omitempty"`
 
+	// (Block List) Defines an environment variable for the container (see below for nested schema)
 	// Defines an environment variable for the container
 	// +kubebuilder:validation:Optional
 	Env []EnvParameters `json:"env,omitempty" tf:"env,omitempty"`
 
+	// (String) The image digest.
 	// The image digest.
 	// +kubebuilder:validation:Optional
 	ImageDigest *string `json:"imageDigest,omitempty" tf:"image_digest,omitempty"`
 
+	// app).
 	// The image name within the registry, without the domain prefix (i.e.: `my-app`).
 	// +kubebuilder:validation:Optional
 	ImageName *string `json:"imageName" tf:"image_name,omitempty"`
 
+	// org).
 	// The image namespace within the registry, without the domain prefix (i.e.: `my-org`).
 	// +kubebuilder:validation:Optional
 	ImageNamespace *string `json:"imageNamespace" tf:"image_namespace,omitempty"`
 
+	// (String) Options: Always, IfNotPresent
 	// Options: `Always`, `IfNotPresent`
 	// +kubebuilder:validation:Optional
 	ImagePullPolicy *string `json:"imagePullPolicy,omitempty" tf:"image_pull_policy,omitempty"`
 
+	// (Number) The image registry for the container.
 	// The image registry for the container.
 	// +kubebuilder:validation:Optional
 	ImageRegistry *float64 `json:"imageRegistry" tf:"image_registry,omitempty"`
 
+	// alpine).
 	// The image tag (i.e.: `2.9-alpine`).
 	// +kubebuilder:validation:Optional
 	ImageTag *string `json:"imageTag" tf:"image_tag,omitempty"`
 
+	// (Block List) Checks that the application is actively running without issues. It the check fails, the container will be automatically restarted (see below for nested schema)
 	// Checks that the application is actively running without issues. It the check fails, the container will be automatically restarted
 	// +kubebuilder:validation:Optional
 	LivenessProbe []LivenessProbeParameters `json:"livenessProbe,omitempty" tf:"liveness_probe,omitempty"`
 
+	// (String) The name of the application.
 	// The name of the container.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name" tf:"name,omitempty"`
 
+	// (Block List) Checks if the application is fully prepared to handle incoming requests. No requests will be routed to the application until this check is successful. (see below for nested schema)
 	// Checks if the application is fully prepared to handle incoming requests. No requests will be routed to the application until this check is successful.
 	// +kubebuilder:validation:Optional
 	ReadinessProbe []ReadinessProbeParameters `json:"readinessProbe,omitempty" tf:"readiness_probe,omitempty"`
 
+	// (Block List) Checks if the application has successfully started. No requests will be routed to the application until this check is successful. (see below for nested schema)
 	// Checks if the application has successfully started. No requests will be routed to the application until this check is successful.
 	// +kubebuilder:validation:Optional
 	StartupProbe []StartupProbeParameters `json:"startupProbe,omitempty" tf:"startup_probe,omitempty"`
 
+	// (Block List) Mounts a volume within a container (see below for nested schema)
 	// Mounts a volume within a container
 	// +kubebuilder:validation:Optional
 	Volumemount []VolumemountParameters `json:"volumemount,omitempty" tf:"volumemount,omitempty"`
 
+	// (String) The working directory of the container runtime.
 	// The working directory of the container runtime.
 	// +kubebuilder:validation:Optional
 	WorkingDir *string `json:"workingDir,omitempty" tf:"working_dir,omitempty"`
@@ -323,48 +407,60 @@ type ContainerParameters struct {
 
 type EndpointInitParameters struct {
 
+	// (Block List) Configurations for CDN endpoint. (see below for nested schema)
 	// Configurations for CDN endpoint.
 	Cdn []CdnInitParameters `json:"cdn,omitempty" tf:"cdn,omitempty"`
 
+	// (String) The name of the application.
 	// The name of the endpoint.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Block List) Endpoint port configuration. (see below for nested schema)
 	// Endpoint port configuration.
 	Port []PortInitParameters `json:"port,omitempty" tf:"port,omitempty"`
 
+	// (String) Options: Anycast, CDN, InternalIP
 	// Options: `Anycast`, `CDN`, `InternalIP`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type EndpointObservation struct {
 
+	// (Block List) Configurations for CDN endpoint. (see below for nested schema)
 	// Configurations for CDN endpoint.
 	Cdn []CdnObservation `json:"cdn,omitempty" tf:"cdn,omitempty"`
 
+	// (String) The name of the application.
 	// The name of the endpoint.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Block List) Endpoint port configuration. (see below for nested schema)
 	// Endpoint port configuration.
 	Port []PortObservation `json:"port,omitempty" tf:"port,omitempty"`
 
+	// (String) Options: Anycast, CDN, InternalIP
 	// Options: `Anycast`, `CDN`, `InternalIP`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type EndpointParameters struct {
 
+	// (Block List) Configurations for CDN endpoint. (see below for nested schema)
 	// Configurations for CDN endpoint.
 	// +kubebuilder:validation:Optional
 	Cdn []CdnParameters `json:"cdn,omitempty" tf:"cdn,omitempty"`
 
+	// (String) The name of the application.
 	// The name of the endpoint.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name" tf:"name,omitempty"`
 
+	// (Block List) Endpoint port configuration. (see below for nested schema)
 	// Endpoint port configuration.
 	// +kubebuilder:validation:Optional
 	Port []PortParameters `json:"port,omitempty" tf:"port,omitempty"`
 
+	// (String) Options: Anycast, CDN, InternalIP
 	// Options: `Anycast`, `CDN`, `InternalIP`
 	// +kubebuilder:validation:Optional
 	Type *string `json:"type" tf:"type,omitempty"`
@@ -372,28 +468,34 @@ type EndpointParameters struct {
 
 type EnvInitParameters struct {
 
+	// (String) The name of the application.
 	// The name of the environment variable.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (String) The value of the environment variable.
 	// The value of the environment variable.
 	Value *string `json:"value,omitempty" tf:"value,omitempty"`
 }
 
 type EnvObservation struct {
 
+	// (String) The name of the application.
 	// The name of the environment variable.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (String) The value of the environment variable.
 	// The value of the environment variable.
 	Value *string `json:"value,omitempty" tf:"value,omitempty"`
 }
 
 type EnvParameters struct {
 
+	// (String) The name of the application.
 	// The name of the environment variable.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name" tf:"name,omitempty"`
 
+	// (String) The value of the environment variable.
 	// The value of the environment variable.
 	// +kubebuilder:validation:Optional
 	Value *string `json:"value" tf:"value,omitempty"`
@@ -401,18 +503,21 @@ type EnvParameters struct {
 
 type GRPCInitParameters struct {
 
+	// (String) The gRPC service name.
 	// The gRPC service name.
 	Service *string `json:"service,omitempty" tf:"service,omitempty"`
 }
 
 type GRPCObservation struct {
 
+	// (String) The gRPC service name.
 	// The gRPC service name.
 	Service *string `json:"service,omitempty" tf:"service,omitempty"`
 }
 
 type GRPCParameters struct {
 
+	// (String) The gRPC service name.
 	// The gRPC service name.
 	// +kubebuilder:validation:Optional
 	Service *string `json:"service" tf:"service,omitempty"`
@@ -420,28 +525,34 @@ type GRPCParameters struct {
 
 type HTTPInitParameters struct {
 
+	// (Number) The expected HTTP response status code.
 	// The expected HTTP response status code.
 	ExpectedStatus *float64 `json:"expectedStatus,omitempty" tf:"expected_status,omitempty"`
 
+	// (String) The HTTP path to be requested.
 	// The HTTP path to be requested.
 	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 }
 
 type HTTPObservation struct {
 
+	// (Number) The expected HTTP response status code.
 	// The expected HTTP response status code.
 	ExpectedStatus *float64 `json:"expectedStatus,omitempty" tf:"expected_status,omitempty"`
 
+	// (String) The HTTP path to be requested.
 	// The HTTP path to be requested.
 	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 }
 
 type HTTPParameters struct {
 
+	// (Number) The expected HTTP response status code.
 	// The expected HTTP response status code.
 	// +kubebuilder:validation:Optional
 	ExpectedStatus *float64 `json:"expectedStatus,omitempty" tf:"expected_status,omitempty"`
 
+	// (String) The HTTP path to be requested.
 	// The HTTP path to be requested.
 	// +kubebuilder:validation:Optional
 	Path *string `json:"path" tf:"path,omitempty"`
@@ -449,98 +560,125 @@ type HTTPParameters struct {
 
 type LivenessProbeInitParameters struct {
 
+	// (Number) The number of failed probes to consider the container unhealthy.
 	// The number of failed probes to consider the container unhealthy.
 	FailureThreshold *float64 `json:"failureThreshold,omitempty" tf:"failure_threshold,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// gRPC-specific configurations.
 	GRPC []GRPCInitParameters `json:"grpc,omitempty" tf:"grpc,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// HTTP-specific configurations.
 	HTTP []HTTPInitParameters `json:"http,omitempty" tf:"http,omitempty"`
 
+	// (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
 	// The amount of time in seconds after the container is started to wait before the first probe is sent.
 	InitialDelay *float64 `json:"initialDelay,omitempty" tf:"initial_delay,omitempty"`
 
+	// (Number) The amount of time in seconds between each probe.
 	// The amount of time in seconds between each probe.
 	Period *float64 `json:"period,omitempty" tf:"period,omitempty"`
 
+	// (Block List) Endpoint port configuration. (see below for nested schema)
 	// The port within the container the probe will connect to.
 	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
+	// (Number) The number of successful probes to consider the container healthy.
 	// The number of successful probes to consider the container healthy.
 	SuccessThreshold *float64 `json:"successThreshold,omitempty" tf:"success_threshold,omitempty"`
 
+	// (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
 	// The amount of time in seconds the probe will wait for a response before considering it a failure.
 	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 
+	// (String) Options: Anycast, CDN, InternalIP
 	// Options: `grpc`, `http`, `tcp`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type LivenessProbeObservation struct {
 
+	// (Number) The number of failed probes to consider the container unhealthy.
 	// The number of failed probes to consider the container unhealthy.
 	FailureThreshold *float64 `json:"failureThreshold,omitempty" tf:"failure_threshold,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// gRPC-specific configurations.
 	GRPC []GRPCObservation `json:"grpc,omitempty" tf:"grpc,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// HTTP-specific configurations.
 	HTTP []HTTPObservation `json:"http,omitempty" tf:"http,omitempty"`
 
+	// (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
 	// The amount of time in seconds after the container is started to wait before the first probe is sent.
 	InitialDelay *float64 `json:"initialDelay,omitempty" tf:"initial_delay,omitempty"`
 
+	// (Number) The amount of time in seconds between each probe.
 	// The amount of time in seconds between each probe.
 	Period *float64 `json:"period,omitempty" tf:"period,omitempty"`
 
+	// (Block List) Endpoint port configuration. (see below for nested schema)
 	// The port within the container the probe will connect to.
 	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
+	// (Number) The number of successful probes to consider the container healthy.
 	// The number of successful probes to consider the container healthy.
 	SuccessThreshold *float64 `json:"successThreshold,omitempty" tf:"success_threshold,omitempty"`
 
+	// (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
 	// The amount of time in seconds the probe will wait for a response before considering it a failure.
 	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 
+	// (String) Options: Anycast, CDN, InternalIP
 	// Options: `grpc`, `http`, `tcp`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type LivenessProbeParameters struct {
 
+	// (Number) The number of failed probes to consider the container unhealthy.
 	// The number of failed probes to consider the container unhealthy.
 	// +kubebuilder:validation:Optional
 	FailureThreshold *float64 `json:"failureThreshold,omitempty" tf:"failure_threshold,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// gRPC-specific configurations.
 	// +kubebuilder:validation:Optional
 	GRPC []GRPCParameters `json:"grpc,omitempty" tf:"grpc,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// HTTP-specific configurations.
 	// +kubebuilder:validation:Optional
 	HTTP []HTTPParameters `json:"http,omitempty" tf:"http,omitempty"`
 
+	// (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
 	// The amount of time in seconds after the container is started to wait before the first probe is sent.
 	// +kubebuilder:validation:Optional
 	InitialDelay *float64 `json:"initialDelay,omitempty" tf:"initial_delay,omitempty"`
 
+	// (Number) The amount of time in seconds between each probe.
 	// The amount of time in seconds between each probe.
 	// +kubebuilder:validation:Optional
 	Period *float64 `json:"period,omitempty" tf:"period,omitempty"`
 
+	// (Block List) Endpoint port configuration. (see below for nested schema)
 	// The port within the container the probe will connect to.
 	// +kubebuilder:validation:Optional
 	Port *float64 `json:"port" tf:"port,omitempty"`
 
+	// (Number) The number of successful probes to consider the container healthy.
 	// The number of successful probes to consider the container healthy.
 	// +kubebuilder:validation:Optional
 	SuccessThreshold *float64 `json:"successThreshold,omitempty" tf:"success_threshold,omitempty"`
 
+	// (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
 	// The amount of time in seconds the probe will wait for a response before considering it a failure.
 	// +kubebuilder:validation:Optional
 	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 
+	// (String) Options: Anycast, CDN, InternalIP
 	// Options: `grpc`, `http`, `tcp`
 	// +kubebuilder:validation:Optional
 	Type *string `json:"type" tf:"type,omitempty"`
@@ -548,12 +686,15 @@ type LivenessProbeParameters struct {
 
 type PortInitParameters struct {
 
+	// (Block List) Defines a container for the application. (see below for nested schema)
 	// The container port number.
 	Container *float64 `json:"container,omitempty" tf:"container,omitempty"`
 
+	// (Number) The exposed port number.
 	// The exposed port number.
 	Exposed *float64 `json:"exposed,omitempty" tf:"exposed,omitempty"`
 
+	// (Set of String) Options: SCTP, TCP, UDP
 	// Options: `SCTP`, `TCP`, `UDP`
 	// +listType=set
 	Protocols []*string `json:"protocols,omitempty" tf:"protocols,omitempty"`
@@ -561,12 +702,15 @@ type PortInitParameters struct {
 
 type PortObservation struct {
 
+	// (Block List) Defines a container for the application. (see below for nested schema)
 	// The container port number.
 	Container *float64 `json:"container,omitempty" tf:"container,omitempty"`
 
+	// (Number) The exposed port number.
 	// The exposed port number.
 	Exposed *float64 `json:"exposed,omitempty" tf:"exposed,omitempty"`
 
+	// (Set of String) Options: SCTP, TCP, UDP
 	// Options: `SCTP`, `TCP`, `UDP`
 	// +listType=set
 	Protocols []*string `json:"protocols,omitempty" tf:"protocols,omitempty"`
@@ -574,14 +718,17 @@ type PortObservation struct {
 
 type PortParameters struct {
 
+	// (Block List) Defines a container for the application. (see below for nested schema)
 	// The container port number.
 	// +kubebuilder:validation:Optional
 	Container *float64 `json:"container" tf:"container,omitempty"`
 
+	// (Number) The exposed port number.
 	// The exposed port number.
 	// +kubebuilder:validation:Optional
 	Exposed *float64 `json:"exposed,omitempty" tf:"exposed,omitempty"`
 
+	// (Set of String) Options: SCTP, TCP, UDP
 	// Options: `SCTP`, `TCP`, `UDP`
 	// +kubebuilder:validation:Optional
 	// +listType=set
@@ -590,18 +737,21 @@ type PortParameters struct {
 
 type ReadinessProbeGRPCInitParameters struct {
 
+	// (String) The gRPC service name.
 	// The gRPC service name.
 	Service *string `json:"service,omitempty" tf:"service,omitempty"`
 }
 
 type ReadinessProbeGRPCObservation struct {
 
+	// (String) The gRPC service name.
 	// The gRPC service name.
 	Service *string `json:"service,omitempty" tf:"service,omitempty"`
 }
 
 type ReadinessProbeGRPCParameters struct {
 
+	// (String) The gRPC service name.
 	// The gRPC service name.
 	// +kubebuilder:validation:Optional
 	Service *string `json:"service" tf:"service,omitempty"`
@@ -609,28 +759,34 @@ type ReadinessProbeGRPCParameters struct {
 
 type ReadinessProbeHTTPInitParameters struct {
 
+	// (Number) The expected HTTP response status code.
 	// The expected HTTP response status code.
 	ExpectedStatus *float64 `json:"expectedStatus,omitempty" tf:"expected_status,omitempty"`
 
+	// (String) The HTTP path to be requested.
 	// The HTTP path to be requested.
 	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 }
 
 type ReadinessProbeHTTPObservation struct {
 
+	// (Number) The expected HTTP response status code.
 	// The expected HTTP response status code.
 	ExpectedStatus *float64 `json:"expectedStatus,omitempty" tf:"expected_status,omitempty"`
 
+	// (String) The HTTP path to be requested.
 	// The HTTP path to be requested.
 	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 }
 
 type ReadinessProbeHTTPParameters struct {
 
+	// (Number) The expected HTTP response status code.
 	// The expected HTTP response status code.
 	// +kubebuilder:validation:Optional
 	ExpectedStatus *float64 `json:"expectedStatus,omitempty" tf:"expected_status,omitempty"`
 
+	// (String) The HTTP path to be requested.
 	// The HTTP path to be requested.
 	// +kubebuilder:validation:Optional
 	Path *string `json:"path" tf:"path,omitempty"`
@@ -638,98 +794,125 @@ type ReadinessProbeHTTPParameters struct {
 
 type ReadinessProbeInitParameters struct {
 
+	// (Number) The number of failed probes to consider the container unhealthy.
 	// The number of failed probes to consider the container unhealthy.
 	FailureThreshold *float64 `json:"failureThreshold,omitempty" tf:"failure_threshold,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// gRPC-specific configurations.
 	GRPC []ReadinessProbeGRPCInitParameters `json:"grpc,omitempty" tf:"grpc,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// HTTP-specific configurations.
 	HTTP []ReadinessProbeHTTPInitParameters `json:"http,omitempty" tf:"http,omitempty"`
 
+	// (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
 	// The amount of time in seconds after the container is started to wait before the first probe is sent.
 	InitialDelay *float64 `json:"initialDelay,omitempty" tf:"initial_delay,omitempty"`
 
+	// (Number) The amount of time in seconds between each probe.
 	// The amount of time in seconds between each probe.
 	Period *float64 `json:"period,omitempty" tf:"period,omitempty"`
 
+	// (Block List) Endpoint port configuration. (see below for nested schema)
 	// The port within the container the probe will connect to.
 	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
+	// (Number) The number of successful probes to consider the container healthy.
 	// The number of successful probes to consider the container healthy.
 	SuccessThreshold *float64 `json:"successThreshold,omitempty" tf:"success_threshold,omitempty"`
 
+	// (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
 	// The amount of time in seconds the probe will wait for a response before considering it a failure.
 	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 
+	// (String) Options: Anycast, CDN, InternalIP
 	// Options: `grpc`, `http`, `tcp`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type ReadinessProbeObservation struct {
 
+	// (Number) The number of failed probes to consider the container unhealthy.
 	// The number of failed probes to consider the container unhealthy.
 	FailureThreshold *float64 `json:"failureThreshold,omitempty" tf:"failure_threshold,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// gRPC-specific configurations.
 	GRPC []ReadinessProbeGRPCObservation `json:"grpc,omitempty" tf:"grpc,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// HTTP-specific configurations.
 	HTTP []ReadinessProbeHTTPObservation `json:"http,omitempty" tf:"http,omitempty"`
 
+	// (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
 	// The amount of time in seconds after the container is started to wait before the first probe is sent.
 	InitialDelay *float64 `json:"initialDelay,omitempty" tf:"initial_delay,omitempty"`
 
+	// (Number) The amount of time in seconds between each probe.
 	// The amount of time in seconds between each probe.
 	Period *float64 `json:"period,omitempty" tf:"period,omitempty"`
 
+	// (Block List) Endpoint port configuration. (see below for nested schema)
 	// The port within the container the probe will connect to.
 	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
+	// (Number) The number of successful probes to consider the container healthy.
 	// The number of successful probes to consider the container healthy.
 	SuccessThreshold *float64 `json:"successThreshold,omitempty" tf:"success_threshold,omitempty"`
 
+	// (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
 	// The amount of time in seconds the probe will wait for a response before considering it a failure.
 	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 
+	// (String) Options: Anycast, CDN, InternalIP
 	// Options: `grpc`, `http`, `tcp`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type ReadinessProbeParameters struct {
 
+	// (Number) The number of failed probes to consider the container unhealthy.
 	// The number of failed probes to consider the container unhealthy.
 	// +kubebuilder:validation:Optional
 	FailureThreshold *float64 `json:"failureThreshold,omitempty" tf:"failure_threshold,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// gRPC-specific configurations.
 	// +kubebuilder:validation:Optional
 	GRPC []ReadinessProbeGRPCParameters `json:"grpc,omitempty" tf:"grpc,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// HTTP-specific configurations.
 	// +kubebuilder:validation:Optional
 	HTTP []ReadinessProbeHTTPParameters `json:"http,omitempty" tf:"http,omitempty"`
 
+	// (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
 	// The amount of time in seconds after the container is started to wait before the first probe is sent.
 	// +kubebuilder:validation:Optional
 	InitialDelay *float64 `json:"initialDelay,omitempty" tf:"initial_delay,omitempty"`
 
+	// (Number) The amount of time in seconds between each probe.
 	// The amount of time in seconds between each probe.
 	// +kubebuilder:validation:Optional
 	Period *float64 `json:"period,omitempty" tf:"period,omitempty"`
 
+	// (Block List) Endpoint port configuration. (see below for nested schema)
 	// The port within the container the probe will connect to.
 	// +kubebuilder:validation:Optional
 	Port *float64 `json:"port" tf:"port,omitempty"`
 
+	// (Number) The number of successful probes to consider the container healthy.
 	// The number of successful probes to consider the container healthy.
 	// +kubebuilder:validation:Optional
 	SuccessThreshold *float64 `json:"successThreshold,omitempty" tf:"success_threshold,omitempty"`
 
+	// (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
 	// The amount of time in seconds the probe will wait for a response before considering it a failure.
 	// +kubebuilder:validation:Optional
 	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 
+	// (String) Options: Anycast, CDN, InternalIP
 	// Options: `grpc`, `http`, `tcp`
 	// +kubebuilder:validation:Optional
 	Type *string `json:"type" tf:"type,omitempty"`
@@ -737,18 +920,21 @@ type ReadinessProbeParameters struct {
 
 type StartupProbeGRPCInitParameters struct {
 
+	// (String) The gRPC service name.
 	// The gRPC service name.
 	Service *string `json:"service,omitempty" tf:"service,omitempty"`
 }
 
 type StartupProbeGRPCObservation struct {
 
+	// (String) The gRPC service name.
 	// The gRPC service name.
 	Service *string `json:"service,omitempty" tf:"service,omitempty"`
 }
 
 type StartupProbeGRPCParameters struct {
 
+	// (String) The gRPC service name.
 	// The gRPC service name.
 	// +kubebuilder:validation:Optional
 	Service *string `json:"service" tf:"service,omitempty"`
@@ -756,28 +942,34 @@ type StartupProbeGRPCParameters struct {
 
 type StartupProbeHTTPInitParameters struct {
 
+	// (Number) The expected HTTP response status code.
 	// The expected HTTP response status code.
 	ExpectedStatus *float64 `json:"expectedStatus,omitempty" tf:"expected_status,omitempty"`
 
+	// (String) The HTTP path to be requested.
 	// The HTTP path to be requested.
 	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 }
 
 type StartupProbeHTTPObservation struct {
 
+	// (Number) The expected HTTP response status code.
 	// The expected HTTP response status code.
 	ExpectedStatus *float64 `json:"expectedStatus,omitempty" tf:"expected_status,omitempty"`
 
+	// (String) The HTTP path to be requested.
 	// The HTTP path to be requested.
 	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 }
 
 type StartupProbeHTTPParameters struct {
 
+	// (Number) The expected HTTP response status code.
 	// The expected HTTP response status code.
 	// +kubebuilder:validation:Optional
 	ExpectedStatus *float64 `json:"expectedStatus,omitempty" tf:"expected_status,omitempty"`
 
+	// (String) The HTTP path to be requested.
 	// The HTTP path to be requested.
 	// +kubebuilder:validation:Optional
 	Path *string `json:"path" tf:"path,omitempty"`
@@ -785,98 +977,125 @@ type StartupProbeHTTPParameters struct {
 
 type StartupProbeInitParameters struct {
 
+	// (Number) The number of failed probes to consider the container unhealthy.
 	// The number of failed probes to consider the container unhealthy.
 	FailureThreshold *float64 `json:"failureThreshold,omitempty" tf:"failure_threshold,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// gRPC-specific configurations.
 	GRPC []StartupProbeGRPCInitParameters `json:"grpc,omitempty" tf:"grpc,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// HTTP-specific configurations.
 	HTTP []StartupProbeHTTPInitParameters `json:"http,omitempty" tf:"http,omitempty"`
 
+	// (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
 	// The amount of time in seconds after the container is started to wait before the first probe is sent.
 	InitialDelay *float64 `json:"initialDelay,omitempty" tf:"initial_delay,omitempty"`
 
+	// (Number) The amount of time in seconds between each probe.
 	// The amount of time in seconds between each probe.
 	Period *float64 `json:"period,omitempty" tf:"period,omitempty"`
 
+	// (Block List) Endpoint port configuration. (see below for nested schema)
 	// The port within the container the probe will connect to.
 	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
+	// (Number) The number of successful probes to consider the container healthy.
 	// The number of successful probes to consider the container healthy.
 	SuccessThreshold *float64 `json:"successThreshold,omitempty" tf:"success_threshold,omitempty"`
 
+	// (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
 	// The amount of time in seconds the probe will wait for a response before considering it a failure.
 	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 
+	// (String) Options: Anycast, CDN, InternalIP
 	// Options: `grpc`, `http`, `tcp`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type StartupProbeObservation struct {
 
+	// (Number) The number of failed probes to consider the container unhealthy.
 	// The number of failed probes to consider the container unhealthy.
 	FailureThreshold *float64 `json:"failureThreshold,omitempty" tf:"failure_threshold,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// gRPC-specific configurations.
 	GRPC []StartupProbeGRPCObservation `json:"grpc,omitempty" tf:"grpc,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// HTTP-specific configurations.
 	HTTP []StartupProbeHTTPObservation `json:"http,omitempty" tf:"http,omitempty"`
 
+	// (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
 	// The amount of time in seconds after the container is started to wait before the first probe is sent.
 	InitialDelay *float64 `json:"initialDelay,omitempty" tf:"initial_delay,omitempty"`
 
+	// (Number) The amount of time in seconds between each probe.
 	// The amount of time in seconds between each probe.
 	Period *float64 `json:"period,omitempty" tf:"period,omitempty"`
 
+	// (Block List) Endpoint port configuration. (see below for nested schema)
 	// The port within the container the probe will connect to.
 	Port *float64 `json:"port,omitempty" tf:"port,omitempty"`
 
+	// (Number) The number of successful probes to consider the container healthy.
 	// The number of successful probes to consider the container healthy.
 	SuccessThreshold *float64 `json:"successThreshold,omitempty" tf:"success_threshold,omitempty"`
 
+	// (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
 	// The amount of time in seconds the probe will wait for a response before considering it a failure.
 	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 
+	// (String) Options: Anycast, CDN, InternalIP
 	// Options: `grpc`, `http`, `tcp`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type StartupProbeParameters struct {
 
+	// (Number) The number of failed probes to consider the container unhealthy.
 	// The number of failed probes to consider the container unhealthy.
 	// +kubebuilder:validation:Optional
 	FailureThreshold *float64 `json:"failureThreshold,omitempty" tf:"failure_threshold,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// gRPC-specific configurations.
 	// +kubebuilder:validation:Optional
 	GRPC []StartupProbeGRPCParameters `json:"grpc,omitempty" tf:"grpc,omitempty"`
 
+	// specific configurations. (see below for nested schema)
 	// HTTP-specific configurations.
 	// +kubebuilder:validation:Optional
 	HTTP []StartupProbeHTTPParameters `json:"http,omitempty" tf:"http,omitempty"`
 
+	// (Number) The amount of time in seconds after the container is started to wait before the first probe is sent.
 	// The amount of time in seconds after the container is started to wait before the first probe is sent.
 	// +kubebuilder:validation:Optional
 	InitialDelay *float64 `json:"initialDelay,omitempty" tf:"initial_delay,omitempty"`
 
+	// (Number) The amount of time in seconds between each probe.
 	// The amount of time in seconds between each probe.
 	// +kubebuilder:validation:Optional
 	Period *float64 `json:"period,omitempty" tf:"period,omitempty"`
 
+	// (Block List) Endpoint port configuration. (see below for nested schema)
 	// The port within the container the probe will connect to.
 	// +kubebuilder:validation:Optional
 	Port *float64 `json:"port" tf:"port,omitempty"`
 
+	// (Number) The number of successful probes to consider the container healthy.
 	// The number of successful probes to consider the container healthy.
 	// +kubebuilder:validation:Optional
 	SuccessThreshold *float64 `json:"successThreshold,omitempty" tf:"success_threshold,omitempty"`
 
+	// (Number) The amount of time in seconds the probe will wait for a response before considering it a failure.
 	// The amount of time in seconds the probe will wait for a response before considering it a failure.
 	// +kubebuilder:validation:Optional
 	Timeout *float64 `json:"timeout,omitempty" tf:"timeout,omitempty"`
 
+	// (String) Options: Anycast, CDN, InternalIP
 	// Options: `grpc`, `http`, `tcp`
 	// +kubebuilder:validation:Optional
 	Type *string `json:"type" tf:"type,omitempty"`
@@ -884,6 +1103,7 @@ type StartupProbeParameters struct {
 
 type StickySessionsInitParameters struct {
 
+	// (Set of String) Incoming request headers used to select a pod for sticky sessions.
 	// Incoming request headers used to select a pod for sticky sessions.
 	// +listType=set
 	Headers []*string `json:"headers,omitempty" tf:"headers,omitempty"`
@@ -891,6 +1111,7 @@ type StickySessionsInitParameters struct {
 
 type StickySessionsObservation struct {
 
+	// (Set of String) Incoming request headers used to select a pod for sticky sessions.
 	// Incoming request headers used to select a pod for sticky sessions.
 	// +listType=set
 	Headers []*string `json:"headers,omitempty" tf:"headers,omitempty"`
@@ -898,6 +1119,7 @@ type StickySessionsObservation struct {
 
 type StickySessionsParameters struct {
 
+	// (Set of String) Incoming request headers used to select a pod for sticky sessions.
 	// Incoming request headers used to select a pod for sticky sessions.
 	// +kubebuilder:validation:Optional
 	// +listType=set
@@ -906,28 +1128,34 @@ type StickySessionsParameters struct {
 
 type VolumeInitParameters struct {
 
+	// (String) The name of the application.
 	// The name of the volume.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The size of the volume, in Gigabytes (10^9 bytes).
 	// The size of the volume, in Gigabytes (10^9 bytes).
 	Size *float64 `json:"size,omitempty" tf:"size,omitempty"`
 }
 
 type VolumeObservation struct {
 
+	// (String) The name of the application.
 	// The name of the volume.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The size of the volume, in Gigabytes (10^9 bytes).
 	// The size of the volume, in Gigabytes (10^9 bytes).
 	Size *float64 `json:"size,omitempty" tf:"size,omitempty"`
 }
 
 type VolumeParameters struct {
 
+	// (String) The name of the application.
 	// The name of the volume.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name" tf:"name,omitempty"`
 
+	// (Number) The size of the volume, in Gigabytes (10^9 bytes).
 	// The size of the volume, in Gigabytes (10^9 bytes).
 	// +kubebuilder:validation:Optional
 	Size *float64 `json:"size" tf:"size,omitempty"`
@@ -935,28 +1163,34 @@ type VolumeParameters struct {
 
 type VolumemountInitParameters struct {
 
+	// (String) The name of the application.
 	// The name of the volume.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (String) The HTTP path to be requested.
 	// The path within the container where the volume will be mounted.
 	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 }
 
 type VolumemountObservation struct {
 
+	// (String) The name of the application.
 	// The name of the volume.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (String) The HTTP path to be requested.
 	// The path within the container where the volume will be mounted.
 	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 }
 
 type VolumemountParameters struct {
 
+	// (String) The name of the application.
 	// The name of the volume.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name" tf:"name,omitempty"`
 
+	// (String) The HTTP path to be requested.
 	// The path within the container where the volume will be mounted.
 	// +kubebuilder:validation:Optional
 	Path *string `json:"path" tf:"path,omitempty"`
@@ -989,7 +1223,7 @@ type ContainerAppStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// ContainerApp is the Schema for the ContainerApps API. <no value>
+// ContainerApp is the Schema for the ContainerApps API. This resource manages a Magic Containers application in bunny.net.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

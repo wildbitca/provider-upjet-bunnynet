@@ -16,36 +16,46 @@ import (
 
 type ScriptSecretInitParameters struct {
 
+	// (String) The name of the secret.
 	// The name of the secret.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The ID of the associated compute script.
 	// The ID of the associated compute script.
 	Script *float64 `json:"script,omitempty" tf:"script,omitempty"`
 
+	// (String, Sensitive) The value of the secret.
 	// The value of the secret.
 	ValueSecretRef v1.LocalSecretKeySelector `json:"valueSecretRef" tf:"-"`
 }
 
 type ScriptSecretObservation struct {
+
+	// (Number) The ID of the secret.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (String) The name of the secret.
 	// The name of the secret.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The ID of the associated compute script.
 	// The ID of the associated compute script.
 	Script *float64 `json:"script,omitempty" tf:"script,omitempty"`
 }
 
 type ScriptSecretParameters struct {
 
+	// (String) The name of the secret.
 	// The name of the secret.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The ID of the associated compute script.
 	// The ID of the associated compute script.
 	// +kubebuilder:validation:Optional
 	Script *float64 `json:"script,omitempty" tf:"script,omitempty"`
 
+	// (String, Sensitive) The value of the secret.
 	// The value of the secret.
 	// +kubebuilder:validation:Optional
 	ValueSecretRef v1.LocalSecretKeySelector `json:"valueSecretRef" tf:"-"`
@@ -78,7 +88,7 @@ type ScriptSecretStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// ScriptSecret is the Schema for the ScriptSecrets API. <no value>
+// ScriptSecret is the Schema for the ScriptSecrets API. This resource manages a secret for a Compute Script in bunny.net.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

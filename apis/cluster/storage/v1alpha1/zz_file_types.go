@@ -15,72 +15,92 @@ import (
 
 type FileInitParameters struct {
 
+	// (String) The to be stored in the file. Use source to upload files from the local disk.
 	// The to be stored in the file. Use <code>source</code> to upload files from the local disk.
 	Content *string `json:"content,omitempty" tf:"content,omitempty"`
 
+	// (String) Specifies the content type of the file.
 	// Specifies the content type of the file.
 	ContentType *string `json:"contentType,omitempty" tf:"content_type,omitempty"`
 
+	// (String) The path of the file within the storage zone.
 	// The path of the file within the storage zone.
 	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
+	// (String) The path in the local disk for the file to be uploaded to the storage zone. Use content to define the content directly.
 	// The path in the local disk for the file to be uploaded to the storage zone. Use <code>content</code> to define the content directly.
 	Source *string `json:"source,omitempty" tf:"source,omitempty"`
 
+	// (Number) The ID of the storage zone where the file is stored.
 	// The ID of the storage zone where the file is stored.
 	Zone *float64 `json:"zone,omitempty" tf:"zone,omitempty"`
 }
 
 type FileObservation struct {
 
+	// 256 hash of the stored file.
 	// The SHA-256 hash of the stored file.
 	Checksum *string `json:"checksum,omitempty" tf:"checksum,omitempty"`
 
+	// (String) The to be stored in the file. Use source to upload files from the local disk.
 	// The to be stored in the file. Use <code>source</code> to upload files from the local disk.
 	Content *string `json:"content,omitempty" tf:"content,omitempty"`
 
+	// (String) Specifies the content type of the file.
 	// Specifies the content type of the file.
 	ContentType *string `json:"contentType,omitempty" tf:"content_type,omitempty"`
 
+	// (String) The date and time when the file was created.
 	// The date and time when the file was created.
 	DateCreated *string `json:"dateCreated,omitempty" tf:"date_created,omitempty"`
 
+	// (String) The date and time when the file was last modified.
 	// The date and time when the file was last modified.
 	DateModified *string `json:"dateModified,omitempty" tf:"date_modified,omitempty"`
 
+	// (String) The unique identifier for the file.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (String) The path of the file within the storage zone.
 	// The path of the file within the storage zone.
 	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
+	// (Number) The size of the file in bytes.
 	// The size of the file in bytes.
 	Size *float64 `json:"size,omitempty" tf:"size,omitempty"`
 
+	// (String) The path in the local disk for the file to be uploaded to the storage zone. Use content to define the content directly.
 	// The path in the local disk for the file to be uploaded to the storage zone. Use <code>content</code> to define the content directly.
 	Source *string `json:"source,omitempty" tf:"source,omitempty"`
 
+	// (Number) The ID of the storage zone where the file is stored.
 	// The ID of the storage zone where the file is stored.
 	Zone *float64 `json:"zone,omitempty" tf:"zone,omitempty"`
 }
 
 type FileParameters struct {
 
+	// (String) The to be stored in the file. Use source to upload files from the local disk.
 	// The to be stored in the file. Use <code>source</code> to upload files from the local disk.
 	// +kubebuilder:validation:Optional
 	Content *string `json:"content,omitempty" tf:"content,omitempty"`
 
+	// (String) Specifies the content type of the file.
 	// Specifies the content type of the file.
 	// +kubebuilder:validation:Optional
 	ContentType *string `json:"contentType,omitempty" tf:"content_type,omitempty"`
 
+	// (String) The path of the file within the storage zone.
 	// The path of the file within the storage zone.
 	// +kubebuilder:validation:Optional
 	Path *string `json:"path,omitempty" tf:"path,omitempty"`
 
+	// (String) The path in the local disk for the file to be uploaded to the storage zone. Use content to define the content directly.
 	// The path in the local disk for the file to be uploaded to the storage zone. Use <code>content</code> to define the content directly.
 	// +kubebuilder:validation:Optional
 	Source *string `json:"source,omitempty" tf:"source,omitempty"`
 
+	// (Number) The ID of the storage zone where the file is stored.
 	// The ID of the storage zone where the file is stored.
 	// +kubebuilder:validation:Optional
 	Zone *float64 `json:"zone,omitempty" tf:"zone,omitempty"`
@@ -113,7 +133,7 @@ type FileStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// File is the Schema for the Files API. <no value>
+// File is the Schema for the Files API. This resource manages files in a bunny.net storage zone. It is used to upload, update, and delete files within a storage zone.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

@@ -1,0 +1,18 @@
+apiVersion: cdn.upjet-bunnynet.m.upbound.io/v1alpha1
+kind: AccessList
+metadata:
+  annotations:
+    meta.upbound.io/example-id: cdn/v1alpha1/accesslist
+  labels:
+    testing.upbound.io/example-name: hetzner
+  name: hetzner
+  namespace: crossplane-system
+spec:
+  forProvider:
+    action: Allow
+    entries:
+    - 192.0.2.0/24
+    - 2001:db8:cafe::/48
+    name: VIP customers
+    pullzone: ${bunnynet_pullzone.test.id}
+    type: CIDR

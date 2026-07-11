@@ -16,71 +16,89 @@ import (
 
 type ConditionInitParameters struct {
 
+	// (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
 	// Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
 	Operator *string `json:"operator,omitempty" tf:"operator,omitempty"`
 
+	// (String)
 	Value *string `json:"value,omitempty" tf:"value,omitempty"`
 
+	// (String) Options: ARGS, ARGS_COMBINED_SIZE, ARGS_GET, ARGS_GET_NAMES, ARGS_POST, ARGS_POST_NAMES, FILES_NAMES, FINGERPRINT, GEO, QUERY_STRING, REMOTE_ADDR, REQUEST_BASENAME, REQUEST_BODY, REQUEST_COOKIES, REQUEST_COOKIES_NAMES, REQUEST_FILENAME, REQUEST_HEADERS, REQUEST_HEADERS_NAMES, REQUEST_LINE, REQUEST_METHOD, REQUEST_PROTOCOL, REQUEST_URI, REQUEST_URI_RAW, RESPONSE_BODY, RESPONSE_HEADERS, RESPONSE_STATUS, VERIFIED_BOT_CATEGORY
 	// Options: `ARGS`, `ARGS_COMBINED_SIZE`, `ARGS_GET`, `ARGS_GET_NAMES`, `ARGS_POST`, `ARGS_POST_NAMES`, `FILES_NAMES`, `FINGERPRINT`, `GEO`, `QUERY_STRING`, `REMOTE_ADDR`, `REQUEST_BASENAME`, `REQUEST_BODY`, `REQUEST_COOKIES`, `REQUEST_COOKIES_NAMES`, `REQUEST_FILENAME`, `REQUEST_HEADERS`, `REQUEST_HEADERS_NAMES`, `REQUEST_LINE`, `REQUEST_METHOD`, `REQUEST_PROTOCOL`, `REQUEST_URI`, `REQUEST_URI_RAW`, `RESPONSE_BODY`, `RESPONSE_HEADERS`, `RESPONSE_STATUS`, `VERIFIED_BOT_CATEGORY`
 	Variable *string `json:"variable,omitempty" tf:"variable,omitempty"`
 
+	// (String)
 	VariableValue *string `json:"variableValue,omitempty" tf:"variable_value,omitempty"`
 }
 
 type ConditionObservation struct {
 
+	// (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
 	// Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
 	Operator *string `json:"operator,omitempty" tf:"operator,omitempty"`
 
+	// (String)
 	Value *string `json:"value,omitempty" tf:"value,omitempty"`
 
+	// (String) Options: ARGS, ARGS_COMBINED_SIZE, ARGS_GET, ARGS_GET_NAMES, ARGS_POST, ARGS_POST_NAMES, FILES_NAMES, FINGERPRINT, GEO, QUERY_STRING, REMOTE_ADDR, REQUEST_BASENAME, REQUEST_BODY, REQUEST_COOKIES, REQUEST_COOKIES_NAMES, REQUEST_FILENAME, REQUEST_HEADERS, REQUEST_HEADERS_NAMES, REQUEST_LINE, REQUEST_METHOD, REQUEST_PROTOCOL, REQUEST_URI, REQUEST_URI_RAW, RESPONSE_BODY, RESPONSE_HEADERS, RESPONSE_STATUS, VERIFIED_BOT_CATEGORY
 	// Options: `ARGS`, `ARGS_COMBINED_SIZE`, `ARGS_GET`, `ARGS_GET_NAMES`, `ARGS_POST`, `ARGS_POST_NAMES`, `FILES_NAMES`, `FINGERPRINT`, `GEO`, `QUERY_STRING`, `REMOTE_ADDR`, `REQUEST_BASENAME`, `REQUEST_BODY`, `REQUEST_COOKIES`, `REQUEST_COOKIES_NAMES`, `REQUEST_FILENAME`, `REQUEST_HEADERS`, `REQUEST_HEADERS_NAMES`, `REQUEST_LINE`, `REQUEST_METHOD`, `REQUEST_PROTOCOL`, `REQUEST_URI`, `REQUEST_URI_RAW`, `RESPONSE_BODY`, `RESPONSE_HEADERS`, `RESPONSE_STATUS`, `VERIFIED_BOT_CATEGORY`
 	Variable *string `json:"variable,omitempty" tf:"variable,omitempty"`
 
+	// (String)
 	VariableValue *string `json:"variableValue,omitempty" tf:"variable_value,omitempty"`
 }
 
 type ConditionParameters struct {
 
+	// (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
 	// Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
 	// +kubebuilder:validation:Optional
 	Operator *string `json:"operator" tf:"operator,omitempty"`
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	Value *string `json:"value" tf:"value,omitempty"`
 
+	// (String) Options: ARGS, ARGS_COMBINED_SIZE, ARGS_GET, ARGS_GET_NAMES, ARGS_POST, ARGS_POST_NAMES, FILES_NAMES, FINGERPRINT, GEO, QUERY_STRING, REMOTE_ADDR, REQUEST_BASENAME, REQUEST_BODY, REQUEST_COOKIES, REQUEST_COOKIES_NAMES, REQUEST_FILENAME, REQUEST_HEADERS, REQUEST_HEADERS_NAMES, REQUEST_LINE, REQUEST_METHOD, REQUEST_PROTOCOL, REQUEST_URI, REQUEST_URI_RAW, RESPONSE_BODY, RESPONSE_HEADERS, RESPONSE_STATUS, VERIFIED_BOT_CATEGORY
 	// Options: `ARGS`, `ARGS_COMBINED_SIZE`, `ARGS_GET`, `ARGS_GET_NAMES`, `ARGS_POST`, `ARGS_POST_NAMES`, `FILES_NAMES`, `FINGERPRINT`, `GEO`, `QUERY_STRING`, `REMOTE_ADDR`, `REQUEST_BASENAME`, `REQUEST_BODY`, `REQUEST_COOKIES`, `REQUEST_COOKIES_NAMES`, `REQUEST_FILENAME`, `REQUEST_HEADERS`, `REQUEST_HEADERS_NAMES`, `REQUEST_LINE`, `REQUEST_METHOD`, `REQUEST_PROTOCOL`, `REQUEST_URI`, `REQUEST_URI_RAW`, `RESPONSE_BODY`, `RESPONSE_HEADERS`, `RESPONSE_STATUS`, `VERIFIED_BOT_CATEGORY`
 	// +kubebuilder:validation:Optional
 	Variable *string `json:"variable" tf:"variable,omitempty"`
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	VariableValue *string `json:"variableValue,omitempty" tf:"variable_value,omitempty"`
 }
 
 type LimitInitParameters struct {
 
+	// (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
 	// The interval, in seconds, to consider for to trigger the rate limit rule.
 	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
 
+	// (Number) The number of request within the interval to trigger the rate limit rule.
 	// The number of request within the interval to trigger the rate limit rule.
 	Requests *float64 `json:"requests,omitempty" tf:"requests,omitempty"`
 }
 
 type LimitObservation struct {
 
+	// (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
 	// The interval, in seconds, to consider for to trigger the rate limit rule.
 	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
 
+	// (Number) The number of request within the interval to trigger the rate limit rule.
 	// The number of request within the interval to trigger the rate limit rule.
 	Requests *float64 `json:"requests,omitempty" tf:"requests,omitempty"`
 }
 
 type LimitParameters struct {
 
+	// (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
 	// The interval, in seconds, to consider for to trigger the rate limit rule.
 	// +kubebuilder:validation:Optional
 	Interval *float64 `json:"interval" tf:"interval,omitempty"`
 
+	// (Number) The number of request within the interval to trigger the rate limit rule.
 	// The number of request within the interval to trigger the rate limit rule.
 	// +kubebuilder:validation:Optional
 	Requests *float64 `json:"requests" tf:"requests,omitempty"`
@@ -88,18 +106,23 @@ type LimitParameters struct {
 
 type RatelimitRuleInitParameters struct {
 
+	// (Block List) The condition to trigger the rate limit rule. (see below for nested schema)
 	// The condition to trigger the rate limit rule.
 	Condition []ConditionInitParameters `json:"condition,omitempty" tf:"condition,omitempty"`
 
+	// (String) The rate limit rule description.
 	// The rate limit rule description.
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// (String) The rate limit rule name.
 	// The rate limit rule name.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
 	// Options: `CMDLINE`, `COMPRESSWHITESPACE`, `CSSDECODE`, `HEXENCODE`, `HTMLENTITYDECODE`, `JSDECODE`, `LENGTH`, `LOWERCASE`, `MD5`, `NORMALISEPATH`, `NORMALISEPATHWIN`, `NORMALIZEPATH`, `NORMALIZEPATHWIN`, `REMOVECOMMENTS`, `REMOVENULLS`, `REMOVEWHITESPACE`, `REPLACECOMMENTS`, `SHA1`, `URLDECODE`, `URLDECODEUNI`, `UTF8TOUNICODE`
 	// +listType=set
 	Transformations []*string `json:"transformations,omitempty" tf:"transformations,omitempty"`
@@ -107,25 +130,33 @@ type RatelimitRuleInitParameters struct {
 
 type RatelimitRuleObservation struct {
 
+	// (Block List) The condition to trigger the rate limit rule. (see below for nested schema)
 	// The condition to trigger the rate limit rule.
 	Condition []ConditionObservation `json:"condition,omitempty" tf:"condition,omitempty"`
 
+	// (String) The rate limit rule description.
 	// The rate limit rule description.
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// (Number) The ID of the rate limit rule.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (Block, Optional) (see below for nested schema)
 	Limit []LimitObservation `json:"limit,omitempty" tf:"limit,omitempty"`
 
+	// (String) The rate limit rule name.
 	// The rate limit rule name.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (Block, Optional) The response once the rate limit rule is triggered. (see below for nested schema)
 	// The response once the rate limit rule is triggered.
 	Response []ResponseObservation `json:"response,omitempty" tf:"response,omitempty"`
 
+	// (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
 	// Options: `CMDLINE`, `COMPRESSWHITESPACE`, `CSSDECODE`, `HEXENCODE`, `HTMLENTITYDECODE`, `JSDECODE`, `LENGTH`, `LOWERCASE`, `MD5`, `NORMALISEPATH`, `NORMALISEPATHWIN`, `NORMALIZEPATH`, `NORMALIZEPATHWIN`, `REMOVECOMMENTS`, `REMOVENULLS`, `REMOVEWHITESPACE`, `REPLACECOMMENTS`, `SHA1`, `URLDECODE`, `URLDECODEUNI`, `UTF8TOUNICODE`
 	// +listType=set
 	Transformations []*string `json:"transformations,omitempty" tf:"transformations,omitempty"`
@@ -133,22 +164,27 @@ type RatelimitRuleObservation struct {
 
 type RatelimitRuleParameters struct {
 
+	// (Block List) The condition to trigger the rate limit rule. (see below for nested schema)
 	// The condition to trigger the rate limit rule.
 	// +kubebuilder:validation:Optional
 	Condition []ConditionParameters `json:"condition,omitempty" tf:"condition,omitempty"`
 
+	// (String) The rate limit rule description.
 	// The rate limit rule description.
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// (String) The rate limit rule name.
 	// The rate limit rule name.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
 	// +kubebuilder:validation:Optional
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
 	// Options: `CMDLINE`, `COMPRESSWHITESPACE`, `CSSDECODE`, `HEXENCODE`, `HTMLENTITYDECODE`, `JSDECODE`, `LENGTH`, `LOWERCASE`, `MD5`, `NORMALISEPATH`, `NORMALISEPATHWIN`, `NORMALIZEPATH`, `NORMALIZEPATHWIN`, `REMOVECOMMENTS`, `REMOVENULLS`, `REMOVEWHITESPACE`, `REPLACECOMMENTS`, `SHA1`, `URLDECODE`, `URLDECODEUNI`, `UTF8TOUNICODE`
 	// +kubebuilder:validation:Optional
 	// +listType=set
@@ -157,18 +193,21 @@ type RatelimitRuleParameters struct {
 
 type ResponseInitParameters struct {
 
+	// (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
 	// The interval, in seconds, that the rate limit will apply.
 	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
 }
 
 type ResponseObservation struct {
 
+	// (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
 	// The interval, in seconds, that the rate limit will apply.
 	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
 }
 
 type ResponseParameters struct {
 
+	// (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
 	// The interval, in seconds, that the rate limit will apply.
 	// +kubebuilder:validation:Optional
 	Interval *float64 `json:"interval" tf:"interval,omitempty"`
@@ -201,7 +240,7 @@ type RatelimitRuleStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// RatelimitRule is the Schema for the RatelimitRules API. <no value>
+// RatelimitRule is the Schema for the RatelimitRules API. This resource manages a rate limit rule for a bunny.net pullzone.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

@@ -35,7 +35,8 @@ spec:
     schema:
       openAPIV3Schema:
         description: ContainerImageregistry is the Schema for the ContainerImageregistrys
-          API. <no value>
+          API. This resource manages an Image Registry connection for Magic Containers
+          in bunny.net.
         properties:
           apiVersion:
             description: |-
@@ -60,12 +61,14 @@ spec:
               forProvider:
                 properties:
                   registry:
-                    description: 'Options: `DockerHub`, `GitHub`'
+                    description: |-
+                      (String) Options: DockerHub, GitHub
+                      Options: `DockerHub`, `GitHub`
                     type: string
                   tokenSecretRef:
-                    description: The token used to authenticate to the registry. If
-                      you are importing a resource, declare the token as an empty
-                      string.
+                    description: |-
+                      (String, Sensitive) The token used to authenticate to the registry. If you are importing a resource, declare the token as an empty string.
+                      The token used to authenticate to the registry. If you are importing a resource, declare the token as an empty string.
                     properties:
                       key:
                         type: string
@@ -77,7 +80,9 @@ spec:
                     - name
                     type: object
                   username:
-                    description: The username used to authenticate to the registry.
+                    description: |-
+                      (String) The username used to authenticate to the registry.
+                      The username used to authenticate to the registry.
                     type: string
                 type: object
               initProvider:
@@ -94,12 +99,14 @@ spec:
                   autoscaler.
                 properties:
                   registry:
-                    description: 'Options: `DockerHub`, `GitHub`'
+                    description: |-
+                      (String) Options: DockerHub, GitHub
+                      Options: `DockerHub`, `GitHub`
                     type: string
                   tokenSecretRef:
-                    description: The token used to authenticate to the registry. If
-                      you are importing a resource, declare the token as an empty
-                      string.
+                    description: |-
+                      (String, Sensitive) The token used to authenticate to the registry. If you are importing a resource, declare the token as an empty string.
+                      The token used to authenticate to the registry. If you are importing a resource, declare the token as an empty string.
                     properties:
                       key:
                         type: string
@@ -111,7 +118,9 @@ spec:
                     - name
                     type: object
                   username:
-                    description: The username used to authenticate to the registry.
+                    description: |-
+                      (String) The username used to authenticate to the registry.
+                      The username used to authenticate to the registry.
                     type: string
                 required:
                 - tokenSecretRef
@@ -193,12 +202,17 @@ spec:
               atProvider:
                 properties:
                   id:
+                    description: (Number) The unique identifier for the image registry.
                     type: string
                   registry:
-                    description: 'Options: `DockerHub`, `GitHub`'
+                    description: |-
+                      (String) Options: DockerHub, GitHub
+                      Options: `DockerHub`, `GitHub`
                     type: string
                   username:
-                    description: The username used to authenticate to the registry.
+                    description: |-
+                      (String) The username used to authenticate to the registry.
+                      The username used to authenticate to the registry.
                     type: string
                 type: object
               conditions:

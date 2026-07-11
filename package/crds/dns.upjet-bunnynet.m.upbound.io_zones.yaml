@@ -34,7 +34,8 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Zone is the Schema for the Zones API. <no value>
+        description: Zone is the Schema for the Zones API. This resource manages a
+          DNS zone in bunny.net. It is used to create and manage DNS zones.
         properties:
           apiVersion:
             description: |-
@@ -59,33 +60,49 @@ spec:
               forProvider:
                 properties:
                   dnssecEnabled:
-                    description: Indicates whether DNSSEC is enabled.
+                    description: |-
+                      (Boolean) Indicates whether DNSSEC is enabled.
+                      Indicates whether DNSSEC is enabled.
                     type: boolean
                   domain:
-                    description: The domain name for the DNS zone.
+                    description: |-
+                      (String) The domain name for the DNS zone.
+                      The domain name for the DNS zone.
                     type: string
                   logAnonymized:
-                    description: Indicates whether DNS logs are anonymized.
+                    description: |-
+                      (Boolean) Indicates whether DNS logs are anonymized.
+                      Indicates whether DNS logs are anonymized.
                     type: boolean
                   logAnonymizedStyle:
-                    description: 'Options: `Drop`, `OneDigit`'
+                    description: |-
+                      (String) Options: Drop, OneDigit
+                      Options: `Drop`, `OneDigit`
                     type: string
                   logEnabled:
-                    description: Indicates whether permanent logging for DNS queries
-                      is enabled.
+                    description: |-
+                      (Boolean) Indicates whether permanent logging for DNS queries is enabled.
+                      Indicates whether permanent logging for DNS queries is enabled.
                     type: boolean
                   nameserver1:
-                    description: The primary nameserver for the DNS zone.
+                    description: |-
+                      (String) The primary nameserver for the DNS zone.
+                      The primary nameserver for the DNS zone.
                     type: string
                   nameserver2:
-                    description: The secondary nameserver for the DNS zone.
+                    description: |-
+                      (String) The secondary nameserver for the DNS zone.
+                      The secondary nameserver for the DNS zone.
                     type: string
                   nameserverCustom:
-                    description: Indicates whether custom nameservers are used.
+                    description: |-
+                      (Boolean) Indicates whether custom nameservers are used.
+                      Indicates whether custom nameservers are used.
                     type: boolean
                   soaEmail:
-                    description: The email address used in the Start of Authority
-                      (SOA) record for the DNS zone.
+                    description: |-
+                      (String) The email address used in the Start of Authority (SOA) record for the DNS zone.
+                      The email address used in the Start of Authority (SOA) record for the DNS zone.
                     type: string
                 type: object
               initProvider:
@@ -102,33 +119,49 @@ spec:
                   autoscaler.
                 properties:
                   dnssecEnabled:
-                    description: Indicates whether DNSSEC is enabled.
+                    description: |-
+                      (Boolean) Indicates whether DNSSEC is enabled.
+                      Indicates whether DNSSEC is enabled.
                     type: boolean
                   domain:
-                    description: The domain name for the DNS zone.
+                    description: |-
+                      (String) The domain name for the DNS zone.
+                      The domain name for the DNS zone.
                     type: string
                   logAnonymized:
-                    description: Indicates whether DNS logs are anonymized.
+                    description: |-
+                      (Boolean) Indicates whether DNS logs are anonymized.
+                      Indicates whether DNS logs are anonymized.
                     type: boolean
                   logAnonymizedStyle:
-                    description: 'Options: `Drop`, `OneDigit`'
+                    description: |-
+                      (String) Options: Drop, OneDigit
+                      Options: `Drop`, `OneDigit`
                     type: string
                   logEnabled:
-                    description: Indicates whether permanent logging for DNS queries
-                      is enabled.
+                    description: |-
+                      (Boolean) Indicates whether permanent logging for DNS queries is enabled.
+                      Indicates whether permanent logging for DNS queries is enabled.
                     type: boolean
                   nameserver1:
-                    description: The primary nameserver for the DNS zone.
+                    description: |-
+                      (String) The primary nameserver for the DNS zone.
+                      The primary nameserver for the DNS zone.
                     type: string
                   nameserver2:
-                    description: The secondary nameserver for the DNS zone.
+                    description: |-
+                      (String) The secondary nameserver for the DNS zone.
+                      The secondary nameserver for the DNS zone.
                     type: string
                   nameserverCustom:
-                    description: Indicates whether custom nameservers are used.
+                    description: |-
+                      (Boolean) Indicates whether custom nameservers are used.
+                      Indicates whether custom nameservers are used.
                     type: boolean
                   soaEmail:
-                    description: The email address used in the Start of Authority
-                      (SOA) record for the DNS zone.
+                    description: |-
+                      (String) The email address used in the Start of Authority (SOA) record for the DNS zone.
+                      The email address used in the Start of Authority (SOA) record for the DNS zone.
                     type: string
                 type: object
               managementPolicies:
@@ -200,53 +233,82 @@ spec:
               atProvider:
                 properties:
                   dnssecAlgorithm:
-                    description: The DNSSEC algorithm.
+                    description: |-
+                      (Number) The DNSSEC algorithm.
+                      The DNSSEC algorithm.
                     type: number
                   dnssecDigest:
-                    description: The DNSSEC digest.
+                    description: |-
+                      (String) The DNSSEC digest.
+                      The DNSSEC digest.
                     type: string
                   dnssecDigestType:
-                    description: The DNSSEC digest type.
+                    description: |-
+                      (Number) The DNSSEC digest type.
+                      The DNSSEC digest type.
                     type: number
                   dnssecEnabled:
-                    description: Indicates whether DNSSEC is enabled.
+                    description: |-
+                      (Boolean) Indicates whether DNSSEC is enabled.
+                      Indicates whether DNSSEC is enabled.
                     type: boolean
                   dnssecFlags:
-                    description: The DNSSEC flags.
+                    description: |-
+                      (Number) The DNSSEC flags.
+                      The DNSSEC flags.
                     type: number
                   dnssecKeytag:
-                    description: The DNSSEC key tag.
+                    description: |-
+                      (Number) The DNSSEC key tag.
+                      The DNSSEC key tag.
                     type: number
                   dnssecPublicKey:
-                    description: The DNSSEC public key.
+                    description: |-
+                      (String) The DNSSEC public key.
+                      The DNSSEC public key.
                     type: string
                   domain:
-                    description: The domain name for the DNS zone.
+                    description: |-
+                      (String) The domain name for the DNS zone.
+                      The domain name for the DNS zone.
                     type: string
                   id:
+                    description: (Number) The unique identifier for the DNS zone.
                     type: string
                   logAnonymized:
-                    description: Indicates whether DNS logs are anonymized.
+                    description: |-
+                      (Boolean) Indicates whether DNS logs are anonymized.
+                      Indicates whether DNS logs are anonymized.
                     type: boolean
                   logAnonymizedStyle:
-                    description: 'Options: `Drop`, `OneDigit`'
+                    description: |-
+                      (String) Options: Drop, OneDigit
+                      Options: `Drop`, `OneDigit`
                     type: string
                   logEnabled:
-                    description: Indicates whether permanent logging for DNS queries
-                      is enabled.
+                    description: |-
+                      (Boolean) Indicates whether permanent logging for DNS queries is enabled.
+                      Indicates whether permanent logging for DNS queries is enabled.
                     type: boolean
                   nameserver1:
-                    description: The primary nameserver for the DNS zone.
+                    description: |-
+                      (String) The primary nameserver for the DNS zone.
+                      The primary nameserver for the DNS zone.
                     type: string
                   nameserver2:
-                    description: The secondary nameserver for the DNS zone.
+                    description: |-
+                      (String) The secondary nameserver for the DNS zone.
+                      The secondary nameserver for the DNS zone.
                     type: string
                   nameserverCustom:
-                    description: Indicates whether custom nameservers are used.
+                    description: |-
+                      (Boolean) Indicates whether custom nameservers are used.
+                      Indicates whether custom nameservers are used.
                     type: boolean
                   soaEmail:
-                    description: The email address used in the Start of Authority
-                      (SOA) record for the DNS zone.
+                    description: |-
+                      (String) The email address used in the Start of Authority (SOA) record for the DNS zone.
+                      The email address used in the Start of Authority (SOA) record for the DNS zone.
                     type: string
                 type: object
               conditions:

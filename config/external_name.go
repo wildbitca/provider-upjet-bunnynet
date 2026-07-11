@@ -3,10 +3,13 @@ package config
 import "github.com/crossplane/upjet/v2/pkg/config"
 
 // ExternalNameConfigs contains all external name configurations for this
-// provider. BunnyWay/bunnynet uses Terraform Plugin Framework. All 23 managed
+// provider. BunnyWay/bunnynet uses Terraform Plugin Framework. All 24 managed
 // resources use IdentifierFromProvider (provider-generated IDs).
 // See https://registry.terraform.io/providers/BunnyWay/bunnynet/latest/docs
 var ExternalNameConfigs = map[string]config.ExternalName{
+	// Account
+	"bunnynet_account_subuser": config.IdentifierFromProvider,
+
 	// CDN - Pull Zones
 	"bunnynet_pullzone":                 config.IdentifierFromProvider,
 	"bunnynet_pullzone_access_list":     config.IdentifierFromProvider,

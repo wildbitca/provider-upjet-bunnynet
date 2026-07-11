@@ -15,73 +15,93 @@ import (
 
 type HostnameInitParameters struct {
 
+	// (String) The certificate for the hostname, in PEM format. Important: the Bunny API will not return the certificate data, so you'll have to make sure you're importing the correct certificate.
 	// The certificate for the hostname, in PEM format. ***Important***: the Bunny API will not return the certificate data, so you'll have to make sure you're importing the correct certificate.
 	Certificate *string `json:"certificate,omitempty" tf:"certificate,omitempty"`
 
+	// (String) The certificate private key for the hostname, in PEM format. Important: the Bunny API will not return the certificate key, so you'll have to make sure you're importing the correct certificate key.
 	// The certificate private key for the hostname, in PEM format. ***Important***: the Bunny API will not return the certificate key, so you'll have to make sure you're importing the correct certificate key.
 	CertificateKey *string `json:"certificateKey,omitempty" tf:"certificate_key,omitempty"`
 
+	// (Boolean) Indicates whether SSL should be enforced for the hostname.
 	// Indicates whether SSL should be enforced for the hostname.
 	ForceSSL *bool `json:"forceSsl,omitempty" tf:"force_ssl,omitempty"`
 
+	// (String) The hostname value for the domain name.
 	// The hostname value for the domain name.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The ID of the linked pull zone.
 	// The ID of the linked pull zone.
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// validated TLS certificate will be automatically obtained and managed by Bunny. Important: it is not possible to tell managed and custom certificates apart for imported resources.
 	// Indicates whether the hostname should support HTTPS. If a custom certificate is not provided via the <code>certificate</code> attribute, a Domain-validated TLS certificate will be automatically obtained and managed by Bunny. ***Important***: it is not possible to tell managed and custom certificates apart for imported resources.
 	TLSEnabled *bool `json:"tlsEnabled,omitempty" tf:"tls_enabled,omitempty"`
 }
 
 type HostnameObservation struct {
 
+	// (String) The certificate for the hostname, in PEM format. Important: the Bunny API will not return the certificate data, so you'll have to make sure you're importing the correct certificate.
 	// The certificate for the hostname, in PEM format. ***Important***: the Bunny API will not return the certificate data, so you'll have to make sure you're importing the correct certificate.
 	Certificate *string `json:"certificate,omitempty" tf:"certificate,omitempty"`
 
+	// (String) The certificate private key for the hostname, in PEM format. Important: the Bunny API will not return the certificate key, so you'll have to make sure you're importing the correct certificate key.
 	// The certificate private key for the hostname, in PEM format. ***Important***: the Bunny API will not return the certificate key, so you'll have to make sure you're importing the correct certificate key.
 	CertificateKey *string `json:"certificateKey,omitempty" tf:"certificate_key,omitempty"`
 
+	// (Boolean) Indicates whether SSL should be enforced for the hostname.
 	// Indicates whether SSL should be enforced for the hostname.
 	ForceSSL *bool `json:"forceSsl,omitempty" tf:"force_ssl,omitempty"`
 
+	// (Number) The unique ID of the hostname.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (Boolean) Indicates whether the hostname is internal (in the CDN domain) or provided by the user.
 	// Indicates whether the hostname is internal (in the CDN domain) or provided by the user.
 	IsInternal *bool `json:"isInternal,omitempty" tf:"is_internal,omitempty"`
 
+	// (String) The hostname value for the domain name.
 	// The hostname value for the domain name.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The ID of the linked pull zone.
 	// The ID of the linked pull zone.
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// validated TLS certificate will be automatically obtained and managed by Bunny. Important: it is not possible to tell managed and custom certificates apart for imported resources.
 	// Indicates whether the hostname should support HTTPS. If a custom certificate is not provided via the <code>certificate</code> attribute, a Domain-validated TLS certificate will be automatically obtained and managed by Bunny. ***Important***: it is not possible to tell managed and custom certificates apart for imported resources.
 	TLSEnabled *bool `json:"tlsEnabled,omitempty" tf:"tls_enabled,omitempty"`
 }
 
 type HostnameParameters struct {
 
+	// (String) The certificate for the hostname, in PEM format. Important: the Bunny API will not return the certificate data, so you'll have to make sure you're importing the correct certificate.
 	// The certificate for the hostname, in PEM format. ***Important***: the Bunny API will not return the certificate data, so you'll have to make sure you're importing the correct certificate.
 	// +kubebuilder:validation:Optional
 	Certificate *string `json:"certificate,omitempty" tf:"certificate,omitempty"`
 
+	// (String) The certificate private key for the hostname, in PEM format. Important: the Bunny API will not return the certificate key, so you'll have to make sure you're importing the correct certificate key.
 	// The certificate private key for the hostname, in PEM format. ***Important***: the Bunny API will not return the certificate key, so you'll have to make sure you're importing the correct certificate key.
 	// +kubebuilder:validation:Optional
 	CertificateKey *string `json:"certificateKey,omitempty" tf:"certificate_key,omitempty"`
 
+	// (Boolean) Indicates whether SSL should be enforced for the hostname.
 	// Indicates whether SSL should be enforced for the hostname.
 	// +kubebuilder:validation:Optional
 	ForceSSL *bool `json:"forceSsl,omitempty" tf:"force_ssl,omitempty"`
 
+	// (String) The hostname value for the domain name.
 	// The hostname value for the domain name.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The ID of the linked pull zone.
 	// The ID of the linked pull zone.
 	// +kubebuilder:validation:Optional
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// validated TLS certificate will be automatically obtained and managed by Bunny. Important: it is not possible to tell managed and custom certificates apart for imported resources.
 	// Indicates whether the hostname should support HTTPS. If a custom certificate is not provided via the <code>certificate</code> attribute, a Domain-validated TLS certificate will be automatically obtained and managed by Bunny. ***Important***: it is not possible to tell managed and custom certificates apart for imported resources.
 	// +kubebuilder:validation:Optional
 	TLSEnabled *bool `json:"tlsEnabled,omitempty" tf:"tls_enabled,omitempty"`
@@ -114,7 +134,7 @@ type HostnameStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Hostname is the Schema for the Hostnames API. <no value>
+// Hostname is the Schema for the Hostnames API. This resource manages custom hostnames for a bunny.net pull zone. It is used to add and configure custom hostnames for pullzones.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

@@ -34,7 +34,9 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Pullzone is the Schema for the Pullzones API. <no value>
+        description: Pullzone is the Schema for the Pullzones API. This resource manages
+          a bunny.net pullzone. Pullzones fetch content from the origin server and
+          deliver it to end-users.
         properties:
           apiVersion:
             description: |-
@@ -73,313 +75,419 @@ spec:
               forProvider:
                 properties:
                   addCanonicalHeader:
-                    description: Indicates whether the Canonical header is added to
-                      the responses.
+                    description: |-
+                      (Boolean) Indicates whether the Canonical header is added to the responses.
+                      Indicates whether the Canonical header is added to the responses.
                     type: boolean
                   allowReferers:
-                    description: 'The list of referrer hostnames that are allowed
-                      to access the pull zone. Requests containing the header "Referer:
-                      hostname" that is not on the list will be rejected. If empty,
-                      all the referrers are allowed.'
+                    description: |-
+                      (Set of String) The list of referrer hostnames that are allowed to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
+                      The list of referrer hostnames that are allowed to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   blockIps:
-                    description: The list of IPs that are blocked from accessing the
-                      pull zone. Requests coming from the following IPs will be rejected.
-                      If empty, all the IPs will be allowed
+                    description: |-
+                      (Set of String) The list of IPs that are blocked from accessing the pull zone. Requests coming from the following IPs will be rejected. If empty, all the IPs will be allowed
+                      The list of IPs that are blocked from accessing the pull zone. Requests coming from the following IPs will be rejected. If empty, all the IPs will be allowed
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   blockNoReferer:
-                    description: Indicates whether requests without a referer should
-                      be blocked.
+                    description: |-
+                      (Boolean) Indicates whether requests without a referer should be blocked.
+                      Indicates whether requests without a referer should be blocked.
                     type: boolean
                   blockPostRequests:
-                    description: Indicates whether to block POST requests.
+                    description: |-
+                      (Boolean) Indicates whether to block POST requests.
+                      Indicates whether to block POST requests.
                     type: boolean
                   blockReferers:
-                    description: 'The list of referrer hostnames that are blocked
-                      to access the pull zone. Requests containing the header "Referer:
-                      hostname" that is not on the list will be rejected. If empty,
-                      all the referrers are allowed.'
+                    description: |-
+                      (Set of String) The list of referrer hostnames that are blocked to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
+                      The list of referrer hostnames that are blocked to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   blockRootPath:
-                    description: This property indicates whether to block the root
-                      path.
+                    description: |-
+                      (Boolean) This property indicates whether to block the root path.
+                      This property indicates whether to block the root path.
                     type: boolean
                   cacheChunked:
-                    description: Indicates whether the cache slice (Optimize for large
-                      object delivery) feature is enabled for the Pull Zone
+                    description: |-
+                      (Boolean) Indicates whether the cache slice (Optimize for large object delivery) feature is enabled for the Pull Zone
+                      Indicates whether the cache slice (Optimize for large object delivery) feature is enabled for the Pull Zone
                     type: boolean
                   cacheEnabled:
-                    description: Indicates whether smart caching is enabled.
+                    description: |-
+                      (Boolean) Indicates whether smart caching is enabled.
+                      Indicates whether smart caching is enabled.
                     type: boolean
                   cacheErrors:
-                    description: Indicates whether bunny.net should be caching error
-                      responses.
+                    description: |-
+                      (Boolean) Indicates whether bunny.net should be caching error responses.
+                      Indicates whether bunny.net should be caching error responses.
                     type: boolean
                   cacheExpirationTime:
-                    description: The override cache time, in seconds.
+                    description: |-
+                      (Number) The override cache time, in seconds.
+                      The override cache time, in seconds.
                     type: number
                   cacheExpirationTimeBrowser:
-                    description: The override cache time for the end client, in seconds.
+                    description: |-
+                      (Number) The override cache time for the end client, in seconds.
+                      The override cache time for the end client, in seconds.
                     type: number
                   cacheStale:
-                    description: 'Options: `offline`, `updating`'
+                    description: |-
+                      (Set of String) Options: offline, updating
+                      Options: `offline`, `updating`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   cacheVary:
-                    description: 'Options: `avif`, `cookie`, `country`, `hostname`,
-                      `mobile`, `querystring`, `state`, `webp`'
+                    description: |-
+                      (Set of String) Options: avif, cookie, country, hostname, mobile, querystring, state, webp
+                      Options: `avif`, `cookie`, `country`, `hostname`, `mobile`, `querystring`, `state`, `webp`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   cacheVaryCookie:
-                    description: Contains the list of vary parameters that will be
-                      used for vary cache by cookie string. If empty, cookie vary
-                      will not be used.
+                    description: |-
+                      (Set of String) Contains the list of vary parameters that will be used for vary cache by cookie string. If empty, cookie vary will not be used.
+                      Contains the list of vary parameters that will be used for vary cache by cookie string. If empty, cookie vary will not be used.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   cacheVaryHeaders:
-                    description: Contains the list of request headers will be used
-                      for vary cache. If empty, it will not be used.
+                    description: |-
+                      (Set of String) Contains the list of request headers will be used for vary cache. If empty, it will not be used.
+                      Contains the list of request headers will be used for vary cache. If empty, it will not be used.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   cacheVaryQuerystring:
-                    description: Contains the list of vary parameters that will be
-                      used for vary cache by query string. If empty, all parameters
-                      will be used to construct the key
+                    description: |-
+                      (Set of String) Contains the list of vary parameters that will be used for vary cache by query string. If empty, all parameters will be used to construct the key
+                      Contains the list of vary parameters that will be used for vary cache by query string. If empty, all parameters will be used to construct the key
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   corsEnabled:
-                    description: Indicates whether CORS (Cross-Origin Resource Sharing)
-                      is enabled.
+                    description: |-
+                      Origin Resource Sharing) is enabled.
+                      Indicates whether CORS (Cross-Origin Resource Sharing) is enabled.
                     type: boolean
                   corsExtensions:
-                    description: A list of file extensions for which CORS is enabled.
+                    description: |-
+                      (Set of String) A list of file extensions for which CORS is enabled.
+                      A list of file extensions for which CORS is enabled.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   disableLetsencrypt:
-                    description: If true, the built-in let's encrypt is disabled and
-                      requests are passed to the origin.
+                    description: |-
+                      in let's encrypt is disabled and requests are passed to the origin.
+                      If true, the built-in let's encrypt is disabled and requests are passed to the origin.
                     type: boolean
                   errorpageCustomContent:
-                    description: Contains the custom error page code that will be
-                      returned.
+                    description: |-
+                      (String) Contains the custom error page code that will be returned.
+                      Contains the custom error page code that will be returned.
                     type: string
                   errorpageCustomEnabled:
-                    description: Indicates whether custom error page code should be
-                      enabled.
+                    description: |-
+                      (Boolean) Indicates whether custom error page code should be enabled.
+                      Indicates whether custom error page code should be enabled.
                     type: boolean
                   errorpageStatuspageCode:
-                    description: The statuspage code that will be used to build the
-                      status widget.
+                    description: |-
+                      (String) The statuspage code that will be used to build the status widget.
+                      The statuspage code that will be used to build the status widget.
                     type: string
                   errorpageStatuspageEnabled:
-                    description: Indicates whether the statuspage widget should be
-                      displayed on the error pages.
+                    description: |-
+                      (Boolean) Indicates whether the statuspage widget should be displayed on the error pages.
+                      Indicates whether the statuspage widget should be displayed on the error pages.
                     type: boolean
                   errorpageWhitelabel:
-                    description: Indicates whether the error pages should be white-labelled
-                      or not
+                    description: |-
+                      labelled or not
+                      Indicates whether the error pages should be white-labelled or not
                     type: boolean
                   limitAfter:
-                    description: The amount of data after the rate limit will be activated.
+                    description: |-
+                      (Number) The amount of data after the rate limit will be activated.
+                      The amount of data after the rate limit will be activated.
                     type: number
                   limitBandwidth:
-                    description: The maximum bandwidth limit in bytes.
+                    description: |-
+                      (Number) The maximum bandwidth limit in bytes.
+                      The maximum bandwidth limit in bytes.
                     type: number
                   limitBurst:
-                    description: Excessive requests are delayed until their number
-                      exceeds the maximum burst size.
+                    description: |-
+                      (Number) Excessive requests are delayed until their number exceeds the maximum burst size.
+                      Excessive requests are delayed until their number exceeds the maximum burst size.
                     type: number
                   limitConnections:
-                    description: The number of connections limited per IP.
+                    description: |-
+                      (Number) The number of connections limited per IP.
+                      The number of connections limited per IP.
                     type: number
                   limitDownloadSpeed:
-                    description: The maximum download speed, in kb/s. Use 0 for unlimited.
+                    description: |-
+                      (Number) The maximum download speed, in kb/s. Use 0 for unlimited.
+                      The maximum download speed, in kb/s. Use 0 for unlimited.
                     type: number
                   limitRequests:
-                    description: The maximum amount of requests per IP per second.
+                    description: |-
+                      (Number) The maximum amount of requests per IP per second.
+                      The maximum amount of requests per IP per second.
                     type: number
                   logAnonymized:
-                    description: Indicates whether logs are anonymized.
+                    description: |-
+                      (Boolean) Indicates whether logs are anonymized.
+                      Indicates whether logs are anonymized.
                     type: boolean
                   logAnonymizedStyle:
-                    description: 'Options: `Drop`, `OneDigit`'
+                    description: |-
+                      (String) Options: Drop, OneDigit
+                      Options: `Drop`, `OneDigit`
                     type: string
                   logEnabled:
-                    description: Indicates whether logging is enabled.
+                    description: |-
+                      (Boolean) Indicates whether logging is enabled.
+                      Indicates whether logging is enabled.
                     type: boolean
                   logForwardEnabled:
-                    description: Indicates whether log forwarding is enabled.
+                    description: |-
+                      (Boolean) Indicates whether log forwarding is enabled.
+                      Indicates whether log forwarding is enabled.
                     type: boolean
                   logForwardFormat:
-                    description: 'Options: `JSON`, `Plain`'
+                    description: |-
+                      (String) Options: JSON, Plain
+                      Options: `JSON`, `Plain`
                     type: string
                   logForwardPort:
-                    description: The port number for log forwarding.
+                    description: |-
+                      (Number) The port number for log forwarding.
+                      The port number for log forwarding.
                     type: number
                   logForwardProtocol:
-                    description: 'Options: `DataDog`, `TCP`, `TCPEncrypted`, `UDP`'
+                    description: |-
+                      (String) Options: DataDog, TCP, TCPEncrypted, UDP
+                      Options: `DataDog`, `TCP`, `TCPEncrypted`, `UDP`
                     type: string
                   logForwardServer:
-                    description: The server address for log forwarding.
+                    description: |-
+                      (String) The server address for log forwarding.
+                      The server address for log forwarding.
                     type: string
                   logForwardToken:
-                    description: The token used for log forwarding authentication.
+                    description: |-
+                      (String) The token used for log forwarding authentication.
+                      The token used for log forwarding authentication.
                     type: string
                   logStorageEnabled:
-                    description: Indicates whether log storage is enabled.
+                    description: |-
+                      (Boolean) Indicates whether log storage is enabled.
+                      Indicates whether log storage is enabled.
                     type: boolean
                   logStorageZone:
-                    description: The storage zone ID for log storage.
+                    description: |-
+                      (Number) The storage zone ID for log storage.
+                      The storage zone ID for log storage.
                     type: number
                   name:
-                    description: The name of the pull zone.
+                    description: |-
+                      (String) The name of the pull zone.
+                      The name of the pull zone.
                     type: string
                   optimizerBurrow:
-                    description: Indicates whether Burrow Smart Routing should be
-                      enabled.
+                    description: |-
+                      (Boolean) Indicates whether Burrow Smart Routing should be enabled.
+                      Indicates whether Burrow Smart Routing should be enabled.
                     type: boolean
                   optimizerClassesForce:
-                    description: Indicates whether the optimizer class list should
-                      be enforced.
+                    description: |-
+                      (Boolean) Indicates whether the optimizer class list should be enforced.
+                      Indicates whether the optimizer class list should be enforced.
                     type: boolean
                   optimizerDynamicImageApi:
-                    description: Indicates whether the image manipulation should be
-                      enabled.
+                    description: |-
+                      (Boolean) Indicates whether the image manipulation should be enabled.
+                      Indicates whether the image manipulation should be enabled.
                     type: boolean
                   optimizerEnabled:
-                    description: Indicates whether Bunny Optimizer should be enabled.
+                    description: |-
+                      (Boolean) Indicates whether Bunny Optimizer should be enabled.
+                      Indicates whether Bunny Optimizer should be enabled.
                     type: boolean
                   optimizerHtmlPrerender:
-                    description: Indicates whether HTML Prerender should be enabled.
+                    description: |-
+                      (Boolean) Indicates whether HTML Prerender should be enabled.
+                      Indicates whether HTML Prerender should be enabled.
                     type: boolean
                   optimizerMinifyCss:
-                    description: Indicates whether the CSS minification should be
-                      enabled.
+                    description: |-
+                      (Boolean) Indicates whether the CSS minification should be enabled.
+                      Indicates whether the CSS minification should be enabled.
                     type: boolean
                   optimizerMinifyJs:
-                    description: Indicates whether the JavaScript minification should
-                      be enabled.
+                    description: |-
+                      (Boolean) Indicates whether the JavaScript minification should be enabled.
+                      Indicates whether the JavaScript minification should be enabled.
                     type: boolean
                   optimizerSmartimage:
-                    description: Indicates whether the automatic image optimization
-                      should be enabled.
+                    description: |-
+                      (Boolean) Indicates whether the automatic image optimization should be enabled.
+                      Indicates whether the automatic image optimization should be enabled.
                     type: boolean
                   optimizerSmartimageDesktopMaxwidth:
-                    description: The maximum automatic image size for desktop clients.
+                    description: |-
+                      (Number) The maximum automatic image size for desktop clients.
+                      The maximum automatic image size for desktop clients.
                     type: number
                   optimizerSmartimageDesktopQuality:
-                    description: The image quality for desktop clients.
+                    description: |-
+                      (Number) The image quality for desktop clients.
+                      The image quality for desktop clients.
                     type: number
                   optimizerSmartimageMobileMaxwidth:
-                    description: The maximum automatic image size for mobile clients.
+                    description: |-
+                      (Number) The maximum automatic image size for mobile clients.
+                      The maximum automatic image size for mobile clients.
                     type: number
                   optimizerSmartimageMobileQuality:
-                    description: Determines the image quality for mobile clients
+                    description: |-
+                      (Number) Determines the image quality for mobile clients
+                      Determines the image quality for mobile clients
                     type: number
                   optimizerWatermark:
-                    description: Indicates whether image watermarking should be enabled.
+                    description: |-
+                      (Boolean) Indicates whether image watermarking should be enabled.
+                      Indicates whether image watermarking should be enabled.
                     type: boolean
                   optimizerWatermarkBorderoffset:
-                    description: The offset of the watermark image.
+                    description: |-
+                      (Number) The offset of the watermark image.
+                      The offset of the watermark image.
                     type: number
                   optimizerWatermarkMinsize:
-                    description: The minimum image size to which the watermark will
-                      be added.
+                    description: |-
+                      (Number) The minimum image size to which the watermark will be added.
+                      The minimum image size to which the watermark will be added.
                     type: number
                   optimizerWatermarkPosition:
-                    description: 'Options: `BottomLeft`, `BottomRight`, `Center`,
-                      `CenterStretch`, `TopLeft`, `TopRight`'
+                    description: |-
+                      (String) Options: BottomLeft, BottomRight, Center, CenterStretch, TopLeft, TopRight
+                      Options: `BottomLeft`, `BottomRight`, `Center`, `CenterStretch`, `TopLeft`, `TopRight`
                     type: string
                   optimizerWatermarkUrl:
-                    description: The URL of the watermark image.
+                    description: |-
+                      (String) The URL of the watermark image.
+                      The URL of the watermark image.
                     type: string
                   optimizerWebp:
-                    description: Indicates whether the WebP optimization should be
-                      enabled.
+                    description: |-
+                      (Boolean) Indicates whether the WebP optimization should be enabled.
+                      Indicates whether the WebP optimization should be enabled.
                     type: boolean
                   originshieldConcurrencyLimit:
-                    description: Indicates whether there is a concurrency limit for
-                      Origin Shield.
+                    description: |-
+                      (Boolean) Indicates whether there is a concurrency limit for Origin Shield.
+                      Indicates whether there is a concurrency limit for Origin Shield.
                     type: boolean
                   originshieldConcurrencyRequests:
-                    description: The number of concurrent requests for Origin Shield.
+                    description: |-
+                      (Number) The number of concurrent requests for Origin Shield.
+                      The number of concurrent requests for Origin Shield.
                     type: number
                   originshieldEnabled:
-                    description: Indicates whether Origin Shield is enabled.
+                    description: |-
+                      (Boolean) Indicates whether Origin Shield is enabled.
+                      Indicates whether Origin Shield is enabled.
                     type: boolean
                   originshieldQueueRequests:
-                    description: The number of queued requests for Origin Shield.
+                    description: |-
+                      (Number) The number of queued requests for Origin Shield.
+                      The number of queued requests for Origin Shield.
                     type: number
                   originshieldQueueWait:
-                    description: The maximum wait time for queued requests in Origin
-                      Shield, in seconds.
+                    description: |-
+                      (Number) The maximum wait time for queued requests in Origin Shield, in seconds.
+                      The maximum wait time for queued requests in Origin Shield, in seconds.
                     type: number
                   originshieldZone:
-                    description: 'Options: `FR`, `IL`'
+                    description: |-
+                      (String) Options: FR, IL
+                      Options: `FR`, `IL`
                     type: string
                   permacacheStoragezone:
-                    description: The storage zone ID for Perma-Cache.
+                    description: |-
+                      Cache.
+                      The storage zone ID for Perma-Cache.
                     type: number
                   requestCoalescingEnabled:
-                    description: Indicates whether request coalescing is enabled.
+                    description: |-
+                      (Boolean) Indicates whether request coalescing is enabled.
+                      Indicates whether request coalescing is enabled.
                     type: boolean
                   requestCoalescingTimeout:
-                    description: Specifies the timeout period, in seconds, for request
-                      coalescing, determining how long to wait before sending combined
-                      requests to the origin.
+                    description: |-
+                      (Number) Specifies the timeout period, in seconds, for request coalescing, determining how long to wait before sending combined requests to the origin.
+                      Specifies the timeout period, in seconds, for request coalescing, determining how long to wait before sending combined requests to the origin.
                     type: number
                   routing:
+                    description: (Block, Optional) (see below for nested schema)
                     items:
                       properties:
                         blockedCountries:
-                          description: The list of blocked countries with the two-letter
-                            Alpha2 ISO codes. Traffic connecting from a blocked country
-                            will be rejected on the DNS level.
+                          description: |-
+                            letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
+                            The list of blocked countries with the two-letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
                           items:
                             type: string
                           type: array
                           x-kubernetes-list-type: set
                         filters:
-                          description: 'Options: `all`, `eu`, `scripting`'
+                          description: |-
+                            (Set of String) Options: all, eu, scripting
+                            Options: `all`, `eu`, `scripting`
                           items:
                             type: string
                           type: array
                           x-kubernetes-list-type: set
                         redirectedCountries:
-                          description: The list of budget redirected countries with
-                            the two-letter Alpha2 ISO codes. Traffic from a redirected
-                            country will connect to the cheapest possible node in
-                            North America or Europe.
+                          description: |-
+                            letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
+                            The list of budget redirected countries with the two-letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
                           items:
                             type: string
                           type: array
                           x-kubernetes-list-type: set
                         tier:
-                          description: 'Options: `Standard`, `Volume`'
+                          description: |-
+                            (String) Options: Standard, Volume
+                            Options: `Standard`, `Volume`
                           type: string
                         zones:
-                          description: 'Options: `AF`, `ASIA`, `EU`, `SA`, `US`'
+                          description: |-
+                            (Set of String) Options: AF, ASIA, EU, SA, US
+                            Options: `AF`, `ASIA`, `EU`, `SA`, `US`
                           items:
                             type: string
                           type: array
@@ -387,73 +495,98 @@ spec:
                       type: object
                     type: array
                   s3AuthEnabled:
-                    description: Indicates whether requests to origin will be signed
-                      with AWS Signature Version 4.
+                    description: |-
+                      (Boolean) Indicates whether requests to origin will be signed with AWS Signature Version 4.
+                      Indicates whether requests to origin will be signed with AWS Signature Version 4.
                     type: boolean
                   s3AuthKey:
-                    description: The access key used to authenticate the requests.
+                    description: |-
+                      (String) The access key used to authenticate the requests.
+                      The access key used to authenticate the requests.
                     type: string
                   s3AuthRegion:
-                    description: The region name of the bucket used to authenticate
-                      the requests.
+                    description: |-
+                      (String) The region name of the bucket used to authenticate the requests.
+                      The region name of the bucket used to authenticate the requests.
                     type: string
                   s3AuthSecret:
-                    description: The secret key used to authenticate the requests.
+                    description: |-
+                      (String) The secret key used to authenticate the requests.
+                      The secret key used to authenticate the requests.
                     type: string
                   safehopConnectionTimeout:
-                    description: The amount of seconds to wait when connecting to
-                      the origin. Otherwise the request will fail or retry.
+                    description: |-
+                      (Number) The amount of seconds to wait when connecting to the origin. Otherwise the request will fail or retry.
+                      The amount of seconds to wait when connecting to the origin. Otherwise the request will fail or retry.
                     type: number
                   safehopEnabled:
+                    description: (Boolean)
                     type: boolean
                   safehopResponseTimeout:
-                    description: The amount of seconds to wait when waiting for the
-                      origin reply. Otherwise the request will fail or retry.
+                    description: |-
+                      (Number) The amount of seconds to wait when waiting for the origin reply. Otherwise the request will fail or retry.
+                      The amount of seconds to wait when waiting for the origin reply. Otherwise the request will fail or retry.
                     type: number
                   safehopRetryCount:
-                    description: The number of retries to the origin server.
+                    description: |-
+                      (Number) The number of retries to the origin server.
+                      The number of retries to the origin server.
                     type: number
                   safehopRetryDelay:
-                    description: The amount of time that the CDN should wait before
-                      retrying an origin request.
+                    description: |-
+                      (Number) The amount of time that the CDN should wait before retrying an origin request.
+                      The amount of time that the CDN should wait before retrying an origin request.
                     type: number
                   safehopRetryReasons:
-                    description: 'Options: `5xxResponse`, `connectionTimeout`, `responseTimeout`'
+                    description: |-
+                      (Set of String) Options: 5xxResponse, connectionTimeout, responseTimeout
+                      Options: `5xxResponse`, `connectionTimeout`, `responseTimeout`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   sortQuerystring:
-                    description: If enabled, the query parameters will be automatically
-                      sorted into a consistent order before checking the cache.
+                    description: |-
+                      (Boolean) If enabled, the query parameters will be automatically sorted into a consistent order before checking the cache.
+                      If enabled, the query parameters will be automatically sorted into a consistent order before checking the cache.
                     type: boolean
                   stripCookies:
-                    description: If enabled, bunny.net will strip all the Set-Cookie
-                      headers from the HTTP responses.
+                    description: |-
+                      Cookie headers from the HTTP responses.
+                      If enabled, bunny.net will strip all the Set-Cookie headers from the HTTP responses.
                     type: boolean
                   tlsSupport:
-                    description: 'Options: `TLSv1.0`, `TLSv1.1`'
+                    description: |-
+                      (Set of String) Options: TLSv1.0, TLSv1.1
+                      Options: `TLSv1.0`, `TLSv1.1`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   tokenAuthEnabled:
-                    description: Indicates whether requests without a valid token
-                      and expiry timestamp will be rejected.
+                    description: |-
+                      (Boolean) Indicates whether requests without a valid token and expiry timestamp will be rejected.
+                      Indicates whether requests without a valid token and expiry timestamp will be rejected.
                     type: boolean
                   tokenAuthIpValidation:
-                    description: Indicates whether the secure hash generated by the
-                      server will also include an IP address.
+                    description: |-
+                      (Boolean) Indicates whether the secure hash generated by the server will also include an IP address.
+                      Indicates whether the secure hash generated by the server will also include an IP address.
                     type: boolean
                   useBackgroundUpdate:
-                    description: Indicates whether cache update is performed in the
-                      background.
+                    description: |-
+                      (Boolean) Indicates whether cache update is performed in the background.
+                      Indicates whether cache update is performed in the background.
                     type: boolean
                   websocketsEnabled:
-                    description: Indicates whether the WebSocket support is enabled.
+                    description: |-
+                      (Boolean) Indicates whether the WebSocket support is enabled.
+                      Indicates whether the WebSocket support is enabled.
                     type: boolean
                   websocketsMaxConnections:
-                    description: The maximum allowed concurrent WebSocket connections.
+                    description: |-
+                      (Number) The maximum allowed concurrent WebSocket connections.
+                      The maximum allowed concurrent WebSocket connections.
                     type: number
                 type: object
               initProvider:
@@ -470,313 +603,419 @@ spec:
                   autoscaler.
                 properties:
                   addCanonicalHeader:
-                    description: Indicates whether the Canonical header is added to
-                      the responses.
+                    description: |-
+                      (Boolean) Indicates whether the Canonical header is added to the responses.
+                      Indicates whether the Canonical header is added to the responses.
                     type: boolean
                   allowReferers:
-                    description: 'The list of referrer hostnames that are allowed
-                      to access the pull zone. Requests containing the header "Referer:
-                      hostname" that is not on the list will be rejected. If empty,
-                      all the referrers are allowed.'
+                    description: |-
+                      (Set of String) The list of referrer hostnames that are allowed to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
+                      The list of referrer hostnames that are allowed to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   blockIps:
-                    description: The list of IPs that are blocked from accessing the
-                      pull zone. Requests coming from the following IPs will be rejected.
-                      If empty, all the IPs will be allowed
+                    description: |-
+                      (Set of String) The list of IPs that are blocked from accessing the pull zone. Requests coming from the following IPs will be rejected. If empty, all the IPs will be allowed
+                      The list of IPs that are blocked from accessing the pull zone. Requests coming from the following IPs will be rejected. If empty, all the IPs will be allowed
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   blockNoReferer:
-                    description: Indicates whether requests without a referer should
-                      be blocked.
+                    description: |-
+                      (Boolean) Indicates whether requests without a referer should be blocked.
+                      Indicates whether requests without a referer should be blocked.
                     type: boolean
                   blockPostRequests:
-                    description: Indicates whether to block POST requests.
+                    description: |-
+                      (Boolean) Indicates whether to block POST requests.
+                      Indicates whether to block POST requests.
                     type: boolean
                   blockReferers:
-                    description: 'The list of referrer hostnames that are blocked
-                      to access the pull zone. Requests containing the header "Referer:
-                      hostname" that is not on the list will be rejected. If empty,
-                      all the referrers are allowed.'
+                    description: |-
+                      (Set of String) The list of referrer hostnames that are blocked to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
+                      The list of referrer hostnames that are blocked to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   blockRootPath:
-                    description: This property indicates whether to block the root
-                      path.
+                    description: |-
+                      (Boolean) This property indicates whether to block the root path.
+                      This property indicates whether to block the root path.
                     type: boolean
                   cacheChunked:
-                    description: Indicates whether the cache slice (Optimize for large
-                      object delivery) feature is enabled for the Pull Zone
+                    description: |-
+                      (Boolean) Indicates whether the cache slice (Optimize for large object delivery) feature is enabled for the Pull Zone
+                      Indicates whether the cache slice (Optimize for large object delivery) feature is enabled for the Pull Zone
                     type: boolean
                   cacheEnabled:
-                    description: Indicates whether smart caching is enabled.
+                    description: |-
+                      (Boolean) Indicates whether smart caching is enabled.
+                      Indicates whether smart caching is enabled.
                     type: boolean
                   cacheErrors:
-                    description: Indicates whether bunny.net should be caching error
-                      responses.
+                    description: |-
+                      (Boolean) Indicates whether bunny.net should be caching error responses.
+                      Indicates whether bunny.net should be caching error responses.
                     type: boolean
                   cacheExpirationTime:
-                    description: The override cache time, in seconds.
+                    description: |-
+                      (Number) The override cache time, in seconds.
+                      The override cache time, in seconds.
                     type: number
                   cacheExpirationTimeBrowser:
-                    description: The override cache time for the end client, in seconds.
+                    description: |-
+                      (Number) The override cache time for the end client, in seconds.
+                      The override cache time for the end client, in seconds.
                     type: number
                   cacheStale:
-                    description: 'Options: `offline`, `updating`'
+                    description: |-
+                      (Set of String) Options: offline, updating
+                      Options: `offline`, `updating`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   cacheVary:
-                    description: 'Options: `avif`, `cookie`, `country`, `hostname`,
-                      `mobile`, `querystring`, `state`, `webp`'
+                    description: |-
+                      (Set of String) Options: avif, cookie, country, hostname, mobile, querystring, state, webp
+                      Options: `avif`, `cookie`, `country`, `hostname`, `mobile`, `querystring`, `state`, `webp`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   cacheVaryCookie:
-                    description: Contains the list of vary parameters that will be
-                      used for vary cache by cookie string. If empty, cookie vary
-                      will not be used.
+                    description: |-
+                      (Set of String) Contains the list of vary parameters that will be used for vary cache by cookie string. If empty, cookie vary will not be used.
+                      Contains the list of vary parameters that will be used for vary cache by cookie string. If empty, cookie vary will not be used.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   cacheVaryHeaders:
-                    description: Contains the list of request headers will be used
-                      for vary cache. If empty, it will not be used.
+                    description: |-
+                      (Set of String) Contains the list of request headers will be used for vary cache. If empty, it will not be used.
+                      Contains the list of request headers will be used for vary cache. If empty, it will not be used.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   cacheVaryQuerystring:
-                    description: Contains the list of vary parameters that will be
-                      used for vary cache by query string. If empty, all parameters
-                      will be used to construct the key
+                    description: |-
+                      (Set of String) Contains the list of vary parameters that will be used for vary cache by query string. If empty, all parameters will be used to construct the key
+                      Contains the list of vary parameters that will be used for vary cache by query string. If empty, all parameters will be used to construct the key
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   corsEnabled:
-                    description: Indicates whether CORS (Cross-Origin Resource Sharing)
-                      is enabled.
+                    description: |-
+                      Origin Resource Sharing) is enabled.
+                      Indicates whether CORS (Cross-Origin Resource Sharing) is enabled.
                     type: boolean
                   corsExtensions:
-                    description: A list of file extensions for which CORS is enabled.
+                    description: |-
+                      (Set of String) A list of file extensions for which CORS is enabled.
+                      A list of file extensions for which CORS is enabled.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   disableLetsencrypt:
-                    description: If true, the built-in let's encrypt is disabled and
-                      requests are passed to the origin.
+                    description: |-
+                      in let's encrypt is disabled and requests are passed to the origin.
+                      If true, the built-in let's encrypt is disabled and requests are passed to the origin.
                     type: boolean
                   errorpageCustomContent:
-                    description: Contains the custom error page code that will be
-                      returned.
+                    description: |-
+                      (String) Contains the custom error page code that will be returned.
+                      Contains the custom error page code that will be returned.
                     type: string
                   errorpageCustomEnabled:
-                    description: Indicates whether custom error page code should be
-                      enabled.
+                    description: |-
+                      (Boolean) Indicates whether custom error page code should be enabled.
+                      Indicates whether custom error page code should be enabled.
                     type: boolean
                   errorpageStatuspageCode:
-                    description: The statuspage code that will be used to build the
-                      status widget.
+                    description: |-
+                      (String) The statuspage code that will be used to build the status widget.
+                      The statuspage code that will be used to build the status widget.
                     type: string
                   errorpageStatuspageEnabled:
-                    description: Indicates whether the statuspage widget should be
-                      displayed on the error pages.
+                    description: |-
+                      (Boolean) Indicates whether the statuspage widget should be displayed on the error pages.
+                      Indicates whether the statuspage widget should be displayed on the error pages.
                     type: boolean
                   errorpageWhitelabel:
-                    description: Indicates whether the error pages should be white-labelled
-                      or not
+                    description: |-
+                      labelled or not
+                      Indicates whether the error pages should be white-labelled or not
                     type: boolean
                   limitAfter:
-                    description: The amount of data after the rate limit will be activated.
+                    description: |-
+                      (Number) The amount of data after the rate limit will be activated.
+                      The amount of data after the rate limit will be activated.
                     type: number
                   limitBandwidth:
-                    description: The maximum bandwidth limit in bytes.
+                    description: |-
+                      (Number) The maximum bandwidth limit in bytes.
+                      The maximum bandwidth limit in bytes.
                     type: number
                   limitBurst:
-                    description: Excessive requests are delayed until their number
-                      exceeds the maximum burst size.
+                    description: |-
+                      (Number) Excessive requests are delayed until their number exceeds the maximum burst size.
+                      Excessive requests are delayed until their number exceeds the maximum burst size.
                     type: number
                   limitConnections:
-                    description: The number of connections limited per IP.
+                    description: |-
+                      (Number) The number of connections limited per IP.
+                      The number of connections limited per IP.
                     type: number
                   limitDownloadSpeed:
-                    description: The maximum download speed, in kb/s. Use 0 for unlimited.
+                    description: |-
+                      (Number) The maximum download speed, in kb/s. Use 0 for unlimited.
+                      The maximum download speed, in kb/s. Use 0 for unlimited.
                     type: number
                   limitRequests:
-                    description: The maximum amount of requests per IP per second.
+                    description: |-
+                      (Number) The maximum amount of requests per IP per second.
+                      The maximum amount of requests per IP per second.
                     type: number
                   logAnonymized:
-                    description: Indicates whether logs are anonymized.
+                    description: |-
+                      (Boolean) Indicates whether logs are anonymized.
+                      Indicates whether logs are anonymized.
                     type: boolean
                   logAnonymizedStyle:
-                    description: 'Options: `Drop`, `OneDigit`'
+                    description: |-
+                      (String) Options: Drop, OneDigit
+                      Options: `Drop`, `OneDigit`
                     type: string
                   logEnabled:
-                    description: Indicates whether logging is enabled.
+                    description: |-
+                      (Boolean) Indicates whether logging is enabled.
+                      Indicates whether logging is enabled.
                     type: boolean
                   logForwardEnabled:
-                    description: Indicates whether log forwarding is enabled.
+                    description: |-
+                      (Boolean) Indicates whether log forwarding is enabled.
+                      Indicates whether log forwarding is enabled.
                     type: boolean
                   logForwardFormat:
-                    description: 'Options: `JSON`, `Plain`'
+                    description: |-
+                      (String) Options: JSON, Plain
+                      Options: `JSON`, `Plain`
                     type: string
                   logForwardPort:
-                    description: The port number for log forwarding.
+                    description: |-
+                      (Number) The port number for log forwarding.
+                      The port number for log forwarding.
                     type: number
                   logForwardProtocol:
-                    description: 'Options: `DataDog`, `TCP`, `TCPEncrypted`, `UDP`'
+                    description: |-
+                      (String) Options: DataDog, TCP, TCPEncrypted, UDP
+                      Options: `DataDog`, `TCP`, `TCPEncrypted`, `UDP`
                     type: string
                   logForwardServer:
-                    description: The server address for log forwarding.
+                    description: |-
+                      (String) The server address for log forwarding.
+                      The server address for log forwarding.
                     type: string
                   logForwardToken:
-                    description: The token used for log forwarding authentication.
+                    description: |-
+                      (String) The token used for log forwarding authentication.
+                      The token used for log forwarding authentication.
                     type: string
                   logStorageEnabled:
-                    description: Indicates whether log storage is enabled.
+                    description: |-
+                      (Boolean) Indicates whether log storage is enabled.
+                      Indicates whether log storage is enabled.
                     type: boolean
                   logStorageZone:
-                    description: The storage zone ID for log storage.
+                    description: |-
+                      (Number) The storage zone ID for log storage.
+                      The storage zone ID for log storage.
                     type: number
                   name:
-                    description: The name of the pull zone.
+                    description: |-
+                      (String) The name of the pull zone.
+                      The name of the pull zone.
                     type: string
                   optimizerBurrow:
-                    description: Indicates whether Burrow Smart Routing should be
-                      enabled.
+                    description: |-
+                      (Boolean) Indicates whether Burrow Smart Routing should be enabled.
+                      Indicates whether Burrow Smart Routing should be enabled.
                     type: boolean
                   optimizerClassesForce:
-                    description: Indicates whether the optimizer class list should
-                      be enforced.
+                    description: |-
+                      (Boolean) Indicates whether the optimizer class list should be enforced.
+                      Indicates whether the optimizer class list should be enforced.
                     type: boolean
                   optimizerDynamicImageApi:
-                    description: Indicates whether the image manipulation should be
-                      enabled.
+                    description: |-
+                      (Boolean) Indicates whether the image manipulation should be enabled.
+                      Indicates whether the image manipulation should be enabled.
                     type: boolean
                   optimizerEnabled:
-                    description: Indicates whether Bunny Optimizer should be enabled.
+                    description: |-
+                      (Boolean) Indicates whether Bunny Optimizer should be enabled.
+                      Indicates whether Bunny Optimizer should be enabled.
                     type: boolean
                   optimizerHtmlPrerender:
-                    description: Indicates whether HTML Prerender should be enabled.
+                    description: |-
+                      (Boolean) Indicates whether HTML Prerender should be enabled.
+                      Indicates whether HTML Prerender should be enabled.
                     type: boolean
                   optimizerMinifyCss:
-                    description: Indicates whether the CSS minification should be
-                      enabled.
+                    description: |-
+                      (Boolean) Indicates whether the CSS minification should be enabled.
+                      Indicates whether the CSS minification should be enabled.
                     type: boolean
                   optimizerMinifyJs:
-                    description: Indicates whether the JavaScript minification should
-                      be enabled.
+                    description: |-
+                      (Boolean) Indicates whether the JavaScript minification should be enabled.
+                      Indicates whether the JavaScript minification should be enabled.
                     type: boolean
                   optimizerSmartimage:
-                    description: Indicates whether the automatic image optimization
-                      should be enabled.
+                    description: |-
+                      (Boolean) Indicates whether the automatic image optimization should be enabled.
+                      Indicates whether the automatic image optimization should be enabled.
                     type: boolean
                   optimizerSmartimageDesktopMaxwidth:
-                    description: The maximum automatic image size for desktop clients.
+                    description: |-
+                      (Number) The maximum automatic image size for desktop clients.
+                      The maximum automatic image size for desktop clients.
                     type: number
                   optimizerSmartimageDesktopQuality:
-                    description: The image quality for desktop clients.
+                    description: |-
+                      (Number) The image quality for desktop clients.
+                      The image quality for desktop clients.
                     type: number
                   optimizerSmartimageMobileMaxwidth:
-                    description: The maximum automatic image size for mobile clients.
+                    description: |-
+                      (Number) The maximum automatic image size for mobile clients.
+                      The maximum automatic image size for mobile clients.
                     type: number
                   optimizerSmartimageMobileQuality:
-                    description: Determines the image quality for mobile clients
+                    description: |-
+                      (Number) Determines the image quality for mobile clients
+                      Determines the image quality for mobile clients
                     type: number
                   optimizerWatermark:
-                    description: Indicates whether image watermarking should be enabled.
+                    description: |-
+                      (Boolean) Indicates whether image watermarking should be enabled.
+                      Indicates whether image watermarking should be enabled.
                     type: boolean
                   optimizerWatermarkBorderoffset:
-                    description: The offset of the watermark image.
+                    description: |-
+                      (Number) The offset of the watermark image.
+                      The offset of the watermark image.
                     type: number
                   optimizerWatermarkMinsize:
-                    description: The minimum image size to which the watermark will
-                      be added.
+                    description: |-
+                      (Number) The minimum image size to which the watermark will be added.
+                      The minimum image size to which the watermark will be added.
                     type: number
                   optimizerWatermarkPosition:
-                    description: 'Options: `BottomLeft`, `BottomRight`, `Center`,
-                      `CenterStretch`, `TopLeft`, `TopRight`'
+                    description: |-
+                      (String) Options: BottomLeft, BottomRight, Center, CenterStretch, TopLeft, TopRight
+                      Options: `BottomLeft`, `BottomRight`, `Center`, `CenterStretch`, `TopLeft`, `TopRight`
                     type: string
                   optimizerWatermarkUrl:
-                    description: The URL of the watermark image.
+                    description: |-
+                      (String) The URL of the watermark image.
+                      The URL of the watermark image.
                     type: string
                   optimizerWebp:
-                    description: Indicates whether the WebP optimization should be
-                      enabled.
+                    description: |-
+                      (Boolean) Indicates whether the WebP optimization should be enabled.
+                      Indicates whether the WebP optimization should be enabled.
                     type: boolean
                   originshieldConcurrencyLimit:
-                    description: Indicates whether there is a concurrency limit for
-                      Origin Shield.
+                    description: |-
+                      (Boolean) Indicates whether there is a concurrency limit for Origin Shield.
+                      Indicates whether there is a concurrency limit for Origin Shield.
                     type: boolean
                   originshieldConcurrencyRequests:
-                    description: The number of concurrent requests for Origin Shield.
+                    description: |-
+                      (Number) The number of concurrent requests for Origin Shield.
+                      The number of concurrent requests for Origin Shield.
                     type: number
                   originshieldEnabled:
-                    description: Indicates whether Origin Shield is enabled.
+                    description: |-
+                      (Boolean) Indicates whether Origin Shield is enabled.
+                      Indicates whether Origin Shield is enabled.
                     type: boolean
                   originshieldQueueRequests:
-                    description: The number of queued requests for Origin Shield.
+                    description: |-
+                      (Number) The number of queued requests for Origin Shield.
+                      The number of queued requests for Origin Shield.
                     type: number
                   originshieldQueueWait:
-                    description: The maximum wait time for queued requests in Origin
-                      Shield, in seconds.
+                    description: |-
+                      (Number) The maximum wait time for queued requests in Origin Shield, in seconds.
+                      The maximum wait time for queued requests in Origin Shield, in seconds.
                     type: number
                   originshieldZone:
-                    description: 'Options: `FR`, `IL`'
+                    description: |-
+                      (String) Options: FR, IL
+                      Options: `FR`, `IL`
                     type: string
                   permacacheStoragezone:
-                    description: The storage zone ID for Perma-Cache.
+                    description: |-
+                      Cache.
+                      The storage zone ID for Perma-Cache.
                     type: number
                   requestCoalescingEnabled:
-                    description: Indicates whether request coalescing is enabled.
+                    description: |-
+                      (Boolean) Indicates whether request coalescing is enabled.
+                      Indicates whether request coalescing is enabled.
                     type: boolean
                   requestCoalescingTimeout:
-                    description: Specifies the timeout period, in seconds, for request
-                      coalescing, determining how long to wait before sending combined
-                      requests to the origin.
+                    description: |-
+                      (Number) Specifies the timeout period, in seconds, for request coalescing, determining how long to wait before sending combined requests to the origin.
+                      Specifies the timeout period, in seconds, for request coalescing, determining how long to wait before sending combined requests to the origin.
                     type: number
                   routing:
+                    description: (Block, Optional) (see below for nested schema)
                     items:
                       properties:
                         blockedCountries:
-                          description: The list of blocked countries with the two-letter
-                            Alpha2 ISO codes. Traffic connecting from a blocked country
-                            will be rejected on the DNS level.
+                          description: |-
+                            letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
+                            The list of blocked countries with the two-letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
                           items:
                             type: string
                           type: array
                           x-kubernetes-list-type: set
                         filters:
-                          description: 'Options: `all`, `eu`, `scripting`'
+                          description: |-
+                            (Set of String) Options: all, eu, scripting
+                            Options: `all`, `eu`, `scripting`
                           items:
                             type: string
                           type: array
                           x-kubernetes-list-type: set
                         redirectedCountries:
-                          description: The list of budget redirected countries with
-                            the two-letter Alpha2 ISO codes. Traffic from a redirected
-                            country will connect to the cheapest possible node in
-                            North America or Europe.
+                          description: |-
+                            letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
+                            The list of budget redirected countries with the two-letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
                           items:
                             type: string
                           type: array
                           x-kubernetes-list-type: set
                         tier:
-                          description: 'Options: `Standard`, `Volume`'
+                          description: |-
+                            (String) Options: Standard, Volume
+                            Options: `Standard`, `Volume`
                           type: string
                         zones:
-                          description: 'Options: `AF`, `ASIA`, `EU`, `SA`, `US`'
+                          description: |-
+                            (Set of String) Options: AF, ASIA, EU, SA, US
+                            Options: `AF`, `ASIA`, `EU`, `SA`, `US`
                           items:
                             type: string
                           type: array
@@ -784,73 +1023,98 @@ spec:
                       type: object
                     type: array
                   s3AuthEnabled:
-                    description: Indicates whether requests to origin will be signed
-                      with AWS Signature Version 4.
+                    description: |-
+                      (Boolean) Indicates whether requests to origin will be signed with AWS Signature Version 4.
+                      Indicates whether requests to origin will be signed with AWS Signature Version 4.
                     type: boolean
                   s3AuthKey:
-                    description: The access key used to authenticate the requests.
+                    description: |-
+                      (String) The access key used to authenticate the requests.
+                      The access key used to authenticate the requests.
                     type: string
                   s3AuthRegion:
-                    description: The region name of the bucket used to authenticate
-                      the requests.
+                    description: |-
+                      (String) The region name of the bucket used to authenticate the requests.
+                      The region name of the bucket used to authenticate the requests.
                     type: string
                   s3AuthSecret:
-                    description: The secret key used to authenticate the requests.
+                    description: |-
+                      (String) The secret key used to authenticate the requests.
+                      The secret key used to authenticate the requests.
                     type: string
                   safehopConnectionTimeout:
-                    description: The amount of seconds to wait when connecting to
-                      the origin. Otherwise the request will fail or retry.
+                    description: |-
+                      (Number) The amount of seconds to wait when connecting to the origin. Otherwise the request will fail or retry.
+                      The amount of seconds to wait when connecting to the origin. Otherwise the request will fail or retry.
                     type: number
                   safehopEnabled:
+                    description: (Boolean)
                     type: boolean
                   safehopResponseTimeout:
-                    description: The amount of seconds to wait when waiting for the
-                      origin reply. Otherwise the request will fail or retry.
+                    description: |-
+                      (Number) The amount of seconds to wait when waiting for the origin reply. Otherwise the request will fail or retry.
+                      The amount of seconds to wait when waiting for the origin reply. Otherwise the request will fail or retry.
                     type: number
                   safehopRetryCount:
-                    description: The number of retries to the origin server.
+                    description: |-
+                      (Number) The number of retries to the origin server.
+                      The number of retries to the origin server.
                     type: number
                   safehopRetryDelay:
-                    description: The amount of time that the CDN should wait before
-                      retrying an origin request.
+                    description: |-
+                      (Number) The amount of time that the CDN should wait before retrying an origin request.
+                      The amount of time that the CDN should wait before retrying an origin request.
                     type: number
                   safehopRetryReasons:
-                    description: 'Options: `5xxResponse`, `connectionTimeout`, `responseTimeout`'
+                    description: |-
+                      (Set of String) Options: 5xxResponse, connectionTimeout, responseTimeout
+                      Options: `5xxResponse`, `connectionTimeout`, `responseTimeout`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   sortQuerystring:
-                    description: If enabled, the query parameters will be automatically
-                      sorted into a consistent order before checking the cache.
+                    description: |-
+                      (Boolean) If enabled, the query parameters will be automatically sorted into a consistent order before checking the cache.
+                      If enabled, the query parameters will be automatically sorted into a consistent order before checking the cache.
                     type: boolean
                   stripCookies:
-                    description: If enabled, bunny.net will strip all the Set-Cookie
-                      headers from the HTTP responses.
+                    description: |-
+                      Cookie headers from the HTTP responses.
+                      If enabled, bunny.net will strip all the Set-Cookie headers from the HTTP responses.
                     type: boolean
                   tlsSupport:
-                    description: 'Options: `TLSv1.0`, `TLSv1.1`'
+                    description: |-
+                      (Set of String) Options: TLSv1.0, TLSv1.1
+                      Options: `TLSv1.0`, `TLSv1.1`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   tokenAuthEnabled:
-                    description: Indicates whether requests without a valid token
-                      and expiry timestamp will be rejected.
+                    description: |-
+                      (Boolean) Indicates whether requests without a valid token and expiry timestamp will be rejected.
+                      Indicates whether requests without a valid token and expiry timestamp will be rejected.
                     type: boolean
                   tokenAuthIpValidation:
-                    description: Indicates whether the secure hash generated by the
-                      server will also include an IP address.
+                    description: |-
+                      (Boolean) Indicates whether the secure hash generated by the server will also include an IP address.
+                      Indicates whether the secure hash generated by the server will also include an IP address.
                     type: boolean
                   useBackgroundUpdate:
-                    description: Indicates whether cache update is performed in the
-                      background.
+                    description: |-
+                      (Boolean) Indicates whether cache update is performed in the background.
+                      Indicates whether cache update is performed in the background.
                     type: boolean
                   websocketsEnabled:
-                    description: Indicates whether the WebSocket support is enabled.
+                    description: |-
+                      (Boolean) Indicates whether the WebSocket support is enabled.
+                      Indicates whether the WebSocket support is enabled.
                     type: boolean
                   websocketsMaxConnections:
-                    description: The maximum allowed concurrent WebSocket connections.
+                    description: |-
+                      (Number) The maximum allowed concurrent WebSocket connections.
+                      The maximum allowed concurrent WebSocket connections.
                     type: number
                 type: object
               managementPolicies:
@@ -950,367 +1214,498 @@ spec:
               atProvider:
                 properties:
                   addCanonicalHeader:
-                    description: Indicates whether the Canonical header is added to
-                      the responses.
+                    description: |-
+                      (Boolean) Indicates whether the Canonical header is added to the responses.
+                      Indicates whether the Canonical header is added to the responses.
                     type: boolean
                   allowReferers:
-                    description: 'The list of referrer hostnames that are allowed
-                      to access the pull zone. Requests containing the header "Referer:
-                      hostname" that is not on the list will be rejected. If empty,
-                      all the referrers are allowed.'
+                    description: |-
+                      (Set of String) The list of referrer hostnames that are allowed to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
+                      The list of referrer hostnames that are allowed to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   blockIps:
-                    description: The list of IPs that are blocked from accessing the
-                      pull zone. Requests coming from the following IPs will be rejected.
-                      If empty, all the IPs will be allowed
+                    description: |-
+                      (Set of String) The list of IPs that are blocked from accessing the pull zone. Requests coming from the following IPs will be rejected. If empty, all the IPs will be allowed
+                      The list of IPs that are blocked from accessing the pull zone. Requests coming from the following IPs will be rejected. If empty, all the IPs will be allowed
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   blockNoReferer:
-                    description: Indicates whether requests without a referer should
-                      be blocked.
+                    description: |-
+                      (Boolean) Indicates whether requests without a referer should be blocked.
+                      Indicates whether requests without a referer should be blocked.
                     type: boolean
                   blockPostRequests:
-                    description: Indicates whether to block POST requests.
+                    description: |-
+                      (Boolean) Indicates whether to block POST requests.
+                      Indicates whether to block POST requests.
                     type: boolean
                   blockReferers:
-                    description: 'The list of referrer hostnames that are blocked
-                      to access the pull zone. Requests containing the header "Referer:
-                      hostname" that is not on the list will be rejected. If empty,
-                      all the referrers are allowed.'
+                    description: |-
+                      (Set of String) The list of referrer hostnames that are blocked to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
+                      The list of referrer hostnames that are blocked to access the pull zone. Requests containing the header "Referer: hostname" that is not on the list will be rejected. If empty, all the referrers are allowed.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   blockRootPath:
-                    description: This property indicates whether to block the root
-                      path.
+                    description: |-
+                      (Boolean) This property indicates whether to block the root path.
+                      This property indicates whether to block the root path.
                     type: boolean
                   cacheChunked:
-                    description: Indicates whether the cache slice (Optimize for large
-                      object delivery) feature is enabled for the Pull Zone
+                    description: |-
+                      (Boolean) Indicates whether the cache slice (Optimize for large object delivery) feature is enabled for the Pull Zone
+                      Indicates whether the cache slice (Optimize for large object delivery) feature is enabled for the Pull Zone
                     type: boolean
                   cacheEnabled:
-                    description: Indicates whether smart caching is enabled.
+                    description: |-
+                      (Boolean) Indicates whether smart caching is enabled.
+                      Indicates whether smart caching is enabled.
                     type: boolean
                   cacheErrors:
-                    description: Indicates whether bunny.net should be caching error
-                      responses.
+                    description: |-
+                      (Boolean) Indicates whether bunny.net should be caching error responses.
+                      Indicates whether bunny.net should be caching error responses.
                     type: boolean
                   cacheExpirationTime:
-                    description: The override cache time, in seconds.
+                    description: |-
+                      (Number) The override cache time, in seconds.
+                      The override cache time, in seconds.
                     type: number
                   cacheExpirationTimeBrowser:
-                    description: The override cache time for the end client, in seconds.
+                    description: |-
+                      (Number) The override cache time for the end client, in seconds.
+                      The override cache time for the end client, in seconds.
                     type: number
                   cacheStale:
-                    description: 'Options: `offline`, `updating`'
+                    description: |-
+                      (Set of String) Options: offline, updating
+                      Options: `offline`, `updating`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   cacheVary:
-                    description: 'Options: `avif`, `cookie`, `country`, `hostname`,
-                      `mobile`, `querystring`, `state`, `webp`'
+                    description: |-
+                      (Set of String) Options: avif, cookie, country, hostname, mobile, querystring, state, webp
+                      Options: `avif`, `cookie`, `country`, `hostname`, `mobile`, `querystring`, `state`, `webp`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   cacheVaryCookie:
-                    description: Contains the list of vary parameters that will be
-                      used for vary cache by cookie string. If empty, cookie vary
-                      will not be used.
+                    description: |-
+                      (Set of String) Contains the list of vary parameters that will be used for vary cache by cookie string. If empty, cookie vary will not be used.
+                      Contains the list of vary parameters that will be used for vary cache by cookie string. If empty, cookie vary will not be used.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   cacheVaryHeaders:
-                    description: Contains the list of request headers will be used
-                      for vary cache. If empty, it will not be used.
+                    description: |-
+                      (Set of String) Contains the list of request headers will be used for vary cache. If empty, it will not be used.
+                      Contains the list of request headers will be used for vary cache. If empty, it will not be used.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   cacheVaryQuerystring:
-                    description: Contains the list of vary parameters that will be
-                      used for vary cache by query string. If empty, all parameters
-                      will be used to construct the key
+                    description: |-
+                      (Set of String) Contains the list of vary parameters that will be used for vary cache by query string. If empty, all parameters will be used to construct the key
+                      Contains the list of vary parameters that will be used for vary cache by query string. If empty, all parameters will be used to construct the key
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   cdnDomain:
-                    description: The CNAME domain of the pull zone for setting up
-                      custom hostnames
+                    description: |-
+                      (String) The CNAME domain of the pull zone for setting up custom hostnames
+                      The CNAME domain of the pull zone for setting up custom hostnames
                     type: string
                   corsEnabled:
-                    description: Indicates whether CORS (Cross-Origin Resource Sharing)
-                      is enabled.
+                    description: |-
+                      Origin Resource Sharing) is enabled.
+                      Indicates whether CORS (Cross-Origin Resource Sharing) is enabled.
                     type: boolean
                   corsExtensions:
-                    description: A list of file extensions for which CORS is enabled.
+                    description: |-
+                      (Set of String) A list of file extensions for which CORS is enabled.
+                      A list of file extensions for which CORS is enabled.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   disableLetsencrypt:
-                    description: If true, the built-in let's encrypt is disabled and
-                      requests are passed to the origin.
+                    description: |-
+                      in let's encrypt is disabled and requests are passed to the origin.
+                      If true, the built-in let's encrypt is disabled and requests are passed to the origin.
                     type: boolean
                   errorpageCustomContent:
-                    description: Contains the custom error page code that will be
-                      returned.
+                    description: |-
+                      (String) Contains the custom error page code that will be returned.
+                      Contains the custom error page code that will be returned.
                     type: string
                   errorpageCustomEnabled:
-                    description: Indicates whether custom error page code should be
-                      enabled.
+                    description: |-
+                      (Boolean) Indicates whether custom error page code should be enabled.
+                      Indicates whether custom error page code should be enabled.
                     type: boolean
                   errorpageStatuspageCode:
-                    description: The statuspage code that will be used to build the
-                      status widget.
+                    description: |-
+                      (String) The statuspage code that will be used to build the status widget.
+                      The statuspage code that will be used to build the status widget.
                     type: string
                   errorpageStatuspageEnabled:
-                    description: Indicates whether the statuspage widget should be
-                      displayed on the error pages.
+                    description: |-
+                      (Boolean) Indicates whether the statuspage widget should be displayed on the error pages.
+                      Indicates whether the statuspage widget should be displayed on the error pages.
                     type: boolean
                   errorpageWhitelabel:
-                    description: Indicates whether the error pages should be white-labelled
-                      or not
+                    description: |-
+                      labelled or not
+                      Indicates whether the error pages should be white-labelled or not
                     type: boolean
                   id:
+                    description: (Number) The unique ID of the pull zone.
                     type: string
                   limitAfter:
-                    description: The amount of data after the rate limit will be activated.
+                    description: |-
+                      (Number) The amount of data after the rate limit will be activated.
+                      The amount of data after the rate limit will be activated.
                     type: number
                   limitBandwidth:
-                    description: The maximum bandwidth limit in bytes.
+                    description: |-
+                      (Number) The maximum bandwidth limit in bytes.
+                      The maximum bandwidth limit in bytes.
                     type: number
                   limitBurst:
-                    description: Excessive requests are delayed until their number
-                      exceeds the maximum burst size.
+                    description: |-
+                      (Number) Excessive requests are delayed until their number exceeds the maximum burst size.
+                      Excessive requests are delayed until their number exceeds the maximum burst size.
                     type: number
                   limitConnections:
-                    description: The number of connections limited per IP.
+                    description: |-
+                      (Number) The number of connections limited per IP.
+                      The number of connections limited per IP.
                     type: number
                   limitDownloadSpeed:
-                    description: The maximum download speed, in kb/s. Use 0 for unlimited.
+                    description: |-
+                      (Number) The maximum download speed, in kb/s. Use 0 for unlimited.
+                      The maximum download speed, in kb/s. Use 0 for unlimited.
                     type: number
                   limitRequests:
-                    description: The maximum amount of requests per IP per second.
+                    description: |-
+                      (Number) The maximum amount of requests per IP per second.
+                      The maximum amount of requests per IP per second.
                     type: number
                   logAnonymized:
-                    description: Indicates whether logs are anonymized.
+                    description: |-
+                      (Boolean) Indicates whether logs are anonymized.
+                      Indicates whether logs are anonymized.
                     type: boolean
                   logAnonymizedStyle:
-                    description: 'Options: `Drop`, `OneDigit`'
+                    description: |-
+                      (String) Options: Drop, OneDigit
+                      Options: `Drop`, `OneDigit`
                     type: string
                   logEnabled:
-                    description: Indicates whether logging is enabled.
+                    description: |-
+                      (Boolean) Indicates whether logging is enabled.
+                      Indicates whether logging is enabled.
                     type: boolean
                   logForwardEnabled:
-                    description: Indicates whether log forwarding is enabled.
+                    description: |-
+                      (Boolean) Indicates whether log forwarding is enabled.
+                      Indicates whether log forwarding is enabled.
                     type: boolean
                   logForwardFormat:
-                    description: 'Options: `JSON`, `Plain`'
+                    description: |-
+                      (String) Options: JSON, Plain
+                      Options: `JSON`, `Plain`
                     type: string
                   logForwardPort:
-                    description: The port number for log forwarding.
+                    description: |-
+                      (Number) The port number for log forwarding.
+                      The port number for log forwarding.
                     type: number
                   logForwardProtocol:
-                    description: 'Options: `DataDog`, `TCP`, `TCPEncrypted`, `UDP`'
+                    description: |-
+                      (String) Options: DataDog, TCP, TCPEncrypted, UDP
+                      Options: `DataDog`, `TCP`, `TCPEncrypted`, `UDP`
                     type: string
                   logForwardServer:
-                    description: The server address for log forwarding.
+                    description: |-
+                      (String) The server address for log forwarding.
+                      The server address for log forwarding.
                     type: string
                   logForwardToken:
-                    description: The token used for log forwarding authentication.
+                    description: |-
+                      (String) The token used for log forwarding authentication.
+                      The token used for log forwarding authentication.
                     type: string
                   logStorageEnabled:
-                    description: Indicates whether log storage is enabled.
+                    description: |-
+                      (Boolean) Indicates whether log storage is enabled.
+                      Indicates whether log storage is enabled.
                     type: boolean
                   logStorageZone:
-                    description: The storage zone ID for log storage.
+                    description: |-
+                      (Number) The storage zone ID for log storage.
+                      The storage zone ID for log storage.
                     type: number
                   name:
-                    description: The name of the pull zone.
+                    description: |-
+                      (String) The name of the pull zone.
+                      The name of the pull zone.
                     type: string
                   optimizerBurrow:
-                    description: Indicates whether Burrow Smart Routing should be
-                      enabled.
+                    description: |-
+                      (Boolean) Indicates whether Burrow Smart Routing should be enabled.
+                      Indicates whether Burrow Smart Routing should be enabled.
                     type: boolean
                   optimizerClassesForce:
-                    description: Indicates whether the optimizer class list should
-                      be enforced.
+                    description: |-
+                      (Boolean) Indicates whether the optimizer class list should be enforced.
+                      Indicates whether the optimizer class list should be enforced.
                     type: boolean
                   optimizerDynamicImageApi:
-                    description: Indicates whether the image manipulation should be
-                      enabled.
+                    description: |-
+                      (Boolean) Indicates whether the image manipulation should be enabled.
+                      Indicates whether the image manipulation should be enabled.
                     type: boolean
                   optimizerEnabled:
-                    description: Indicates whether Bunny Optimizer should be enabled.
+                    description: |-
+                      (Boolean) Indicates whether Bunny Optimizer should be enabled.
+                      Indicates whether Bunny Optimizer should be enabled.
                     type: boolean
                   optimizerHtmlPrerender:
-                    description: Indicates whether HTML Prerender should be enabled.
+                    description: |-
+                      (Boolean) Indicates whether HTML Prerender should be enabled.
+                      Indicates whether HTML Prerender should be enabled.
                     type: boolean
                   optimizerMinifyCss:
-                    description: Indicates whether the CSS minification should be
-                      enabled.
+                    description: |-
+                      (Boolean) Indicates whether the CSS minification should be enabled.
+                      Indicates whether the CSS minification should be enabled.
                     type: boolean
                   optimizerMinifyJs:
-                    description: Indicates whether the JavaScript minification should
-                      be enabled.
+                    description: |-
+                      (Boolean) Indicates whether the JavaScript minification should be enabled.
+                      Indicates whether the JavaScript minification should be enabled.
                     type: boolean
                   optimizerSmartimage:
-                    description: Indicates whether the automatic image optimization
-                      should be enabled.
+                    description: |-
+                      (Boolean) Indicates whether the automatic image optimization should be enabled.
+                      Indicates whether the automatic image optimization should be enabled.
                     type: boolean
                   optimizerSmartimageDesktopMaxwidth:
-                    description: The maximum automatic image size for desktop clients.
+                    description: |-
+                      (Number) The maximum automatic image size for desktop clients.
+                      The maximum automatic image size for desktop clients.
                     type: number
                   optimizerSmartimageDesktopQuality:
-                    description: The image quality for desktop clients.
+                    description: |-
+                      (Number) The image quality for desktop clients.
+                      The image quality for desktop clients.
                     type: number
                   optimizerSmartimageMobileMaxwidth:
-                    description: The maximum automatic image size for mobile clients.
+                    description: |-
+                      (Number) The maximum automatic image size for mobile clients.
+                      The maximum automatic image size for mobile clients.
                     type: number
                   optimizerSmartimageMobileQuality:
-                    description: Determines the image quality for mobile clients
+                    description: |-
+                      (Number) Determines the image quality for mobile clients
+                      Determines the image quality for mobile clients
                     type: number
                   optimizerWatermark:
-                    description: Indicates whether image watermarking should be enabled.
+                    description: |-
+                      (Boolean) Indicates whether image watermarking should be enabled.
+                      Indicates whether image watermarking should be enabled.
                     type: boolean
                   optimizerWatermarkBorderoffset:
-                    description: The offset of the watermark image.
+                    description: |-
+                      (Number) The offset of the watermark image.
+                      The offset of the watermark image.
                     type: number
                   optimizerWatermarkMinsize:
-                    description: The minimum image size to which the watermark will
-                      be added.
+                    description: |-
+                      (Number) The minimum image size to which the watermark will be added.
+                      The minimum image size to which the watermark will be added.
                     type: number
                   optimizerWatermarkPosition:
-                    description: 'Options: `BottomLeft`, `BottomRight`, `Center`,
-                      `CenterStretch`, `TopLeft`, `TopRight`'
+                    description: |-
+                      (String) Options: BottomLeft, BottomRight, Center, CenterStretch, TopLeft, TopRight
+                      Options: `BottomLeft`, `BottomRight`, `Center`, `CenterStretch`, `TopLeft`, `TopRight`
                     type: string
                   optimizerWatermarkUrl:
-                    description: The URL of the watermark image.
+                    description: |-
+                      (String) The URL of the watermark image.
+                      The URL of the watermark image.
                     type: string
                   optimizerWebp:
-                    description: Indicates whether the WebP optimization should be
-                      enabled.
+                    description: |-
+                      (Boolean) Indicates whether the WebP optimization should be enabled.
+                      Indicates whether the WebP optimization should be enabled.
                     type: boolean
                   origin:
+                    description: (Block, Optional) (see below for nested schema)
                     items:
                       properties:
                         containerAppId:
-                          description: The ID if the compute container app.
+                          description: |-
+                            (String) The ID if the compute container app.
+                            The ID if the compute container app.
                           type: string
                         containerEndpointId:
-                          description: The ID if the compute container app endpoint.
+                          description: |-
+                            (String) The ID if the compute container app endpoint.
+                            The ID if the compute container app endpoint.
                           type: string
                         dnsPort:
-                          description: The port for DNS Accelerated endpoints.
+                          description: |-
+                            (Number) The port for DNS Accelerated endpoints.
+                            The port for DNS Accelerated endpoints.
                           type: number
                         dnsScheme:
-                          description: The scheme for DNS Accelerated endpoints.
+                          description: |-
+                            (String) The scheme for DNS Accelerated endpoints.
+                            The scheme for DNS Accelerated endpoints.
                           type: string
                         followRedirects:
-                          description: Indicates whether the zone will follow origin
-                            redirects.
+                          description: |-
+                            (Boolean) Indicates whether the zone will follow origin redirects.
+                            Indicates whether the zone will follow origin redirects.
                           type: boolean
                         forwardHostHeader:
-                          description: Indicates whether the current hostname is forwarded
-                            to the origin.
+                          description: |-
+                            (Boolean) Indicates whether the current hostname is forwarded to the origin.
+                            Indicates whether the current hostname is forwarded to the origin.
                           type: boolean
                         hostHeader:
-                          description: The host header that will be sent to the origin.
+                          description: |-
+                            (String) The host header that will be sent to the origin.
+                            The host header that will be sent to the origin.
                           type: string
                         middlewareScript:
-                          description: The ID of the compute script used as a middleware.
+                          description: |-
+                            (Number) The ID of the compute script used as a middleware.
+                            The ID of the compute script used as a middleware.
                           type: number
                         script:
-                          description: The ID of the linked compute script.
+                          description: |-
+                            (Number) The ID of the linked compute script.
+                            The ID of the linked compute script.
                           type: number
                         storagezone:
-                          description: The ID of the linked storage zone.
+                          description: |-
+                            (Number) The ID of the linked storage zone.
+                            The ID of the linked storage zone.
                           type: number
                         type:
-                          description: 'Options: `ComputeContainer`, `ComputeScript`,
-                            `DnsAccelerate`, `OriginUrl`, `StorageZone`'
+                          description: |-
+                            (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, OriginUrl, StorageZone
+                            Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `OriginUrl`, `StorageZone`
                           type: string
                         url:
-                          description: The origin URL from where the files are fetched.
+                          description: |-
+                            (String) The origin URL from where the files are fetched.
+                            The origin URL from where the files are fetched.
                           type: string
                         verifySsl:
-                          description: Indicates whether the Origin's TLS certificate
-                            should be verified.
+                          description: |-
+                            (Boolean) Indicates whether the Origin's TLS certificate should be verified.
+                            Indicates whether the Origin's TLS certificate should be verified.
                           type: boolean
                       type: object
                     type: array
                   originshieldConcurrencyLimit:
-                    description: Indicates whether there is a concurrency limit for
-                      Origin Shield.
+                    description: |-
+                      (Boolean) Indicates whether there is a concurrency limit for Origin Shield.
+                      Indicates whether there is a concurrency limit for Origin Shield.
                     type: boolean
                   originshieldConcurrencyRequests:
-                    description: The number of concurrent requests for Origin Shield.
+                    description: |-
+                      (Number) The number of concurrent requests for Origin Shield.
+                      The number of concurrent requests for Origin Shield.
                     type: number
                   originshieldEnabled:
-                    description: Indicates whether Origin Shield is enabled.
+                    description: |-
+                      (Boolean) Indicates whether Origin Shield is enabled.
+                      Indicates whether Origin Shield is enabled.
                     type: boolean
                   originshieldQueueRequests:
-                    description: The number of queued requests for Origin Shield.
+                    description: |-
+                      (Number) The number of queued requests for Origin Shield.
+                      The number of queued requests for Origin Shield.
                     type: number
                   originshieldQueueWait:
-                    description: The maximum wait time for queued requests in Origin
-                      Shield, in seconds.
+                    description: |-
+                      (Number) The maximum wait time for queued requests in Origin Shield, in seconds.
+                      The maximum wait time for queued requests in Origin Shield, in seconds.
                     type: number
                   originshieldZone:
-                    description: 'Options: `FR`, `IL`'
+                    description: |-
+                      (String) Options: FR, IL
+                      Options: `FR`, `IL`
                     type: string
                   permacacheStoragezone:
-                    description: The storage zone ID for Perma-Cache.
+                    description: |-
+                      Cache.
+                      The storage zone ID for Perma-Cache.
                     type: number
                   requestCoalescingEnabled:
-                    description: Indicates whether request coalescing is enabled.
+                    description: |-
+                      (Boolean) Indicates whether request coalescing is enabled.
+                      Indicates whether request coalescing is enabled.
                     type: boolean
                   requestCoalescingTimeout:
-                    description: Specifies the timeout period, in seconds, for request
-                      coalescing, determining how long to wait before sending combined
-                      requests to the origin.
+                    description: |-
+                      (Number) Specifies the timeout period, in seconds, for request coalescing, determining how long to wait before sending combined requests to the origin.
+                      Specifies the timeout period, in seconds, for request coalescing, determining how long to wait before sending combined requests to the origin.
                     type: number
                   routing:
+                    description: (Block, Optional) (see below for nested schema)
                     items:
                       properties:
                         blockedCountries:
-                          description: The list of blocked countries with the two-letter
-                            Alpha2 ISO codes. Traffic connecting from a blocked country
-                            will be rejected on the DNS level.
+                          description: |-
+                            letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
+                            The list of blocked countries with the two-letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
                           items:
                             type: string
                           type: array
                           x-kubernetes-list-type: set
                         filters:
-                          description: 'Options: `all`, `eu`, `scripting`'
+                          description: |-
+                            (Set of String) Options: all, eu, scripting
+                            Options: `all`, `eu`, `scripting`
                           items:
                             type: string
                           type: array
                           x-kubernetes-list-type: set
                         redirectedCountries:
-                          description: The list of budget redirected countries with
-                            the two-letter Alpha2 ISO codes. Traffic from a redirected
-                            country will connect to the cheapest possible node in
-                            North America or Europe.
+                          description: |-
+                            letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
+                            The list of budget redirected countries with the two-letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
                           items:
                             type: string
                           type: array
                           x-kubernetes-list-type: set
                         tier:
-                          description: 'Options: `Standard`, `Volume`'
+                          description: |-
+                            (String) Options: Standard, Volume
+                            Options: `Standard`, `Volume`
                           type: string
                         zones:
-                          description: 'Options: `AF`, `ASIA`, `EU`, `SA`, `US`'
+                          description: |-
+                            (Set of String) Options: AF, ASIA, EU, SA, US
+                            Options: `AF`, `ASIA`, `EU`, `SA`, `US`
                           items:
                             type: string
                           type: array
@@ -1318,73 +1713,98 @@ spec:
                       type: object
                     type: array
                   s3AuthEnabled:
-                    description: Indicates whether requests to origin will be signed
-                      with AWS Signature Version 4.
+                    description: |-
+                      (Boolean) Indicates whether requests to origin will be signed with AWS Signature Version 4.
+                      Indicates whether requests to origin will be signed with AWS Signature Version 4.
                     type: boolean
                   s3AuthKey:
-                    description: The access key used to authenticate the requests.
+                    description: |-
+                      (String) The access key used to authenticate the requests.
+                      The access key used to authenticate the requests.
                     type: string
                   s3AuthRegion:
-                    description: The region name of the bucket used to authenticate
-                      the requests.
+                    description: |-
+                      (String) The region name of the bucket used to authenticate the requests.
+                      The region name of the bucket used to authenticate the requests.
                     type: string
                   s3AuthSecret:
-                    description: The secret key used to authenticate the requests.
+                    description: |-
+                      (String) The secret key used to authenticate the requests.
+                      The secret key used to authenticate the requests.
                     type: string
                   safehopConnectionTimeout:
-                    description: The amount of seconds to wait when connecting to
-                      the origin. Otherwise the request will fail or retry.
+                    description: |-
+                      (Number) The amount of seconds to wait when connecting to the origin. Otherwise the request will fail or retry.
+                      The amount of seconds to wait when connecting to the origin. Otherwise the request will fail or retry.
                     type: number
                   safehopEnabled:
+                    description: (Boolean)
                     type: boolean
                   safehopResponseTimeout:
-                    description: The amount of seconds to wait when waiting for the
-                      origin reply. Otherwise the request will fail or retry.
+                    description: |-
+                      (Number) The amount of seconds to wait when waiting for the origin reply. Otherwise the request will fail or retry.
+                      The amount of seconds to wait when waiting for the origin reply. Otherwise the request will fail or retry.
                     type: number
                   safehopRetryCount:
-                    description: The number of retries to the origin server.
+                    description: |-
+                      (Number) The number of retries to the origin server.
+                      The number of retries to the origin server.
                     type: number
                   safehopRetryDelay:
-                    description: The amount of time that the CDN should wait before
-                      retrying an origin request.
+                    description: |-
+                      (Number) The amount of time that the CDN should wait before retrying an origin request.
+                      The amount of time that the CDN should wait before retrying an origin request.
                     type: number
                   safehopRetryReasons:
-                    description: 'Options: `5xxResponse`, `connectionTimeout`, `responseTimeout`'
+                    description: |-
+                      (Set of String) Options: 5xxResponse, connectionTimeout, responseTimeout
+                      Options: `5xxResponse`, `connectionTimeout`, `responseTimeout`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   sortQuerystring:
-                    description: If enabled, the query parameters will be automatically
-                      sorted into a consistent order before checking the cache.
+                    description: |-
+                      (Boolean) If enabled, the query parameters will be automatically sorted into a consistent order before checking the cache.
+                      If enabled, the query parameters will be automatically sorted into a consistent order before checking the cache.
                     type: boolean
                   stripCookies:
-                    description: If enabled, bunny.net will strip all the Set-Cookie
-                      headers from the HTTP responses.
+                    description: |-
+                      Cookie headers from the HTTP responses.
+                      If enabled, bunny.net will strip all the Set-Cookie headers from the HTTP responses.
                     type: boolean
                   tlsSupport:
-                    description: 'Options: `TLSv1.0`, `TLSv1.1`'
+                    description: |-
+                      (Set of String) Options: TLSv1.0, TLSv1.1
+                      Options: `TLSv1.0`, `TLSv1.1`
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   tokenAuthEnabled:
-                    description: Indicates whether requests without a valid token
-                      and expiry timestamp will be rejected.
+                    description: |-
+                      (Boolean) Indicates whether requests without a valid token and expiry timestamp will be rejected.
+                      Indicates whether requests without a valid token and expiry timestamp will be rejected.
                     type: boolean
                   tokenAuthIpValidation:
-                    description: Indicates whether the secure hash generated by the
-                      server will also include an IP address.
+                    description: |-
+                      (Boolean) Indicates whether the secure hash generated by the server will also include an IP address.
+                      Indicates whether the secure hash generated by the server will also include an IP address.
                     type: boolean
                   useBackgroundUpdate:
-                    description: Indicates whether cache update is performed in the
-                      background.
+                    description: |-
+                      (Boolean) Indicates whether cache update is performed in the background.
+                      Indicates whether cache update is performed in the background.
                     type: boolean
                   websocketsEnabled:
-                    description: Indicates whether the WebSocket support is enabled.
+                    description: |-
+                      (Boolean) Indicates whether the WebSocket support is enabled.
+                      Indicates whether the WebSocket support is enabled.
                     type: boolean
                   websocketsMaxConnections:
-                    description: The maximum allowed concurrent WebSocket connections.
+                    description: |-
+                      (Number) The maximum allowed concurrent WebSocket connections.
+                      The maximum allowed concurrent WebSocket connections.
                     type: number
                 type: object
               conditions:

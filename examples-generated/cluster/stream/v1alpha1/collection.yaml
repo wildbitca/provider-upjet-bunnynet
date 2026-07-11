@@ -1,0 +1,12 @@
+apiVersion: stream.upjet-bunnynet.upbound.io/v1alpha1
+kind: Collection
+metadata:
+  annotations:
+    meta.upbound.io/example-id: stream/v1alpha1/collection
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    library: ${bunnynet_stream_library.example.id}
+    name: example collection

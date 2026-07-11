@@ -16,29 +16,37 @@ import (
 
 type CollectionInitParameters struct {
 
+	// (Number) The ID of the stream library to which the collection belongs.
 	// The ID of the stream library to which the collection belongs.
 	Library *float64 `json:"library,omitempty" tf:"library,omitempty"`
 
+	// (String) The name of the stream collection.
 	// The name of the stream collection.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 }
 
 type CollectionObservation struct {
+
+	// (String) The unique identifier for the stream collection.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (Number) The ID of the stream library to which the collection belongs.
 	// The ID of the stream library to which the collection belongs.
 	Library *float64 `json:"library,omitempty" tf:"library,omitempty"`
 
+	// (String) The name of the stream collection.
 	// The name of the stream collection.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 }
 
 type CollectionParameters struct {
 
+	// (Number) The ID of the stream library to which the collection belongs.
 	// The ID of the stream library to which the collection belongs.
 	// +kubebuilder:validation:Optional
 	Library *float64 `json:"library,omitempty" tf:"library,omitempty"`
 
+	// (String) The name of the stream collection.
 	// The name of the stream collection.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
@@ -71,7 +79,7 @@ type CollectionStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Collection is the Schema for the Collections API. <no value>
+// Collection is the Schema for the Collections API. This resource manages collections in bunny.net Stream. It is used to create and organize collections of video content.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

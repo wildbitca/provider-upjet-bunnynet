@@ -14,184 +14,249 @@ import (
 )
 
 type ActionsInitParameters struct {
+
+	// (String)
 	Parameter1 *string `json:"parameter1,omitempty" tf:"parameter1"`
 
+	// (String)
 	Parameter2 *string `json:"parameter2,omitempty" tf:"parameter2"`
 
+	// (String)
 	Parameter3 *string `json:"parameter3,omitempty" tf:"parameter3"`
 
+	// (String)
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
 type ActionsObservation struct {
+
+	// (String)
 	Parameter1 *string `json:"parameter1,omitempty" tf:"parameter1,omitempty"`
 
+	// (String)
 	Parameter2 *string `json:"parameter2,omitempty" tf:"parameter2,omitempty"`
 
+	// (String)
 	Parameter3 *string `json:"parameter3,omitempty" tf:"parameter3,omitempty"`
 
+	// (String)
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type ActionsParameters struct {
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	Parameter1 *string `json:"parameter1,omitempty" tf:"parameter1"`
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	Parameter2 *string `json:"parameter2,omitempty" tf:"parameter2"`
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	Parameter3 *string `json:"parameter3,omitempty" tf:"parameter3"`
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
 type EdgeruleInitParameters struct {
 
+	// (String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode
 	// Options: `BlockRequest`, `BypassAwsS3Authentication`, `BypassPermaCache`, `DisableOptimizer`, `DisableRequestCoalescing`, `DisableShield`, `DisableShieldAccessLists`, `DisableShieldBotDetection`, `DisableShieldChallenge`, `DisableShieldRateLimiting`, `DisableTokenAuthentication`, `DisableWAF`, `EnableRequestCoalescing`, `EnableTokenAuthentication`, `ForceCompression`, `ForceDownload`, `ForceSSL`, `IgnoreQueryString`, `OriginMagicContainers`, `OriginStorage`, `OriginUrl`, `OverrideBrowserCacheResponseHeader`, `OverrideBrowserCacheTime`, `OverrideCacheTime`, `OverrideCacheTimePublic`, `Redirect`, `RemoveBrowserCacheResponseHeader`, `RetryOrigin`, `RunEdgeScript`, `SetConnectionLimit`, `SetNetworkRateLimit`, `SetRequestHeader`, `SetRequestsPerSecondLimit`, `SetResponseHeader`, `SetStatusCode`
 	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
+	// (String)
 	ActionParameter1 *string `json:"actionParameter1,omitempty" tf:"action_parameter1,omitempty"`
 
+	// (String)
 	ActionParameter2 *string `json:"actionParameter2,omitempty" tf:"action_parameter2,omitempty"`
 
+	// (String)
 	ActionParameter3 *string `json:"actionParameter3,omitempty" tf:"action_parameter3,omitempty"`
 
+	// (List of Object) List of actions for the edge rule. (see below for nested schema)
 	// List of actions for the edge rule.
 	Actions []ActionsInitParameters `json:"actions,omitempty" tf:"actions,omitempty"`
 
+	// (String) The description of the edge rule.
 	// The description of the edge rule.
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// (Boolean) Indicates whether the edge rule is enabled.
 	// Indicates whether the edge rule is enabled.
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
+	// (String) Options: MatchAll, MatchAny, MatchNone
 	// Options: `MatchAll`, `MatchAny`, `MatchNone`
 	MatchType *string `json:"matchType,omitempty" tf:"match_type,omitempty"`
 
+	// (Number) The priority of the edge rule. The lower number is executed first.
 	// The priority of the edge rule. The lower number is executed first.
 	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
+	// (Number)
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (List of Object) (see below for nested schema)
 	Triggers []TriggersInitParameters `json:"triggers,omitempty" tf:"triggers,omitempty"`
 }
 
 type EdgeruleObservation struct {
 
+	// (String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode
 	// Options: `BlockRequest`, `BypassAwsS3Authentication`, `BypassPermaCache`, `DisableOptimizer`, `DisableRequestCoalescing`, `DisableShield`, `DisableShieldAccessLists`, `DisableShieldBotDetection`, `DisableShieldChallenge`, `DisableShieldRateLimiting`, `DisableTokenAuthentication`, `DisableWAF`, `EnableRequestCoalescing`, `EnableTokenAuthentication`, `ForceCompression`, `ForceDownload`, `ForceSSL`, `IgnoreQueryString`, `OriginMagicContainers`, `OriginStorage`, `OriginUrl`, `OverrideBrowserCacheResponseHeader`, `OverrideBrowserCacheTime`, `OverrideCacheTime`, `OverrideCacheTimePublic`, `Redirect`, `RemoveBrowserCacheResponseHeader`, `RetryOrigin`, `RunEdgeScript`, `SetConnectionLimit`, `SetNetworkRateLimit`, `SetRequestHeader`, `SetRequestsPerSecondLimit`, `SetResponseHeader`, `SetStatusCode`
 	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
+	// (String)
 	ActionParameter1 *string `json:"actionParameter1,omitempty" tf:"action_parameter1,omitempty"`
 
+	// (String)
 	ActionParameter2 *string `json:"actionParameter2,omitempty" tf:"action_parameter2,omitempty"`
 
+	// (String)
 	ActionParameter3 *string `json:"actionParameter3,omitempty" tf:"action_parameter3,omitempty"`
 
+	// (List of Object) List of actions for the edge rule. (see below for nested schema)
 	// List of actions for the edge rule.
 	Actions []ActionsObservation `json:"actions,omitempty" tf:"actions,omitempty"`
 
+	// (String) The description of the edge rule.
 	// The description of the edge rule.
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// (Boolean) Indicates whether the edge rule is enabled.
 	// Indicates whether the edge rule is enabled.
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
+	// (String) The unique GUID of the edge rule.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (String) Options: MatchAll, MatchAny, MatchNone
 	// Options: `MatchAll`, `MatchAny`, `MatchNone`
 	MatchType *string `json:"matchType,omitempty" tf:"match_type,omitempty"`
 
+	// (Number) The priority of the edge rule. The lower number is executed first.
 	// The priority of the edge rule. The lower number is executed first.
 	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
+	// (Number)
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (List of Object) (see below for nested schema)
 	Triggers []TriggersObservation `json:"triggers,omitempty" tf:"triggers,omitempty"`
 }
 
 type EdgeruleParameters struct {
 
+	// (String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode
 	// Options: `BlockRequest`, `BypassAwsS3Authentication`, `BypassPermaCache`, `DisableOptimizer`, `DisableRequestCoalescing`, `DisableShield`, `DisableShieldAccessLists`, `DisableShieldBotDetection`, `DisableShieldChallenge`, `DisableShieldRateLimiting`, `DisableTokenAuthentication`, `DisableWAF`, `EnableRequestCoalescing`, `EnableTokenAuthentication`, `ForceCompression`, `ForceDownload`, `ForceSSL`, `IgnoreQueryString`, `OriginMagicContainers`, `OriginStorage`, `OriginUrl`, `OverrideBrowserCacheResponseHeader`, `OverrideBrowserCacheTime`, `OverrideCacheTime`, `OverrideCacheTimePublic`, `Redirect`, `RemoveBrowserCacheResponseHeader`, `RetryOrigin`, `RunEdgeScript`, `SetConnectionLimit`, `SetNetworkRateLimit`, `SetRequestHeader`, `SetRequestsPerSecondLimit`, `SetResponseHeader`, `SetStatusCode`
 	// +kubebuilder:validation:Optional
 	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	ActionParameter1 *string `json:"actionParameter1,omitempty" tf:"action_parameter1,omitempty"`
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	ActionParameter2 *string `json:"actionParameter2,omitempty" tf:"action_parameter2,omitempty"`
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	ActionParameter3 *string `json:"actionParameter3,omitempty" tf:"action_parameter3,omitempty"`
 
+	// (List of Object) List of actions for the edge rule. (see below for nested schema)
 	// List of actions for the edge rule.
 	// +kubebuilder:validation:Optional
 	Actions []ActionsParameters `json:"actions,omitempty" tf:"actions,omitempty"`
 
+	// (String) The description of the edge rule.
 	// The description of the edge rule.
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// (Boolean) Indicates whether the edge rule is enabled.
 	// Indicates whether the edge rule is enabled.
 	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
+	// (String) Options: MatchAll, MatchAny, MatchNone
 	// Options: `MatchAll`, `MatchAny`, `MatchNone`
 	// +kubebuilder:validation:Optional
 	MatchType *string `json:"matchType,omitempty" tf:"match_type,omitempty"`
 
+	// (Number) The priority of the edge rule. The lower number is executed first.
 	// The priority of the edge rule. The lower number is executed first.
 	// +kubebuilder:validation:Optional
 	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
+	// (Number)
 	// +kubebuilder:validation:Optional
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (List of Object) (see below for nested schema)
 	// +kubebuilder:validation:Optional
 	Triggers []TriggersParameters `json:"triggers,omitempty" tf:"triggers,omitempty"`
 }
 
 type TriggersInitParameters struct {
+
+	// (String) Options: MatchAll, MatchAny, MatchNone
 	MatchType *string `json:"matchType,omitempty" tf:"match_type"`
 
+	// (String)
 	Parameter1 *string `json:"parameter1,omitempty" tf:"parameter1"`
 
+	// (String)
 	Parameter2 *string `json:"parameter2,omitempty" tf:"parameter2"`
 
+	// (List of String)
 	Patterns []*string `json:"patterns,omitempty" tf:"patterns"`
 
+	// (String)
 	Type *string `json:"type,omitempty" tf:"type"`
 }
 
 type TriggersObservation struct {
+
+	// (String) Options: MatchAll, MatchAny, MatchNone
 	MatchType *string `json:"matchType,omitempty" tf:"match_type,omitempty"`
 
+	// (String)
 	Parameter1 *string `json:"parameter1,omitempty" tf:"parameter1,omitempty"`
 
+	// (String)
 	Parameter2 *string `json:"parameter2,omitempty" tf:"parameter2,omitempty"`
 
+	// (List of String)
 	Patterns []*string `json:"patterns,omitempty" tf:"patterns,omitempty"`
 
+	// (String)
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type TriggersParameters struct {
 
+	// (String) Options: MatchAll, MatchAny, MatchNone
 	// +kubebuilder:validation:Optional
 	MatchType *string `json:"matchType" tf:"match_type"`
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	Parameter1 *string `json:"parameter1" tf:"parameter1"`
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	Parameter2 *string `json:"parameter2" tf:"parameter2"`
 
+	// (List of String)
 	// +kubebuilder:validation:Optional
 	Patterns []*string `json:"patterns" tf:"patterns"`
 
+	// (String)
 	// +kubebuilder:validation:Optional
 	Type *string `json:"type" tf:"type"`
 }
@@ -223,7 +288,7 @@ type EdgeruleStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Edgerule is the Schema for the Edgerules API. <no value>
+// Edgerule is the Schema for the Edgerules API. This resource manages edge rules for a bunny.net pull zone. It is used to define and configure rules that determine how content is delivered at the edge.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

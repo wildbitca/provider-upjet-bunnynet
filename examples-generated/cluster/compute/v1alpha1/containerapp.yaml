@@ -1,0 +1,55 @@
+apiVersion: compute.upjet-bunnynet.upbound.io/v1alpha1
+kind: ContainerApp
+metadata:
+  annotations:
+    meta.upbound.io/example-id: compute/v1alpha1/containerapp
+  labels:
+    testing.upbound.io/example-name: app
+  name: app
+spec:
+  forProvider:
+    autoscalingMax: 3
+    autoscalingMin: 1
+    container:
+    - endpoint:
+      - cdn:
+        - originSsl: false
+          stickySessions:
+          - headers:
+            - X-Forwarded-For
+        name: app
+        port:
+        - container: 8080
+          protocols:
+          - TCP
+          - UDP
+        type: CDN
+      env:
+      - name: APP_ENV
+        value: prod
+      - name: LISTEN_PORT
+        value: "3000"
+      imageName: my-app
+      imageNamespace: my-org
+      imageRegistry: ${bunnynet_compute_container_imageregistry.github.id}
+      imageTag: 2.12.6
+      name: app
+      volumemount:
+      - name: data
+        path: /data
+    - imageName: my-sidecar
+      imageNamespace: my-org
+      imageRegistry: ${bunnynet_compute_container_imageregistry.github.id}
+      imageTag: 1.3.7
+      name: sidecar
+    name: my-app
+    regionsAllowed:
+    - DE
+    - SG
+    - NY
+    regionsRequired:
+    - DE
+    version: 2
+    volume:
+    - name: data
+      size: 2

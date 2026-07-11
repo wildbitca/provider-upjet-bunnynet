@@ -16,73 +16,92 @@ import (
 
 type AccessListInitParameters struct {
 
+	// (String) Options: Allow, Block, Bypass, Challenge, Log
 	// Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
 	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
+	// (Boolean) Indicated whether the Access List is enabled.
 	// Indicated whether the Access List is enabled.
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
+	// (Set of String) The Access List entries.
 	// The Access List entries.
 	// +listType=set
 	Entries []*string `json:"entries,omitempty" tf:"entries,omitempty"`
 
+	// (String) The Access List name.
 	// The Access List name.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (String) Options: ASN, CIDR, Country, IP, JA4, Organization
 	// Options: `ASN`, `CIDR`, `Country`, `IP`, `JA4`, `Organization`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type AccessListObservation struct {
 
+	// (String) Options: Allow, Block, Bypass, Challenge, Log
 	// Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
 	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
+	// (Boolean) Indicated whether the Access List is enabled.
 	// Indicated whether the Access List is enabled.
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
+	// (Set of String) The Access List entries.
 	// The Access List entries.
 	// +listType=set
 	Entries []*string `json:"entries,omitempty" tf:"entries,omitempty"`
 
+	// (Number) The ID of the Access List.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (String) The Access List name.
 	// The Access List name.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (String) Options: ASN, CIDR, Country, IP, JA4, Organization
 	// Options: `ASN`, `CIDR`, `Country`, `IP`, `JA4`, `Organization`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type AccessListParameters struct {
 
+	// (String) Options: Allow, Block, Bypass, Challenge, Log
 	// Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
 	// +kubebuilder:validation:Optional
 	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
+	// (Boolean) Indicated whether the Access List is enabled.
 	// Indicated whether the Access List is enabled.
 	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
+	// (Set of String) The Access List entries.
 	// The Access List entries.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	Entries []*string `json:"entries,omitempty" tf:"entries,omitempty"`
 
+	// (String) The Access List name.
 	// The Access List name.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
 	// +kubebuilder:validation:Optional
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (String) Options: ASN, CIDR, Country, IP, JA4, Organization
 	// Options: `ASN`, `CIDR`, `Country`, `IP`, `JA4`, `Organization`
 	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
@@ -115,7 +134,7 @@ type AccessListStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// AccessList is the Schema for the AccessLists API. <no value>
+// AccessList is the Schema for the AccessLists API. This resource manages an Access List for a bunny.net pullzone.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

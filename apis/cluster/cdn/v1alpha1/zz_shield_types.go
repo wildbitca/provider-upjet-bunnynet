@@ -15,68 +15,86 @@ import (
 
 type BotDetectionInitParameters struct {
 
+	// session consistency.
 	// Combines advanced entropy analysis and cross-session consistency.
 	ComplexFingerprinting *bool `json:"complexFingerprinting,omitempty" tf:"complex_fingerprinting,omitempty"`
 
+	// (Number) Controls how assertively unusual fingerprints are treated as bots.
 	// Controls how assertively unusual fingerprints are treated as bots.
 	FingerprintAggression *float64 `json:"fingerprintAggression,omitempty" tf:"fingerprint_aggression,omitempty"`
 
+	// (Number) Adjusts how precisely browsers are checked for signs of automation.
 	// Adjusts how precisely browsers are checked for signs of automation.
 	FingerprintSensitivity *float64 `json:"fingerprintSensitivity,omitempty" tf:"fingerprint_sensitivity,omitempty"`
 
+	// (Number) Monitors IP behaviour, reputation, and rate patterns.
 	// Monitors IP behaviour, reputation, and rate patterns.
 	IPSensitivity *float64 `json:"ipSensitivity,omitempty" tf:"ip_sensitivity,omitempty"`
 
+	// (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
 	// Indicates the mode the Bot Detection engine is running. Options: `Challenge`, `Log`
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 
+	// (Number) Analyzes request headers, query structure, and protocol anomalies.
 	// Analyzes request headers, query structure, and protocol anomalies.
 	RequestIntegrity *float64 `json:"requestIntegrity,omitempty" tf:"request_integrity,omitempty"`
 }
 
 type BotDetectionObservation struct {
 
+	// session consistency.
 	// Combines advanced entropy analysis and cross-session consistency.
 	ComplexFingerprinting *bool `json:"complexFingerprinting,omitempty" tf:"complex_fingerprinting,omitempty"`
 
+	// (Number) Controls how assertively unusual fingerprints are treated as bots.
 	// Controls how assertively unusual fingerprints are treated as bots.
 	FingerprintAggression *float64 `json:"fingerprintAggression,omitempty" tf:"fingerprint_aggression,omitempty"`
 
+	// (Number) Adjusts how precisely browsers are checked for signs of automation.
 	// Adjusts how precisely browsers are checked for signs of automation.
 	FingerprintSensitivity *float64 `json:"fingerprintSensitivity,omitempty" tf:"fingerprint_sensitivity,omitempty"`
 
+	// (Number) Monitors IP behaviour, reputation, and rate patterns.
 	// Monitors IP behaviour, reputation, and rate patterns.
 	IPSensitivity *float64 `json:"ipSensitivity,omitempty" tf:"ip_sensitivity,omitempty"`
 
+	// (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
 	// Indicates the mode the Bot Detection engine is running. Options: `Challenge`, `Log`
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 
+	// (Number) Analyzes request headers, query structure, and protocol anomalies.
 	// Analyzes request headers, query structure, and protocol anomalies.
 	RequestIntegrity *float64 `json:"requestIntegrity,omitempty" tf:"request_integrity,omitempty"`
 }
 
 type BotDetectionParameters struct {
 
+	// session consistency.
 	// Combines advanced entropy analysis and cross-session consistency.
 	// +kubebuilder:validation:Optional
 	ComplexFingerprinting *bool `json:"complexFingerprinting,omitempty" tf:"complex_fingerprinting,omitempty"`
 
+	// (Number) Controls how assertively unusual fingerprints are treated as bots.
 	// Controls how assertively unusual fingerprints are treated as bots.
 	// +kubebuilder:validation:Optional
 	FingerprintAggression *float64 `json:"fingerprintAggression,omitempty" tf:"fingerprint_aggression,omitempty"`
 
+	// (Number) Adjusts how precisely browsers are checked for signs of automation.
 	// Adjusts how precisely browsers are checked for signs of automation.
 	// +kubebuilder:validation:Optional
 	FingerprintSensitivity *float64 `json:"fingerprintSensitivity,omitempty" tf:"fingerprint_sensitivity,omitempty"`
 
+	// (Number) Monitors IP behaviour, reputation, and rate patterns.
 	// Monitors IP behaviour, reputation, and rate patterns.
 	// +kubebuilder:validation:Optional
 	IPSensitivity *float64 `json:"ipSensitivity,omitempty" tf:"ip_sensitivity,omitempty"`
 
+	// (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
 	// Indicates the mode the Bot Detection engine is running. Options: `Challenge`, `Log`
 	// +kubebuilder:validation:Optional
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 
+	// (Number) Analyzes request headers, query structure, and protocol anomalies.
 	// Analyzes request headers, query structure, and protocol anomalies.
 	// +kubebuilder:validation:Optional
 	RequestIntegrity *float64 `json:"requestIntegrity,omitempty" tf:"request_integrity,omitempty"`
@@ -84,38 +102,47 @@ type BotDetectionParameters struct {
 
 type DdosInitParameters struct {
 
+	// (Number) The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
 	// The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
 	ChallengeWindow *float64 `json:"challengeWindow,omitempty" tf:"challenge_window,omitempty"`
 
+	// (String) Options: Asleep, Extreme, High, Low, Medium
 	// Options: `Asleep`, `Extreme`, `High`, `Low`, `Medium`
 	Level *string `json:"level,omitempty" tf:"level,omitempty"`
 
+	// (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
 	// Indicates the mode the engine is running. Options: `Block`, `Log`
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 }
 
 type DdosObservation struct {
 
+	// (Number) The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
 	// The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
 	ChallengeWindow *float64 `json:"challengeWindow,omitempty" tf:"challenge_window,omitempty"`
 
+	// (String) Options: Asleep, Extreme, High, Low, Medium
 	// Options: `Asleep`, `Extreme`, `High`, `Low`, `Medium`
 	Level *string `json:"level,omitempty" tf:"level,omitempty"`
 
+	// (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
 	// Indicates the mode the engine is running. Options: `Block`, `Log`
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 }
 
 type DdosParameters struct {
 
+	// (Number) The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
 	// The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
 	// +kubebuilder:validation:Optional
 	ChallengeWindow *float64 `json:"challengeWindow,omitempty" tf:"challenge_window,omitempty"`
 
+	// (String) Options: Asleep, Extreme, High, Low, Medium
 	// Options: `Asleep`, `Extreme`, `High`, `Low`, `Medium`
 	// +kubebuilder:validation:Optional
 	Level *string `json:"level" tf:"level,omitempty"`
 
+	// (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
 	// Indicates the mode the engine is running. Options: `Block`, `Log`
 	// +kubebuilder:validation:Optional
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
@@ -123,90 +150,116 @@ type DdosParameters struct {
 
 type ShieldAccessListInitParameters struct {
 
+	// (String) Options: Allow, Block, Bypass, Challenge, Log
 	// Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
 	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
+	// (Number) The ID of the Bunny Shield.
 	// The ID of the Access List.
 	ID *float64 `json:"id,omitempty" tf:"id,omitempty"`
 }
 
 type ShieldAccessListObservation struct {
 
+	// (String) Options: Allow, Block, Bypass, Challenge, Log
 	// Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
 	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
+	// (Number) The ID of the Bunny Shield.
 	// The ID of the Access List.
 	ID *float64 `json:"id,omitempty" tf:"id,omitempty"`
 }
 
 type ShieldAccessListParameters struct {
 
+	// (String) Options: Allow, Block, Bypass, Challenge, Log
 	// Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
 	// +kubebuilder:validation:Optional
 	Action *string `json:"action" tf:"action,omitempty"`
 
+	// (Number) The ID of the Bunny Shield.
 	// The ID of the Access List.
 	// +kubebuilder:validation:Optional
 	ID *float64 `json:"id" tf:"id,omitempty"`
 }
 
 type ShieldInitParameters struct {
+
+	// (Block Set) (see below for nested schema)
 	AccessList []ShieldAccessListInitParameters `json:"accessList,omitempty" tf:"access_list,omitempty"`
 
+	// (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
 	// Configures Bot Detection settings.
 	BotDetection []BotDetectionInitParameters `json:"botDetection,omitempty" tf:"bot_detection,omitempty"`
 
+	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (String) Options: Advanced, Basic, Business, Enterprise
 	// Options: `Advanced`, `Basic`, `Business`, `Enterprise`
 	Tier *string `json:"tier,omitempty" tf:"tier,omitempty"`
 
+	// labelled experience.
 	// Replace our bunny.net branded block and challenge pages with a white-labelled experience.
 	Whitelabel *bool `json:"whitelabel,omitempty" tf:"whitelabel,omitempty"`
 }
 
 type ShieldObservation struct {
+
+	// (Block Set) (see below for nested schema)
 	AccessList []ShieldAccessListObservation `json:"accessList,omitempty" tf:"access_list,omitempty"`
 
+	// (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
 	// Configures Bot Detection settings.
 	BotDetection []BotDetectionObservation `json:"botDetection,omitempty" tf:"bot_detection,omitempty"`
 
+	// (Block, Optional) Configures DDoS settings. (see below for nested schema)
 	// Configures DDoS settings.
 	Ddos []DdosObservation `json:"ddos,omitempty" tf:"ddos,omitempty"`
 
+	// (Number) The ID of the Bunny Shield.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (String) Options: Advanced, Basic, Business, Enterprise
 	// Options: `Advanced`, `Basic`, `Business`, `Enterprise`
 	Tier *string `json:"tier,omitempty" tf:"tier,omitempty"`
 
+	// (Block, Optional) Configures WAF settings. (see below for nested schema)
 	// Configures WAF settings.
 	Waf []WafObservation `json:"waf,omitempty" tf:"waf,omitempty"`
 
+	// labelled experience.
 	// Replace our bunny.net branded block and challenge pages with a white-labelled experience.
 	Whitelabel *bool `json:"whitelabel,omitempty" tf:"whitelabel,omitempty"`
 }
 
 type ShieldParameters struct {
 
+	// (Block Set) (see below for nested schema)
 	// +kubebuilder:validation:Optional
 	AccessList []ShieldAccessListParameters `json:"accessList,omitempty" tf:"access_list,omitempty"`
 
+	// (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
 	// Configures Bot Detection settings.
 	// +kubebuilder:validation:Optional
 	BotDetection []BotDetectionParameters `json:"botDetection,omitempty" tf:"bot_detection,omitempty"`
 
+	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
 	// +kubebuilder:validation:Optional
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (String) Options: Advanced, Basic, Business, Enterprise
 	// Options: `Advanced`, `Basic`, `Business`, `Enterprise`
 	// +kubebuilder:validation:Optional
 	Tier *string `json:"tier,omitempty" tf:"tier,omitempty"`
 
+	// labelled experience.
 	// Replace our bunny.net branded block and challenge pages with a white-labelled experience.
 	// +kubebuilder:validation:Optional
 	Whitelabel *bool `json:"whitelabel,omitempty" tf:"whitelabel,omitempty"`
@@ -214,53 +267,68 @@ type ShieldParameters struct {
 
 type WafInitParameters struct {
 
+	// (Set of String) Indicates allowed HTTP methods.
 	// Indicates allowed HTTP methods.
 	// +listType=set
 	AllowedHTTPMethods []*string `json:"allowedHttpMethods,omitempty" tf:"allowed_http_methods,omitempty"`
 
+	// (Set of String) Indicates allowed HTTP versions.
 	// Indicates allowed HTTP versions.
 	// +listType=set
 	AllowedHTTPVersions []*string `json:"allowedHttpVersions,omitempty" tf:"allowed_http_versions,omitempty"`
 
+	// Type.
 	// Indicates allowed values for request Content-Type.
 	// +listType=set
 	AllowedRequestContentTypes []*string `json:"allowedRequestContentTypes,omitempty" tf:"allowed_request_content_types,omitempty"`
 
+	// (Number) Determines which severity level of rules will block requests.
 	// Determines which severity level of rules will block requests.
 	BlockingSensitivity *float64 `json:"blockingSensitivity,omitempty" tf:"blocking_sensitivity,omitempty"`
 
+	// (String) Determines the action to take when the request body length exceeds your plan limit. Options: Block, Ignore, Log
 	// Determines the action to take when the request body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
 	BodyLimitRequest *string `json:"bodyLimitRequest,omitempty" tf:"body_limit_request,omitempty"`
 
+	// (String) Determines the action to take when the response body length exceeds your plan limit. Options: Block, Ignore, Log
 	// Determines the action to take when the response body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
 	BodyLimitResponse *string `json:"bodyLimitResponse,omitempty" tf:"body_limit_response,omitempty"`
 
+	// (Number) Determines which severity level of rules will trigger a detection log.
 	// Determines which severity level of rules will trigger a detection log.
 	DetectionSensitivity *float64 `json:"detectionSensitivity,omitempty" tf:"detection_sensitivity,omitempty"`
 
+	// (Boolean) Indicates whether the WAF (Web Application Firewall) is enabled.
 	// Indicates whether the WAF (Web Application Firewall) is enabled.
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
+	// (Number) Determines which severity level of rules will trigger the rules and their action.
 	// Determines which severity level of rules will trigger the rules and their action.
 	ExecutionSensitivity *float64 `json:"executionSensitivity,omitempty" tf:"execution_sensitivity,omitempty"`
 
+	// (Boolean) When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
 	// When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
 	LogHeaders *bool `json:"logHeaders,omitempty" tf:"log_headers,omitempty"`
 
+	// (Set of String) The list of headers excluded from the logs. They will still be used for processing WAF rules.
 	// The list of headers excluded from the logs. They will still be used for processing WAF rules.
 	// +listType=set
 	LogHeadersExcluded []*string `json:"logHeadersExcluded,omitempty" tf:"log_headers_excluded,omitempty"`
 
+	// (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
 	// Indicates the mode the engine is running. Options: `Block`, `Log`
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 
+	// time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
 	// Real-time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
 	RealtimeThreatIntelligence *bool `json:"realtimeThreatIntelligence,omitempty" tf:"realtime_threat_intelligence,omitempty"`
 
+	// (Set of String) List of disabled WAF rules.
 	// List of disabled WAF rules.
 	// +listType=set
 	RulesDisabled []*string `json:"rulesDisabled,omitempty" tf:"rules_disabled,omitempty"`
 
+	// (Set of String) List of WAF rules that will not be blocked, but will be logged when triggered.
 	// List of WAF rules that will not be blocked, but will be logged when triggered.
 	// +listType=set
 	RulesLogonly []*string `json:"rulesLogonly,omitempty" tf:"rules_logonly,omitempty"`
@@ -268,53 +336,68 @@ type WafInitParameters struct {
 
 type WafObservation struct {
 
+	// (Set of String) Indicates allowed HTTP methods.
 	// Indicates allowed HTTP methods.
 	// +listType=set
 	AllowedHTTPMethods []*string `json:"allowedHttpMethods,omitempty" tf:"allowed_http_methods,omitempty"`
 
+	// (Set of String) Indicates allowed HTTP versions.
 	// Indicates allowed HTTP versions.
 	// +listType=set
 	AllowedHTTPVersions []*string `json:"allowedHttpVersions,omitempty" tf:"allowed_http_versions,omitempty"`
 
+	// Type.
 	// Indicates allowed values for request Content-Type.
 	// +listType=set
 	AllowedRequestContentTypes []*string `json:"allowedRequestContentTypes,omitempty" tf:"allowed_request_content_types,omitempty"`
 
+	// (Number) Determines which severity level of rules will block requests.
 	// Determines which severity level of rules will block requests.
 	BlockingSensitivity *float64 `json:"blockingSensitivity,omitempty" tf:"blocking_sensitivity,omitempty"`
 
+	// (String) Determines the action to take when the request body length exceeds your plan limit. Options: Block, Ignore, Log
 	// Determines the action to take when the request body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
 	BodyLimitRequest *string `json:"bodyLimitRequest,omitempty" tf:"body_limit_request,omitempty"`
 
+	// (String) Determines the action to take when the response body length exceeds your plan limit. Options: Block, Ignore, Log
 	// Determines the action to take when the response body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
 	BodyLimitResponse *string `json:"bodyLimitResponse,omitempty" tf:"body_limit_response,omitempty"`
 
+	// (Number) Determines which severity level of rules will trigger a detection log.
 	// Determines which severity level of rules will trigger a detection log.
 	DetectionSensitivity *float64 `json:"detectionSensitivity,omitempty" tf:"detection_sensitivity,omitempty"`
 
+	// (Boolean) Indicates whether the WAF (Web Application Firewall) is enabled.
 	// Indicates whether the WAF (Web Application Firewall) is enabled.
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
+	// (Number) Determines which severity level of rules will trigger the rules and their action.
 	// Determines which severity level of rules will trigger the rules and their action.
 	ExecutionSensitivity *float64 `json:"executionSensitivity,omitempty" tf:"execution_sensitivity,omitempty"`
 
+	// (Boolean) When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
 	// When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
 	LogHeaders *bool `json:"logHeaders,omitempty" tf:"log_headers,omitempty"`
 
+	// (Set of String) The list of headers excluded from the logs. They will still be used for processing WAF rules.
 	// The list of headers excluded from the logs. They will still be used for processing WAF rules.
 	// +listType=set
 	LogHeadersExcluded []*string `json:"logHeadersExcluded,omitempty" tf:"log_headers_excluded,omitempty"`
 
+	// (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
 	// Indicates the mode the engine is running. Options: `Block`, `Log`
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 
+	// time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
 	// Real-time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
 	RealtimeThreatIntelligence *bool `json:"realtimeThreatIntelligence,omitempty" tf:"realtime_threat_intelligence,omitempty"`
 
+	// (Set of String) List of disabled WAF rules.
 	// List of disabled WAF rules.
 	// +listType=set
 	RulesDisabled []*string `json:"rulesDisabled,omitempty" tf:"rules_disabled,omitempty"`
 
+	// (Set of String) List of WAF rules that will not be blocked, but will be logged when triggered.
 	// List of WAF rules that will not be blocked, but will be logged when triggered.
 	// +listType=set
 	RulesLogonly []*string `json:"rulesLogonly,omitempty" tf:"rules_logonly,omitempty"`
@@ -322,67 +405,82 @@ type WafObservation struct {
 
 type WafParameters struct {
 
+	// (Set of String) Indicates allowed HTTP methods.
 	// Indicates allowed HTTP methods.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	AllowedHTTPMethods []*string `json:"allowedHttpMethods,omitempty" tf:"allowed_http_methods,omitempty"`
 
+	// (Set of String) Indicates allowed HTTP versions.
 	// Indicates allowed HTTP versions.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	AllowedHTTPVersions []*string `json:"allowedHttpVersions,omitempty" tf:"allowed_http_versions,omitempty"`
 
+	// Type.
 	// Indicates allowed values for request Content-Type.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	AllowedRequestContentTypes []*string `json:"allowedRequestContentTypes,omitempty" tf:"allowed_request_content_types,omitempty"`
 
+	// (Number) Determines which severity level of rules will block requests.
 	// Determines which severity level of rules will block requests.
 	// +kubebuilder:validation:Optional
 	BlockingSensitivity *float64 `json:"blockingSensitivity,omitempty" tf:"blocking_sensitivity,omitempty"`
 
+	// (String) Determines the action to take when the request body length exceeds your plan limit. Options: Block, Ignore, Log
 	// Determines the action to take when the request body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
 	// +kubebuilder:validation:Optional
 	BodyLimitRequest *string `json:"bodyLimitRequest,omitempty" tf:"body_limit_request,omitempty"`
 
+	// (String) Determines the action to take when the response body length exceeds your plan limit. Options: Block, Ignore, Log
 	// Determines the action to take when the response body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
 	// +kubebuilder:validation:Optional
 	BodyLimitResponse *string `json:"bodyLimitResponse,omitempty" tf:"body_limit_response,omitempty"`
 
+	// (Number) Determines which severity level of rules will trigger a detection log.
 	// Determines which severity level of rules will trigger a detection log.
 	// +kubebuilder:validation:Optional
 	DetectionSensitivity *float64 `json:"detectionSensitivity,omitempty" tf:"detection_sensitivity,omitempty"`
 
+	// (Boolean) Indicates whether the WAF (Web Application Firewall) is enabled.
 	// Indicates whether the WAF (Web Application Firewall) is enabled.
 	// +kubebuilder:validation:Optional
 	Enabled *bool `json:"enabled" tf:"enabled,omitempty"`
 
+	// (Number) Determines which severity level of rules will trigger the rules and their action.
 	// Determines which severity level of rules will trigger the rules and their action.
 	// +kubebuilder:validation:Optional
 	ExecutionSensitivity *float64 `json:"executionSensitivity,omitempty" tf:"execution_sensitivity,omitempty"`
 
+	// (Boolean) When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
 	// When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
 	// +kubebuilder:validation:Optional
 	LogHeaders *bool `json:"logHeaders,omitempty" tf:"log_headers,omitempty"`
 
+	// (Set of String) The list of headers excluded from the logs. They will still be used for processing WAF rules.
 	// The list of headers excluded from the logs. They will still be used for processing WAF rules.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	LogHeadersExcluded []*string `json:"logHeadersExcluded,omitempty" tf:"log_headers_excluded,omitempty"`
 
+	// (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
 	// Indicates the mode the engine is running. Options: `Block`, `Log`
 	// +kubebuilder:validation:Optional
 	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 
+	// time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
 	// Real-time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
 	// +kubebuilder:validation:Optional
 	RealtimeThreatIntelligence *bool `json:"realtimeThreatIntelligence,omitempty" tf:"realtime_threat_intelligence,omitempty"`
 
+	// (Set of String) List of disabled WAF rules.
 	// List of disabled WAF rules.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	RulesDisabled []*string `json:"rulesDisabled,omitempty" tf:"rules_disabled,omitempty"`
 
+	// (Set of String) List of WAF rules that will not be blocked, but will be logged when triggered.
 	// List of WAF rules that will not be blocked, but will be logged when triggered.
 	// +kubebuilder:validation:Optional
 	// +listType=set
@@ -416,7 +514,7 @@ type ShieldStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Shield is the Schema for the Shields API. <no value>
+// Shield is the Schema for the Shields API. This resource manages Bunny Shield for a bunny.net pullzone.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

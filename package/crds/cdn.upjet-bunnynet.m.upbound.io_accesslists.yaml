@@ -34,7 +34,8 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: AccessList is the Schema for the AccessLists API. <no value>
+        description: AccessList is the Schema for the AccessLists API. This resource
+          manages an Access List for a bunny.net pullzone.
         properties:
           apiVersion:
             description: |-
@@ -59,27 +60,37 @@ spec:
               forProvider:
                 properties:
                   action:
-                    description: 'Options: `Allow`, `Block`, `Bypass`, `Challenge`,
-                      `Log`'
+                    description: |-
+                      (String) Options: Allow, Block, Bypass, Challenge, Log
+                      Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
                     type: string
                   enabled:
-                    description: Indicated whether the Access List is enabled.
+                    description: |-
+                      (Boolean) Indicated whether the Access List is enabled.
+                      Indicated whether the Access List is enabled.
                     type: boolean
                   entries:
-                    description: The Access List entries.
+                    description: |-
+                      (Set of String) The Access List entries.
+                      The Access List entries.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   name:
-                    description: The Access List name.
+                    description: |-
+                      (String) The Access List name.
+                      The Access List name.
                     type: string
                   pullzone:
-                    description: The ID of the linked pullzone.
+                    description: |-
+                      (Number) The ID of the linked pullzone.
+                      The ID of the linked pullzone.
                     type: number
                   type:
-                    description: 'Options: `ASN`, `CIDR`, `Country`, `IP`, `JA4`,
-                      `Organization`'
+                    description: |-
+                      (String) Options: ASN, CIDR, Country, IP, JA4, Organization
+                      Options: `ASN`, `CIDR`, `Country`, `IP`, `JA4`, `Organization`
                     type: string
                 type: object
               initProvider:
@@ -96,27 +107,37 @@ spec:
                   autoscaler.
                 properties:
                   action:
-                    description: 'Options: `Allow`, `Block`, `Bypass`, `Challenge`,
-                      `Log`'
+                    description: |-
+                      (String) Options: Allow, Block, Bypass, Challenge, Log
+                      Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
                     type: string
                   enabled:
-                    description: Indicated whether the Access List is enabled.
+                    description: |-
+                      (Boolean) Indicated whether the Access List is enabled.
+                      Indicated whether the Access List is enabled.
                     type: boolean
                   entries:
-                    description: The Access List entries.
+                    description: |-
+                      (Set of String) The Access List entries.
+                      The Access List entries.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   name:
-                    description: The Access List name.
+                    description: |-
+                      (String) The Access List name.
+                      The Access List name.
                     type: string
                   pullzone:
-                    description: The ID of the linked pullzone.
+                    description: |-
+                      (Number) The ID of the linked pullzone.
+                      The ID of the linked pullzone.
                     type: number
                   type:
-                    description: 'Options: `ASN`, `CIDR`, `Country`, `IP`, `JA4`,
-                      `Organization`'
+                    description: |-
+                      (String) Options: ASN, CIDR, Country, IP, JA4, Organization
+                      Options: `ASN`, `CIDR`, `Country`, `IP`, `JA4`, `Organization`
                     type: string
                 type: object
               managementPolicies:
@@ -204,29 +225,40 @@ spec:
               atProvider:
                 properties:
                   action:
-                    description: 'Options: `Allow`, `Block`, `Bypass`, `Challenge`,
-                      `Log`'
+                    description: |-
+                      (String) Options: Allow, Block, Bypass, Challenge, Log
+                      Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
                     type: string
                   enabled:
-                    description: Indicated whether the Access List is enabled.
+                    description: |-
+                      (Boolean) Indicated whether the Access List is enabled.
+                      Indicated whether the Access List is enabled.
                     type: boolean
                   entries:
-                    description: The Access List entries.
+                    description: |-
+                      (Set of String) The Access List entries.
+                      The Access List entries.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   id:
+                    description: (Number) The ID of the Access List.
                     type: string
                   name:
-                    description: The Access List name.
+                    description: |-
+                      (String) The Access List name.
+                      The Access List name.
                     type: string
                   pullzone:
-                    description: The ID of the linked pullzone.
+                    description: |-
+                      (Number) The ID of the linked pullzone.
+                      The ID of the linked pullzone.
                     type: number
                   type:
-                    description: 'Options: `ASN`, `CIDR`, `Country`, `IP`, `JA4`,
-                      `Organization`'
+                    description: |-
+                      (String) Options: ASN, CIDR, Country, IP, JA4, Organization
+                      Options: `ASN`, `CIDR`, `Country`, `IP`, `JA4`, `Organization`
                     type: string
                 type: object
               conditions:

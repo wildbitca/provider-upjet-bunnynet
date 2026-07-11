@@ -1,0 +1,16 @@
+apiVersion: cdn.upjet-bunnynet.m.upbound.io/v1alpha1
+kind: OptimizerClass
+metadata:
+  annotations:
+    meta.upbound.io/example-id: cdn/v1alpha1/optimizerclass
+  labels:
+    testing.upbound.io/example-name: thumbnail
+  name: thumbnail
+  namespace: crossplane-system
+spec:
+  forProvider:
+    brightness: 15
+    height: 300
+    name: thumbnail
+    pullzone: ${bunnynet_pullzone.example.id}
+    width: 200

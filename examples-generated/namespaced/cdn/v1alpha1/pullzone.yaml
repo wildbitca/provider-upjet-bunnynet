@@ -1,0 +1,14 @@
+apiVersion: cdn.upjet-bunnynet.m.upbound.io/v1alpha1
+kind: Pullzone
+metadata:
+  annotations:
+    meta.upbound.io/example-id: cdn/v1alpha1/pullzone
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+  namespace: crossplane-system
+spec:
+  forProvider:
+    name: my-website
+    routing:
+    - tier: Standard

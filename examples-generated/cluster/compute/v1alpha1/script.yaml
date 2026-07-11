@@ -1,0 +1,18 @@
+apiVersion: compute.upjet-bunnynet.upbound.io/v1alpha1
+kind: Script
+metadata:
+  annotations:
+    meta.upbound.io/example-id: compute/v1alpha1/script
+  labels:
+    testing.upbound.io/example-name: test
+  name: test
+spec:
+  forProvider:
+    content: |
+      import * as BunnySDK from "https://esm.sh/@bunny.net/edgescript-sdk@0.10.0";
+
+      BunnySDK.net.http.serve(async (request: Request): Response | Promise<Response> => {
+          return new Response('<h1>Hello world!</h1>', {headers: {"Content-Type": "text/html"}});
+      });
+    name: test
+    type: standalone

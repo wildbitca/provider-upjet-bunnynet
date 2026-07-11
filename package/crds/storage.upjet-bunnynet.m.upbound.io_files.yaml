@@ -34,7 +34,9 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: File is the Schema for the Files API. <no value>
+        description: File is the Schema for the Files API. This resource manages files
+          in a bunny.net storage zone. It is used to upload, update, and delete files
+          within a storage zone.
         properties:
           apiVersion:
             description: |-
@@ -59,22 +61,29 @@ spec:
               forProvider:
                 properties:
                   content:
-                    description: The to be stored in the file. Use <code>source</code>
-                      to upload files from the local disk.
+                    description: |-
+                      (String) The to be stored in the file. Use source to upload files from the local disk.
+                      The to be stored in the file. Use <code>source</code> to upload files from the local disk.
                     type: string
                   contentType:
-                    description: Specifies the content type of the file.
+                    description: |-
+                      (String) Specifies the content type of the file.
+                      Specifies the content type of the file.
                     type: string
                   path:
-                    description: The path of the file within the storage zone.
+                    description: |-
+                      (String) The path of the file within the storage zone.
+                      The path of the file within the storage zone.
                     type: string
                   source:
-                    description: The path in the local disk for the file to be uploaded
-                      to the storage zone. Use <code>content</code> to define the
-                      content directly.
+                    description: |-
+                      (String) The path in the local disk for the file to be uploaded to the storage zone. Use content to define the content directly.
+                      The path in the local disk for the file to be uploaded to the storage zone. Use <code>content</code> to define the content directly.
                     type: string
                   zone:
-                    description: The ID of the storage zone where the file is stored.
+                    description: |-
+                      (Number) The ID of the storage zone where the file is stored.
+                      The ID of the storage zone where the file is stored.
                     type: number
                 type: object
               initProvider:
@@ -91,22 +100,29 @@ spec:
                   autoscaler.
                 properties:
                   content:
-                    description: The to be stored in the file. Use <code>source</code>
-                      to upload files from the local disk.
+                    description: |-
+                      (String) The to be stored in the file. Use source to upload files from the local disk.
+                      The to be stored in the file. Use <code>source</code> to upload files from the local disk.
                     type: string
                   contentType:
-                    description: Specifies the content type of the file.
+                    description: |-
+                      (String) Specifies the content type of the file.
+                      Specifies the content type of the file.
                     type: string
                   path:
-                    description: The path of the file within the storage zone.
+                    description: |-
+                      (String) The path of the file within the storage zone.
+                      The path of the file within the storage zone.
                     type: string
                   source:
-                    description: The path in the local disk for the file to be uploaded
-                      to the storage zone. Use <code>content</code> to define the
-                      content directly.
+                    description: |-
+                      (String) The path in the local disk for the file to be uploaded to the storage zone. Use content to define the content directly.
+                      The path in the local disk for the file to be uploaded to the storage zone. Use <code>content</code> to define the content directly.
                     type: string
                   zone:
-                    description: The ID of the storage zone where the file is stored.
+                    description: |-
+                      (Number) The ID of the storage zone where the file is stored.
+                      The ID of the storage zone where the file is stored.
                     type: number
                 type: object
               managementPolicies:
@@ -182,36 +198,52 @@ spec:
               atProvider:
                 properties:
                   checksum:
-                    description: The SHA-256 hash of the stored file.
+                    description: |-
+                      256 hash of the stored file.
+                      The SHA-256 hash of the stored file.
                     type: string
                   content:
-                    description: The to be stored in the file. Use <code>source</code>
-                      to upload files from the local disk.
+                    description: |-
+                      (String) The to be stored in the file. Use source to upload files from the local disk.
+                      The to be stored in the file. Use <code>source</code> to upload files from the local disk.
                     type: string
                   contentType:
-                    description: Specifies the content type of the file.
+                    description: |-
+                      (String) Specifies the content type of the file.
+                      Specifies the content type of the file.
                     type: string
                   dateCreated:
-                    description: The date and time when the file was created.
+                    description: |-
+                      (String) The date and time when the file was created.
+                      The date and time when the file was created.
                     type: string
                   dateModified:
-                    description: The date and time when the file was last modified.
+                    description: |-
+                      (String) The date and time when the file was last modified.
+                      The date and time when the file was last modified.
                     type: string
                   id:
+                    description: (String) The unique identifier for the file.
                     type: string
                   path:
-                    description: The path of the file within the storage zone.
+                    description: |-
+                      (String) The path of the file within the storage zone.
+                      The path of the file within the storage zone.
                     type: string
                   size:
-                    description: The size of the file in bytes.
+                    description: |-
+                      (Number) The size of the file in bytes.
+                      The size of the file in bytes.
                     type: number
                   source:
-                    description: The path in the local disk for the file to be uploaded
-                      to the storage zone. Use <code>content</code> to define the
-                      content directly.
+                    description: |-
+                      (String) The path in the local disk for the file to be uploaded to the storage zone. Use content to define the content directly.
+                      The path in the local disk for the file to be uploaded to the storage zone. Use <code>content</code> to define the content directly.
                     type: string
                   zone:
-                    description: The ID of the storage zone where the file is stored.
+                    description: |-
+                      (Number) The ID of the storage zone where the file is stored.
+                      The ID of the storage zone where the file is stored.
                     type: number
                 type: object
               conditions:

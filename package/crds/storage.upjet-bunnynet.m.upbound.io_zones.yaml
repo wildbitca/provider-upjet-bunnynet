@@ -34,7 +34,8 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Zone is the Schema for the Zones API. <no value>
+        description: Zone is the Schema for the Zones API. This resource manages a
+          bunny.net storage zone. It is used to create and manage storage zones.
         properties:
           apiVersion:
             description: |-
@@ -59,28 +60,42 @@ spec:
               forProvider:
                 properties:
                   custom404FilePath:
-                    description: The file path for a custom 404 error page.
+                    description: |-
+                      (String) The file path for a custom 404 error page.
+                      The file path for a custom 404 error page.
                     type: string
                   name:
-                    description: The name of the storage zone.
+                    description: |-
+                      (String) The name of the storage zone.
+                      The name of the storage zone.
                     type: string
                   region:
-                    description: The region where the storage zone is located.
+                    description: |-
+                      (String) The region where the storage zone is located.
+                      The region where the storage zone is located.
                     type: string
                   replicationRegions:
-                    description: A set of regions for data replication.
+                    description: |-
+                      (Set of String) A set of regions for data replication.
+                      A set of regions for data replication.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   rewrite404To200:
-                    description: Indicates whether to rewrite 404 errors to 200 status.
+                    description: |-
+                      (Boolean) Indicates whether to rewrite 404 errors to 200 status.
+                      Indicates whether to rewrite 404 errors to 200 status.
                     type: boolean
                   type:
-                    description: 'Options: `S3`, `Standard`'
+                    description: |-
+                      (String) Options: S3, Standard
+                      Options: `S3`, `Standard`
                     type: string
                   zoneTier:
-                    description: 'Options: `Edge`, `Standard`'
+                    description: |-
+                      (String) Options: Edge, Standard
+                      Options: `Edge`, `Standard`
                     type: string
                 type: object
               initProvider:
@@ -97,28 +112,42 @@ spec:
                   autoscaler.
                 properties:
                   custom404FilePath:
-                    description: The file path for a custom 404 error page.
+                    description: |-
+                      (String) The file path for a custom 404 error page.
+                      The file path for a custom 404 error page.
                     type: string
                   name:
-                    description: The name of the storage zone.
+                    description: |-
+                      (String) The name of the storage zone.
+                      The name of the storage zone.
                     type: string
                   region:
-                    description: The region where the storage zone is located.
+                    description: |-
+                      (String) The region where the storage zone is located.
+                      The region where the storage zone is located.
                     type: string
                   replicationRegions:
-                    description: A set of regions for data replication.
+                    description: |-
+                      (Set of String) A set of regions for data replication.
+                      A set of regions for data replication.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   rewrite404To200:
-                    description: Indicates whether to rewrite 404 errors to 200 status.
+                    description: |-
+                      (Boolean) Indicates whether to rewrite 404 errors to 200 status.
+                      Indicates whether to rewrite 404 errors to 200 status.
                     type: boolean
                   type:
-                    description: 'Options: `S3`, `Standard`'
+                    description: |-
+                      (String) Options: S3, Standard
+                      Options: `S3`, `Standard`
                     type: string
                   zoneTier:
-                    description: 'Options: `Edge`, `Standard`'
+                    description: |-
+                      (String) Options: Edge, Standard
+                      Options: `Edge`, `Standard`
                     type: string
                 type: object
               managementPolicies:
@@ -198,36 +227,55 @@ spec:
               atProvider:
                 properties:
                   custom404FilePath:
-                    description: The file path for a custom 404 error page.
+                    description: |-
+                      (String) The file path for a custom 404 error page.
+                      The file path for a custom 404 error page.
                     type: string
                   dateModified:
-                    description: The date when the zone was last modified.
+                    description: |-
+                      (String) The date when the zone was last modified.
+                      The date when the zone was last modified.
                     type: string
                   hostname:
-                    description: The hostname for accessing the storage zone.
+                    description: |-
+                      (String) The hostname for accessing the storage zone.
+                      The hostname for accessing the storage zone.
                     type: string
                   id:
+                    description: (Number) The ID of the storage zone.
                     type: string
                   name:
-                    description: The name of the storage zone.
+                    description: |-
+                      (String) The name of the storage zone.
+                      The name of the storage zone.
                     type: string
                   region:
-                    description: The region where the storage zone is located.
+                    description: |-
+                      (String) The region where the storage zone is located.
+                      The region where the storage zone is located.
                     type: string
                   replicationRegions:
-                    description: A set of regions for data replication.
+                    description: |-
+                      (Set of String) A set of regions for data replication.
+                      A set of regions for data replication.
                     items:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
                   rewrite404To200:
-                    description: Indicates whether to rewrite 404 errors to 200 status.
+                    description: |-
+                      (Boolean) Indicates whether to rewrite 404 errors to 200 status.
+                      Indicates whether to rewrite 404 errors to 200 status.
                     type: boolean
                   type:
-                    description: 'Options: `S3`, `Standard`'
+                    description: |-
+                      (String) Options: S3, Standard
+                      Options: `S3`, `Standard`
                     type: string
                   zoneTier:
-                    description: 'Options: `Edge`, `Standard`'
+                    description: |-
+                      (String) Options: Edge, Standard
+                      Options: `Edge`, `Standard`
                     type: string
                 type: object
               conditions:

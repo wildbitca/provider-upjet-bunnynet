@@ -1,0 +1,16 @@
+apiVersion: compute.upjet-bunnynet.m.upbound.io/v1alpha1
+kind: ContainerImageregistry
+metadata:
+  annotations:
+    meta.upbound.io/example-id: compute/v1alpha1/containerimageregistry
+  labels:
+    testing.upbound.io/example-name: github
+  name: github
+  namespace: crossplane-system
+spec:
+  forProvider:
+    registry: GitHub
+    tokenSecretRef:
+      key: example-key
+      name: example-secret
+    username: my-github-username

@@ -1,0 +1,27 @@
+apiVersion: cdn.upjet-bunnynet.m.upbound.io/v1alpha1
+kind: Edgerule
+metadata:
+  annotations:
+    meta.upbound.io/example-id: cdn/v1alpha1/edgerule
+  labels:
+    testing.upbound.io/example-name: redirect_admin
+  name: redirect-admin
+  namespace: crossplane-system
+spec:
+  forProvider:
+    actions:
+    - parameter1: https://www.example.com
+      parameter2: "302"
+      parameter3: null
+      type: Redirect
+    description: Redirect to homepage
+    enabled: true
+    matchType: MatchAny
+    pullzone: ${bunnynet_pullzone.example.id}
+    triggers:
+    - matchType: MatchAny
+      parameter1: null
+      parameter2: null
+      patterns:
+      - https://cdn.example.com/wp-admin/*
+      type: Url

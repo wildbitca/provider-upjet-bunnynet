@@ -1,0 +1,20 @@
+apiVersion: compute.upjet-bunnynet.m.upbound.io/v1alpha1
+kind: Database
+metadata:
+  annotations:
+    meta.upbound.io/example-id: compute/v1alpha1/database
+  labels:
+    testing.upbound.io/example-name: test
+  name: test
+  namespace: crossplane-system
+spec:
+  forProvider:
+    name: mydb
+    regionsPrimary:
+    - DE
+    - NY
+    - SG
+    regionsReplica:
+    - LA
+    - UK
+    - SYD

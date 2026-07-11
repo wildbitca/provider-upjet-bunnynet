@@ -15,46 +15,58 @@ import (
 
 type ScriptInitParameters struct {
 
+	// (String) The code of the script.
 	// The code of the script.
 	Content *string `json:"content,omitempty" tf:"content,omitempty"`
 
+	// (String) The name of the script.
 	// The name of the script.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (String) Options: middleware, standalone
 	// Options: `middleware`, `standalone`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type ScriptObservation struct {
 
+	// (String) The code of the script.
 	// The code of the script.
 	Content *string `json:"content,omitempty" tf:"content,omitempty"`
 
+	// (String) The deployment key for the script.
 	// The deployment key for the script.
 	DeploymentKey *string `json:"deploymentKey,omitempty" tf:"deployment_key,omitempty"`
 
+	// (Number) The ID of the script.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (String) The name of the script.
 	// The name of the script.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (String) The current release identifier for the script.
 	// The current release identifier for the script.
 	Release *string `json:"release,omitempty" tf:"release,omitempty"`
 
+	// (String) Options: middleware, standalone
 	// Options: `middleware`, `standalone`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type ScriptParameters struct {
 
+	// (String) The code of the script.
 	// The code of the script.
 	// +kubebuilder:validation:Optional
 	Content *string `json:"content,omitempty" tf:"content,omitempty"`
 
+	// (String) The name of the script.
 	// The name of the script.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// (String) Options: middleware, standalone
 	// Options: `middleware`, `standalone`
 	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
@@ -87,7 +99,7 @@ type ScriptStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Script is the Schema for the Scripts API. <no value>
+// Script is the Schema for the Scripts API. This resource manages a compute script in bunny.net.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

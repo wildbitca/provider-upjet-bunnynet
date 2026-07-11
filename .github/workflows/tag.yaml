@@ -19,9 +19,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          # Default GITHUB_TOKEN (github-actions[bot]) is blocked by the org
+          # tag-protection ruleset; GH_TOKEN is a privileged PAT that bypasses it.
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Create and push tag
         run: |
+          if [ -z "${{ secrets.GH_TOKEN }}" ]; then
+            echo "::error::GH_TOKEN secret not set; default GITHUB_TOKEN is blocked by the tag ruleset"; exit 1
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           MSG="${{ github.event.inputs.message }}"

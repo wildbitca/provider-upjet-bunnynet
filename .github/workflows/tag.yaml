@@ -10,24 +10,37 @@ on:
         description: 'Tag message'
         required: true
 
+# No contents:write here — the default GITHUB_TOKEN is blocked by the tag
+# ruleset anyway. We mint a short-lived GitHub App token (wildbit-ci) instead,
+# matching how pacha/elinvo pipelines authenticate. No static PAT.
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   tag:
     runs-on: ubuntu-24.04
     steps:
+      - name: Mint GitHub App token (wildbit-ci)
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.WILDBIT_CI_APP_ID }}
+          private-key: ${{ secrets.WILDBIT_CI_APP_KEY }}
+          owner: wildbitca
+          repositories: ${{ github.event.repository.name }}
+          permission-contents: write
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
       - name: Create and push annotated tag
+        env:
+          VERSION: ${{ github.event.inputs.version }}
+          MESSAGE: ${{ github.event.inputs.message }}
+          GIT_AUTHOR: ${{ steps.app-token.outputs.app-slug }}
         run: |
-          if [ -z "${{ secrets.GH_TOKEN }}" ]; then
-            echo "::error::GH_TOKEN secret not set; default GITHUB_TOKEN is blocked by the tag ruleset"; exit 1
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git tag -a "${{ github.event.inputs.version }}" -m "${{ github.event.inputs.message }}"
-          git push origin "${{ github.event.inputs.version }}"
+          git config user.name "${GIT_AUTHOR}[bot]"
+          git config user.email "${GIT_AUTHOR}[bot]@users.noreply.github.com"
+          git tag -a "$VERSION" -m "$MESSAGE"
+          git push origin "$VERSION"

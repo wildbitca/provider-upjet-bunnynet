@@ -137,11 +137,36 @@ spec:
                       (String) Options: Advanced, Basic, Business, Enterprise
                       Options: `Advanced`, `Basic`, `Business`, `Enterprise`
                     type: string
+                  uploadScanningAntivirus:
+                    description: |-
+                      (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+                      Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+                    type: string
+                  uploadScanningCsam:
+                    description: |-
+                      (String) Scan file uploads for Child Sexual Abuse Material.
+                      Scan file uploads for Child Sexual Abuse Material.
+                    type: string
                   whitelabel:
                     description: |-
                       labelled experience.
                       Replace our bunny.net branded block and challenge pages with a white-labelled experience.
                     type: boolean
+                  whitelabelBlock:
+                    description: |-
+                      (String) Customized Response Page for requests blocked by WAF, access list or bot detection.
+                      Customized Response Page for requests blocked by WAF, access list or bot detection.
+                    type: string
+                  whitelabelChallenge:
+                    description: |-
+                      (String) Customized Response Page for challenged requests.
+                      Customized Response Page for challenged requests.
+                    type: string
+                  whitelabelRateLimit:
+                    description: |-
+                      (String) Customized Response Page for requests after a rate limit is breached.
+                      Customized Response Page for requests after a rate limit is breached.
+                    type: string
                 type: object
               initProvider:
                 description: |-
@@ -220,11 +245,36 @@ spec:
                       (String) Options: Advanced, Basic, Business, Enterprise
                       Options: `Advanced`, `Basic`, `Business`, `Enterprise`
                     type: string
+                  uploadScanningAntivirus:
+                    description: |-
+                      (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+                      Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+                    type: string
+                  uploadScanningCsam:
+                    description: |-
+                      (String) Scan file uploads for Child Sexual Abuse Material.
+                      Scan file uploads for Child Sexual Abuse Material.
+                    type: string
                   whitelabel:
                     description: |-
                       labelled experience.
                       Replace our bunny.net branded block and challenge pages with a white-labelled experience.
                     type: boolean
+                  whitelabelBlock:
+                    description: |-
+                      (String) Customized Response Page for requests blocked by WAF, access list or bot detection.
+                      Customized Response Page for requests blocked by WAF, access list or bot detection.
+                    type: string
+                  whitelabelChallenge:
+                    description: |-
+                      (String) Customized Response Page for challenged requests.
+                      Customized Response Page for challenged requests.
+                    type: string
+                  whitelabelRateLimit:
+                    description: |-
+                      (String) Customized Response Page for requests after a rate limit is breached.
+                      Customized Response Page for requests after a rate limit is breached.
+                    type: string
                 type: object
               managementPolicies:
                 default:
@@ -392,11 +442,6 @@ spec:
                             (String) Options: Asleep, Extreme, High, Low, Medium
                             Options: `Asleep`, `Extreme`, `High`, `Low`, `Medium`
                           type: string
-                        mode:
-                          description: |-
-                            (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
-                            Indicates the mode the engine is running. Options: `Block`, `Log`
-                          type: string
                       type: object
                     type: array
                   id:
@@ -411,6 +456,16 @@ spec:
                     description: |-
                       (String) Options: Advanced, Basic, Business, Enterprise
                       Options: `Advanced`, `Basic`, `Business`, `Enterprise`
+                    type: string
+                  uploadScanningAntivirus:
+                    description: |-
+                      (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+                      Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+                    type: string
+                  uploadScanningCsam:
+                    description: |-
+                      (String) Scan file uploads for Child Sexual Abuse Material.
+                      Scan file uploads for Child Sexual Abuse Material.
                     type: string
                   waf:
                     description: |-
@@ -518,6 +573,21 @@ spec:
                       labelled experience.
                       Replace our bunny.net branded block and challenge pages with a white-labelled experience.
                     type: boolean
+                  whitelabelBlock:
+                    description: |-
+                      (String) Customized Response Page for requests blocked by WAF, access list or bot detection.
+                      Customized Response Page for requests blocked by WAF, access list or bot detection.
+                    type: string
+                  whitelabelChallenge:
+                    description: |-
+                      (String) Customized Response Page for challenged requests.
+                      Customized Response Page for challenged requests.
+                    type: string
+                  whitelabelRateLimit:
+                    description: |-
+                      (String) Customized Response Page for requests after a rate limit is breached.
+                      Customized Response Page for requests after a rate limit is breached.
+                    type: string
                 type: object
               conditions:
                 description: Conditions of the resource.

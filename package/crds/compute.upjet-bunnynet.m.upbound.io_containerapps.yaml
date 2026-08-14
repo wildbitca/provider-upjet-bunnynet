@@ -1108,6 +1108,11 @@ spec:
                                       type: array
                                   type: object
                                 type: array
+                              id:
+                                description: |-
+                                  (String) The unique identifier for the application.
+                                  The ID of the endpoint.
+                                type: string
                               name:
                                 description: |-
                                   (String) The name of the application.

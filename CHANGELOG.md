@@ -7,6 +7,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-08-14
+
+Upgrades the upstream `BunnyWay/bunnynet` Terraform provider from `v0.15.1` to
+`v0.18.0` and regenerates the provider schema, CRDs and controllers.
+
+### Backwards compatibility breaks
+
+- `Shield` (cdn): the `ddos.mode` attribute was **removed** upstream. Shield Zones
+  are always in Blocking mode; sensitivity is configured via `ddos.level`. No
+  `Shield` resources existed in our control plane at the time of the upgrade, so
+  the removal is inert for us — but a manifest carrying `ddos.mode` will now fail
+  schema validation.
+
+### Added
+
+- `Shield` (cdn): `uploadScanningAntivirus`, `uploadScanningCsam` — Upload Scanning.
+- `Shield` (cdn): `whitelabelBlock`, `whitelabelChallenge`, `whitelabelRateLimit` —
+  Whitelabel custom pages.
+- `Pullzone` (cdn): `originScriptExecuteBeforeCache`.
+- `Zone` (storage): `hostnameS3`, exposed separately now that upstream reverted
+  `hostname` to always return the Standard hostname regardless of `type`.
+
+### Fixed (upstream)
+
+- `Record` (dns): changing `zone` now triggers a replacement instead of an
+  in-place update that could not succeed.
+
+### Notes
+
+- The **resource list is unchanged** (23 resources). `0.18.0` adds Terraform
+  *actions* (`pullzone_cache_purge`, `url_cache_purge`), which upjet does not
+  generate CRDs for.
+- `stream_library.api_key_readonly`, added upstream in `0.15.2`, is **not** exposed:
+  upjet excludes it as a sensitive field.
+- `Makefile`: the schema step now runs `tofu init -upgrade`. Without it, a
+  `.terraform.lock.hcl` left in the local cache by a previous version makes every
+  version bump fail with "locked provider does not match configured version
+  constraint". CI never hit this because it always starts cold.
+
 ## [0.2.3] - 2026-07-10
 
 Ships the account sub-provider package. The `Subuser` API and CRDs were

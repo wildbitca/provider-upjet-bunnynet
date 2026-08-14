@@ -130,7 +130,7 @@ make build.family FAMILY_SUBPACKAGES="config cdn dns"
 
 ## Supported resources
 
-This provider exposes 23 managed resources from the [Bunny.net Terraform Provider v0.15.1](https://registry.terraform.io/providers/BunnyWay/bunnynet/0.15.1/docs), organized in 5 API groups:
+This provider exposes 23 managed resources from the [Bunny.net Terraform Provider v0.18.0](https://registry.terraform.io/providers/BunnyWay/bunnynet/0.18.0/docs), organized in 5 API groups:
 
 - **CDN**: Pull zones, hostnames, edge rules, optimizer classes, access lists
 - **DNS**: DNS zones, DNS records

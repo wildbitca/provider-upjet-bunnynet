@@ -384,6 +384,11 @@ func (in *ZoneObservation) DeepCopyInto(out *ZoneObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.HostnameS3 != nil {
+		in, out := &in.HostnameS3, &out.HostnameS3
+		*out = new(string)
+		**out = **in
+	}
 	if in.ID != nil {
 		in, out := &in.ID, &out.ID
 		*out = new(string)

@@ -386,7 +386,7 @@ resources:
             - terraform import bunnynet_dns_zone.test 123
     bunnynet_pullzone:
         subCategory: ""
-        description: This resource manages a bunny.net pullzone. Pullzones fetch content from the origin server and deliver it to end-users.
+        description: This resource manages a bunny.net Pullzone. Pullzones fetch content from the origin server and deliver it to end-users.
         name: bunnynet_pullzone
         title: bunnynet_pullzone Resource - terraform-provider-bunnynet
         examples:
@@ -503,6 +503,7 @@ resources:
             safehop_retry_delay: (Number) The amount of time that the CDN should wait before retrying an origin request.
             safehop_retry_reasons: '(Set of String) Options: 5xxResponse, connectionTimeout, responseTimeout'
             script: (Number) The ID of the linked compute script.
+            script_execute_before_cache: (Boolean) Indicates whether the script will execute ahead of the cache layer.
             sort_querystring: (Boolean) If enabled, the query parameters will be automatically sorted into a consistent order before checking the cache.
             storagezone: (Number) The ID of the linked storage zone.
             strip_cookies: (Boolean) If enabled, bunny.net will strip all the Set-Cookie headers from the HTTP responses.
@@ -586,7 +587,7 @@ resources:
               references:
                 pullzone: bunnynet_pullzone.example.id
         argumentDocs:
-            action: '(String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode'
+            action: '(String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode, StripCookiesClientToOrigin'
             action_parameter1: (String)
             action_parameter2: (String)
             action_parameter3: (String)
@@ -792,8 +793,13 @@ resources:
             rules_disabled: (Set of String) List of disabled WAF rules.
             rules_logonly: (Set of String) List of WAF rules that will not be blocked, but will be logged when triggered.
             tier: '(String) Options: Advanced, Basic, Business, Enterprise'
+            upload_scanning_antivirus: (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+            upload_scanning_csam: (String) Scan file uploads for Child Sexual Abuse Material.
             waf: (Block, Optional) Configures WAF settings. (see below for nested schema)
             whitelabel: (Boolean) Replace our bunny.net branded block and challenge pages with a white-labelled experience.
+            whitelabel_block: (String) Customized Response Page for requests blocked by WAF, access list or bot detection.
+            whitelabel_challenge: (String) Customized Response Page for challenged requests.
+            whitelabel_rate_limit: (String) Customized Response Page for requests after a rate limit is breached.
         importStatements:
             - terraform import bunnynet_pullzone_shield.test $PULLZONE_ID
     bunnynet_pullzone_waf_rule:
@@ -888,7 +894,8 @@ resources:
         argumentDocs:
             custom_404_file_path: (String) The file path for a custom 404 error page.
             date_modified: (String) The date when the zone was last modified.
-            hostname: (String) The hostname for accessing the storage zone.
+            hostname: (String) The hostname for accessing the storage zone over HTTP API.
+            hostname_s3: (String) The hostname for accessing the storage zone over S3.
             id: (Number) The ID of the storage zone.
             name: (String) The name of the storage zone.
             password: (String, Sensitive) The password for accessing the storage zone.
@@ -964,6 +971,7 @@ resources:
                 }
         argumentDocs:
             api_key: (String, Sensitive) The API key for accessing the stream library.
+            api_key_readonly: (String, Sensitive) The read-only API key for accessing the stream library.
             bitrate_240p: (Number) The bitrate used for encoding 240p videos, in kilobits per second.
             bitrate_360p: (Number) The bitrate used for encoding 360p videos, in kilobits per second.
             bitrate_480p: (Number) The bitrate used for encoding 480p videos, in kilobits per second.

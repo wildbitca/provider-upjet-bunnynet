@@ -431,6 +431,10 @@ type EndpointObservation struct {
 	// Configurations for CDN endpoint.
 	Cdn []CdnObservation `json:"cdn,omitempty" tf:"cdn,omitempty"`
 
+	// (String) The unique identifier for the application.
+	// The ID of the endpoint.
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+
 	// (String) The name of the application.
 	// The name of the endpoint.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`

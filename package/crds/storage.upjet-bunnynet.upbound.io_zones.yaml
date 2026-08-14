@@ -280,8 +280,13 @@ spec:
                     type: string
                   hostname:
                     description: |-
-                      (String) The hostname for accessing the storage zone.
-                      The hostname for accessing the storage zone.
+                      (String) The hostname for accessing the storage zone over HTTP API.
+                      The hostname for accessing the storage zone over HTTP API.
+                    type: string
+                  hostnameS3:
+                    description: |-
+                      (String) The hostname for accessing the storage zone over S3.
+                      The hostname for accessing the storage zone over S3.
                     type: string
                   id:
                     description: (Number) The ID of the storage zone.

@@ -35,7 +35,7 @@ spec:
     schema:
       openAPIV3Schema:
         description: Pullzone is the Schema for the Pullzones API. This resource manages
-          a bunny.net pullzone. Pullzones fetch content from the origin server and
+          a bunny.net Pullzone. Pullzones fetch content from the origin server and
           deliver it to end-users.
         properties:
           apiVersion:
@@ -1560,6 +1560,11 @@ spec:
                             (Number) The ID of the linked compute script.
                             The ID of the linked compute script.
                           type: number
+                        scriptExecuteBeforeCache:
+                          description: |-
+                            (Boolean) Indicates whether the script will execute ahead of the cache layer.
+                            Indicates whether the script will execute ahead of the cache layer.
+                          type: boolean
                         storagezone:
                           description: |-
                             (Number) The ID of the linked storage zone.

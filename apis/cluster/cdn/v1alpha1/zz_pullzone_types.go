@@ -51,6 +51,10 @@ type OriginInitParameters struct {
 	// The ID of the linked compute script.
 	Script *float64 `json:"script,omitempty" tf:"script,omitempty"`
 
+	// (Boolean) Indicates whether the script will execute ahead of the cache layer.
+	// Indicates whether the script will execute ahead of the cache layer.
+	ScriptExecuteBeforeCache *bool `json:"scriptExecuteBeforeCache,omitempty" tf:"script_execute_before_cache,omitempty"`
+
 	// (Number) The ID of the linked storage zone.
 	// The ID of the linked storage zone.
 	Storagezone *float64 `json:"storagezone,omitempty" tf:"storagezone,omitempty"`
@@ -105,6 +109,10 @@ type OriginObservation struct {
 	// (Number) The ID of the linked compute script.
 	// The ID of the linked compute script.
 	Script *float64 `json:"script,omitempty" tf:"script,omitempty"`
+
+	// (Boolean) Indicates whether the script will execute ahead of the cache layer.
+	// Indicates whether the script will execute ahead of the cache layer.
+	ScriptExecuteBeforeCache *bool `json:"scriptExecuteBeforeCache,omitempty" tf:"script_execute_before_cache,omitempty"`
 
 	// (Number) The ID of the linked storage zone.
 	// The ID of the linked storage zone.
@@ -169,6 +177,11 @@ type OriginParameters struct {
 	// The ID of the linked compute script.
 	// +kubebuilder:validation:Optional
 	Script *float64 `json:"script,omitempty" tf:"script,omitempty"`
+
+	// (Boolean) Indicates whether the script will execute ahead of the cache layer.
+	// Indicates whether the script will execute ahead of the cache layer.
+	// +kubebuilder:validation:Optional
+	ScriptExecuteBeforeCache *bool `json:"scriptExecuteBeforeCache,omitempty" tf:"script_execute_before_cache,omitempty"`
 
 	// (Number) The ID of the linked storage zone.
 	// The ID of the linked storage zone.
@@ -1507,7 +1520,7 @@ type PullzoneStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Pullzone is the Schema for the Pullzones API. This resource manages a bunny.net pullzone. Pullzones fetch content from the origin server and deliver it to end-users.
+// Pullzone is the Schema for the Pullzones API. This resource manages a bunny.net Pullzone. Pullzones fetch content from the origin server and deliver it to end-users.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

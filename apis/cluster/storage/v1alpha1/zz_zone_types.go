@@ -55,9 +55,13 @@ type ZoneObservation struct {
 	// The date when the zone was last modified.
 	DateModified *string `json:"dateModified,omitempty" tf:"date_modified,omitempty"`
 
-	// (String) The hostname for accessing the storage zone.
-	// The hostname for accessing the storage zone.
+	// (String) The hostname for accessing the storage zone over HTTP API.
+	// The hostname for accessing the storage zone over HTTP API.
 	Hostname *string `json:"hostname,omitempty" tf:"hostname,omitempty"`
+
+	// (String) The hostname for accessing the storage zone over S3.
+	// The hostname for accessing the storage zone over S3.
+	HostnameS3 *string `json:"hostnameS3,omitempty" tf:"hostname_s3,omitempty"`
 
 	// (Number) The ID of the storage zone.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`

@@ -109,10 +109,6 @@ type DdosInitParameters struct {
 	// (String) Options: Asleep, Extreme, High, Low, Medium
 	// Options: `Asleep`, `Extreme`, `High`, `Low`, `Medium`
 	Level *string `json:"level,omitempty" tf:"level,omitempty"`
-
-	// (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
-	// Indicates the mode the engine is running. Options: `Block`, `Log`
-	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 }
 
 type DdosObservation struct {
@@ -124,10 +120,6 @@ type DdosObservation struct {
 	// (String) Options: Asleep, Extreme, High, Low, Medium
 	// Options: `Asleep`, `Extreme`, `High`, `Low`, `Medium`
 	Level *string `json:"level,omitempty" tf:"level,omitempty"`
-
-	// (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
-	// Indicates the mode the engine is running. Options: `Block`, `Log`
-	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 }
 
 type DdosParameters struct {
@@ -141,11 +133,6 @@ type DdosParameters struct {
 	// Options: `Asleep`, `Extreme`, `High`, `Low`, `Medium`
 	// +kubebuilder:validation:Optional
 	Level *string `json:"level" tf:"level,omitempty"`
-
-	// (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
-	// Indicates the mode the engine is running. Options: `Block`, `Log`
-	// +kubebuilder:validation:Optional
-	Mode *string `json:"mode,omitempty" tf:"mode,omitempty"`
 }
 
 type ShieldAccessListInitParameters struct {
@@ -200,9 +187,29 @@ type ShieldInitParameters struct {
 	// Options: `Advanced`, `Basic`, `Business`, `Enterprise`
 	Tier *string `json:"tier,omitempty" tf:"tier,omitempty"`
 
+	// (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+	// Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+	UploadScanningAntivirus *string `json:"uploadScanningAntivirus,omitempty" tf:"upload_scanning_antivirus,omitempty"`
+
+	// (String) Scan file uploads for Child Sexual Abuse Material.
+	// Scan file uploads for Child Sexual Abuse Material.
+	UploadScanningCsam *string `json:"uploadScanningCsam,omitempty" tf:"upload_scanning_csam,omitempty"`
+
 	// labelled experience.
 	// Replace our bunny.net branded block and challenge pages with a white-labelled experience.
 	Whitelabel *bool `json:"whitelabel,omitempty" tf:"whitelabel,omitempty"`
+
+	// (String) Customized Response Page for requests blocked by WAF, access list or bot detection.
+	// Customized Response Page for requests blocked by WAF, access list or bot detection.
+	WhitelabelBlock *string `json:"whitelabelBlock,omitempty" tf:"whitelabel_block,omitempty"`
+
+	// (String) Customized Response Page for challenged requests.
+	// Customized Response Page for challenged requests.
+	WhitelabelChallenge *string `json:"whitelabelChallenge,omitempty" tf:"whitelabel_challenge,omitempty"`
+
+	// (String) Customized Response Page for requests after a rate limit is breached.
+	// Customized Response Page for requests after a rate limit is breached.
+	WhitelabelRateLimit *string `json:"whitelabelRateLimit,omitempty" tf:"whitelabel_rate_limit,omitempty"`
 }
 
 type ShieldObservation struct {
@@ -229,6 +236,14 @@ type ShieldObservation struct {
 	// Options: `Advanced`, `Basic`, `Business`, `Enterprise`
 	Tier *string `json:"tier,omitempty" tf:"tier,omitempty"`
 
+	// (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+	// Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+	UploadScanningAntivirus *string `json:"uploadScanningAntivirus,omitempty" tf:"upload_scanning_antivirus,omitempty"`
+
+	// (String) Scan file uploads for Child Sexual Abuse Material.
+	// Scan file uploads for Child Sexual Abuse Material.
+	UploadScanningCsam *string `json:"uploadScanningCsam,omitempty" tf:"upload_scanning_csam,omitempty"`
+
 	// (Block, Optional) Configures WAF settings. (see below for nested schema)
 	// Configures WAF settings.
 	Waf []WafObservation `json:"waf,omitempty" tf:"waf,omitempty"`
@@ -236,6 +251,18 @@ type ShieldObservation struct {
 	// labelled experience.
 	// Replace our bunny.net branded block and challenge pages with a white-labelled experience.
 	Whitelabel *bool `json:"whitelabel,omitempty" tf:"whitelabel,omitempty"`
+
+	// (String) Customized Response Page for requests blocked by WAF, access list or bot detection.
+	// Customized Response Page for requests blocked by WAF, access list or bot detection.
+	WhitelabelBlock *string `json:"whitelabelBlock,omitempty" tf:"whitelabel_block,omitempty"`
+
+	// (String) Customized Response Page for challenged requests.
+	// Customized Response Page for challenged requests.
+	WhitelabelChallenge *string `json:"whitelabelChallenge,omitempty" tf:"whitelabel_challenge,omitempty"`
+
+	// (String) Customized Response Page for requests after a rate limit is breached.
+	// Customized Response Page for requests after a rate limit is breached.
+	WhitelabelRateLimit *string `json:"whitelabelRateLimit,omitempty" tf:"whitelabel_rate_limit,omitempty"`
 }
 
 type ShieldParameters struct {
@@ -259,10 +286,35 @@ type ShieldParameters struct {
 	// +kubebuilder:validation:Optional
 	Tier *string `json:"tier,omitempty" tf:"tier,omitempty"`
 
+	// (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+	// Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+	// +kubebuilder:validation:Optional
+	UploadScanningAntivirus *string `json:"uploadScanningAntivirus,omitempty" tf:"upload_scanning_antivirus,omitempty"`
+
+	// (String) Scan file uploads for Child Sexual Abuse Material.
+	// Scan file uploads for Child Sexual Abuse Material.
+	// +kubebuilder:validation:Optional
+	UploadScanningCsam *string `json:"uploadScanningCsam,omitempty" tf:"upload_scanning_csam,omitempty"`
+
 	// labelled experience.
 	// Replace our bunny.net branded block and challenge pages with a white-labelled experience.
 	// +kubebuilder:validation:Optional
 	Whitelabel *bool `json:"whitelabel,omitempty" tf:"whitelabel,omitempty"`
+
+	// (String) Customized Response Page for requests blocked by WAF, access list or bot detection.
+	// Customized Response Page for requests blocked by WAF, access list or bot detection.
+	// +kubebuilder:validation:Optional
+	WhitelabelBlock *string `json:"whitelabelBlock,omitempty" tf:"whitelabel_block,omitempty"`
+
+	// (String) Customized Response Page for challenged requests.
+	// Customized Response Page for challenged requests.
+	// +kubebuilder:validation:Optional
+	WhitelabelChallenge *string `json:"whitelabelChallenge,omitempty" tf:"whitelabel_challenge,omitempty"`
+
+	// (String) Customized Response Page for requests after a rate limit is breached.
+	// Customized Response Page for requests after a rate limit is breached.
+	// +kubebuilder:validation:Optional
+	WhitelabelRateLimit *string `json:"whitelabelRateLimit,omitempty" tf:"whitelabel_rate_limit,omitempty"`
 }
 
 type WafInitParameters struct {

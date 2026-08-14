@@ -137,4 +137,4 @@ require (
 	sigs.k8s.io/yaml v1.6.0 // indirect
 )
 
-replace github.com/crossplane/upjet/v2 => github.com/wildbitca/upjet/v2 v2.2.4
+replace github.com/crossplane/upjet/v2 => github.com/wildbitca/upjet/v2 v2.2.5

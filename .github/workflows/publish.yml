@@ -103,7 +103,7 @@ jobs:
         with: { version: '${{ env.DOCKER_BUILDX_VERSION }}' }
 
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with: { submodules: true }
 
       - uses: actions/setup-go@v6
@@ -233,7 +233,7 @@ jobs:
         with: { version: '${{ env.DOCKER_BUILDX_VERSION }}' }
 
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with: { submodules: true }
 
       - uses: actions/setup-go@v6
@@ -359,7 +359,7 @@ jobs:
       VERSION: ${{ needs.prepare.outputs.version }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Create GitHub Release
         env:

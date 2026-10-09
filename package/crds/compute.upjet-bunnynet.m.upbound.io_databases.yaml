@@ -76,6 +76,11 @@ spec:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
+                  storageRegion:
+                    description: |-
+                      west-1, us-east-1
+                      Options: `eu-west-1`, `us-east-1`
+                    type: string
                 type: object
               initProvider:
                 description: |-
@@ -107,6 +112,11 @@ spec:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
+                  storageRegion:
+                    description: |-
+                      west-1, us-east-1
+                      Options: `eu-west-1`, `us-east-1`
+                    type: string
                 type: object
               managementPolicies:
                 default:
@@ -200,6 +210,11 @@ spec:
                       type: string
                     type: array
                     x-kubernetes-list-type: set
+                  storageRegion:
+                    description: |-
+                      west-1, us-east-1
+                      Options: `eu-west-1`, `us-east-1`
+                    type: string
                   url:
                     description: |-
                       (String) The connection URL for the database.

@@ -79,6 +79,11 @@ spec:
                       The condition to trigger the WAF rule.
                     items:
                       properties:
+                        negated:
+                          description: |-
+                            (Boolean) Negates the condition result.
+                            Negates the condition result.
+                          type: boolean
                         operator:
                           description: |-
                             (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
@@ -95,6 +100,11 @@ spec:
                         variableValue:
                           description: (String)
                           type: string
+                        variableValueRegex:
+                          description: |-
+                            (Boolean) Indicated whether variable_value is a regular expression.
+                            Indicated whether variable_value is a regular expression.
+                          type: boolean
                       type: object
                     type: array
                   description:
@@ -140,6 +150,11 @@ spec:
                       The condition to trigger the WAF rule.
                     items:
                       properties:
+                        negated:
+                          description: |-
+                            (Boolean) Negates the condition result.
+                            Negates the condition result.
+                          type: boolean
                         operator:
                           description: |-
                             (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
@@ -156,6 +171,11 @@ spec:
                         variableValue:
                           description: (String)
                           type: string
+                        variableValueRegex:
+                          description: |-
+                            (Boolean) Indicated whether variable_value is a regular expression.
+                            Indicated whether variable_value is a regular expression.
+                          type: boolean
                       type: object
                     type: array
                   description:
@@ -288,6 +308,11 @@ spec:
                       The condition to trigger the WAF rule.
                     items:
                       properties:
+                        negated:
+                          description: |-
+                            (Boolean) Negates the condition result.
+                            Negates the condition result.
+                          type: boolean
                         operator:
                           description: |-
                             (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
@@ -304,6 +329,11 @@ spec:
                         variableValue:
                           description: (String)
                           type: string
+                        variableValueRegex:
+                          description: |-
+                            (Boolean) Indicated whether variable_value is a regular expression.
+                            Indicated whether variable_value is a regular expression.
+                          type: boolean
                       type: object
                     type: array
                   description:

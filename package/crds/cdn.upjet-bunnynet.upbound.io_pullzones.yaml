@@ -465,8 +465,8 @@ spec:
                           x-kubernetes-list-type: set
                         filters:
                           description: |-
-                            (Set of String) Options: all, eu, scripting
-                            Options: `all`, `eu`, `scripting`
+                            (Set of String) Options: all, eea, eu, scripting
+                            Options: `all`, `eea`, `eu`, `scripting`
                           items:
                             type: string
                           type: array
@@ -555,6 +555,11 @@ spec:
                       Cookie headers from the HTTP responses.
                       If enabled, bunny.net will strip all the Set-Cookie headers from the HTTP responses.
                     type: boolean
+                  tlsLevel:
+                    description: |-
+                      (String) Options: Compatible, Legacy, ModernOnly
+                      Options: `Compatible`, `Legacy`, `ModernOnly`
+                    type: string
                   tlsSupport:
                     description: |-
                       (Set of String) Options: TLSv1.0, TLSv1.1
@@ -993,8 +998,8 @@ spec:
                           x-kubernetes-list-type: set
                         filters:
                           description: |-
-                            (Set of String) Options: all, eu, scripting
-                            Options: `all`, `eu`, `scripting`
+                            (Set of String) Options: all, eea, eu, scripting
+                            Options: `all`, `eea`, `eu`, `scripting`
                           items:
                             type: string
                           type: array
@@ -1083,6 +1088,11 @@ spec:
                       Cookie headers from the HTTP responses.
                       If enabled, bunny.net will strip all the Set-Cookie headers from the HTTP responses.
                     type: boolean
+                  tlsLevel:
+                    description: |-
+                      (String) Options: Compatible, Legacy, ModernOnly
+                      Options: `Compatible`, `Legacy`, `ModernOnly`
+                    type: string
                   tlsSupport:
                     description: |-
                       (Set of String) Options: TLSv1.0, TLSv1.1
@@ -1688,8 +1698,8 @@ spec:
                           x-kubernetes-list-type: set
                         filters:
                           description: |-
-                            (Set of String) Options: all, eu, scripting
-                            Options: `all`, `eu`, `scripting`
+                            (Set of String) Options: all, eea, eu, scripting
+                            Options: `all`, `eea`, `eu`, `scripting`
                           items:
                             type: string
                           type: array
@@ -1778,6 +1788,11 @@ spec:
                       Cookie headers from the HTTP responses.
                       If enabled, bunny.net will strip all the Set-Cookie headers from the HTTP responses.
                     type: boolean
+                  tlsLevel:
+                    description: |-
+                      (String) Options: Compatible, Legacy, ModernOnly
+                      Options: `Compatible`, `Legacy`, `ModernOnly`
+                    type: string
                   tlsSupport:
                     description: |-
                       (Set of String) Options: TLSv1.0, TLSv1.1

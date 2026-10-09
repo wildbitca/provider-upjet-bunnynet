@@ -65,6 +65,11 @@ spec:
                       The condition to trigger the rate limit rule.
                     items:
                       properties:
+                        negated:
+                          description: |-
+                            (Boolean) Negates the condition result.
+                            Negates the condition result.
+                          type: boolean
                         operator:
                           description: |-
                             (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
@@ -81,6 +86,11 @@ spec:
                         variableValue:
                           description: (String)
                           type: string
+                        variableValueRegex:
+                          description: |-
+                            (Boolean) Indicated whether variable_value is a regular expression.
+                            Indicated whether variable_value is a regular expression.
+                          type: boolean
                       type: object
                     type: array
                   description:
@@ -126,6 +136,11 @@ spec:
                       The condition to trigger the rate limit rule.
                     items:
                       properties:
+                        negated:
+                          description: |-
+                            (Boolean) Negates the condition result.
+                            Negates the condition result.
+                          type: boolean
                         operator:
                           description: |-
                             (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
@@ -142,6 +157,11 @@ spec:
                         variableValue:
                           description: (String)
                           type: string
+                        variableValueRegex:
+                          description: |-
+                            (Boolean) Indicated whether variable_value is a regular expression.
+                            Indicated whether variable_value is a regular expression.
+                          type: boolean
                       type: object
                     type: array
                   description:
@@ -246,6 +266,11 @@ spec:
                       The condition to trigger the rate limit rule.
                     items:
                       properties:
+                        negated:
+                          description: |-
+                            (Boolean) Negates the condition result.
+                            Negates the condition result.
+                          type: boolean
                         operator:
                           description: |-
                             (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
@@ -262,6 +287,11 @@ spec:
                         variableValue:
                           description: (String)
                           type: string
+                        variableValueRegex:
+                          description: |-
+                            (Boolean) Indicated whether variable_value is a regular expression.
+                            Indicated whether variable_value is a regular expression.
+                          type: boolean
                       type: object
                     type: array
                   description:
@@ -276,6 +306,11 @@ spec:
                     description: (Block, Optional) (see below for nested schema)
                     items:
                       properties:
+                        counterKey:
+                          description: |-
+                            (String) The request property used to group rate limit counters. Options: ASN, City, Country, Host, IP, IP+JA4, JA4, Organization
+                            The request property used to group rate limit counters. Options: `ASN`, `City`, `Country`, `Host`, `IP`, `IP+JA4`, `JA4`, `Organization`
+                          type: string
                         interval:
                           description: |-
                             (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
@@ -304,6 +339,11 @@ spec:
                       The response once the rate limit rule is triggered.
                     items:
                       properties:
+                        action:
+                          description: |-
+                            (String) The action to take once the rate limit is exceeded. Options: Challenge, Log, RateLimit
+                            The action to take once the rate limit is exceeded. Options: `Challenge`, `Log`, `RateLimit`
+                          type: string
                         interval:
                           description: |-
                             (Number) The interval, in seconds, to consider for to trigger the rate limit rule.

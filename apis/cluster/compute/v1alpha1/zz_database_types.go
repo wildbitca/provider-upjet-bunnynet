@@ -26,6 +26,10 @@ type DatabaseInitParameters struct {
 	// (Set of String)
 	// +listType=set
 	RegionsReplica []*string `json:"regionsReplica,omitempty" tf:"regions_replica,omitempty"`
+
+	// west-1, us-east-1
+	// Options: `eu-west-1`, `us-east-1`
+	StorageRegion *string `json:"storageRegion,omitempty" tf:"storage_region,omitempty"`
 }
 
 type DatabaseObservation struct {
@@ -44,6 +48,10 @@ type DatabaseObservation struct {
 	// (Set of String)
 	// +listType=set
 	RegionsReplica []*string `json:"regionsReplica,omitempty" tf:"regions_replica,omitempty"`
+
+	// west-1, us-east-1
+	// Options: `eu-west-1`, `us-east-1`
+	StorageRegion *string `json:"storageRegion,omitempty" tf:"storage_region,omitempty"`
 
 	// (String) The connection URL for the database.
 	// The connection URL for the database.
@@ -66,6 +74,11 @@ type DatabaseParameters struct {
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	RegionsReplica []*string `json:"regionsReplica,omitempty" tf:"regions_replica,omitempty"`
+
+	// west-1, us-east-1
+	// Options: `eu-west-1`, `us-east-1`
+	// +kubebuilder:validation:Optional
+	StorageRegion *string `json:"storageRegion,omitempty" tf:"storage_region,omitempty"`
 }
 
 // DatabaseSpec defines the desired state of Database

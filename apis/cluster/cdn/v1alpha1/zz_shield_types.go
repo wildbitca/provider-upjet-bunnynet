@@ -13,6 +13,54 @@ import (
 	v1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
 )
 
+type BotCategorizationInitParameters struct {
+
+	// (String) Options: Allow, Block, Bypass, Challenge, Log
+	// Options: `Allow`, `Block`, `Ignore`
+	Action *string `json:"action,omitempty" tf:"action,omitempty"`
+
+	// (String) Options: AIScraper, AITool, Ads, Preview, SEO, Social, Tool
+	// Options: `AIScraper`, `AITool`, `Ads`, `Preview`, `SEO`, `Social`, `Tool`
+	Category *string `json:"category,omitempty" tf:"category,omitempty"`
+
+	// (List of Object) Override actions for specific bots. (see below for nested schema)
+	// Override actions for specific bots.
+	Overrides []OverridesInitParameters `json:"overrides,omitempty" tf:"overrides,omitempty"`
+}
+
+type BotCategorizationObservation struct {
+
+	// (String) Options: Allow, Block, Bypass, Challenge, Log
+	// Options: `Allow`, `Block`, `Ignore`
+	Action *string `json:"action,omitempty" tf:"action,omitempty"`
+
+	// (String) Options: AIScraper, AITool, Ads, Preview, SEO, Social, Tool
+	// Options: `AIScraper`, `AITool`, `Ads`, `Preview`, `SEO`, `Social`, `Tool`
+	Category *string `json:"category,omitempty" tf:"category,omitempty"`
+
+	// (List of Object) Override actions for specific bots. (see below for nested schema)
+	// Override actions for specific bots.
+	Overrides []OverridesObservation `json:"overrides,omitempty" tf:"overrides,omitempty"`
+}
+
+type BotCategorizationParameters struct {
+
+	// (String) Options: Allow, Block, Bypass, Challenge, Log
+	// Options: `Allow`, `Block`, `Ignore`
+	// +kubebuilder:validation:Optional
+	Action *string `json:"action" tf:"action,omitempty"`
+
+	// (String) Options: AIScraper, AITool, Ads, Preview, SEO, Social, Tool
+	// Options: `AIScraper`, `AITool`, `Ads`, `Preview`, `SEO`, `Social`, `Tool`
+	// +kubebuilder:validation:Optional
+	Category *string `json:"category" tf:"category,omitempty"`
+
+	// (List of Object) Override actions for specific bots. (see below for nested schema)
+	// Override actions for specific bots.
+	// +kubebuilder:validation:Optional
+	Overrides []OverridesParameters `json:"overrides,omitempty" tf:"overrides,omitempty"`
+}
+
 type BotDetectionInitParameters struct {
 
 	// session consistency.
@@ -135,6 +183,35 @@ type DdosParameters struct {
 	Level *string `json:"level" tf:"level,omitempty"`
 }
 
+type OverridesInitParameters struct {
+
+	// (String) Options: Allow, Block, Bypass, Challenge, Log
+	Action *string `json:"action,omitempty" tf:"action"`
+
+	// (String)
+	Bot *string `json:"bot,omitempty" tf:"bot"`
+}
+
+type OverridesObservation struct {
+
+	// (String) Options: Allow, Block, Bypass, Challenge, Log
+	Action *string `json:"action,omitempty" tf:"action,omitempty"`
+
+	// (String)
+	Bot *string `json:"bot,omitempty" tf:"bot,omitempty"`
+}
+
+type OverridesParameters struct {
+
+	// (String) Options: Allow, Block, Bypass, Challenge, Log
+	// +kubebuilder:validation:Optional
+	Action *string `json:"action,omitempty" tf:"action"`
+
+	// (String)
+	// +kubebuilder:validation:Optional
+	Bot *string `json:"bot,omitempty" tf:"bot"`
+}
+
 type ShieldAccessListInitParameters struct {
 
 	// (String) Options: Allow, Block, Bypass, Challenge, Log
@@ -175,6 +252,9 @@ type ShieldInitParameters struct {
 	// (Block Set) (see below for nested schema)
 	AccessList []ShieldAccessListInitParameters `json:"accessList,omitempty" tf:"access_list,omitempty"`
 
+	// (Attributes List) (see below for nested schema)
+	BotCategorization []BotCategorizationInitParameters `json:"botCategorization,omitempty" tf:"bot_categorization,omitempty"`
+
 	// (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
 	// Configures Bot Detection settings.
 	BotDetection []BotDetectionInitParameters `json:"botDetection,omitempty" tf:"bot_detection,omitempty"`
@@ -187,12 +267,12 @@ type ShieldInitParameters struct {
 	// Options: `Advanced`, `Basic`, `Business`, `Enterprise`
 	Tier *string `json:"tier,omitempty" tf:"tier,omitempty"`
 
-	// (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
-	// Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+	// (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware. Options: Block, Disable, Log
+	// Scan file uploads for viruses, trojans, ransomware, and other forms of malware. Options: `Block`, `Disable`, `Log`
 	UploadScanningAntivirus *string `json:"uploadScanningAntivirus,omitempty" tf:"upload_scanning_antivirus,omitempty"`
 
-	// (String) Scan file uploads for Child Sexual Abuse Material.
-	// Scan file uploads for Child Sexual Abuse Material.
+	// (String) Scan file uploads for Child Sexual Abuse Material. Options: Block, Disable, Log
+	// Scan file uploads for Child Sexual Abuse Material. Options: `Block`, `Disable`, `Log`
 	UploadScanningCsam *string `json:"uploadScanningCsam,omitempty" tf:"upload_scanning_csam,omitempty"`
 
 	// labelled experience.
@@ -217,6 +297,9 @@ type ShieldObservation struct {
 	// (Block Set) (see below for nested schema)
 	AccessList []ShieldAccessListObservation `json:"accessList,omitempty" tf:"access_list,omitempty"`
 
+	// (Attributes List) (see below for nested schema)
+	BotCategorization []BotCategorizationObservation `json:"botCategorization,omitempty" tf:"bot_categorization,omitempty"`
+
 	// (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
 	// Configures Bot Detection settings.
 	BotDetection []BotDetectionObservation `json:"botDetection,omitempty" tf:"bot_detection,omitempty"`
@@ -236,12 +319,12 @@ type ShieldObservation struct {
 	// Options: `Advanced`, `Basic`, `Business`, `Enterprise`
 	Tier *string `json:"tier,omitempty" tf:"tier,omitempty"`
 
-	// (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
-	// Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+	// (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware. Options: Block, Disable, Log
+	// Scan file uploads for viruses, trojans, ransomware, and other forms of malware. Options: `Block`, `Disable`, `Log`
 	UploadScanningAntivirus *string `json:"uploadScanningAntivirus,omitempty" tf:"upload_scanning_antivirus,omitempty"`
 
-	// (String) Scan file uploads for Child Sexual Abuse Material.
-	// Scan file uploads for Child Sexual Abuse Material.
+	// (String) Scan file uploads for Child Sexual Abuse Material. Options: Block, Disable, Log
+	// Scan file uploads for Child Sexual Abuse Material. Options: `Block`, `Disable`, `Log`
 	UploadScanningCsam *string `json:"uploadScanningCsam,omitempty" tf:"upload_scanning_csam,omitempty"`
 
 	// (Block, Optional) Configures WAF settings. (see below for nested schema)
@@ -271,6 +354,10 @@ type ShieldParameters struct {
 	// +kubebuilder:validation:Optional
 	AccessList []ShieldAccessListParameters `json:"accessList,omitempty" tf:"access_list,omitempty"`
 
+	// (Attributes List) (see below for nested schema)
+	// +kubebuilder:validation:Optional
+	BotCategorization []BotCategorizationParameters `json:"botCategorization,omitempty" tf:"bot_categorization,omitempty"`
+
 	// (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
 	// Configures Bot Detection settings.
 	// +kubebuilder:validation:Optional
@@ -286,13 +373,13 @@ type ShieldParameters struct {
 	// +kubebuilder:validation:Optional
 	Tier *string `json:"tier,omitempty" tf:"tier,omitempty"`
 
-	// (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
-	// Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+	// (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware. Options: Block, Disable, Log
+	// Scan file uploads for viruses, trojans, ransomware, and other forms of malware. Options: `Block`, `Disable`, `Log`
 	// +kubebuilder:validation:Optional
 	UploadScanningAntivirus *string `json:"uploadScanningAntivirus,omitempty" tf:"upload_scanning_antivirus,omitempty"`
 
-	// (String) Scan file uploads for Child Sexual Abuse Material.
-	// Scan file uploads for Child Sexual Abuse Material.
+	// (String) Scan file uploads for Child Sexual Abuse Material. Options: Block, Disable, Log
+	// Scan file uploads for Child Sexual Abuse Material. Options: `Block`, `Disable`, `Log`
 	// +kubebuilder:validation:Optional
 	UploadScanningCsam *string `json:"uploadScanningCsam,omitempty" tf:"upload_scanning_csam,omitempty"`
 

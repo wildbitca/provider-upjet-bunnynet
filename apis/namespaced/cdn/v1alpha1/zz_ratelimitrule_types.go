@@ -16,6 +16,10 @@ import (
 
 type ConditionInitParameters struct {
 
+	// (Boolean) Negates the condition result.
+	// Negates the condition result.
+	Negated *bool `json:"negated,omitempty" tf:"negated,omitempty"`
+
 	// (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
 	// Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
 	Operator *string `json:"operator,omitempty" tf:"operator,omitempty"`
@@ -29,10 +33,18 @@ type ConditionInitParameters struct {
 
 	// (String)
 	VariableValue *string `json:"variableValue,omitempty" tf:"variable_value,omitempty"`
+
+	// (Boolean) Indicated whether variable_value is a regular expression.
+	// Indicated whether variable_value is a regular expression.
+	VariableValueRegex *bool `json:"variableValueRegex,omitempty" tf:"variable_value_regex,omitempty"`
 }
 
 type ConditionObservation struct {
 
+	// (Boolean) Negates the condition result.
+	// Negates the condition result.
+	Negated *bool `json:"negated,omitempty" tf:"negated,omitempty"`
+
 	// (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
 	// Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
 	Operator *string `json:"operator,omitempty" tf:"operator,omitempty"`
@@ -46,9 +58,18 @@ type ConditionObservation struct {
 
 	// (String)
 	VariableValue *string `json:"variableValue,omitempty" tf:"variable_value,omitempty"`
+
+	// (Boolean) Indicated whether variable_value is a regular expression.
+	// Indicated whether variable_value is a regular expression.
+	VariableValueRegex *bool `json:"variableValueRegex,omitempty" tf:"variable_value_regex,omitempty"`
 }
 
 type ConditionParameters struct {
+
+	// (Boolean) Negates the condition result.
+	// Negates the condition result.
+	// +kubebuilder:validation:Optional
+	Negated *bool `json:"negated,omitempty" tf:"negated,omitempty"`
 
 	// (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
 	// Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
@@ -67,9 +88,18 @@ type ConditionParameters struct {
 	// (String)
 	// +kubebuilder:validation:Optional
 	VariableValue *string `json:"variableValue,omitempty" tf:"variable_value,omitempty"`
+
+	// (Boolean) Indicated whether variable_value is a regular expression.
+	// Indicated whether variable_value is a regular expression.
+	// +kubebuilder:validation:Optional
+	VariableValueRegex *bool `json:"variableValueRegex,omitempty" tf:"variable_value_regex,omitempty"`
 }
 
 type LimitInitParameters struct {
+
+	// (String) The request property used to group rate limit counters. Options: ASN, City, Country, Host, IP, IP+JA4, JA4, Organization
+	// The request property used to group rate limit counters. Options: `ASN`, `City`, `Country`, `Host`, `IP`, `IP+JA4`, `JA4`, `Organization`
+	CounterKey *string `json:"counterKey,omitempty" tf:"counter_key,omitempty"`
 
 	// (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
 	// The interval, in seconds, to consider for to trigger the rate limit rule.
@@ -82,6 +112,10 @@ type LimitInitParameters struct {
 
 type LimitObservation struct {
 
+	// (String) The request property used to group rate limit counters. Options: ASN, City, Country, Host, IP, IP+JA4, JA4, Organization
+	// The request property used to group rate limit counters. Options: `ASN`, `City`, `Country`, `Host`, `IP`, `IP+JA4`, `JA4`, `Organization`
+	CounterKey *string `json:"counterKey,omitempty" tf:"counter_key,omitempty"`
+
 	// (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
 	// The interval, in seconds, to consider for to trigger the rate limit rule.
 	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
@@ -92,6 +126,11 @@ type LimitObservation struct {
 }
 
 type LimitParameters struct {
+
+	// (String) The request property used to group rate limit counters. Options: ASN, City, Country, Host, IP, IP+JA4, JA4, Organization
+	// The request property used to group rate limit counters. Options: `ASN`, `City`, `Country`, `Host`, `IP`, `IP+JA4`, `JA4`, `Organization`
+	// +kubebuilder:validation:Optional
+	CounterKey *string `json:"counterKey,omitempty" tf:"counter_key,omitempty"`
 
 	// (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
 	// The interval, in seconds, to consider for to trigger the rate limit rule.
@@ -193,6 +232,10 @@ type RatelimitRuleParameters struct {
 
 type ResponseInitParameters struct {
 
+	// (String) The action to take once the rate limit is exceeded. Options: Challenge, Log, RateLimit
+	// The action to take once the rate limit is exceeded. Options: `Challenge`, `Log`, `RateLimit`
+	Action *string `json:"action,omitempty" tf:"action,omitempty"`
+
 	// (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
 	// The interval, in seconds, that the rate limit will apply.
 	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
@@ -200,12 +243,21 @@ type ResponseInitParameters struct {
 
 type ResponseObservation struct {
 
+	// (String) The action to take once the rate limit is exceeded. Options: Challenge, Log, RateLimit
+	// The action to take once the rate limit is exceeded. Options: `Challenge`, `Log`, `RateLimit`
+	Action *string `json:"action,omitempty" tf:"action,omitempty"`
+
 	// (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
 	// The interval, in seconds, that the rate limit will apply.
 	Interval *float64 `json:"interval,omitempty" tf:"interval,omitempty"`
 }
 
 type ResponseParameters struct {
+
+	// (String) The action to take once the rate limit is exceeded. Options: Challenge, Log, RateLimit
+	// The action to take once the rate limit is exceeded. Options: `Challenge`, `Log`, `RateLimit`
+	// +kubebuilder:validation:Optional
+	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
 	// (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
 	// The interval, in seconds, that the rate limit will apply.

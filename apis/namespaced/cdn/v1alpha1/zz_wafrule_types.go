@@ -16,6 +16,10 @@ import (
 
 type WafRuleConditionInitParameters struct {
 
+	// (Boolean) Negates the condition result.
+	// Negates the condition result.
+	Negated *bool `json:"negated,omitempty" tf:"negated,omitempty"`
+
 	// (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
 	// Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
 	Operator *string `json:"operator,omitempty" tf:"operator,omitempty"`
@@ -29,10 +33,18 @@ type WafRuleConditionInitParameters struct {
 
 	// (String)
 	VariableValue *string `json:"variableValue,omitempty" tf:"variable_value,omitempty"`
+
+	// (Boolean) Indicated whether variable_value is a regular expression.
+	// Indicated whether variable_value is a regular expression.
+	VariableValueRegex *bool `json:"variableValueRegex,omitempty" tf:"variable_value_regex,omitempty"`
 }
 
 type WafRuleConditionObservation struct {
 
+	// (Boolean) Negates the condition result.
+	// Negates the condition result.
+	Negated *bool `json:"negated,omitempty" tf:"negated,omitempty"`
+
 	// (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
 	// Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
 	Operator *string `json:"operator,omitempty" tf:"operator,omitempty"`
@@ -46,9 +58,18 @@ type WafRuleConditionObservation struct {
 
 	// (String)
 	VariableValue *string `json:"variableValue,omitempty" tf:"variable_value,omitempty"`
+
+	// (Boolean) Indicated whether variable_value is a regular expression.
+	// Indicated whether variable_value is a regular expression.
+	VariableValueRegex *bool `json:"variableValueRegex,omitempty" tf:"variable_value_regex,omitempty"`
 }
 
 type WafRuleConditionParameters struct {
+
+	// (Boolean) Negates the condition result.
+	// Negates the condition result.
+	// +kubebuilder:validation:Optional
+	Negated *bool `json:"negated,omitempty" tf:"negated,omitempty"`
 
 	// (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
 	// Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
@@ -67,6 +88,11 @@ type WafRuleConditionParameters struct {
 	// (String)
 	// +kubebuilder:validation:Optional
 	VariableValue *string `json:"variableValue,omitempty" tf:"variable_value,omitempty"`
+
+	// (Boolean) Indicated whether variable_value is a regular expression.
+	// Indicated whether variable_value is a regular expression.
+	// +kubebuilder:validation:Optional
+	VariableValueRegex *bool `json:"variableValueRegex,omitempty" tf:"variable_value_regex,omitempty"`
 }
 
 type WafRuleInitParameters struct {

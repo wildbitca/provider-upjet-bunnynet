@@ -4,8 +4,8 @@ metadata:
   annotations:
     meta.upbound.io/example-id: cdn/v1alpha1/accesslist
   labels:
-    testing.upbound.io/example-name: hetzner
-  name: hetzner
+    testing.upbound.io/example-name: vip-customers
+  name: vip-customers
   namespace: crossplane-system
 spec:
   forProvider:

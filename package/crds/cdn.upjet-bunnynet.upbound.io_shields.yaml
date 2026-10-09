@@ -89,6 +89,37 @@ spec:
                           type: number
                       type: object
                     type: array
+                  botCategorization:
+                    description: (Attributes List) (see below for nested schema)
+                    items:
+                      properties:
+                        action:
+                          description: |-
+                            (String) Options: Allow, Block, Bypass, Challenge, Log
+                            Options: `Allow`, `Block`, `Ignore`
+                          type: string
+                        category:
+                          description: |-
+                            (String) Options: AIScraper, AITool, Ads, Preview, SEO, Social, Tool
+                            Options: `AIScraper`, `AITool`, `Ads`, `Preview`, `SEO`, `Social`, `Tool`
+                          type: string
+                        overrides:
+                          description: |-
+                            (List of Object) Override actions for specific bots. (see below for nested schema)
+                            Override actions for specific bots.
+                          items:
+                            properties:
+                              action:
+                                description: '(String) Options: Allow, Block, Bypass,
+                                  Challenge, Log'
+                                type: string
+                              bot:
+                                description: (String)
+                                type: string
+                            type: object
+                          type: array
+                      type: object
+                    type: array
                   botDetection:
                     description: |-
                       (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
@@ -139,13 +170,13 @@ spec:
                     type: string
                   uploadScanningAntivirus:
                     description: |-
-                      (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
-                      Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+                      (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware. Options: Block, Disable, Log
+                      Scan file uploads for viruses, trojans, ransomware, and other forms of malware. Options: `Block`, `Disable`, `Log`
                     type: string
                   uploadScanningCsam:
                     description: |-
-                      (String) Scan file uploads for Child Sexual Abuse Material.
-                      Scan file uploads for Child Sexual Abuse Material.
+                      (String) Scan file uploads for Child Sexual Abuse Material. Options: Block, Disable, Log
+                      Scan file uploads for Child Sexual Abuse Material. Options: `Block`, `Disable`, `Log`
                     type: string
                   whitelabel:
                     description: |-
@@ -197,6 +228,37 @@ spec:
                           type: number
                       type: object
                     type: array
+                  botCategorization:
+                    description: (Attributes List) (see below for nested schema)
+                    items:
+                      properties:
+                        action:
+                          description: |-
+                            (String) Options: Allow, Block, Bypass, Challenge, Log
+                            Options: `Allow`, `Block`, `Ignore`
+                          type: string
+                        category:
+                          description: |-
+                            (String) Options: AIScraper, AITool, Ads, Preview, SEO, Social, Tool
+                            Options: `AIScraper`, `AITool`, `Ads`, `Preview`, `SEO`, `Social`, `Tool`
+                          type: string
+                        overrides:
+                          description: |-
+                            (List of Object) Override actions for specific bots. (see below for nested schema)
+                            Override actions for specific bots.
+                          items:
+                            properties:
+                              action:
+                                description: '(String) Options: Allow, Block, Bypass,
+                                  Challenge, Log'
+                                type: string
+                              bot:
+                                description: (String)
+                                type: string
+                            type: object
+                          type: array
+                      type: object
+                    type: array
                   botDetection:
                     description: |-
                       (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
@@ -247,13 +309,13 @@ spec:
                     type: string
                   uploadScanningAntivirus:
                     description: |-
-                      (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
-                      Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+                      (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware. Options: Block, Disable, Log
+                      Scan file uploads for viruses, trojans, ransomware, and other forms of malware. Options: `Block`, `Disable`, `Log`
                     type: string
                   uploadScanningCsam:
                     description: |-
-                      (String) Scan file uploads for Child Sexual Abuse Material.
-                      Scan file uploads for Child Sexual Abuse Material.
+                      (String) Scan file uploads for Child Sexual Abuse Material. Options: Block, Disable, Log
+                      Scan file uploads for Child Sexual Abuse Material. Options: `Block`, `Disable`, `Log`
                     type: string
                   whitelabel:
                     description: |-
@@ -388,6 +450,37 @@ spec:
                           type: number
                       type: object
                     type: array
+                  botCategorization:
+                    description: (Attributes List) (see below for nested schema)
+                    items:
+                      properties:
+                        action:
+                          description: |-
+                            (String) Options: Allow, Block, Bypass, Challenge, Log
+                            Options: `Allow`, `Block`, `Ignore`
+                          type: string
+                        category:
+                          description: |-
+                            (String) Options: AIScraper, AITool, Ads, Preview, SEO, Social, Tool
+                            Options: `AIScraper`, `AITool`, `Ads`, `Preview`, `SEO`, `Social`, `Tool`
+                          type: string
+                        overrides:
+                          description: |-
+                            (List of Object) Override actions for specific bots. (see below for nested schema)
+                            Override actions for specific bots.
+                          items:
+                            properties:
+                              action:
+                                description: '(String) Options: Allow, Block, Bypass,
+                                  Challenge, Log'
+                                type: string
+                              bot:
+                                description: (String)
+                                type: string
+                            type: object
+                          type: array
+                      type: object
+                    type: array
                   botDetection:
                     description: |-
                       (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
@@ -459,13 +552,13 @@ spec:
                     type: string
                   uploadScanningAntivirus:
                     description: |-
-                      (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
-                      Scan file uploads for viruses, trojans, ransomware, and other forms of malware.
+                      (String) Scan file uploads for viruses, trojans, ransomware, and other forms of malware. Options: Block, Disable, Log
+                      Scan file uploads for viruses, trojans, ransomware, and other forms of malware. Options: `Block`, `Disable`, `Log`
                     type: string
                   uploadScanningCsam:
                     description: |-
-                      (String) Scan file uploads for Child Sexual Abuse Material.
-                      Scan file uploads for Child Sexual Abuse Material.
+                      (String) Scan file uploads for Child Sexual Abuse Material. Options: Block, Disable, Log
+                      Scan file uploads for Child Sexual Abuse Material. Options: `Block`, `Disable`, `Log`
                     type: string
                   waf:
                     description: |-

@@ -546,6 +546,10 @@ type PullzoneInitParameters struct {
 	// If enabled, bunny.net will strip all the Set-Cookie headers from the HTTP responses.
 	StripCookies *bool `json:"stripCookies,omitempty" tf:"strip_cookies,omitempty"`
 
+	// (String) Options: Compatible, Legacy, ModernOnly
+	// Options: `Compatible`, `Legacy`, `ModernOnly`
+	TLSLevel *string `json:"tlsLevel,omitempty" tf:"tls_level,omitempty"`
+
 	// (Set of String) Options: TLSv1.0, TLSv1.1
 	// Options: `TLSv1.0`, `TLSv1.1`
 	// +listType=set
@@ -923,6 +927,10 @@ type PullzoneObservation struct {
 	// Cookie headers from the HTTP responses.
 	// If enabled, bunny.net will strip all the Set-Cookie headers from the HTTP responses.
 	StripCookies *bool `json:"stripCookies,omitempty" tf:"strip_cookies,omitempty"`
+
+	// (String) Options: Compatible, Legacy, ModernOnly
+	// Options: `Compatible`, `Legacy`, `ModernOnly`
+	TLSLevel *string `json:"tlsLevel,omitempty" tf:"tls_level,omitempty"`
 
 	// (Set of String) Options: TLSv1.0, TLSv1.1
 	// Options: `TLSv1.0`, `TLSv1.1`
@@ -1375,6 +1383,11 @@ type PullzoneParameters struct {
 	// +kubebuilder:validation:Optional
 	StripCookies *bool `json:"stripCookies,omitempty" tf:"strip_cookies,omitempty"`
 
+	// (String) Options: Compatible, Legacy, ModernOnly
+	// Options: `Compatible`, `Legacy`, `ModernOnly`
+	// +kubebuilder:validation:Optional
+	TLSLevel *string `json:"tlsLevel,omitempty" tf:"tls_level,omitempty"`
+
 	// (Set of String) Options: TLSv1.0, TLSv1.1
 	// Options: `TLSv1.0`, `TLSv1.1`
 	// +kubebuilder:validation:Optional
@@ -1414,8 +1427,8 @@ type RoutingInitParameters struct {
 	// +listType=set
 	BlockedCountries []*string `json:"blockedCountries,omitempty" tf:"blocked_countries,omitempty"`
 
-	// (Set of String) Options: all, eu, scripting
-	// Options: `all`, `eu`, `scripting`
+	// (Set of String) Options: all, eea, eu, scripting
+	// Options: `all`, `eea`, `eu`, `scripting`
 	// +listType=set
 	Filters []*string `json:"filters,omitempty" tf:"filters,omitempty"`
 
@@ -1441,8 +1454,8 @@ type RoutingObservation struct {
 	// +listType=set
 	BlockedCountries []*string `json:"blockedCountries,omitempty" tf:"blocked_countries,omitempty"`
 
-	// (Set of String) Options: all, eu, scripting
-	// Options: `all`, `eu`, `scripting`
+	// (Set of String) Options: all, eea, eu, scripting
+	// Options: `all`, `eea`, `eu`, `scripting`
 	// +listType=set
 	Filters []*string `json:"filters,omitempty" tf:"filters,omitempty"`
 
@@ -1469,8 +1482,8 @@ type RoutingParameters struct {
 	// +listType=set
 	BlockedCountries []*string `json:"blockedCountries,omitempty" tf:"blocked_countries,omitempty"`
 
-	// (Set of String) Options: all, eu, scripting
-	// Options: `all`, `eu`, `scripting`
+	// (Set of String) Options: all, eea, eu, scripting
+	// Options: `all`, `eea`, `eu`, `scripting`
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	Filters []*string `json:"filters,omitempty" tf:"filters,omitempty"`

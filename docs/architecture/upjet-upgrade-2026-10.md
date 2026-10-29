@@ -21,7 +21,7 @@
   (v0.23 does not compile against client-go 0.36).
 - Terraform provider 0.19.2 changes: Optimizer HTML to Markdown on `pullzone`,
   `.` accepted for `SRV` records. The resource set is unchanged (24 resources,
-  9 data sources, none data sources wired).
+  9 data sources, none wired).
 - OpenTofu 1.13.2 initialised the provider schema and generated all CRDs;
   the registry source stays `registry.opentofu.org/BunnyWay/bunnynet`.
 - Single-nested blocks (`nesting_mode: single`) are now emitted as CRD

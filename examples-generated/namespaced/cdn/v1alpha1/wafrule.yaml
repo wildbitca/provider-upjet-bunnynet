@@ -16,6 +16,8 @@ spec:
     description: Challenge any request
     name: WordPress Login
     pullzone: ${bunnynet_pullzone.test.id}
+    response:
+    - action: Challenge
     transformations:
     - LOWERCASE
     - NORMALIZEPATH

@@ -10,7 +10,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	v1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
+	v2 "github.com/crossplane/crossplane/apis/v2/core/v2"
 )
 
 type ActionsInitParameters struct {
@@ -64,8 +64,8 @@ type ActionsParameters struct {
 
 type EdgeruleInitParameters struct {
 
-	// (String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode, StripCookiesClientToOrigin
-	// Options: `BlockRequest`, `BypassAwsS3Authentication`, `BypassPermaCache`, `DisableOptimizer`, `DisableRequestCoalescing`, `DisableShield`, `DisableShieldAccessLists`, `DisableShieldBotDetection`, `DisableShieldChallenge`, `DisableShieldRateLimiting`, `DisableTokenAuthentication`, `DisableWAF`, `EnableRequestCoalescing`, `EnableTokenAuthentication`, `ForceCompression`, `ForceDownload`, `ForceSSL`, `IgnoreQueryString`, `OriginMagicContainers`, `OriginStorage`, `OriginUrl`, `OverrideBrowserCacheResponseHeader`, `OverrideBrowserCacheTime`, `OverrideCacheTime`, `OverrideCacheTimePublic`, `Redirect`, `RemoveBrowserCacheResponseHeader`, `RetryOrigin`, `RunEdgeScript`, `SetConnectionLimit`, `SetNetworkRateLimit`, `SetRequestHeader`, `SetRequestsPerSecondLimit`, `SetResponseHeader`, `SetStatusCode`, `StripCookiesClientToOrigin`
+	// (String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceLoadBalancerStickySessionMode, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode, StripCookiesClientToOrigin, UseLoadBalancer
+	// Options: `BlockRequest`, `BypassAwsS3Authentication`, `BypassPermaCache`, `DisableOptimizer`, `DisableRequestCoalescing`, `DisableShield`, `DisableShieldAccessLists`, `DisableShieldBotDetection`, `DisableShieldChallenge`, `DisableShieldRateLimiting`, `DisableTokenAuthentication`, `DisableWAF`, `EnableRequestCoalescing`, `EnableTokenAuthentication`, `ForceCompression`, `ForceDownload`, `ForceLoadBalancerStickySessionMode`, `ForceSSL`, `IgnoreQueryString`, `OriginMagicContainers`, `OriginStorage`, `OriginUrl`, `OverrideBrowserCacheResponseHeader`, `OverrideBrowserCacheTime`, `OverrideCacheTime`, `OverrideCacheTimePublic`, `Redirect`, `RemoveBrowserCacheResponseHeader`, `RetryOrigin`, `RunEdgeScript`, `SetConnectionLimit`, `SetNetworkRateLimit`, `SetRequestHeader`, `SetRequestsPerSecondLimit`, `SetResponseHeader`, `SetStatusCode`, `StripCookiesClientToOrigin`, `UseLoadBalancer`
 	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
 	// (String)
@@ -106,8 +106,8 @@ type EdgeruleInitParameters struct {
 
 type EdgeruleObservation struct {
 
-	// (String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode, StripCookiesClientToOrigin
-	// Options: `BlockRequest`, `BypassAwsS3Authentication`, `BypassPermaCache`, `DisableOptimizer`, `DisableRequestCoalescing`, `DisableShield`, `DisableShieldAccessLists`, `DisableShieldBotDetection`, `DisableShieldChallenge`, `DisableShieldRateLimiting`, `DisableTokenAuthentication`, `DisableWAF`, `EnableRequestCoalescing`, `EnableTokenAuthentication`, `ForceCompression`, `ForceDownload`, `ForceSSL`, `IgnoreQueryString`, `OriginMagicContainers`, `OriginStorage`, `OriginUrl`, `OverrideBrowserCacheResponseHeader`, `OverrideBrowserCacheTime`, `OverrideCacheTime`, `OverrideCacheTimePublic`, `Redirect`, `RemoveBrowserCacheResponseHeader`, `RetryOrigin`, `RunEdgeScript`, `SetConnectionLimit`, `SetNetworkRateLimit`, `SetRequestHeader`, `SetRequestsPerSecondLimit`, `SetResponseHeader`, `SetStatusCode`, `StripCookiesClientToOrigin`
+	// (String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceLoadBalancerStickySessionMode, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode, StripCookiesClientToOrigin, UseLoadBalancer
+	// Options: `BlockRequest`, `BypassAwsS3Authentication`, `BypassPermaCache`, `DisableOptimizer`, `DisableRequestCoalescing`, `DisableShield`, `DisableShieldAccessLists`, `DisableShieldBotDetection`, `DisableShieldChallenge`, `DisableShieldRateLimiting`, `DisableTokenAuthentication`, `DisableWAF`, `EnableRequestCoalescing`, `EnableTokenAuthentication`, `ForceCompression`, `ForceDownload`, `ForceLoadBalancerStickySessionMode`, `ForceSSL`, `IgnoreQueryString`, `OriginMagicContainers`, `OriginStorage`, `OriginUrl`, `OverrideBrowserCacheResponseHeader`, `OverrideBrowserCacheTime`, `OverrideCacheTime`, `OverrideCacheTimePublic`, `Redirect`, `RemoveBrowserCacheResponseHeader`, `RetryOrigin`, `RunEdgeScript`, `SetConnectionLimit`, `SetNetworkRateLimit`, `SetRequestHeader`, `SetRequestsPerSecondLimit`, `SetResponseHeader`, `SetStatusCode`, `StripCookiesClientToOrigin`, `UseLoadBalancer`
 	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
 	// (String)
@@ -151,8 +151,8 @@ type EdgeruleObservation struct {
 
 type EdgeruleParameters struct {
 
-	// (String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode, StripCookiesClientToOrigin
-	// Options: `BlockRequest`, `BypassAwsS3Authentication`, `BypassPermaCache`, `DisableOptimizer`, `DisableRequestCoalescing`, `DisableShield`, `DisableShieldAccessLists`, `DisableShieldBotDetection`, `DisableShieldChallenge`, `DisableShieldRateLimiting`, `DisableTokenAuthentication`, `DisableWAF`, `EnableRequestCoalescing`, `EnableTokenAuthentication`, `ForceCompression`, `ForceDownload`, `ForceSSL`, `IgnoreQueryString`, `OriginMagicContainers`, `OriginStorage`, `OriginUrl`, `OverrideBrowserCacheResponseHeader`, `OverrideBrowserCacheTime`, `OverrideCacheTime`, `OverrideCacheTimePublic`, `Redirect`, `RemoveBrowserCacheResponseHeader`, `RetryOrigin`, `RunEdgeScript`, `SetConnectionLimit`, `SetNetworkRateLimit`, `SetRequestHeader`, `SetRequestsPerSecondLimit`, `SetResponseHeader`, `SetStatusCode`, `StripCookiesClientToOrigin`
+	// (String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceLoadBalancerStickySessionMode, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode, StripCookiesClientToOrigin, UseLoadBalancer
+	// Options: `BlockRequest`, `BypassAwsS3Authentication`, `BypassPermaCache`, `DisableOptimizer`, `DisableRequestCoalescing`, `DisableShield`, `DisableShieldAccessLists`, `DisableShieldBotDetection`, `DisableShieldChallenge`, `DisableShieldRateLimiting`, `DisableTokenAuthentication`, `DisableWAF`, `EnableRequestCoalescing`, `EnableTokenAuthentication`, `ForceCompression`, `ForceDownload`, `ForceLoadBalancerStickySessionMode`, `ForceSSL`, `IgnoreQueryString`, `OriginMagicContainers`, `OriginStorage`, `OriginUrl`, `OverrideBrowserCacheResponseHeader`, `OverrideBrowserCacheTime`, `OverrideCacheTime`, `OverrideCacheTimePublic`, `Redirect`, `RemoveBrowserCacheResponseHeader`, `RetryOrigin`, `RunEdgeScript`, `SetConnectionLimit`, `SetNetworkRateLimit`, `SetRequestHeader`, `SetRequestsPerSecondLimit`, `SetResponseHeader`, `SetStatusCode`, `StripCookiesClientToOrigin`, `UseLoadBalancer`
 	// +kubebuilder:validation:Optional
 	Action *string `json:"action,omitempty" tf:"action,omitempty"`
 
@@ -263,8 +263,8 @@ type TriggersParameters struct {
 
 // EdgeruleSpec defines the desired state of Edgerule
 type EdgeruleSpec struct {
-	v1.ResourceSpec `json:",inline"`
-	ForProvider     EdgeruleParameters `json:"forProvider"`
+	v2.ClusterManagedResourceSpec `json:",inline"`
+	ForProvider                   EdgeruleParameters `json:"forProvider"`
 	// THIS IS A BETA FIELD. It will be honored
 	// unless the Management Policies feature flag is disabled.
 	// InitProvider holds the same fields as ForProvider, with the exception
@@ -280,8 +280,8 @@ type EdgeruleSpec struct {
 
 // EdgeruleStatus defines the observed state of Edgerule.
 type EdgeruleStatus struct {
-	v1.ResourceStatus `json:",inline"`
-	AtProvider        EdgeruleObservation `json:"atProvider,omitempty"`
+	v2.ManagedResourceStatus `json:",inline"`
+	AtProvider               EdgeruleObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

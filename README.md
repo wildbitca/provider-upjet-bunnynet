@@ -18,7 +18,7 @@ kind: Provider
 metadata:
   name: provider-bunnynet-cdn
 spec:
-  package: xpkg.upbound.io/wildbitca/provider-bunnynet-cdn:v0.2.0
+  package: xpkg.upbound.io/wildbitca/provider-bunnynet-cdn:v1.0.0
 ```
 
 Need more services? Add more sub-providers:
@@ -29,20 +29,21 @@ kind: Provider
 metadata:
   name: provider-bunnynet-dns
 spec:
-  package: xpkg.upbound.io/wildbitca/provider-bunnynet-dns:v0.2.0
+  package: xpkg.upbound.io/wildbitca/provider-bunnynet-dns:v1.0.0
 ---
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
   name: provider-bunnynet-storage
 spec:
-  package: xpkg.upbound.io/wildbitca/provider-bunnynet-storage:v0.2.0
+  package: xpkg.upbound.io/wildbitca/provider-bunnynet-storage:v1.0.0
 ```
 
 ### Available sub-providers
 
 | Sub-provider | Resources |
 |-------------|-----------|
+| `provider-bunnynet-account` | Account subusers |
 | `provider-bunnynet-cdn` | Pull zones, hostnames, edge rules, optimizer classes, access lists |
 | `provider-bunnynet-dns` | DNS zones and records |
 | `provider-bunnynet-storage` | Storage zones |
@@ -130,8 +131,9 @@ make build.family FAMILY_SUBPACKAGES="config cdn dns"
 
 ## Supported resources
 
-This provider exposes 23 managed resources from the [Bunny.net Terraform Provider v0.19.1](https://registry.terraform.io/providers/BunnyWay/bunnynet/0.19.1/docs), organized in 5 API groups:
+This provider exposes 24 managed resources from the [Bunny.net Terraform Provider v0.19.2](https://registry.terraform.io/providers/BunnyWay/bunnynet/0.19.2/docs), organized in 6 API groups:
 
+- **Account**: Subusers
 - **CDN**: Pull zones, hostnames, edge rules, optimizer classes, access lists
 - **DNS**: DNS zones, DNS records
 - **Storage**: Storage zones

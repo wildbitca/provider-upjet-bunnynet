@@ -7,6 +7,71 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-10-29
+
+First stable release of the family. Upgrades the toolchain and the wrapped
+Terraform provider. The `v1alpha1` API surface is unchanged except for the two
+breaking CRD changes below; the major version marks the commitment to semver
+from here on and the move to the upjet v2.5.x / crossplane-runtime v2.4 line.
+
+### Changed
+
+- Upstream `BunnyWay/bunnynet` Terraform provider `v0.19.1` -> `v0.19.2`
+  (adds `pullzone` Optimizer HTML to Markdown and `.` as an `SRV` record
+  value; no resources or data sources were added, removed or renamed).
+- OpenTofu `1.11.5` -> `1.13.2` (Makefile, publish workflow, image build).
+- `crossplane/upjet` `v2.2.5` (fork) -> upstream `v2.5.1` carried by the fork
+  tag `v2.5.1-wb.1`; `crossplane-runtime` `v2.1.0` -> `v2.4.0`;
+  `crossplane/apis/v2` `v2.4.1` (new direct dependency);
+  `controller-runtime` `v0.22.4` -> `v0.25.2`; `controller-tools` `v0.19.0` ->
+  `v0.20.0`; `k8s.io/*` `v0.34.3` -> `v0.36.2`; Go `1.26.8`.
+- Common Crossplane API types now come from
+  `github.com/crossplane/crossplane/apis/v2/core/v2` (`xpv1`/`xpv2` merged).
+- Conversion webhooks are registered by the generated
+  `SetupWebhookWithManager*` aggregators; the hand-written `ProviderConfig`
+  packages expose a no-op `SetupWebhookWithManager`.
+- `apis/generate.go` now also deletes stale `zz_generated.managed*.go` so a
+  change of the common API import path regenerates cleanly.
+
+### Backwards compatibility breaks
+
+- CRD shape: `Pullzone.spec.forProvider.routing` and
+  `Shield.spec.forProvider.botDetection` change from a one-element **array**
+  to an **object** (Terraform `nesting_mode: single`). Manifests must change
+  `routing: [{...}]` to `routing: {...}` (same for `botDetection`).
+- Requires Crossplane v2 (`crossplane-runtime` v2.4).
+
+### Migration
+
+Update existing manifests before upgrading the provider packages:
+
+```yaml
+# before (0.4.x)
+spec:
+  forProvider:
+    routing:
+      - tier: Standard
+# after (1.0.0)
+spec:
+  forProvider:
+    routing:
+      tier: Standard
+```
+
+The same applies to `Shield.spec.forProvider.botDetection`. Update the
+`Provider` packages to `v1.0.0` (family and sub-providers together).
+
+### Added
+
+- Regression tests in `config/` for external-name wiring completeness and for
+  numeric Terraform state ids.
+- `docs/architecture/upjet-upgrade-2026-10.md` and
+  `docs/architecture/upjet-fork.md`.
+
+### Fixed
+
+- README resource count (24, not 23) and API group list (now includes `account`).
+
 ## [0.3.0] - 2026-08-14
 
 Upgrades the upstream `BunnyWay/bunnynet` Terraform provider from `v0.15.1` to

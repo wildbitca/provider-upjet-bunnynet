@@ -10,8 +10,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	v1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
-	v2 "github.com/crossplane/crossplane-runtime/v2/apis/common/v2"
+	v2 "github.com/crossplane/crossplane/apis/v2/core/v2"
 )
 
 type ContainerImageregistryInitParameters struct {
@@ -22,7 +21,7 @@ type ContainerImageregistryInitParameters struct {
 
 	// (String, Sensitive) The token used to authenticate to the registry. If you are importing a resource, declare the token as an empty string.
 	// The token used to authenticate to the registry. If you are importing a resource, declare the token as an empty string.
-	TokenSecretRef v1.LocalSecretKeySelector `json:"tokenSecretRef" tf:"-"`
+	TokenSecretRef v2.LocalSecretKeySelector `json:"tokenSecretRef" tf:"-"`
 
 	// (String) The username used to authenticate to the registry.
 	// The username used to authenticate to the registry.
@@ -53,7 +52,7 @@ type ContainerImageregistryParameters struct {
 	// (String, Sensitive) The token used to authenticate to the registry. If you are importing a resource, declare the token as an empty string.
 	// The token used to authenticate to the registry. If you are importing a resource, declare the token as an empty string.
 	// +kubebuilder:validation:Optional
-	TokenSecretRef v1.LocalSecretKeySelector `json:"tokenSecretRef" tf:"-"`
+	TokenSecretRef v2.LocalSecretKeySelector `json:"tokenSecretRef" tf:"-"`
 
 	// (String) The username used to authenticate to the registry.
 	// The username used to authenticate to the registry.
@@ -80,8 +79,8 @@ type ContainerImageregistrySpec struct {
 
 // ContainerImageregistryStatus defines the observed state of ContainerImageregistry.
 type ContainerImageregistryStatus struct {
-	v1.ResourceStatus `json:",inline"`
-	AtProvider        ContainerImageregistryObservation `json:"atProvider,omitempty"`
+	v2.ManagedResourceStatus `json:",inline"`
+	AtProvider               ContainerImageregistryObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

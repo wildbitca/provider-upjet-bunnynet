@@ -8,7 +8,7 @@
 //go:generate rm -rf ../package/crds
 
 // Remove generated files (|| true so already-missing files on bind mounts do not fail)
-//go:generate bash -c "find . -iname 'zz_*' ! -iname 'zz_generated.managed*.go' -delete || true"
+//go:generate bash -c "find . -iname 'zz_*' -delete || true"
 //go:generate bash -c "find . -type d -empty -delete"
 //go:generate bash -c "find ../internal/controller -iname 'zz_*' -delete || true"
 //go:generate bash -c "find ../internal/controller -type d -empty -delete"

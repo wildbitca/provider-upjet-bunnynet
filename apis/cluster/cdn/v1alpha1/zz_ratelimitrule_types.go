@@ -10,7 +10,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	v1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
+	v2 "github.com/crossplane/crossplane/apis/v2/core/v2"
 )
 
 type ConditionInitParameters struct {
@@ -152,6 +152,9 @@ type RatelimitRuleInitParameters struct {
 	// The rate limit rule description.
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// (Block, Optional) (see below for nested schema)
+	Limit *LimitInitParameters `json:"limit,omitempty" tf:"limit,omitempty"`
+
 	// (String) The rate limit rule name.
 	// The rate limit rule name.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
@@ -159,6 +162,10 @@ type RatelimitRuleInitParameters struct {
 	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
+
+	// (Block, Optional) The response once the rate limit rule is triggered. (see below for nested schema)
+	// The response once the rate limit rule is triggered.
+	Response *ResponseInitParameters `json:"response,omitempty" tf:"response,omitempty"`
 
 	// (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
 	// Options: `CMDLINE`, `COMPRESSWHITESPACE`, `CSSDECODE`, `HEXENCODE`, `HTMLENTITYDECODE`, `JSDECODE`, `LENGTH`, `LOWERCASE`, `MD5`, `NORMALISEPATH`, `NORMALISEPATHWIN`, `NORMALIZEPATH`, `NORMALIZEPATHWIN`, `REMOVECOMMENTS`, `REMOVENULLS`, `REMOVEWHITESPACE`, `REPLACECOMMENTS`, `SHA1`, `URLDECODE`, `URLDECODEUNI`, `UTF8TOUNICODE`
@@ -180,7 +187,7 @@ type RatelimitRuleObservation struct {
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// (Block, Optional) (see below for nested schema)
-	Limit []LimitObservation `json:"limit,omitempty" tf:"limit,omitempty"`
+	Limit *LimitObservation `json:"limit,omitempty" tf:"limit,omitempty"`
 
 	// (String) The rate limit rule name.
 	// The rate limit rule name.
@@ -192,7 +199,7 @@ type RatelimitRuleObservation struct {
 
 	// (Block, Optional) The response once the rate limit rule is triggered. (see below for nested schema)
 	// The response once the rate limit rule is triggered.
-	Response []ResponseObservation `json:"response,omitempty" tf:"response,omitempty"`
+	Response *ResponseObservation `json:"response,omitempty" tf:"response,omitempty"`
 
 	// (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
 	// Options: `CMDLINE`, `COMPRESSWHITESPACE`, `CSSDECODE`, `HEXENCODE`, `HTMLENTITYDECODE`, `JSDECODE`, `LENGTH`, `LOWERCASE`, `MD5`, `NORMALISEPATH`, `NORMALISEPATHWIN`, `NORMALIZEPATH`, `NORMALIZEPATHWIN`, `REMOVECOMMENTS`, `REMOVENULLS`, `REMOVEWHITESPACE`, `REPLACECOMMENTS`, `SHA1`, `URLDECODE`, `URLDECODEUNI`, `UTF8TOUNICODE`
@@ -212,6 +219,10 @@ type RatelimitRuleParameters struct {
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// (Block, Optional) (see below for nested schema)
+	// +kubebuilder:validation:Optional
+	Limit *LimitParameters `json:"limit,omitempty" tf:"limit,omitempty"`
+
 	// (String) The rate limit rule name.
 	// The rate limit rule name.
 	// +kubebuilder:validation:Optional
@@ -221,6 +232,11 @@ type RatelimitRuleParameters struct {
 	// The ID of the linked pullzone.
 	// +kubebuilder:validation:Optional
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
+
+	// (Block, Optional) The response once the rate limit rule is triggered. (see below for nested schema)
+	// The response once the rate limit rule is triggered.
+	// +kubebuilder:validation:Optional
+	Response *ResponseParameters `json:"response,omitempty" tf:"response,omitempty"`
 
 	// (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
 	// Options: `CMDLINE`, `COMPRESSWHITESPACE`, `CSSDECODE`, `HEXENCODE`, `HTMLENTITYDECODE`, `JSDECODE`, `LENGTH`, `LOWERCASE`, `MD5`, `NORMALISEPATH`, `NORMALISEPATHWIN`, `NORMALIZEPATH`, `NORMALIZEPATHWIN`, `REMOVECOMMENTS`, `REMOVENULLS`, `REMOVEWHITESPACE`, `REPLACECOMMENTS`, `SHA1`, `URLDECODE`, `URLDECODEUNI`, `UTF8TOUNICODE`
@@ -266,8 +282,8 @@ type ResponseParameters struct {
 
 // RatelimitRuleSpec defines the desired state of RatelimitRule
 type RatelimitRuleSpec struct {
-	v1.ResourceSpec `json:",inline"`
-	ForProvider     RatelimitRuleParameters `json:"forProvider"`
+	v2.ClusterManagedResourceSpec `json:",inline"`
+	ForProvider                   RatelimitRuleParameters `json:"forProvider"`
 	// THIS IS A BETA FIELD. It will be honored
 	// unless the Management Policies feature flag is disabled.
 	// InitProvider holds the same fields as ForProvider, with the exception
@@ -283,8 +299,8 @@ type RatelimitRuleSpec struct {
 
 // RatelimitRuleStatus defines the observed state of RatelimitRule.
 type RatelimitRuleStatus struct {
-	v1.ResourceStatus `json:",inline"`
-	AtProvider        RatelimitRuleObservation `json:"atProvider,omitempty"`
+	v2.ManagedResourceStatus `json:",inline"`
+	AtProvider               RatelimitRuleObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

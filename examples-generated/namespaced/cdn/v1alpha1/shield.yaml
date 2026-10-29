@@ -9,5 +9,11 @@ metadata:
   namespace: crossplane-system
 spec:
   forProvider:
+    ddos:
+    - level: Medium
+      mode: Block
     pullzone: ${bunnynet_pullzone.test.id}
     tier: Standard
+    waf:
+    - enabled: true
+      mode: Block

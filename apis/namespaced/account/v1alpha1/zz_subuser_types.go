@@ -10,8 +10,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	v1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
-	v2 "github.com/crossplane/crossplane-runtime/v2/apis/common/v2"
+	v2 "github.com/crossplane/crossplane/apis/v2/core/v2"
 )
 
 type SubuserInitParameters struct {
@@ -30,7 +29,7 @@ type SubuserInitParameters struct {
 
 	// only) The user's password. This is a write-only field: to update it after creation, re-create the resource.
 	// The user's password. This is a write-only field: to update it after creation, re-create the resource.
-	PasswordSecretRef *v1.LocalSecretKeySelector `json:"passwordSecretRef,omitempty" tf:"-"`
+	PasswordSecretRef *v2.LocalSecretKeySelector `json:"passwordSecretRef,omitempty" tf:"-"`
 
 	// (Set of String) Options: abuse, billing, support, users, zones
 	// Options: `abuse`, `billing`, `support`, `users`, `zones`
@@ -81,7 +80,7 @@ type SubuserParameters struct {
 	// only) The user's password. This is a write-only field: to update it after creation, re-create the resource.
 	// The user's password. This is a write-only field: to update it after creation, re-create the resource.
 	// +kubebuilder:validation:Optional
-	PasswordSecretRef *v1.LocalSecretKeySelector `json:"passwordSecretRef,omitempty" tf:"-"`
+	PasswordSecretRef *v2.LocalSecretKeySelector `json:"passwordSecretRef,omitempty" tf:"-"`
 
 	// (Set of String) Options: abuse, billing, support, users, zones
 	// Options: `abuse`, `billing`, `support`, `users`, `zones`
@@ -109,8 +108,8 @@ type SubuserSpec struct {
 
 // SubuserStatus defines the observed state of Subuser.
 type SubuserStatus struct {
-	v1.ResourceStatus `json:",inline"`
-	AtProvider        SubuserObservation `json:"atProvider,omitempty"`
+	v2.ManagedResourceStatus `json:",inline"`
+	AtProvider               SubuserObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

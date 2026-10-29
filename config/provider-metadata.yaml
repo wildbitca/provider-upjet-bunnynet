@@ -468,6 +468,7 @@ resources:
             optimizer_dynamic_image_api: (Boolean) Indicates whether the image manipulation should be enabled.
             optimizer_enabled: (Boolean) Indicates whether Bunny Optimizer should be enabled.
             optimizer_html_prerender: (Boolean) Indicates whether HTML Prerender should be enabled.
+            optimizer_html_to_markdown: (Boolean) Indicates whether HTML to Markdown should be enabled.
             optimizer_minify_css: (Boolean) Indicates whether the CSS minification should be enabled.
             optimizer_minify_js: (Boolean) Indicates whether the JavaScript minification should be enabled.
             optimizer_smartimage: (Boolean) Indicates whether the automatic image optimization should be enabled.
@@ -589,7 +590,7 @@ resources:
               references:
                 pullzone: bunnynet_pullzone.example.id
         argumentDocs:
-            action: '(String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode, StripCookiesClientToOrigin'
+            action: '(String) Options: BlockRequest, BypassAwsS3Authentication, BypassPermaCache, DisableOptimizer, DisableRequestCoalescing, DisableShield, DisableShieldAccessLists, DisableShieldBotDetection, DisableShieldChallenge, DisableShieldRateLimiting, DisableTokenAuthentication, DisableWAF, EnableRequestCoalescing, EnableTokenAuthentication, ForceCompression, ForceDownload, ForceLoadBalancerStickySessionMode, ForceSSL, IgnoreQueryString, OriginMagicContainers, OriginStorage, OriginUrl, OverrideBrowserCacheResponseHeader, OverrideBrowserCacheTime, OverrideCacheTime, OverrideCacheTimePublic, Redirect, RemoveBrowserCacheResponseHeader, RetryOrigin, RunEdgeScript, SetConnectionLimit, SetNetworkRateLimit, SetRequestHeader, SetRequestsPerSecondLimit, SetResponseHeader, SetStatusCode, StripCookiesClientToOrigin, UseLoadBalancer'
             action_parameter1: (String)
             action_parameter2: (String)
             action_parameter3: (String)

@@ -10,7 +10,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	v1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
+	v2 "github.com/crossplane/crossplane/apis/v2/core/v2"
 )
 
 type ChaptersInitParameters struct {
@@ -173,8 +173,8 @@ type VideoParameters struct {
 
 // VideoSpec defines the desired state of Video
 type VideoSpec struct {
-	v1.ResourceSpec `json:",inline"`
-	ForProvider     VideoParameters `json:"forProvider"`
+	v2.ClusterManagedResourceSpec `json:",inline"`
+	ForProvider                   VideoParameters `json:"forProvider"`
 	// THIS IS A BETA FIELD. It will be honored
 	// unless the Management Policies feature flag is disabled.
 	// InitProvider holds the same fields as ForProvider, with the exception
@@ -190,8 +190,8 @@ type VideoSpec struct {
 
 // VideoStatus defines the observed state of Video.
 type VideoStatus struct {
-	v1.ResourceStatus `json:",inline"`
-	AtProvider        VideoObservation `json:"atProvider,omitempty"`
+	v2.ManagedResourceStatus `json:",inline"`
+	AtProvider               VideoObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

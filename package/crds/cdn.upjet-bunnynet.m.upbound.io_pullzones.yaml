@@ -3,7 +3,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.19.0
+    controller-gen.kubebuilder.io/version: v0.20.0
   name: pullzones.cdn.upjet-bunnynet.m.upbound.io
 spec:
   group: cdn.upjet-bunnynet.m.upbound.io
@@ -327,6 +327,11 @@ spec:
                       (Boolean) Indicates whether HTML Prerender should be enabled.
                       Indicates whether HTML Prerender should be enabled.
                     type: boolean
+                  optimizerHtmlToMarkdown:
+                    description: |-
+                      (Boolean) Indicates whether HTML to Markdown should be enabled.
+                      Indicates whether HTML to Markdown should be enabled.
+                    type: boolean
                   optimizerMinifyCss:
                     description: |-
                       (Boolean) Indicates whether the CSS minification should be enabled.
@@ -392,6 +397,80 @@ spec:
                       (Boolean) Indicates whether the WebP optimization should be enabled.
                       Indicates whether the WebP optimization should be enabled.
                     type: boolean
+                  origin:
+                    description: (Block, Optional) (see below for nested schema)
+                    properties:
+                      containerAppId:
+                        description: |-
+                          (String) The ID if the compute container app.
+                          The ID if the compute container app.
+                        type: string
+                      containerEndpointId:
+                        description: |-
+                          (String) The ID if the compute container app endpoint.
+                          The ID if the compute container app endpoint.
+                        type: string
+                      dnsPort:
+                        description: |-
+                          (Number) The port for DNS Accelerated endpoints.
+                          The port for DNS Accelerated endpoints.
+                        type: number
+                      dnsScheme:
+                        description: |-
+                          (String) The scheme for DNS Accelerated endpoints.
+                          The scheme for DNS Accelerated endpoints.
+                        type: string
+                      followRedirects:
+                        description: |-
+                          (Boolean) Indicates whether the zone will follow origin redirects.
+                          Indicates whether the zone will follow origin redirects.
+                        type: boolean
+                      forwardHostHeader:
+                        description: |-
+                          (Boolean) Indicates whether the current hostname is forwarded to the origin.
+                          Indicates whether the current hostname is forwarded to the origin.
+                        type: boolean
+                      hostHeader:
+                        description: |-
+                          (String) The host header that will be sent to the origin.
+                          The host header that will be sent to the origin.
+                        type: string
+                      middlewareScript:
+                        description: |-
+                          (Number) The ID of the compute script used as a middleware.
+                          The ID of the compute script used as a middleware.
+                        type: number
+                      script:
+                        description: |-
+                          (Number) The ID of the linked compute script.
+                          The ID of the linked compute script.
+                        type: number
+                      scriptExecuteBeforeCache:
+                        description: |-
+                          (Boolean) Indicates whether the script will execute ahead of the cache layer.
+                          Indicates whether the script will execute ahead of the cache layer.
+                        type: boolean
+                      storagezone:
+                        description: |-
+                          (Number) The ID of the linked storage zone.
+                          The ID of the linked storage zone.
+                        type: number
+                      type:
+                        description: |-
+                          (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, OriginUrl, StorageZone
+                          Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `OriginUrl`, `StorageZone`
+                        type: string
+                      url:
+                        description: |-
+                          (String) The origin URL from where the files are fetched.
+                          The origin URL from where the files are fetched.
+                        type: string
+                      verifySsl:
+                        description: |-
+                          (Boolean) Indicates whether the Origin's TLS certificate should be verified.
+                          Indicates whether the Origin's TLS certificate should be verified.
+                        type: boolean
+                    type: object
                   originshieldConcurrencyLimit:
                     description: |-
                       (Boolean) Indicates whether there is a concurrency limit for Origin Shield.
@@ -439,47 +518,45 @@ spec:
                     type: number
                   routing:
                     description: (Block, Optional) (see below for nested schema)
-                    items:
-                      properties:
-                        blockedCountries:
-                          description: |-
-                            letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
-                            The list of blocked countries with the two-letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                        filters:
-                          description: |-
-                            (Set of String) Options: all, eea, eu, scripting
-                            Options: `all`, `eea`, `eu`, `scripting`
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                        redirectedCountries:
-                          description: |-
-                            letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
-                            The list of budget redirected countries with the two-letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                        tier:
-                          description: |-
-                            (String) Options: Standard, Volume
-                            Options: `Standard`, `Volume`
+                    properties:
+                      blockedCountries:
+                        description: |-
+                          letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
+                          The list of blocked countries with the two-letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
+                        items:
                           type: string
-                        zones:
-                          description: |-
-                            (Set of String) Options: AF, ASIA, EU, SA, US
-                            Options: `AF`, `ASIA`, `EU`, `SA`, `US`
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                      type: object
-                    type: array
+                        type: array
+                        x-kubernetes-list-type: set
+                      filters:
+                        description: |-
+                          (Set of String) Options: all, eea, eu, scripting
+                          Options: `all`, `eea`, `eu`, `scripting`
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      redirectedCountries:
+                        description: |-
+                          letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
+                          The list of budget redirected countries with the two-letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      tier:
+                        description: |-
+                          (String) Options: Standard, Volume
+                          Options: `Standard`, `Volume`
+                        type: string
+                      zones:
+                        description: |-
+                          (Set of String) Options: AF, ASIA, EU, SA, US
+                          Options: `AF`, `ASIA`, `EU`, `SA`, `US`
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                    type: object
                   s3AuthEnabled:
                     description: |-
                       (Boolean) Indicates whether requests to origin will be signed with AWS Signature Version 4.
@@ -860,6 +937,11 @@ spec:
                       (Boolean) Indicates whether HTML Prerender should be enabled.
                       Indicates whether HTML Prerender should be enabled.
                     type: boolean
+                  optimizerHtmlToMarkdown:
+                    description: |-
+                      (Boolean) Indicates whether HTML to Markdown should be enabled.
+                      Indicates whether HTML to Markdown should be enabled.
+                    type: boolean
                   optimizerMinifyCss:
                     description: |-
                       (Boolean) Indicates whether the CSS minification should be enabled.
@@ -925,6 +1007,80 @@ spec:
                       (Boolean) Indicates whether the WebP optimization should be enabled.
                       Indicates whether the WebP optimization should be enabled.
                     type: boolean
+                  origin:
+                    description: (Block, Optional) (see below for nested schema)
+                    properties:
+                      containerAppId:
+                        description: |-
+                          (String) The ID if the compute container app.
+                          The ID if the compute container app.
+                        type: string
+                      containerEndpointId:
+                        description: |-
+                          (String) The ID if the compute container app endpoint.
+                          The ID if the compute container app endpoint.
+                        type: string
+                      dnsPort:
+                        description: |-
+                          (Number) The port for DNS Accelerated endpoints.
+                          The port for DNS Accelerated endpoints.
+                        type: number
+                      dnsScheme:
+                        description: |-
+                          (String) The scheme for DNS Accelerated endpoints.
+                          The scheme for DNS Accelerated endpoints.
+                        type: string
+                      followRedirects:
+                        description: |-
+                          (Boolean) Indicates whether the zone will follow origin redirects.
+                          Indicates whether the zone will follow origin redirects.
+                        type: boolean
+                      forwardHostHeader:
+                        description: |-
+                          (Boolean) Indicates whether the current hostname is forwarded to the origin.
+                          Indicates whether the current hostname is forwarded to the origin.
+                        type: boolean
+                      hostHeader:
+                        description: |-
+                          (String) The host header that will be sent to the origin.
+                          The host header that will be sent to the origin.
+                        type: string
+                      middlewareScript:
+                        description: |-
+                          (Number) The ID of the compute script used as a middleware.
+                          The ID of the compute script used as a middleware.
+                        type: number
+                      script:
+                        description: |-
+                          (Number) The ID of the linked compute script.
+                          The ID of the linked compute script.
+                        type: number
+                      scriptExecuteBeforeCache:
+                        description: |-
+                          (Boolean) Indicates whether the script will execute ahead of the cache layer.
+                          Indicates whether the script will execute ahead of the cache layer.
+                        type: boolean
+                      storagezone:
+                        description: |-
+                          (Number) The ID of the linked storage zone.
+                          The ID of the linked storage zone.
+                        type: number
+                      type:
+                        description: |-
+                          (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, OriginUrl, StorageZone
+                          Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `OriginUrl`, `StorageZone`
+                        type: string
+                      url:
+                        description: |-
+                          (String) The origin URL from where the files are fetched.
+                          The origin URL from where the files are fetched.
+                        type: string
+                      verifySsl:
+                        description: |-
+                          (Boolean) Indicates whether the Origin's TLS certificate should be verified.
+                          Indicates whether the Origin's TLS certificate should be verified.
+                        type: boolean
+                    type: object
                   originshieldConcurrencyLimit:
                     description: |-
                       (Boolean) Indicates whether there is a concurrency limit for Origin Shield.
@@ -972,47 +1128,45 @@ spec:
                     type: number
                   routing:
                     description: (Block, Optional) (see below for nested schema)
-                    items:
-                      properties:
-                        blockedCountries:
-                          description: |-
-                            letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
-                            The list of blocked countries with the two-letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                        filters:
-                          description: |-
-                            (Set of String) Options: all, eea, eu, scripting
-                            Options: `all`, `eea`, `eu`, `scripting`
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                        redirectedCountries:
-                          description: |-
-                            letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
-                            The list of budget redirected countries with the two-letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                        tier:
-                          description: |-
-                            (String) Options: Standard, Volume
-                            Options: `Standard`, `Volume`
+                    properties:
+                      blockedCountries:
+                        description: |-
+                          letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
+                          The list of blocked countries with the two-letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
+                        items:
                           type: string
-                        zones:
-                          description: |-
-                            (Set of String) Options: AF, ASIA, EU, SA, US
-                            Options: `AF`, `ASIA`, `EU`, `SA`, `US`
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                      type: object
-                    type: array
+                        type: array
+                        x-kubernetes-list-type: set
+                      filters:
+                        description: |-
+                          (Set of String) Options: all, eea, eu, scripting
+                          Options: `all`, `eea`, `eu`, `scripting`
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      redirectedCountries:
+                        description: |-
+                          letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
+                          The list of budget redirected countries with the two-letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      tier:
+                        description: |-
+                          (String) Options: Standard, Volume
+                          Options: `Standard`, `Volume`
+                        type: string
+                      zones:
+                        description: |-
+                          (Set of String) Options: AF, ASIA, EU, SA, US
+                          Options: `AF`, `ASIA`, `EU`, `SA`, `US`
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                    type: object
                   s3AuthEnabled:
                     description: |-
                       (Boolean) Indicates whether requests to origin will be signed with AWS Signature Version 4.
@@ -1456,6 +1610,11 @@ spec:
                       (Boolean) Indicates whether HTML Prerender should be enabled.
                       Indicates whether HTML Prerender should be enabled.
                     type: boolean
+                  optimizerHtmlToMarkdown:
+                    description: |-
+                      (Boolean) Indicates whether HTML to Markdown should be enabled.
+                      Indicates whether HTML to Markdown should be enabled.
+                    type: boolean
                   optimizerMinifyCss:
                     description: |-
                       (Boolean) Indicates whether the CSS minification should be enabled.
@@ -1523,80 +1682,78 @@ spec:
                     type: boolean
                   origin:
                     description: (Block, Optional) (see below for nested schema)
-                    items:
-                      properties:
-                        containerAppId:
-                          description: |-
-                            (String) The ID if the compute container app.
-                            The ID if the compute container app.
-                          type: string
-                        containerEndpointId:
-                          description: |-
-                            (String) The ID if the compute container app endpoint.
-                            The ID if the compute container app endpoint.
-                          type: string
-                        dnsPort:
-                          description: |-
-                            (Number) The port for DNS Accelerated endpoints.
-                            The port for DNS Accelerated endpoints.
-                          type: number
-                        dnsScheme:
-                          description: |-
-                            (String) The scheme for DNS Accelerated endpoints.
-                            The scheme for DNS Accelerated endpoints.
-                          type: string
-                        followRedirects:
-                          description: |-
-                            (Boolean) Indicates whether the zone will follow origin redirects.
-                            Indicates whether the zone will follow origin redirects.
-                          type: boolean
-                        forwardHostHeader:
-                          description: |-
-                            (Boolean) Indicates whether the current hostname is forwarded to the origin.
-                            Indicates whether the current hostname is forwarded to the origin.
-                          type: boolean
-                        hostHeader:
-                          description: |-
-                            (String) The host header that will be sent to the origin.
-                            The host header that will be sent to the origin.
-                          type: string
-                        middlewareScript:
-                          description: |-
-                            (Number) The ID of the compute script used as a middleware.
-                            The ID of the compute script used as a middleware.
-                          type: number
-                        script:
-                          description: |-
-                            (Number) The ID of the linked compute script.
-                            The ID of the linked compute script.
-                          type: number
-                        scriptExecuteBeforeCache:
-                          description: |-
-                            (Boolean) Indicates whether the script will execute ahead of the cache layer.
-                            Indicates whether the script will execute ahead of the cache layer.
-                          type: boolean
-                        storagezone:
-                          description: |-
-                            (Number) The ID of the linked storage zone.
-                            The ID of the linked storage zone.
-                          type: number
-                        type:
-                          description: |-
-                            (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, OriginUrl, StorageZone
-                            Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `OriginUrl`, `StorageZone`
-                          type: string
-                        url:
-                          description: |-
-                            (String) The origin URL from where the files are fetched.
-                            The origin URL from where the files are fetched.
-                          type: string
-                        verifySsl:
-                          description: |-
-                            (Boolean) Indicates whether the Origin's TLS certificate should be verified.
-                            Indicates whether the Origin's TLS certificate should be verified.
-                          type: boolean
-                      type: object
-                    type: array
+                    properties:
+                      containerAppId:
+                        description: |-
+                          (String) The ID if the compute container app.
+                          The ID if the compute container app.
+                        type: string
+                      containerEndpointId:
+                        description: |-
+                          (String) The ID if the compute container app endpoint.
+                          The ID if the compute container app endpoint.
+                        type: string
+                      dnsPort:
+                        description: |-
+                          (Number) The port for DNS Accelerated endpoints.
+                          The port for DNS Accelerated endpoints.
+                        type: number
+                      dnsScheme:
+                        description: |-
+                          (String) The scheme for DNS Accelerated endpoints.
+                          The scheme for DNS Accelerated endpoints.
+                        type: string
+                      followRedirects:
+                        description: |-
+                          (Boolean) Indicates whether the zone will follow origin redirects.
+                          Indicates whether the zone will follow origin redirects.
+                        type: boolean
+                      forwardHostHeader:
+                        description: |-
+                          (Boolean) Indicates whether the current hostname is forwarded to the origin.
+                          Indicates whether the current hostname is forwarded to the origin.
+                        type: boolean
+                      hostHeader:
+                        description: |-
+                          (String) The host header that will be sent to the origin.
+                          The host header that will be sent to the origin.
+                        type: string
+                      middlewareScript:
+                        description: |-
+                          (Number) The ID of the compute script used as a middleware.
+                          The ID of the compute script used as a middleware.
+                        type: number
+                      script:
+                        description: |-
+                          (Number) The ID of the linked compute script.
+                          The ID of the linked compute script.
+                        type: number
+                      scriptExecuteBeforeCache:
+                        description: |-
+                          (Boolean) Indicates whether the script will execute ahead of the cache layer.
+                          Indicates whether the script will execute ahead of the cache layer.
+                        type: boolean
+                      storagezone:
+                        description: |-
+                          (Number) The ID of the linked storage zone.
+                          The ID of the linked storage zone.
+                        type: number
+                      type:
+                        description: |-
+                          (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, OriginUrl, StorageZone
+                          Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `OriginUrl`, `StorageZone`
+                        type: string
+                      url:
+                        description: |-
+                          (String) The origin URL from where the files are fetched.
+                          The origin URL from where the files are fetched.
+                        type: string
+                      verifySsl:
+                        description: |-
+                          (Boolean) Indicates whether the Origin's TLS certificate should be verified.
+                          Indicates whether the Origin's TLS certificate should be verified.
+                        type: boolean
+                    type: object
                   originshieldConcurrencyLimit:
                     description: |-
                       (Boolean) Indicates whether there is a concurrency limit for Origin Shield.
@@ -1644,47 +1801,45 @@ spec:
                     type: number
                   routing:
                     description: (Block, Optional) (see below for nested schema)
-                    items:
-                      properties:
-                        blockedCountries:
-                          description: |-
-                            letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
-                            The list of blocked countries with the two-letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                        filters:
-                          description: |-
-                            (Set of String) Options: all, eea, eu, scripting
-                            Options: `all`, `eea`, `eu`, `scripting`
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                        redirectedCountries:
-                          description: |-
-                            letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
-                            The list of budget redirected countries with the two-letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                        tier:
-                          description: |-
-                            (String) Options: Standard, Volume
-                            Options: `Standard`, `Volume`
+                    properties:
+                      blockedCountries:
+                        description: |-
+                          letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
+                          The list of blocked countries with the two-letter Alpha2 ISO codes. Traffic connecting from a blocked country will be rejected on the DNS level.
+                        items:
                           type: string
-                        zones:
-                          description: |-
-                            (Set of String) Options: AF, ASIA, EU, SA, US
-                            Options: `AF`, `ASIA`, `EU`, `SA`, `US`
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                      type: object
-                    type: array
+                        type: array
+                        x-kubernetes-list-type: set
+                      filters:
+                        description: |-
+                          (Set of String) Options: all, eea, eu, scripting
+                          Options: `all`, `eea`, `eu`, `scripting`
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      redirectedCountries:
+                        description: |-
+                          letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
+                          The list of budget redirected countries with the two-letter Alpha2 ISO codes. Traffic from a redirected country will connect to the cheapest possible node in North America or Europe.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      tier:
+                        description: |-
+                          (String) Options: Standard, Volume
+                          Options: `Standard`, `Volume`
+                        type: string
+                      zones:
+                        description: |-
+                          (Set of String) Options: AF, ASIA, EU, SA, US
+                          Options: `AF`, `ASIA`, `EU`, `SA`, `US`
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                    type: object
                   s3AuthEnabled:
                     description: |-
                       (Boolean) Indicates whether requests to origin will be signed with AWS Signature Version 4.
@@ -1831,6 +1986,13 @@ spec:
                 x-kubernetes-list-map-keys:
                 - type
                 x-kubernetes-list-type: map
+              lastHandledReconcileAt:
+                description: |-
+                  LastHandledReconcileAt holds the value of the most recent
+                  reconcile-requested-at annotation token that the controller has
+                  processed. Users can compare this to the annotation to determine
+                  whether a reconcile request has been handled.
+                type: string
               observedGeneration:
                 description: |-
                   ObservedGeneration is the latest metadata.generation

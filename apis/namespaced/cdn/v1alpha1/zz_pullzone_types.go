@@ -10,8 +10,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	v1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
-	v2 "github.com/crossplane/crossplane-runtime/v2/apis/common/v2"
+	v2 "github.com/crossplane/crossplane/apis/v2/core/v2"
 )
 
 type OriginInitParameters struct {
@@ -408,6 +407,10 @@ type PullzoneInitParameters struct {
 	// Indicates whether HTML Prerender should be enabled.
 	OptimizerHTMLPrerender *bool `json:"optimizerHtmlPrerender,omitempty" tf:"optimizer_html_prerender,omitempty"`
 
+	// (Boolean) Indicates whether HTML to Markdown should be enabled.
+	// Indicates whether HTML to Markdown should be enabled.
+	OptimizerHTMLToMarkdown *bool `json:"optimizerHtmlToMarkdown,omitempty" tf:"optimizer_html_to_markdown,omitempty"`
+
 	// (Boolean) Indicates whether the CSS minification should be enabled.
 	// Indicates whether the CSS minification should be enabled.
 	OptimizerMinifyCSS *bool `json:"optimizerMinifyCss,omitempty" tf:"optimizer_minify_css,omitempty"`
@@ -460,6 +463,9 @@ type PullzoneInitParameters struct {
 	// Indicates whether the WebP optimization should be enabled.
 	OptimizerWebp *bool `json:"optimizerWebp,omitempty" tf:"optimizer_webp,omitempty"`
 
+	// (Block, Optional) (see below for nested schema)
+	Origin *OriginInitParameters `json:"origin,omitempty" tf:"origin,omitempty"`
+
 	// (Boolean) Indicates whether there is a concurrency limit for Origin Shield.
 	// Indicates whether there is a concurrency limit for Origin Shield.
 	OriginshieldConcurrencyLimit *bool `json:"originshieldConcurrencyLimit,omitempty" tf:"originshield_concurrency_limit,omitempty"`
@@ -497,7 +503,7 @@ type PullzoneInitParameters struct {
 	RequestCoalescingTimeout *float64 `json:"requestCoalescingTimeout,omitempty" tf:"request_coalescing_timeout,omitempty"`
 
 	// (Block, Optional) (see below for nested schema)
-	Routing []RoutingInitParameters `json:"routing,omitempty" tf:"routing,omitempty"`
+	Routing *RoutingInitParameters `json:"routing,omitempty" tf:"routing,omitempty"`
 
 	// (Boolean) Indicates whether requests to origin will be signed with AWS Signature Version 4.
 	// Indicates whether requests to origin will be signed with AWS Signature Version 4.
@@ -787,6 +793,10 @@ type PullzoneObservation struct {
 	// Indicates whether HTML Prerender should be enabled.
 	OptimizerHTMLPrerender *bool `json:"optimizerHtmlPrerender,omitempty" tf:"optimizer_html_prerender,omitempty"`
 
+	// (Boolean) Indicates whether HTML to Markdown should be enabled.
+	// Indicates whether HTML to Markdown should be enabled.
+	OptimizerHTMLToMarkdown *bool `json:"optimizerHtmlToMarkdown,omitempty" tf:"optimizer_html_to_markdown,omitempty"`
+
 	// (Boolean) Indicates whether the CSS minification should be enabled.
 	// Indicates whether the CSS minification should be enabled.
 	OptimizerMinifyCSS *bool `json:"optimizerMinifyCss,omitempty" tf:"optimizer_minify_css,omitempty"`
@@ -840,7 +850,7 @@ type PullzoneObservation struct {
 	OptimizerWebp *bool `json:"optimizerWebp,omitempty" tf:"optimizer_webp,omitempty"`
 
 	// (Block, Optional) (see below for nested schema)
-	Origin []OriginObservation `json:"origin,omitempty" tf:"origin,omitempty"`
+	Origin *OriginObservation `json:"origin,omitempty" tf:"origin,omitempty"`
 
 	// (Boolean) Indicates whether there is a concurrency limit for Origin Shield.
 	// Indicates whether there is a concurrency limit for Origin Shield.
@@ -879,7 +889,7 @@ type PullzoneObservation struct {
 	RequestCoalescingTimeout *float64 `json:"requestCoalescingTimeout,omitempty" tf:"request_coalescing_timeout,omitempty"`
 
 	// (Block, Optional) (see below for nested schema)
-	Routing []RoutingObservation `json:"routing,omitempty" tf:"routing,omitempty"`
+	Routing *RoutingObservation `json:"routing,omitempty" tf:"routing,omitempty"`
 
 	// (Boolean) Indicates whether requests to origin will be signed with AWS Signature Version 4.
 	// Indicates whether requests to origin will be signed with AWS Signature Version 4.
@@ -1210,6 +1220,11 @@ type PullzoneParameters struct {
 	// +kubebuilder:validation:Optional
 	OptimizerHTMLPrerender *bool `json:"optimizerHtmlPrerender,omitempty" tf:"optimizer_html_prerender,omitempty"`
 
+	// (Boolean) Indicates whether HTML to Markdown should be enabled.
+	// Indicates whether HTML to Markdown should be enabled.
+	// +kubebuilder:validation:Optional
+	OptimizerHTMLToMarkdown *bool `json:"optimizerHtmlToMarkdown,omitempty" tf:"optimizer_html_to_markdown,omitempty"`
+
 	// (Boolean) Indicates whether the CSS minification should be enabled.
 	// Indicates whether the CSS minification should be enabled.
 	// +kubebuilder:validation:Optional
@@ -1275,6 +1290,10 @@ type PullzoneParameters struct {
 	// +kubebuilder:validation:Optional
 	OptimizerWebp *bool `json:"optimizerWebp,omitempty" tf:"optimizer_webp,omitempty"`
 
+	// (Block, Optional) (see below for nested schema)
+	// +kubebuilder:validation:Optional
+	Origin *OriginParameters `json:"origin,omitempty" tf:"origin,omitempty"`
+
 	// (Boolean) Indicates whether there is a concurrency limit for Origin Shield.
 	// Indicates whether there is a concurrency limit for Origin Shield.
 	// +kubebuilder:validation:Optional
@@ -1322,7 +1341,7 @@ type PullzoneParameters struct {
 
 	// (Block, Optional) (see below for nested schema)
 	// +kubebuilder:validation:Optional
-	Routing []RoutingParameters `json:"routing,omitempty" tf:"routing,omitempty"`
+	Routing *RoutingParameters `json:"routing,omitempty" tf:"routing,omitempty"`
 
 	// (Boolean) Indicates whether requests to origin will be signed with AWS Signature Version 4.
 	// Indicates whether requests to origin will be signed with AWS Signature Version 4.
@@ -1526,8 +1545,8 @@ type PullzoneSpec struct {
 
 // PullzoneStatus defines the observed state of Pullzone.
 type PullzoneStatus struct {
-	v1.ResourceStatus `json:",inline"`
-	AtProvider        PullzoneObservation `json:"atProvider,omitempty"`
+	v2.ManagedResourceStatus `json:",inline"`
+	AtProvider               PullzoneObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

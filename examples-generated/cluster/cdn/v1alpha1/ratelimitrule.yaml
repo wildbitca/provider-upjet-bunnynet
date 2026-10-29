@@ -13,8 +13,13 @@ spec:
       value: /wp-login.php
       variable: REQUEST_URI
     description: WordPress Login
+    limit:
+    - interval: 10
+      requests: 2
     name: WordPress Login
     pullzone: ${bunnynet_pullzone.test.id}
+    response:
+    - interval: 3600
     transformations:
     - LOWERCASE
     - NORMALIZEPATH

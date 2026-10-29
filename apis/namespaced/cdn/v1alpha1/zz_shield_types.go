@@ -10,8 +10,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	v1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
-	v2 "github.com/crossplane/crossplane-runtime/v2/apis/common/v2"
+	v2 "github.com/crossplane/crossplane/apis/v2/core/v2"
 )
 
 type BotCategorizationInitParameters struct {
@@ -258,7 +257,11 @@ type ShieldInitParameters struct {
 
 	// (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
 	// Configures Bot Detection settings.
-	BotDetection []BotDetectionInitParameters `json:"botDetection,omitempty" tf:"bot_detection,omitempty"`
+	BotDetection *BotDetectionInitParameters `json:"botDetection,omitempty" tf:"bot_detection,omitempty"`
+
+	// (Block, Optional) Configures DDoS settings. (see below for nested schema)
+	// Configures DDoS settings.
+	Ddos *DdosInitParameters `json:"ddos,omitempty" tf:"ddos,omitempty"`
 
 	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
@@ -275,6 +278,10 @@ type ShieldInitParameters struct {
 	// (String) Scan file uploads for Child Sexual Abuse Material. Options: Block, Disable, Log
 	// Scan file uploads for Child Sexual Abuse Material. Options: `Block`, `Disable`, `Log`
 	UploadScanningCsam *string `json:"uploadScanningCsam,omitempty" tf:"upload_scanning_csam,omitempty"`
+
+	// (Block, Optional) Configures WAF settings. (see below for nested schema)
+	// Configures WAF settings.
+	Waf *WafInitParameters `json:"waf,omitempty" tf:"waf,omitempty"`
 
 	// labelled experience.
 	// Replace our bunny.net branded block and challenge pages with a white-labelled experience.
@@ -303,11 +310,11 @@ type ShieldObservation struct {
 
 	// (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
 	// Configures Bot Detection settings.
-	BotDetection []BotDetectionObservation `json:"botDetection,omitempty" tf:"bot_detection,omitempty"`
+	BotDetection *BotDetectionObservation `json:"botDetection,omitempty" tf:"bot_detection,omitempty"`
 
 	// (Block, Optional) Configures DDoS settings. (see below for nested schema)
 	// Configures DDoS settings.
-	Ddos []DdosObservation `json:"ddos,omitempty" tf:"ddos,omitempty"`
+	Ddos *DdosObservation `json:"ddos,omitempty" tf:"ddos,omitempty"`
 
 	// (Number) The ID of the Bunny Shield.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
@@ -330,7 +337,7 @@ type ShieldObservation struct {
 
 	// (Block, Optional) Configures WAF settings. (see below for nested schema)
 	// Configures WAF settings.
-	Waf []WafObservation `json:"waf,omitempty" tf:"waf,omitempty"`
+	Waf *WafObservation `json:"waf,omitempty" tf:"waf,omitempty"`
 
 	// labelled experience.
 	// Replace our bunny.net branded block and challenge pages with a white-labelled experience.
@@ -362,7 +369,12 @@ type ShieldParameters struct {
 	// (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
 	// Configures Bot Detection settings.
 	// +kubebuilder:validation:Optional
-	BotDetection []BotDetectionParameters `json:"botDetection,omitempty" tf:"bot_detection,omitempty"`
+	BotDetection *BotDetectionParameters `json:"botDetection,omitempty" tf:"bot_detection,omitempty"`
+
+	// (Block, Optional) Configures DDoS settings. (see below for nested schema)
+	// Configures DDoS settings.
+	// +kubebuilder:validation:Optional
+	Ddos *DdosParameters `json:"ddos,omitempty" tf:"ddos,omitempty"`
 
 	// (Number) The ID of the linked pullzone.
 	// The ID of the linked pullzone.
@@ -383,6 +395,11 @@ type ShieldParameters struct {
 	// Scan file uploads for Child Sexual Abuse Material. Options: `Block`, `Disable`, `Log`
 	// +kubebuilder:validation:Optional
 	UploadScanningCsam *string `json:"uploadScanningCsam,omitempty" tf:"upload_scanning_csam,omitempty"`
+
+	// (Block, Optional) Configures WAF settings. (see below for nested schema)
+	// Configures WAF settings.
+	// +kubebuilder:validation:Optional
+	Waf *WafParameters `json:"waf,omitempty" tf:"waf,omitempty"`
 
 	// labelled experience.
 	// Replace our bunny.net branded block and challenge pages with a white-labelled experience.
@@ -646,8 +663,8 @@ type ShieldSpec struct {
 
 // ShieldStatus defines the observed state of Shield.
 type ShieldStatus struct {
-	v1.ResourceStatus `json:",inline"`
-	AtProvider        ShieldObservation `json:"atProvider,omitempty"`
+	v2.ManagedResourceStatus `json:",inline"`
+	AtProvider               ShieldObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

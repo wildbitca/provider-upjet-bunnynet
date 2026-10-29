@@ -10,8 +10,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	v1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
-	v2 "github.com/crossplane/crossplane-runtime/v2/apis/common/v2"
+	v2 "github.com/crossplane/crossplane/apis/v2/core/v2"
 )
 
 type WafRuleConditionInitParameters struct {
@@ -113,6 +112,10 @@ type WafRuleInitParameters struct {
 	// The ID of the linked pullzone.
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
 
+	// (Block, Optional) The response once the WAF rule is triggered. (see below for nested schema)
+	// The response once the WAF rule is triggered.
+	Response *WafRuleResponseInitParameters `json:"response,omitempty" tf:"response,omitempty"`
+
 	// (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
 	// Options: `CMDLINE`, `COMPRESSWHITESPACE`, `CSSDECODE`, `HEXENCODE`, `HTMLENTITYDECODE`, `JSDECODE`, `LENGTH`, `LOWERCASE`, `MD5`, `NORMALISEPATH`, `NORMALISEPATHWIN`, `NORMALIZEPATH`, `NORMALIZEPATHWIN`, `REMOVECOMMENTS`, `REMOVENULLS`, `REMOVEWHITESPACE`, `REPLACECOMMENTS`, `SHA1`, `URLDECODE`, `URLDECODEUNI`, `UTF8TOUNICODE`
 	// +listType=set
@@ -142,7 +145,7 @@ type WafRuleObservation struct {
 
 	// (Block, Optional) The response once the WAF rule is triggered. (see below for nested schema)
 	// The response once the WAF rule is triggered.
-	Response []WafRuleResponseObservation `json:"response,omitempty" tf:"response,omitempty"`
+	Response *WafRuleResponseObservation `json:"response,omitempty" tf:"response,omitempty"`
 
 	// (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
 	// Options: `CMDLINE`, `COMPRESSWHITESPACE`, `CSSDECODE`, `HEXENCODE`, `HTMLENTITYDECODE`, `JSDECODE`, `LENGTH`, `LOWERCASE`, `MD5`, `NORMALISEPATH`, `NORMALISEPATHWIN`, `NORMALIZEPATH`, `NORMALIZEPATHWIN`, `REMOVECOMMENTS`, `REMOVENULLS`, `REMOVEWHITESPACE`, `REPLACECOMMENTS`, `SHA1`, `URLDECODE`, `URLDECODEUNI`, `UTF8TOUNICODE`
@@ -171,6 +174,11 @@ type WafRuleParameters struct {
 	// The ID of the linked pullzone.
 	// +kubebuilder:validation:Optional
 	Pullzone *float64 `json:"pullzone,omitempty" tf:"pullzone,omitempty"`
+
+	// (Block, Optional) The response once the WAF rule is triggered. (see below for nested schema)
+	// The response once the WAF rule is triggered.
+	// +kubebuilder:validation:Optional
+	Response *WafRuleResponseParameters `json:"response,omitempty" tf:"response,omitempty"`
 
 	// (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
 	// Options: `CMDLINE`, `COMPRESSWHITESPACE`, `CSSDECODE`, `HEXENCODE`, `HTMLENTITYDECODE`, `JSDECODE`, `LENGTH`, `LOWERCASE`, `MD5`, `NORMALISEPATH`, `NORMALISEPATHWIN`, `NORMALIZEPATH`, `NORMALIZEPATHWIN`, `REMOVECOMMENTS`, `REMOVENULLS`, `REMOVEWHITESPACE`, `REPLACECOMMENTS`, `SHA1`, `URLDECODE`, `URLDECODEUNI`, `UTF8TOUNICODE`
@@ -220,8 +228,8 @@ type WafRuleSpec struct {
 
 // WafRuleStatus defines the observed state of WafRule.
 type WafRuleStatus struct {
-	v1.ResourceStatus `json:",inline"`
-	AtProvider        WafRuleObservation `json:"atProvider,omitempty"`
+	v2.ManagedResourceStatus `json:",inline"`
+	AtProvider               WafRuleObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

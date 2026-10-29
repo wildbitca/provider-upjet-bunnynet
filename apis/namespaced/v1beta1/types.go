@@ -7,9 +7,8 @@ package v1beta1
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	xpv1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
-	xpv2 "github.com/crossplane/crossplane-runtime/v2/apis/common/v2"
 	"github.com/crossplane/crossplane-runtime/v2/pkg/resource"
+	xpv1 "github.com/crossplane/crossplane/apis/v2/core/v2"
 )
 
 // A ProviderCredentials defines credentials for a provider.
@@ -133,7 +132,7 @@ type ProviderConfigUsage struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	xpv2.TypedProviderConfigUsage `json:",inline"`
+	xpv1.TypedProviderConfigUsage `json:",inline"`
 }
 
 // GetProviderConfigReference of this ProviderConfigUsage.

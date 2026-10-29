@@ -10,8 +10,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	v1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
-	v2 "github.com/crossplane/crossplane-runtime/v2/apis/common/v2"
+	v2 "github.com/crossplane/crossplane/apis/v2/core/v2"
 )
 
 type CdnInitParameters struct {
@@ -1220,8 +1219,8 @@ type ContainerAppSpec struct {
 
 // ContainerAppStatus defines the observed state of ContainerApp.
 type ContainerAppStatus struct {
-	v1.ResourceStatus `json:",inline"`
-	AtProvider        ContainerAppObservation `json:"atProvider,omitempty"`
+	v2.ManagedResourceStatus `json:",inline"`
+	AtProvider               ContainerAppObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -3,7 +3,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.19.0
+    controller-gen.kubebuilder.io/version: v0.20.0
   name: ratelimitrules.cdn.upjet-bunnynet.upbound.io
 spec:
   group: cdn.upjet-bunnynet.upbound.io
@@ -112,6 +112,25 @@ spec:
                       (String) The rate limit rule description.
                       The rate limit rule description.
                     type: string
+                  limit:
+                    description: (Block, Optional) (see below for nested schema)
+                    properties:
+                      counterKey:
+                        description: |-
+                          (String) The request property used to group rate limit counters. Options: ASN, City, Country, Host, IP, IP+JA4, JA4, Organization
+                          The request property used to group rate limit counters. Options: `ASN`, `City`, `Country`, `Host`, `IP`, `IP+JA4`, `JA4`, `Organization`
+                        type: string
+                      interval:
+                        description: |-
+                          (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
+                          The interval, in seconds, to consider for to trigger the rate limit rule.
+                        type: number
+                      requests:
+                        description: |-
+                          (Number) The number of request within the interval to trigger the rate limit rule.
+                          The number of request within the interval to trigger the rate limit rule.
+                        type: number
+                    type: object
                   name:
                     description: |-
                       (String) The rate limit rule name.
@@ -122,6 +141,22 @@ spec:
                       (Number) The ID of the linked pullzone.
                       The ID of the linked pullzone.
                     type: number
+                  response:
+                    description: |-
+                      (Block, Optional) The response once the rate limit rule is triggered. (see below for nested schema)
+                      The response once the rate limit rule is triggered.
+                    properties:
+                      action:
+                        description: |-
+                          (String) The action to take once the rate limit is exceeded. Options: Challenge, Log, RateLimit
+                          The action to take once the rate limit is exceeded. Options: `Challenge`, `Log`, `RateLimit`
+                        type: string
+                      interval:
+                        description: |-
+                          (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
+                          The interval, in seconds, that the rate limit will apply.
+                        type: number
+                    type: object
                   transformations:
                     description: |-
                       (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
@@ -183,6 +218,25 @@ spec:
                       (String) The rate limit rule description.
                       The rate limit rule description.
                     type: string
+                  limit:
+                    description: (Block, Optional) (see below for nested schema)
+                    properties:
+                      counterKey:
+                        description: |-
+                          (String) The request property used to group rate limit counters. Options: ASN, City, Country, Host, IP, IP+JA4, JA4, Organization
+                          The request property used to group rate limit counters. Options: `ASN`, `City`, `Country`, `Host`, `IP`, `IP+JA4`, `JA4`, `Organization`
+                        type: string
+                      interval:
+                        description: |-
+                          (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
+                          The interval, in seconds, to consider for to trigger the rate limit rule.
+                        type: number
+                      requests:
+                        description: |-
+                          (Number) The number of request within the interval to trigger the rate limit rule.
+                          The number of request within the interval to trigger the rate limit rule.
+                        type: number
+                    type: object
                   name:
                     description: |-
                       (String) The rate limit rule name.
@@ -193,6 +247,22 @@ spec:
                       (Number) The ID of the linked pullzone.
                       The ID of the linked pullzone.
                     type: number
+                  response:
+                    description: |-
+                      (Block, Optional) The response once the rate limit rule is triggered. (see below for nested schema)
+                      The response once the rate limit rule is triggered.
+                    properties:
+                      action:
+                        description: |-
+                          (String) The action to take once the rate limit is exceeded. Options: Challenge, Log, RateLimit
+                          The action to take once the rate limit is exceeded. Options: `Challenge`, `Log`, `RateLimit`
+                        type: string
+                      interval:
+                        description: |-
+                          (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
+                          The interval, in seconds, that the rate limit will apply.
+                        type: number
+                    type: object
                   transformations:
                     description: |-
                       (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
@@ -346,25 +416,23 @@ spec:
                     type: string
                   limit:
                     description: (Block, Optional) (see below for nested schema)
-                    items:
-                      properties:
-                        counterKey:
-                          description: |-
-                            (String) The request property used to group rate limit counters. Options: ASN, City, Country, Host, IP, IP+JA4, JA4, Organization
-                            The request property used to group rate limit counters. Options: `ASN`, `City`, `Country`, `Host`, `IP`, `IP+JA4`, `JA4`, `Organization`
-                          type: string
-                        interval:
-                          description: |-
-                            (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
-                            The interval, in seconds, to consider for to trigger the rate limit rule.
-                          type: number
-                        requests:
-                          description: |-
-                            (Number) The number of request within the interval to trigger the rate limit rule.
-                            The number of request within the interval to trigger the rate limit rule.
-                          type: number
-                      type: object
-                    type: array
+                    properties:
+                      counterKey:
+                        description: |-
+                          (String) The request property used to group rate limit counters. Options: ASN, City, Country, Host, IP, IP+JA4, JA4, Organization
+                          The request property used to group rate limit counters. Options: `ASN`, `City`, `Country`, `Host`, `IP`, `IP+JA4`, `JA4`, `Organization`
+                        type: string
+                      interval:
+                        description: |-
+                          (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
+                          The interval, in seconds, to consider for to trigger the rate limit rule.
+                        type: number
+                      requests:
+                        description: |-
+                          (Number) The number of request within the interval to trigger the rate limit rule.
+                          The number of request within the interval to trigger the rate limit rule.
+                        type: number
+                    type: object
                   name:
                     description: |-
                       (String) The rate limit rule name.
@@ -379,20 +447,18 @@ spec:
                     description: |-
                       (Block, Optional) The response once the rate limit rule is triggered. (see below for nested schema)
                       The response once the rate limit rule is triggered.
-                    items:
-                      properties:
-                        action:
-                          description: |-
-                            (String) The action to take once the rate limit is exceeded. Options: Challenge, Log, RateLimit
-                            The action to take once the rate limit is exceeded. Options: `Challenge`, `Log`, `RateLimit`
-                          type: string
-                        interval:
-                          description: |-
-                            (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
-                            The interval, in seconds, that the rate limit will apply.
-                          type: number
-                      type: object
-                    type: array
+                    properties:
+                      action:
+                        description: |-
+                          (String) The action to take once the rate limit is exceeded. Options: Challenge, Log, RateLimit
+                          The action to take once the rate limit is exceeded. Options: `Challenge`, `Log`, `RateLimit`
+                        type: string
+                      interval:
+                        description: |-
+                          (Number) The interval, in seconds, to consider for to trigger the rate limit rule.
+                          The interval, in seconds, that the rate limit will apply.
+                        type: number
+                    type: object
                   transformations:
                     description: |-
                       (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
@@ -448,6 +514,13 @@ spec:
                 x-kubernetes-list-map-keys:
                 - type
                 x-kubernetes-list-type: map
+              lastHandledReconcileAt:
+                description: |-
+                  LastHandledReconcileAt holds the value of the most recent
+                  reconcile-requested-at annotation token that the controller has
+                  processed. Users can compare this to the annotation to determine
+                  whether a reconcile request has been handled.
+                type: string
               observedGeneration:
                 description: |-
                   ObservedGeneration is the latest metadata.generation

@@ -3,7 +3,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.19.0
+    controller-gen.kubebuilder.io/version: v0.20.0
   name: wafrules.cdn.upjet-bunnynet.m.upbound.io
 spec:
   group: cdn.upjet-bunnynet.m.upbound.io
@@ -108,6 +108,17 @@ spec:
                       (Number) The ID of the linked pullzone.
                       The ID of the linked pullzone.
                     type: number
+                  response:
+                    description: |-
+                      (Block, Optional) The response once the WAF rule is triggered. (see below for nested schema)
+                      The response once the WAF rule is triggered.
+                    properties:
+                      action:
+                        description: |-
+                          (String) The action to take if the WAF rule is triggered. Options: Allow, Block, Bypass, Challenge, Log
+                          The action to take if the WAF rule is triggered. Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
+                        type: string
+                    type: object
                   transformations:
                     description: |-
                       (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
@@ -179,6 +190,17 @@ spec:
                       (Number) The ID of the linked pullzone.
                       The ID of the linked pullzone.
                     type: number
+                  response:
+                    description: |-
+                      (Block, Optional) The response once the WAF rule is triggered. (see below for nested schema)
+                      The response once the WAF rule is triggered.
+                    properties:
+                      action:
+                        description: |-
+                          (String) The action to take if the WAF rule is triggered. Options: Allow, Block, Bypass, Challenge, Log
+                          The action to take if the WAF rule is triggered. Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
+                        type: string
+                    type: object
                   transformations:
                     description: |-
                       (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
@@ -316,15 +338,13 @@ spec:
                     description: |-
                       (Block, Optional) The response once the WAF rule is triggered. (see below for nested schema)
                       The response once the WAF rule is triggered.
-                    items:
-                      properties:
-                        action:
-                          description: |-
-                            (String) The action to take if the WAF rule is triggered. Options: Allow, Block, Bypass, Challenge, Log
-                            The action to take if the WAF rule is triggered. Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
-                          type: string
-                      type: object
-                    type: array
+                    properties:
+                      action:
+                        description: |-
+                          (String) The action to take if the WAF rule is triggered. Options: Allow, Block, Bypass, Challenge, Log
+                          The action to take if the WAF rule is triggered. Options: `Allow`, `Block`, `Bypass`, `Challenge`, `Log`
+                        type: string
+                    type: object
                   transformations:
                     description: |-
                       (Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE
@@ -380,6 +400,13 @@ spec:
                 x-kubernetes-list-map-keys:
                 - type
                 x-kubernetes-list-type: map
+              lastHandledReconcileAt:
+                description: |-
+                  LastHandledReconcileAt holds the value of the most recent
+                  reconcile-requested-at annotation token that the controller has
+                  processed. Users can compare this to the annotation to determine
+                  whether a reconcile request has been handled.
+                type: string
               observedGeneration:
                 description: |-
                   ObservedGeneration is the latest metadata.generation

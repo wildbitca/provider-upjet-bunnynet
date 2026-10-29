@@ -109,3 +109,39 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 	}
 	return nil
 }
+
+// SetupWebhookWithManager_monolith registers conversion webhooks for all resource kinds in the group.
+func SetupWebhookWithManager_monolith(mgr ctrl.Manager) error {
+	for _, setup := range []func(ctrl.Manager) error{
+		subuser.SetupWebhookWithManager,
+		accesslist.SetupWebhookWithManager,
+		edgerule.SetupWebhookWithManager,
+		hostname.SetupWebhookWithManager,
+		optimizerclass.SetupWebhookWithManager,
+		pullzone.SetupWebhookWithManager,
+		ratelimitrule.SetupWebhookWithManager,
+		shield.SetupWebhookWithManager,
+		wafrule.SetupWebhookWithManager,
+		containerapp.SetupWebhookWithManager,
+		containerimageregistry.SetupWebhookWithManager,
+		database.SetupWebhookWithManager,
+		script.SetupWebhookWithManager,
+		scriptsecret.SetupWebhookWithManager,
+		scriptvariable.SetupWebhookWithManager,
+		record.SetupWebhookWithManager,
+		scriptdns.SetupWebhookWithManager,
+		scriptvariabledns.SetupWebhookWithManager,
+		zone.SetupWebhookWithManager,
+		providerconfig.SetupWebhookWithManager,
+		file.SetupWebhookWithManager,
+		zonestorage.SetupWebhookWithManager,
+		collection.SetupWebhookWithManager,
+		library.SetupWebhookWithManager,
+		video.SetupWebhookWithManager,
+	} {
+		if err := setup(mgr); err != nil {
+			return err
+		}
+	}
+	return nil
+}

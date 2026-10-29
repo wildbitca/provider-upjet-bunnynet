@@ -6,54 +6,54 @@
 
 package v1alpha1
 
-import xpv1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
+import xpv2 "github.com/crossplane/crossplane/apis/v2/core/v2"
 
 // GetCondition of this Subuser.
-func (mg *Subuser) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+func (mg *Subuser) GetCondition(ct xpv2.ConditionType) xpv2.Condition {
 	return mg.Status.GetCondition(ct)
 }
 
 // GetDeletionPolicy of this Subuser.
-func (mg *Subuser) GetDeletionPolicy() xpv1.DeletionPolicy {
+func (mg *Subuser) GetDeletionPolicy() xpv2.DeletionPolicy {
 	return mg.Spec.DeletionPolicy
 }
 
 // GetManagementPolicies of this Subuser.
-func (mg *Subuser) GetManagementPolicies() xpv1.ManagementPolicies {
+func (mg *Subuser) GetManagementPolicies() xpv2.ManagementPolicies {
 	return mg.Spec.ManagementPolicies
 }
 
 // GetProviderConfigReference of this Subuser.
-func (mg *Subuser) GetProviderConfigReference() *xpv1.Reference {
+func (mg *Subuser) GetProviderConfigReference() *xpv2.Reference {
 	return mg.Spec.ProviderConfigReference
 }
 
 // GetWriteConnectionSecretToReference of this Subuser.
-func (mg *Subuser) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+func (mg *Subuser) GetWriteConnectionSecretToReference() *xpv2.SecretReference {
 	return mg.Spec.WriteConnectionSecretToReference
 }
 
 // SetConditions of this Subuser.
-func (mg *Subuser) SetConditions(c ...xpv1.Condition) {
+func (mg *Subuser) SetConditions(c ...xpv2.Condition) {
 	mg.Status.SetConditions(c...)
 }
 
 // SetDeletionPolicy of this Subuser.
-func (mg *Subuser) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+func (mg *Subuser) SetDeletionPolicy(r xpv2.DeletionPolicy) {
 	mg.Spec.DeletionPolicy = r
 }
 
 // SetManagementPolicies of this Subuser.
-func (mg *Subuser) SetManagementPolicies(r xpv1.ManagementPolicies) {
+func (mg *Subuser) SetManagementPolicies(r xpv2.ManagementPolicies) {
 	mg.Spec.ManagementPolicies = r
 }
 
 // SetProviderConfigReference of this Subuser.
-func (mg *Subuser) SetProviderConfigReference(r *xpv1.Reference) {
+func (mg *Subuser) SetProviderConfigReference(r *xpv2.Reference) {
 	mg.Spec.ProviderConfigReference = r
 }
 
 // SetWriteConnectionSecretToReference of this Subuser.
-func (mg *Subuser) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+func (mg *Subuser) SetWriteConnectionSecretToReference(r *xpv2.SecretReference) {
 	mg.Spec.WriteConnectionSecretToReference = r
 }

@@ -10,8 +10,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	v1 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
-	v2 "github.com/crossplane/crossplane-runtime/v2/apis/common/v2"
+	v2 "github.com/crossplane/crossplane/apis/v2/core/v2"
 )
 
 type ScriptSecretInitParameters struct {
@@ -26,7 +25,7 @@ type ScriptSecretInitParameters struct {
 
 	// (String, Sensitive) The value of the secret.
 	// The value of the secret.
-	ValueSecretRef v1.LocalSecretKeySelector `json:"valueSecretRef" tf:"-"`
+	ValueSecretRef v2.LocalSecretKeySelector `json:"valueSecretRef" tf:"-"`
 }
 
 type ScriptSecretObservation struct {
@@ -58,7 +57,7 @@ type ScriptSecretParameters struct {
 	// (String, Sensitive) The value of the secret.
 	// The value of the secret.
 	// +kubebuilder:validation:Optional
-	ValueSecretRef v1.LocalSecretKeySelector `json:"valueSecretRef" tf:"-"`
+	ValueSecretRef v2.LocalSecretKeySelector `json:"valueSecretRef" tf:"-"`
 }
 
 // ScriptSecretSpec defines the desired state of ScriptSecret
@@ -80,8 +79,8 @@ type ScriptSecretSpec struct {
 
 // ScriptSecretStatus defines the observed state of ScriptSecret.
 type ScriptSecretStatus struct {
-	v1.ResourceStatus `json:",inline"`
-	AtProvider        ScriptSecretObservation `json:"atProvider,omitempty"`
+	v2.ManagedResourceStatus `json:",inline"`
+	AtProvider               ScriptSecretObservation `json:"atProvider,omitempty"`
 }
 
 // +kubebuilder:object:root=true

@@ -58,3 +58,22 @@ func SetupGated_cdn(mgr ctrl.Manager, o controller.Options) error {
 	}
 	return nil
 }
+
+// SetupWebhookWithManager_cdn registers conversion webhooks for all resource kinds in the group.
+func SetupWebhookWithManager_cdn(mgr ctrl.Manager) error {
+	for _, setup := range []func(ctrl.Manager) error{
+		accesslist.SetupWebhookWithManager,
+		edgerule.SetupWebhookWithManager,
+		hostname.SetupWebhookWithManager,
+		optimizerclass.SetupWebhookWithManager,
+		pullzone.SetupWebhookWithManager,
+		ratelimitrule.SetupWebhookWithManager,
+		shield.SetupWebhookWithManager,
+		wafrule.SetupWebhookWithManager,
+	} {
+		if err := setup(mgr); err != nil {
+			return err
+		}
+	}
+	return nil
+}

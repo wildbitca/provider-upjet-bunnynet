@@ -46,3 +46,18 @@ func SetupGated_dns(mgr ctrl.Manager, o controller.Options) error {
 	}
 	return nil
 }
+
+// SetupWebhookWithManager_dns registers conversion webhooks for all resource kinds in the group.
+func SetupWebhookWithManager_dns(mgr ctrl.Manager) error {
+	for _, setup := range []func(ctrl.Manager) error{
+		record.SetupWebhookWithManager,
+		script.SetupWebhookWithManager,
+		scriptvariable.SetupWebhookWithManager,
+		zone.SetupWebhookWithManager,
+	} {
+		if err := setup(mgr); err != nil {
+			return err
+		}
+	}
+	return nil
+}

@@ -3,7 +3,7 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.19.0
+    controller-gen.kubebuilder.io/version: v0.20.0
   name: shields.cdn.upjet-bunnynet.upbound.io
 spec:
   group: cdn.upjet-bunnynet.upbound.io
@@ -124,40 +124,54 @@ spec:
                     description: |-
                       (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
                       Configures Bot Detection settings.
-                    items:
-                      properties:
-                        complexFingerprinting:
-                          description: |-
-                            session consistency.
-                            Combines advanced entropy analysis and cross-session consistency.
-                          type: boolean
-                        fingerprintAggression:
-                          description: |-
-                            (Number) Controls how assertively unusual fingerprints are treated as bots.
-                            Controls how assertively unusual fingerprints are treated as bots.
-                          type: number
-                        fingerprintSensitivity:
-                          description: |-
-                            (Number) Adjusts how precisely browsers are checked for signs of automation.
-                            Adjusts how precisely browsers are checked for signs of automation.
-                          type: number
-                        ipSensitivity:
-                          description: |-
-                            (Number) Monitors IP behaviour, reputation, and rate patterns.
-                            Monitors IP behaviour, reputation, and rate patterns.
-                          type: number
-                        mode:
-                          description: |-
-                            (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
-                            Indicates the mode the Bot Detection engine is running. Options: `Challenge`, `Log`
-                          type: string
-                        requestIntegrity:
-                          description: |-
-                            (Number) Analyzes request headers, query structure, and protocol anomalies.
-                            Analyzes request headers, query structure, and protocol anomalies.
-                          type: number
-                      type: object
-                    type: array
+                    properties:
+                      complexFingerprinting:
+                        description: |-
+                          session consistency.
+                          Combines advanced entropy analysis and cross-session consistency.
+                        type: boolean
+                      fingerprintAggression:
+                        description: |-
+                          (Number) Controls how assertively unusual fingerprints are treated as bots.
+                          Controls how assertively unusual fingerprints are treated as bots.
+                        type: number
+                      fingerprintSensitivity:
+                        description: |-
+                          (Number) Adjusts how precisely browsers are checked for signs of automation.
+                          Adjusts how precisely browsers are checked for signs of automation.
+                        type: number
+                      ipSensitivity:
+                        description: |-
+                          (Number) Monitors IP behaviour, reputation, and rate patterns.
+                          Monitors IP behaviour, reputation, and rate patterns.
+                        type: number
+                      mode:
+                        description: |-
+                          (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
+                          Indicates the mode the Bot Detection engine is running. Options: `Challenge`, `Log`
+                        type: string
+                      requestIntegrity:
+                        description: |-
+                          (Number) Analyzes request headers, query structure, and protocol anomalies.
+                          Analyzes request headers, query structure, and protocol anomalies.
+                        type: number
+                    type: object
+                  ddos:
+                    description: |-
+                      (Block, Optional) Configures DDoS settings. (see below for nested schema)
+                      Configures DDoS settings.
+                    properties:
+                      challengeWindow:
+                        description: |-
+                          (Number) The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
+                          The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
+                        type: number
+                      level:
+                        description: |-
+                          (String) Options: Asleep, Extreme, High, Low, Medium
+                          Options: `Asleep`, `Extreme`, `High`, `Low`, `Medium`
+                        type: string
+                    type: object
                   pullzone:
                     description: |-
                       (Number) The ID of the linked pullzone.
@@ -178,6 +192,105 @@ spec:
                       (String) Scan file uploads for Child Sexual Abuse Material. Options: Block, Disable, Log
                       Scan file uploads for Child Sexual Abuse Material. Options: `Block`, `Disable`, `Log`
                     type: string
+                  waf:
+                    description: |-
+                      (Block, Optional) Configures WAF settings. (see below for nested schema)
+                      Configures WAF settings.
+                    properties:
+                      allowedHttpMethods:
+                        description: |-
+                          (Set of String) Indicates allowed HTTP methods.
+                          Indicates allowed HTTP methods.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      allowedHttpVersions:
+                        description: |-
+                          (Set of String) Indicates allowed HTTP versions.
+                          Indicates allowed HTTP versions.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      allowedRequestContentTypes:
+                        description: |-
+                          Type.
+                          Indicates allowed values for request Content-Type.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      blockingSensitivity:
+                        description: |-
+                          (Number) Determines which severity level of rules will block requests.
+                          Determines which severity level of rules will block requests.
+                        type: number
+                      bodyLimitRequest:
+                        description: |-
+                          (String) Determines the action to take when the request body length exceeds your plan limit. Options: Block, Ignore, Log
+                          Determines the action to take when the request body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
+                        type: string
+                      bodyLimitResponse:
+                        description: |-
+                          (String) Determines the action to take when the response body length exceeds your plan limit. Options: Block, Ignore, Log
+                          Determines the action to take when the response body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
+                        type: string
+                      detectionSensitivity:
+                        description: |-
+                          (Number) Determines which severity level of rules will trigger a detection log.
+                          Determines which severity level of rules will trigger a detection log.
+                        type: number
+                      enabled:
+                        description: |-
+                          (Boolean) Indicates whether the WAF (Web Application Firewall) is enabled.
+                          Indicates whether the WAF (Web Application Firewall) is enabled.
+                        type: boolean
+                      executionSensitivity:
+                        description: |-
+                          (Number) Determines which severity level of rules will trigger the rules and their action.
+                          Determines which severity level of rules will trigger the rules and their action.
+                        type: number
+                      logHeaders:
+                        description: |-
+                          (Boolean) When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
+                          When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
+                        type: boolean
+                      logHeadersExcluded:
+                        description: |-
+                          (Set of String) The list of headers excluded from the logs. They will still be used for processing WAF rules.
+                          The list of headers excluded from the logs. They will still be used for processing WAF rules.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      mode:
+                        description: |-
+                          (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
+                          Indicates the mode the engine is running. Options: `Block`, `Log`
+                        type: string
+                      realtimeThreatIntelligence:
+                        description: |-
+                          time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
+                          Real-time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
+                        type: boolean
+                      rulesDisabled:
+                        description: |-
+                          (Set of String) List of disabled WAF rules.
+                          List of disabled WAF rules.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      rulesLogonly:
+                        description: |-
+                          (Set of String) List of WAF rules that will not be blocked, but will be logged when triggered.
+                          List of WAF rules that will not be blocked, but will be logged when triggered.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                    type: object
                   whitelabel:
                     description: |-
                       labelled experience.
@@ -263,40 +376,54 @@ spec:
                     description: |-
                       (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
                       Configures Bot Detection settings.
-                    items:
-                      properties:
-                        complexFingerprinting:
-                          description: |-
-                            session consistency.
-                            Combines advanced entropy analysis and cross-session consistency.
-                          type: boolean
-                        fingerprintAggression:
-                          description: |-
-                            (Number) Controls how assertively unusual fingerprints are treated as bots.
-                            Controls how assertively unusual fingerprints are treated as bots.
-                          type: number
-                        fingerprintSensitivity:
-                          description: |-
-                            (Number) Adjusts how precisely browsers are checked for signs of automation.
-                            Adjusts how precisely browsers are checked for signs of automation.
-                          type: number
-                        ipSensitivity:
-                          description: |-
-                            (Number) Monitors IP behaviour, reputation, and rate patterns.
-                            Monitors IP behaviour, reputation, and rate patterns.
-                          type: number
-                        mode:
-                          description: |-
-                            (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
-                            Indicates the mode the Bot Detection engine is running. Options: `Challenge`, `Log`
-                          type: string
-                        requestIntegrity:
-                          description: |-
-                            (Number) Analyzes request headers, query structure, and protocol anomalies.
-                            Analyzes request headers, query structure, and protocol anomalies.
-                          type: number
-                      type: object
-                    type: array
+                    properties:
+                      complexFingerprinting:
+                        description: |-
+                          session consistency.
+                          Combines advanced entropy analysis and cross-session consistency.
+                        type: boolean
+                      fingerprintAggression:
+                        description: |-
+                          (Number) Controls how assertively unusual fingerprints are treated as bots.
+                          Controls how assertively unusual fingerprints are treated as bots.
+                        type: number
+                      fingerprintSensitivity:
+                        description: |-
+                          (Number) Adjusts how precisely browsers are checked for signs of automation.
+                          Adjusts how precisely browsers are checked for signs of automation.
+                        type: number
+                      ipSensitivity:
+                        description: |-
+                          (Number) Monitors IP behaviour, reputation, and rate patterns.
+                          Monitors IP behaviour, reputation, and rate patterns.
+                        type: number
+                      mode:
+                        description: |-
+                          (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
+                          Indicates the mode the Bot Detection engine is running. Options: `Challenge`, `Log`
+                        type: string
+                      requestIntegrity:
+                        description: |-
+                          (Number) Analyzes request headers, query structure, and protocol anomalies.
+                          Analyzes request headers, query structure, and protocol anomalies.
+                        type: number
+                    type: object
+                  ddos:
+                    description: |-
+                      (Block, Optional) Configures DDoS settings. (see below for nested schema)
+                      Configures DDoS settings.
+                    properties:
+                      challengeWindow:
+                        description: |-
+                          (Number) The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
+                          The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
+                        type: number
+                      level:
+                        description: |-
+                          (String) Options: Asleep, Extreme, High, Low, Medium
+                          Options: `Asleep`, `Extreme`, `High`, `Low`, `Medium`
+                        type: string
+                    type: object
                   pullzone:
                     description: |-
                       (Number) The ID of the linked pullzone.
@@ -317,6 +444,105 @@ spec:
                       (String) Scan file uploads for Child Sexual Abuse Material. Options: Block, Disable, Log
                       Scan file uploads for Child Sexual Abuse Material. Options: `Block`, `Disable`, `Log`
                     type: string
+                  waf:
+                    description: |-
+                      (Block, Optional) Configures WAF settings. (see below for nested schema)
+                      Configures WAF settings.
+                    properties:
+                      allowedHttpMethods:
+                        description: |-
+                          (Set of String) Indicates allowed HTTP methods.
+                          Indicates allowed HTTP methods.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      allowedHttpVersions:
+                        description: |-
+                          (Set of String) Indicates allowed HTTP versions.
+                          Indicates allowed HTTP versions.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      allowedRequestContentTypes:
+                        description: |-
+                          Type.
+                          Indicates allowed values for request Content-Type.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      blockingSensitivity:
+                        description: |-
+                          (Number) Determines which severity level of rules will block requests.
+                          Determines which severity level of rules will block requests.
+                        type: number
+                      bodyLimitRequest:
+                        description: |-
+                          (String) Determines the action to take when the request body length exceeds your plan limit. Options: Block, Ignore, Log
+                          Determines the action to take when the request body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
+                        type: string
+                      bodyLimitResponse:
+                        description: |-
+                          (String) Determines the action to take when the response body length exceeds your plan limit. Options: Block, Ignore, Log
+                          Determines the action to take when the response body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
+                        type: string
+                      detectionSensitivity:
+                        description: |-
+                          (Number) Determines which severity level of rules will trigger a detection log.
+                          Determines which severity level of rules will trigger a detection log.
+                        type: number
+                      enabled:
+                        description: |-
+                          (Boolean) Indicates whether the WAF (Web Application Firewall) is enabled.
+                          Indicates whether the WAF (Web Application Firewall) is enabled.
+                        type: boolean
+                      executionSensitivity:
+                        description: |-
+                          (Number) Determines which severity level of rules will trigger the rules and their action.
+                          Determines which severity level of rules will trigger the rules and their action.
+                        type: number
+                      logHeaders:
+                        description: |-
+                          (Boolean) When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
+                          When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
+                        type: boolean
+                      logHeadersExcluded:
+                        description: |-
+                          (Set of String) The list of headers excluded from the logs. They will still be used for processing WAF rules.
+                          The list of headers excluded from the logs. They will still be used for processing WAF rules.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      mode:
+                        description: |-
+                          (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
+                          Indicates the mode the engine is running. Options: `Block`, `Log`
+                        type: string
+                      realtimeThreatIntelligence:
+                        description: |-
+                          time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
+                          Real-time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
+                        type: boolean
+                      rulesDisabled:
+                        description: |-
+                          (Set of String) List of disabled WAF rules.
+                          List of disabled WAF rules.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      rulesLogonly:
+                        description: |-
+                          (Set of String) List of WAF rules that will not be blocked, but will be logged when triggered.
+                          List of WAF rules that will not be blocked, but will be logged when triggered.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                    type: object
                   whitelabel:
                     description: |-
                       labelled experience.
@@ -485,58 +711,54 @@ spec:
                     description: |-
                       (Block, Optional) Configures Bot Detection settings. (see below for nested schema)
                       Configures Bot Detection settings.
-                    items:
-                      properties:
-                        complexFingerprinting:
-                          description: |-
-                            session consistency.
-                            Combines advanced entropy analysis and cross-session consistency.
-                          type: boolean
-                        fingerprintAggression:
-                          description: |-
-                            (Number) Controls how assertively unusual fingerprints are treated as bots.
-                            Controls how assertively unusual fingerprints are treated as bots.
-                          type: number
-                        fingerprintSensitivity:
-                          description: |-
-                            (Number) Adjusts how precisely browsers are checked for signs of automation.
-                            Adjusts how precisely browsers are checked for signs of automation.
-                          type: number
-                        ipSensitivity:
-                          description: |-
-                            (Number) Monitors IP behaviour, reputation, and rate patterns.
-                            Monitors IP behaviour, reputation, and rate patterns.
-                          type: number
-                        mode:
-                          description: |-
-                            (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
-                            Indicates the mode the Bot Detection engine is running. Options: `Challenge`, `Log`
-                          type: string
-                        requestIntegrity:
-                          description: |-
-                            (Number) Analyzes request headers, query structure, and protocol anomalies.
-                            Analyzes request headers, query structure, and protocol anomalies.
-                          type: number
-                      type: object
-                    type: array
+                    properties:
+                      complexFingerprinting:
+                        description: |-
+                          session consistency.
+                          Combines advanced entropy analysis and cross-session consistency.
+                        type: boolean
+                      fingerprintAggression:
+                        description: |-
+                          (Number) Controls how assertively unusual fingerprints are treated as bots.
+                          Controls how assertively unusual fingerprints are treated as bots.
+                        type: number
+                      fingerprintSensitivity:
+                        description: |-
+                          (Number) Adjusts how precisely browsers are checked for signs of automation.
+                          Adjusts how precisely browsers are checked for signs of automation.
+                        type: number
+                      ipSensitivity:
+                        description: |-
+                          (Number) Monitors IP behaviour, reputation, and rate patterns.
+                          Monitors IP behaviour, reputation, and rate patterns.
+                        type: number
+                      mode:
+                        description: |-
+                          (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
+                          Indicates the mode the Bot Detection engine is running. Options: `Challenge`, `Log`
+                        type: string
+                      requestIntegrity:
+                        description: |-
+                          (Number) Analyzes request headers, query structure, and protocol anomalies.
+                          Analyzes request headers, query structure, and protocol anomalies.
+                        type: number
+                    type: object
                   ddos:
                     description: |-
                       (Block, Optional) Configures DDoS settings. (see below for nested schema)
                       Configures DDoS settings.
-                    items:
-                      properties:
-                        challengeWindow:
-                          description: |-
-                            (Number) The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
-                            The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
-                          type: number
-                        level:
-                          description: |-
-                            (String) Options: Asleep, Extreme, High, Low, Medium
-                            Options: `Asleep`, `Extreme`, `High`, `Low`, `Medium`
-                          type: string
-                      type: object
-                    type: array
+                    properties:
+                      challengeWindow:
+                        description: |-
+                          (Number) The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
+                          The window of time a visitor can access your website after passing a challenge. Once the timeout expires, they'll face a new challenge.
+                        type: number
+                      level:
+                        description: |-
+                          (String) Options: Asleep, Extreme, High, Low, Medium
+                          Options: `Asleep`, `Extreme`, `High`, `Low`, `Medium`
+                        type: string
+                    type: object
                   id:
                     description: (Number) The ID of the Bunny Shield.
                     type: string
@@ -564,103 +786,101 @@ spec:
                     description: |-
                       (Block, Optional) Configures WAF settings. (see below for nested schema)
                       Configures WAF settings.
-                    items:
-                      properties:
-                        allowedHttpMethods:
-                          description: |-
-                            (Set of String) Indicates allowed HTTP methods.
-                            Indicates allowed HTTP methods.
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                        allowedHttpVersions:
-                          description: |-
-                            (Set of String) Indicates allowed HTTP versions.
-                            Indicates allowed HTTP versions.
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                        allowedRequestContentTypes:
-                          description: |-
-                            Type.
-                            Indicates allowed values for request Content-Type.
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                        blockingSensitivity:
-                          description: |-
-                            (Number) Determines which severity level of rules will block requests.
-                            Determines which severity level of rules will block requests.
-                          type: number
-                        bodyLimitRequest:
-                          description: |-
-                            (String) Determines the action to take when the request body length exceeds your plan limit. Options: Block, Ignore, Log
-                            Determines the action to take when the request body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
+                    properties:
+                      allowedHttpMethods:
+                        description: |-
+                          (Set of String) Indicates allowed HTTP methods.
+                          Indicates allowed HTTP methods.
+                        items:
                           type: string
-                        bodyLimitResponse:
-                          description: |-
-                            (String) Determines the action to take when the response body length exceeds your plan limit. Options: Block, Ignore, Log
-                            Determines the action to take when the response body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
+                        type: array
+                        x-kubernetes-list-type: set
+                      allowedHttpVersions:
+                        description: |-
+                          (Set of String) Indicates allowed HTTP versions.
+                          Indicates allowed HTTP versions.
+                        items:
                           type: string
-                        detectionSensitivity:
-                          description: |-
-                            (Number) Determines which severity level of rules will trigger a detection log.
-                            Determines which severity level of rules will trigger a detection log.
-                          type: number
-                        enabled:
-                          description: |-
-                            (Boolean) Indicates whether the WAF (Web Application Firewall) is enabled.
-                            Indicates whether the WAF (Web Application Firewall) is enabled.
-                          type: boolean
-                        executionSensitivity:
-                          description: |-
-                            (Number) Determines which severity level of rules will trigger the rules and their action.
-                            Determines which severity level of rules will trigger the rules and their action.
-                          type: number
-                        logHeaders:
-                          description: |-
-                            (Boolean) When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
-                            When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
-                          type: boolean
-                        logHeadersExcluded:
-                          description: |-
-                            (Set of String) The list of headers excluded from the logs. They will still be used for processing WAF rules.
-                            The list of headers excluded from the logs. They will still be used for processing WAF rules.
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                        mode:
-                          description: |-
-                            (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
-                            Indicates the mode the engine is running. Options: `Block`, `Log`
+                        type: array
+                        x-kubernetes-list-type: set
+                      allowedRequestContentTypes:
+                        description: |-
+                          Type.
+                          Indicates allowed values for request Content-Type.
+                        items:
                           type: string
-                        realtimeThreatIntelligence:
-                          description: |-
-                            time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
-                            Real-time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
-                          type: boolean
-                        rulesDisabled:
-                          description: |-
-                            (Set of String) List of disabled WAF rules.
-                            List of disabled WAF rules.
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                        rulesLogonly:
-                          description: |-
-                            (Set of String) List of WAF rules that will not be blocked, but will be logged when triggered.
-                            List of WAF rules that will not be blocked, but will be logged when triggered.
-                          items:
-                            type: string
-                          type: array
-                          x-kubernetes-list-type: set
-                      type: object
-                    type: array
+                        type: array
+                        x-kubernetes-list-type: set
+                      blockingSensitivity:
+                        description: |-
+                          (Number) Determines which severity level of rules will block requests.
+                          Determines which severity level of rules will block requests.
+                        type: number
+                      bodyLimitRequest:
+                        description: |-
+                          (String) Determines the action to take when the request body length exceeds your plan limit. Options: Block, Ignore, Log
+                          Determines the action to take when the request body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
+                        type: string
+                      bodyLimitResponse:
+                        description: |-
+                          (String) Determines the action to take when the response body length exceeds your plan limit. Options: Block, Ignore, Log
+                          Determines the action to take when the response body length exceeds your plan limit. Options: `Block`, `Ignore`, `Log`
+                        type: string
+                      detectionSensitivity:
+                        description: |-
+                          (Number) Determines which severity level of rules will trigger a detection log.
+                          Determines which severity level of rules will trigger a detection log.
+                        type: number
+                      enabled:
+                        description: |-
+                          (Boolean) Indicates whether the WAF (Web Application Firewall) is enabled.
+                          Indicates whether the WAF (Web Application Firewall) is enabled.
+                        type: boolean
+                      executionSensitivity:
+                        description: |-
+                          (Number) Determines which severity level of rules will trigger the rules and their action.
+                          Determines which severity level of rules will trigger the rules and their action.
+                        type: number
+                      logHeaders:
+                        description: |-
+                          (Boolean) When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
+                          When enabled, detected WAF audit logs will contain the full list of request headers sent during the request.
+                        type: boolean
+                      logHeadersExcluded:
+                        description: |-
+                          (Set of String) The list of headers excluded from the logs. They will still be used for processing WAF rules.
+                          The list of headers excluded from the logs. They will still be used for processing WAF rules.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      mode:
+                        description: |-
+                          (String) Indicates the mode the Bot Detection engine is running. Options: Challenge, Log
+                          Indicates the mode the engine is running. Options: `Block`, `Log`
+                        type: string
+                      realtimeThreatIntelligence:
+                        description: |-
+                          time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
+                          Real-time Threat Intelligence delivers zero-day protection by instantly detecting and blocking emerging threats.
+                        type: boolean
+                      rulesDisabled:
+                        description: |-
+                          (Set of String) List of disabled WAF rules.
+                          List of disabled WAF rules.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                      rulesLogonly:
+                        description: |-
+                          (Set of String) List of WAF rules that will not be blocked, but will be logged when triggered.
+                          List of WAF rules that will not be blocked, but will be logged when triggered.
+                        items:
+                          type: string
+                        type: array
+                        x-kubernetes-list-type: set
+                    type: object
                   whitelabel:
                     description: |-
                       labelled experience.
@@ -728,6 +948,13 @@ spec:
                 x-kubernetes-list-map-keys:
                 - type
                 x-kubernetes-list-type: map
+              lastHandledReconcileAt:
+                description: |-
+                  LastHandledReconcileAt holds the value of the most recent
+                  reconcile-requested-at annotation token that the controller has
+                  processed. Users can compare this to the annotation to determine
+                  whether a reconcile request has been handled.
+                type: string
               observedGeneration:
                 description: |-
                   ObservedGeneration is the latest metadata.generation

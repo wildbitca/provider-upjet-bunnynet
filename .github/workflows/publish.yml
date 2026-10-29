@@ -18,12 +18,12 @@ env:
   GO_VERSION: '1.26'
   DOCKER_BUILDX_VERSION: 'v0.30.1'
   UPBOUND_REGISTRY: xpkg.upbound.io/wildbitca
-  OPENTOFU_VERSION: '1.11.5'
+  OPENTOFU_VERSION: '1.13.2'
   TERRAFORM_PROVIDER_SOURCE: BunnyWay/bunnynet
-  TERRAFORM_PROVIDER_VERSION: '0.19.1'
+  TERRAFORM_PROVIDER_VERSION: '0.19.2'
   TERRAFORM_PROVIDER_DOWNLOAD_NAME: terraform-provider-bunnynet
-  TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX: https://github.com/BunnyWay/terraform-provider-bunnynet/releases/download/v0.19.1
-  TERRAFORM_NATIVE_PROVIDER_BINARY: terraform-provider-bunnynet_v0.19.1
+  TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX: https://github.com/BunnyWay/terraform-provider-bunnynet/releases/download/v0.19.2
+  TERRAFORM_NATIVE_PROVIDER_BINARY: terraform-provider-bunnynet_v0.19.2
 
 permissions:
   contents: write

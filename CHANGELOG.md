@@ -7,8 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Upgrades the toolchain and the wrapped Terraform provider. Proposed next
-version: **0.5.0** (see the PR description for the semver reasoning).
+## [1.0.0] - 2026-10-29
+
+First stable release of the family. Upgrades the toolchain and the wrapped
+Terraform provider. The `v1alpha1` API surface is unchanged except for the two
+breaking CRD changes below; the major version marks the commitment to semver
+from here on and the move to the upjet v2.5.x / crossplane-runtime v2.4 line.
 
 ### Changed
 
@@ -35,6 +39,27 @@ version: **0.5.0** (see the PR description for the semver reasoning).
   `Shield.spec.forProvider.botDetection` change from a one-element **array**
   to an **object** (Terraform `nesting_mode: single`). Manifests must change
   `routing: [{...}]` to `routing: {...}` (same for `botDetection`).
+- Requires Crossplane v2 (`crossplane-runtime` v2.4).
+
+### Migration
+
+Update existing manifests before upgrading the provider packages:
+
+```yaml
+# before (0.4.x)
+spec:
+  forProvider:
+    routing:
+      - tier: Standard
+# after (1.0.0)
+spec:
+  forProvider:
+    routing:
+      tier: Standard
+```
+
+The same applies to `Shield.spec.forProvider.botDetection`. Update the
+`Provider` packages to `v1.0.0` (family and sub-providers together).
 
 ### Added
 
@@ -45,7 +70,7 @@ version: **0.5.0** (see the PR description for the semver reasoning).
 
 ### Fixed
 
-- README resource count (24, not 23).
+- README resource count (24, not 23) and API group list (now includes `account`).
 
 ## [0.3.0] - 2026-08-14
 

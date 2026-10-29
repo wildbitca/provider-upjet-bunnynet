@@ -43,6 +43,7 @@ spec:
 
 | Sub-provider | Resources |
 |-------------|-----------|
+| `provider-bunnynet-account` | Account subusers |
 | `provider-bunnynet-cdn` | Pull zones, hostnames, edge rules, optimizer classes, access lists |
 | `provider-bunnynet-dns` | DNS zones and records |
 | `provider-bunnynet-storage` | Storage zones |

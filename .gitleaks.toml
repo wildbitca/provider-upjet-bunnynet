@@ -1,0 +1,10 @@
+title = "provider-upjet-bunnynet gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "config/provider-metadata.yaml is generated from the upstream provider docs and embeds example values (placeholder tokens), not credentials."
+paths = [
+  '''^config/provider-metadata\.yaml$''',
+]

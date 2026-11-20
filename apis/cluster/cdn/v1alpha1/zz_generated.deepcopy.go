@@ -1912,6 +1912,11 @@ func (in *OriginInitParameters) DeepCopyInto(out *OriginInitParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.Loadbalancer != nil {
+		in, out := &in.Loadbalancer, &out.Loadbalancer
+		*out = new(float64)
+		**out = **in
+	}
 	if in.MiddlewareScript != nil {
 		in, out := &in.MiddlewareScript, &out.MiddlewareScript
 		*out = new(float64)
@@ -1997,6 +2002,11 @@ func (in *OriginObservation) DeepCopyInto(out *OriginObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.Loadbalancer != nil {
+		in, out := &in.Loadbalancer, &out.Loadbalancer
+		*out = new(float64)
+		**out = **in
+	}
 	if in.MiddlewareScript != nil {
 		in, out := &in.MiddlewareScript, &out.MiddlewareScript
 		*out = new(float64)
@@ -2080,6 +2090,11 @@ func (in *OriginParameters) DeepCopyInto(out *OriginParameters) {
 	if in.HostHeader != nil {
 		in, out := &in.HostHeader, &out.HostHeader
 		*out = new(string)
+		**out = **in
+	}
+	if in.Loadbalancer != nil {
+		in, out := &in.Loadbalancer, &out.Loadbalancer
+		*out = new(float64)
 		**out = **in
 	}
 	if in.MiddlewareScript != nil {

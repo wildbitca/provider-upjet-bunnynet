@@ -435,6 +435,11 @@ spec:
                           (String) The host header that will be sent to the origin.
                           The host header that will be sent to the origin.
                         type: string
+                      loadbalancer:
+                        description: |-
+                          (Number) The ID of the linked Load Balancer.
+                          The ID of the linked Load Balancer.
+                        type: number
                       middlewareScript:
                         description: |-
                           (Number) The ID of the compute script used as a middleware.
@@ -457,8 +462,8 @@ spec:
                         type: number
                       type:
                         description: |-
-                          (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, OriginUrl, StorageZone
-                          Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `OriginUrl`, `StorageZone`
+                          (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, LoadBalancer, OriginUrl, StorageZone
+                          Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `LoadBalancer`, `OriginUrl`, `StorageZone`
                         type: string
                       url:
                         description: |-
@@ -1045,6 +1050,11 @@ spec:
                           (String) The host header that will be sent to the origin.
                           The host header that will be sent to the origin.
                         type: string
+                      loadbalancer:
+                        description: |-
+                          (Number) The ID of the linked Load Balancer.
+                          The ID of the linked Load Balancer.
+                        type: number
                       middlewareScript:
                         description: |-
                           (Number) The ID of the compute script used as a middleware.
@@ -1067,8 +1077,8 @@ spec:
                         type: number
                       type:
                         description: |-
-                          (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, OriginUrl, StorageZone
-                          Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `OriginUrl`, `StorageZone`
+                          (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, LoadBalancer, OriginUrl, StorageZone
+                          Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `LoadBalancer`, `OriginUrl`, `StorageZone`
                         type: string
                       url:
                         description: |-
@@ -1718,6 +1728,11 @@ spec:
                           (String) The host header that will be sent to the origin.
                           The host header that will be sent to the origin.
                         type: string
+                      loadbalancer:
+                        description: |-
+                          (Number) The ID of the linked Load Balancer.
+                          The ID of the linked Load Balancer.
+                        type: number
                       middlewareScript:
                         description: |-
                           (Number) The ID of the compute script used as a middleware.
@@ -1740,8 +1755,8 @@ spec:
                         type: number
                       type:
                         description: |-
-                          (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, OriginUrl, StorageZone
-                          Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `OriginUrl`, `StorageZone`
+                          (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, LoadBalancer, OriginUrl, StorageZone
+                          Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `LoadBalancer`, `OriginUrl`, `StorageZone`
                         type: string
                       url:
                         description: |-

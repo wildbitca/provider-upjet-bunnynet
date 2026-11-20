@@ -15,8 +15,8 @@ import (
 
 type ContainerImageregistryInitParameters struct {
 
-	// (String) Options: DockerHub, GitHub
-	// Options: `DockerHub`, `GitHub`
+	// compliant registries.
+	// The registry type. Use `DockerHub`, `GitHub`, or a hostname (with optional port) for OCI-compliant registries.
 	Registry *string `json:"registry,omitempty" tf:"registry,omitempty"`
 
 	// (String, Sensitive) The token used to authenticate to the registry. If you are importing a resource, declare the token as an empty string.
@@ -33,8 +33,8 @@ type ContainerImageregistryObservation struct {
 	// (Number) The unique identifier for the image registry.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// (String) Options: DockerHub, GitHub
-	// Options: `DockerHub`, `GitHub`
+	// compliant registries.
+	// The registry type. Use `DockerHub`, `GitHub`, or a hostname (with optional port) for OCI-compliant registries.
 	Registry *string `json:"registry,omitempty" tf:"registry,omitempty"`
 
 	// (String) The username used to authenticate to the registry.
@@ -44,8 +44,8 @@ type ContainerImageregistryObservation struct {
 
 type ContainerImageregistryParameters struct {
 
-	// (String) Options: DockerHub, GitHub
-	// Options: `DockerHub`, `GitHub`
+	// compliant registries.
+	// The registry type. Use `DockerHub`, `GitHub`, or a hostname (with optional port) for OCI-compliant registries.
 	// +kubebuilder:validation:Optional
 	Registry *string `json:"registry,omitempty" tf:"registry,omitempty"`
 

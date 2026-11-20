@@ -190,7 +190,7 @@ resources:
                 }
         argumentDocs:
             id: (Number) The unique identifier for the image registry.
-            registry: '(String) Options: DockerHub, GitHub'
+            registry: (String) The registry type. Use DockerHub, GitHub, or a hostname (with optional port) for OCI-compliant registries.
             token: (String, Sensitive) The token used to authenticate to the registry. If you are importing a resource, declare the token as an empty string.
             username: (String) The username used to authenticate to the registry.
         importStatements: []
@@ -385,6 +385,93 @@ resources:
             soa_email: (String) The email address used in the Start of Authority (SOA) record for the DNS zone.
         importStatements:
             - terraform import bunnynet_dns_zone.test 123
+    bunnynet_loadbalancer:
+        subCategory: ""
+        description: This resource manages a Load Balancer in bunny.net.
+        name: bunnynet_loadbalancer
+        title: bunnynet_loadbalancer Resource - terraform-provider-bunnynet
+        examples:
+            - name: test
+              manifest: |-
+                {
+                  "method": "Latency",
+                  "name": "test",
+                  "sticky_sessions": "Cookie"
+                }
+        argumentDocs:
+            id: (Number) The unique ID of the Load Balancer.
+            method: '(String) Options: Geo, Latency, RoundRobin, Weight'
+            name: (String) The name of the Load Balancer.
+            sticky_sessions: '(String) Options: Cookie, Off'
+        importStatements:
+            - terraform import bunnynet_loadbalancer.test 123
+    bunnynet_loadbalancer_group:
+        subCategory: ""
+        description: This resource manages a Load Balancer group in bunny.net.
+        name: bunnynet_loadbalancer_group
+        title: bunnynet_loadbalancer_group Resource - terraform-provider-bunnynet
+        examples:
+            - name: EU
+              manifest: |-
+                {
+                  "healthcheck_enabled": true,
+                  "healthcheck_path": "/health",
+                  "loadbalancer": "${bunnynet_loadbalancer.test.id}",
+                  "method": "Latency",
+                  "name": "EU",
+                  "priority": 1
+                }
+              references:
+                loadbalancer: bunnynet_loadbalancer.test.id
+        argumentDocs:
+            enabled: (Boolean) Indicates whether the Load Balancer group is enabled.
+            healthcheck_enabled: (Boolean) Indicates whether healthcheck will be performed against all origins.
+            healthcheck_path: (String) The path that will be called to determine if an origin is healthy.
+            id: (Number) The unique ID of the Load Balancer group.
+            latitude: (Number) The latitude of the Load Balancer group. Used in Load Balancers with method = "Geo".
+            loadbalancer: (Number) The ID of the Load Balancer.
+            longitude: (Number) The longitude of the Load Balancer group. Used for Load Balancers with method = "Geo"
+            method: '(String) Options: Latency, LeastConnections, RoundRobin, Weight'
+            name: (String) The name of the Load Balancer group.
+            priority: (Number) The priority of the Load Balancer group.
+        importStatements:
+            - terraform import bunnynet_loadbalancer_group.test '123|EU'
+    bunnynet_loadbalancer_origin:
+        subCategory: ""
+        description: This resource manages a Load Balancer origin in bunny.net.
+        name: bunnynet_loadbalancer_origin
+        title: bunnynet_loadbalancer_origin Resource - terraform-provider-bunnynet
+        examples:
+            - name: DK
+              manifest: |-
+                {
+                  "group": "${bunnynet_loadbalancer_group.EU.id}",
+                  "group_weight": 1,
+                  "loadbalancer": "${bunnynet_loadbalancer.test.id}",
+                  "name": "DK",
+                  "type": "OriginUrl",
+                  "url": "https://origin-dk.example.net"
+                }
+              references:
+                group: bunnynet_loadbalancer_group.EU.id
+                loadbalancer: bunnynet_loadbalancer.test.id
+        argumentDocs:
+            container_app_id: (String) The ID if the compute container app.
+            container_endpoint_id: (String) The ID if the compute container app endpoint.
+            enabled: (Boolean) Indicates whether the Load Balancer origin is enabled.
+            group: (Number) The ID of the Load Balancer group.
+            group_weight: (Number) The weight of the Load Balancer origin. Used in Load Balancers groups with method = "Weight"
+            host_header: (String) The host header that will be sent to the origin.
+            id: (Number) The unique ID of the Load Balancer origin.
+            loadbalancer: (Number) The ID of the Load Balancer.
+            name: (String) The name of the Load Balancer origin.
+            script: (Number) The ID of the linked compute script.
+            storagezone: (Number) The ID of the linked storage zone.
+            type: '(String) Options: ComputeContainer, ComputeScript, OriginUrl, StorageZone'
+            url: (String) The origin URL from where the files are fetched.
+            verify_ssl: (Boolean) Indicates whether the Origin's TLS certificate should be verified.
+        importStatements:
+            - terraform import bunnynet_loadbalancer_group.test '123|EU|DK'
     bunnynet_pullzone:
         subCategory: ""
         description: This resource manages a bunny.net Pullzone. Pullzones fetch content from the origin server and deliver it to end-users.
@@ -450,6 +537,7 @@ resources:
             limit_connections: (Number) The number of connections limited per IP.
             limit_download_speed: (Number) The maximum download speed, in kb/s. Use 0 for unlimited.
             limit_requests: (Number) The maximum amount of requests per IP per second.
+            loadbalancer: (Number) The ID of the linked Load Balancer.
             log_anonymized: (Boolean) Indicates whether logs are anonymized.
             log_anonymized_style: '(String) Options: Drop, OneDigit'
             log_enabled: (Boolean) Indicates whether logging is enabled.
@@ -515,7 +603,7 @@ resources:
             token_auth_enabled: (Boolean) Indicates whether requests without a valid token and expiry timestamp will be rejected.
             token_auth_ip_validation: (Boolean) Indicates whether the secure hash generated by the server will also include an IP address.
             token_auth_key: (String, Sensitive) The auth key used for secure URL token authentication.
-            type: '(String) Options: ComputeContainer, ComputeScript, DnsAccelerate, OriginUrl, StorageZone'
+            type: '(String) Options: ComputeContainer, ComputeScript, DnsAccelerate, LoadBalancer, OriginUrl, StorageZone'
             url: (String) The origin URL from where the files are fetched.
             use_background_update: (Boolean) Indicates whether cache update is performed in the background.
             verify_ssl: (Boolean) Indicates whether the Origin's TLS certificate should be verified.
@@ -733,7 +821,7 @@ resources:
             limit: (Block, Optional) (see below for nested schema)
             name: (String) The rate limit rule name.
             negated: (Boolean) Negates the condition result.
-            operator: '(String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN'
+            operator: '(String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, IPMATCH, LE, LT, RX, STREQ, STRMATCH, WITHIN'
             pullzone: (Number) The ID of the linked pullzone.
             requests: (Number) The number of request within the interval to trigger the rate limit rule.
             response: (Block, Optional) The response once the rate limit rule is triggered. (see below for nested schema)
@@ -852,7 +940,7 @@ resources:
             id: (Number) The ID of the WAF rule.
             name: (String) The WAF rule name.
             negated: (Boolean) Negates the condition result.
-            operator: '(String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN'
+            operator: '(String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, IPMATCH, LE, LT, RX, STREQ, STRMATCH, WITHIN'
             pullzone: (Number) The ID of the linked pullzone.
             response: (Block, Optional) The response once the WAF rule is triggered. (see below for nested schema)
             transformations: '(Set of String) Options: CMDLINE, COMPRESSWHITESPACE, CSSDECODE, HEXENCODE, HTMLENTITYDECODE, JSDECODE, LENGTH, LOWERCASE, MD5, NORMALISEPATH, NORMALISEPATHWIN, NORMALIZEPATH, NORMALIZEPATHWIN, REMOVECOMMENTS, REMOVENULLS, REMOVEWHITESPACE, REPLACECOMMENTS, SHA1, URLDECODE, URLDECODEUNI, UTF8TOUNICODE'

@@ -19,8 +19,8 @@ type ConditionInitParameters struct {
 	// Negates the condition result.
 	Negated *bool `json:"negated,omitempty" tf:"negated,omitempty"`
 
-	// (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
-	// Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
+	// (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, IPMATCH, LE, LT, RX, STREQ, STRMATCH, WITHIN
+	// Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `IPMATCH`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
 	Operator *string `json:"operator,omitempty" tf:"operator,omitempty"`
 
 	// (String)
@@ -44,8 +44,8 @@ type ConditionObservation struct {
 	// Negates the condition result.
 	Negated *bool `json:"negated,omitempty" tf:"negated,omitempty"`
 
-	// (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
-	// Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
+	// (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, IPMATCH, LE, LT, RX, STREQ, STRMATCH, WITHIN
+	// Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `IPMATCH`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
 	Operator *string `json:"operator,omitempty" tf:"operator,omitempty"`
 
 	// (String)
@@ -70,8 +70,8 @@ type ConditionParameters struct {
 	// +kubebuilder:validation:Optional
 	Negated *bool `json:"negated,omitempty" tf:"negated,omitempty"`
 
-	// (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, LE, LT, RX, STREQ, STRMATCH, WITHIN
-	// Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
+	// (String) Options: BEGINSWITH, CONTAINS, CONTAINSWORD, DETECTSQLI, DETECTXSS, ENDSWITH, EQ, GE, GT, IPMATCH, LE, LT, RX, STREQ, STRMATCH, WITHIN
+	// Options: `BEGINSWITH`, `CONTAINS`, `CONTAINSWORD`, `DETECTSQLI`, `DETECTXSS`, `ENDSWITH`, `EQ`, `GE`, `GT`, `IPMATCH`, `LE`, `LT`, `RX`, `STREQ`, `STRMATCH`, `WITHIN`
 	// +kubebuilder:validation:Optional
 	Operator *string `json:"operator" tf:"operator,omitempty"`
 

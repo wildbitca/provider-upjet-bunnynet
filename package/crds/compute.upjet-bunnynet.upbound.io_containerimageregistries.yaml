@@ -76,8 +76,8 @@ spec:
                 properties:
                   registry:
                     description: |-
-                      (String) Options: DockerHub, GitHub
-                      Options: `DockerHub`, `GitHub`
+                      compliant registries.
+                      The registry type. Use `DockerHub`, `GitHub`, or a hostname (with optional port) for OCI-compliant registries.
                     type: string
                   tokenSecretRef:
                     description: |-
@@ -119,8 +119,8 @@ spec:
                 properties:
                   registry:
                     description: |-
-                      (String) Options: DockerHub, GitHub
-                      Options: `DockerHub`, `GitHub`
+                      compliant registries.
+                      The registry type. Use `DockerHub`, `GitHub`, or a hostname (with optional port) for OCI-compliant registries.
                     type: string
                   tokenSecretRef:
                     description: |-
@@ -258,8 +258,8 @@ spec:
                     type: string
                   registry:
                     description: |-
-                      (String) Options: DockerHub, GitHub
-                      Options: `DockerHub`, `GitHub`
+                      compliant registries.
+                      The registry type. Use `DockerHub`, `GitHub`, or a hostname (with optional port) for OCI-compliant registries.
                     type: string
                   username:
                     description: |-

@@ -43,6 +43,10 @@ type OriginInitParameters struct {
 	// The host header that will be sent to the origin.
 	HostHeader *string `json:"hostHeader,omitempty" tf:"host_header,omitempty"`
 
+	// (Number) The ID of the linked Load Balancer.
+	// The ID of the linked Load Balancer.
+	Loadbalancer *float64 `json:"loadbalancer,omitempty" tf:"loadbalancer,omitempty"`
+
 	// (Number) The ID of the compute script used as a middleware.
 	// The ID of the compute script used as a middleware.
 	MiddlewareScript *float64 `json:"middlewareScript,omitempty" tf:"middleware_script,omitempty"`
@@ -59,8 +63,8 @@ type OriginInitParameters struct {
 	// The ID of the linked storage zone.
 	Storagezone *float64 `json:"storagezone,omitempty" tf:"storagezone,omitempty"`
 
-	// (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, OriginUrl, StorageZone
-	// Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `OriginUrl`, `StorageZone`
+	// (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, LoadBalancer, OriginUrl, StorageZone
+	// Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `LoadBalancer`, `OriginUrl`, `StorageZone`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
 	// (String) The origin URL from where the files are fetched.
@@ -102,6 +106,10 @@ type OriginObservation struct {
 	// The host header that will be sent to the origin.
 	HostHeader *string `json:"hostHeader,omitempty" tf:"host_header,omitempty"`
 
+	// (Number) The ID of the linked Load Balancer.
+	// The ID of the linked Load Balancer.
+	Loadbalancer *float64 `json:"loadbalancer,omitempty" tf:"loadbalancer,omitempty"`
+
 	// (Number) The ID of the compute script used as a middleware.
 	// The ID of the compute script used as a middleware.
 	MiddlewareScript *float64 `json:"middlewareScript,omitempty" tf:"middleware_script,omitempty"`
@@ -118,8 +126,8 @@ type OriginObservation struct {
 	// The ID of the linked storage zone.
 	Storagezone *float64 `json:"storagezone,omitempty" tf:"storagezone,omitempty"`
 
-	// (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, OriginUrl, StorageZone
-	// Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `OriginUrl`, `StorageZone`
+	// (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, LoadBalancer, OriginUrl, StorageZone
+	// Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `LoadBalancer`, `OriginUrl`, `StorageZone`
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
 	// (String) The origin URL from where the files are fetched.
@@ -168,6 +176,11 @@ type OriginParameters struct {
 	// +kubebuilder:validation:Optional
 	HostHeader *string `json:"hostHeader,omitempty" tf:"host_header,omitempty"`
 
+	// (Number) The ID of the linked Load Balancer.
+	// The ID of the linked Load Balancer.
+	// +kubebuilder:validation:Optional
+	Loadbalancer *float64 `json:"loadbalancer,omitempty" tf:"loadbalancer,omitempty"`
+
 	// (Number) The ID of the compute script used as a middleware.
 	// The ID of the compute script used as a middleware.
 	// +kubebuilder:validation:Optional
@@ -188,8 +201,8 @@ type OriginParameters struct {
 	// +kubebuilder:validation:Optional
 	Storagezone *float64 `json:"storagezone,omitempty" tf:"storagezone,omitempty"`
 
-	// (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, OriginUrl, StorageZone
-	// Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `OriginUrl`, `StorageZone`
+	// (String) Options: ComputeContainer, ComputeScript, DnsAccelerate, LoadBalancer, OriginUrl, StorageZone
+	// Options: `ComputeContainer`, `ComputeScript`, `DnsAccelerate`, `LoadBalancer`, `OriginUrl`, `StorageZone`
 	// +kubebuilder:validation:Optional
 	Type *string `json:"type" tf:"type,omitempty"`
 

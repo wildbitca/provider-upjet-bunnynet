@@ -7,9 +7,9 @@ tool golang.org/x/tools/cmd/goimports
 require (
 	dario.cat/mergo v1.0.2
 	github.com/alecthomas/kingpin/v2 v2.4.0
-	github.com/crossplane/crossplane-runtime/v2 v2.4.3
+	github.com/crossplane/crossplane-runtime/v2 v2.5.0
 	github.com/crossplane/crossplane-tools v0.0.0-20260719180100-659f1dc036c5
-	github.com/crossplane/crossplane/apis/v2 v2.4.3
+	github.com/crossplane/crossplane/apis/v2 v2.5.0-rc.0.0.20261029180807-76a72bee8a19
 	github.com/crossplane/upjet/v2 v2.5.1
 	github.com/pkg/errors v0.9.1
 	google.golang.org/grpc v1.85.0
@@ -139,7 +139,6 @@ require (
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.72.0 // indirect
 	go.opentelemetry.io/otel v1.47.0 // indirect
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.47.0 // indirect
-	go.opentelemetry.io/otel/sdk v1.47.0 // indirect
 	go.opentelemetry.io/otel/trace v1.47.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.11.1 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
